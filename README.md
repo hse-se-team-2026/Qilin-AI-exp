@@ -39,6 +39,28 @@ If you have cloned Qilin in a normal way, you still can use the command below to
 $ git submodule update --init
 ```
 
+### UCFS dependency (one-time bootstrap)
+
+The `qilin.pta` tests use the [UCFS](https://github.com/UsatovPavel/UCFS-AI-dev) CFL-reachability
+solver (`org.ucfs:solver`). It is not on Maven Central, so after cloning run the bootstrap script once:
+it clones UCFS-AI-dev at the commit pinned in `gradle.properties` (`ucfsCommit`), builds it with its
+own Gradle wrapper and publishes it into the project-local Maven repository `.ucfs/m2` (git-ignored;
+`~/.m2` is not touched). The second command checks that Qilin resolves and calls the solver.
+`JAVA_HOME` must point to a JDK 17+ (Qilin builds with a JDK 21 toolchain; UCFS needs a JDK 11 toolchain,
+which Gradle looks up in the usual places, e.g. `~/.gradle/jdks`).
+
+<!-- ucfs-bootstrap:begin -->
+```
+$ bash scripts/ucfs/bootstrap.sh
+$ ./gradlew :qilin.pta:test --tests qilin.test.ucfs.UcfsDependencySmokeTest
+```
+<!-- ucfs-bootstrap:end -->
+
+Running the script again does nothing if `.ucfs/m2` already holds the solver built from `ucfsCommit`.
+`UCFS_SRC=<git URL or path>` takes the UCFS sources from somewhere else (it must contain `ucfsCommit`),
+and `-PucfsRepo=<dir>` makes Gradle read UCFS from another Maven repository instead of `.ucfs/m2`.
+To move to a newer UCFS, change `ucfsCommit` (and `ucfsVersion` if it changed) and rerun the script.
+
 ### Building Qilin with Gradle
 
 We use Gradle as the build automation tool. To build Qilin, use

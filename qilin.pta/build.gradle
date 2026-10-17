@@ -10,10 +10,31 @@ sourceSets.test {
     java.srcDirs = ['test']
 }
 
+// UCFS (org.ucfs:solver) comes from a project-local Maven repository filled by
+// scripts/ucfs/bootstrap.sh (default .ucfs/m2; -PucfsRepo=<dir> points elsewhere).
+// Version and pinned commit: ucfsVersion / ucfsCommit in gradle.properties.
+def ucfsRepo = rootProject.file(findProperty('ucfsRepo') ?: '.ucfs/m2')
+if (!new File(ucfsRepo, "org/ucfs/solver/${ucfsVersion}").isDirectory()) {
+    logger.warn("UCFS org.ucfs:solver:${ucfsVersion} is not in ${ucfsRepo}: " +
+            "run 'bash scripts/ucfs/bootstrap.sh' (see README.md)")
+}
+
 repositories {
     google()
     maven { url "https://repo.maven.apache.org/maven2/" }
     maven { url "https://repo1.maven.org/maven2/" }
+    // org.ucfs is resolved only from ucfsRepo, and ucfsRepo serves nothing else.
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = 'ucfsRepo'
+                url = ucfsRepo.toURI()
+            }
+        }
+        filter {
+            includeGroup 'org.ucfs'
+        }
+    }
 }
 
 test {
@@ -28,5 +49,7 @@ dependencies {
     implementation group: 'commons-cli', name: 'commons-cli', version: '1.7.0'
     implementation group: 'com.google.guava', name: 'guava', version: '33.2.0-jre'
     testImplementation group: 'junit', name: 'junit', version: '4.13.2'
+    // UCFS solver; tests only for now (a Qilin UCFS module is a later step).
+    testImplementation "org.ucfs:solver:${ucfsVersion}"
 }
 
