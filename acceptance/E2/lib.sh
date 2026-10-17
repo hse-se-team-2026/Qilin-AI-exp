@@ -89,16 +89,28 @@ safe_reset_dir() {
     rm -rf "$d" && mkdir -p "$d"
 }
 
-# build_fatjar <dest.jar>: `gradle fatJar -x test` from the current tree, copy the fresh jar to
-# <dest.jar>. The fatJar task also copies its jar over the committed artifact/ jar; that copy is
-# reverted here, so the working tree stays clean. Returns the Gradle exit code.
+# build_fatjar <dest.jar> [gradle tasks...]: build the fat jar from the current tree and copy it
+# to <dest.jar>. Default: two Gradle runs, `build -x test` (every subproject jar) and then
+# `fatJar -x test`. Reason (base 73db8b4): the fatJar task does not depend on the subproject
+# jars, so alone it packs stale qilin.*/build/libs jars, `clean fatJar` fails ("Cannot expand
+# ZIP ... does not exist") and `build fatJar` in one run fails Gradle's task validation
+# ("uses this output of task ':qilin.pta:jar' without declaring ... dependency").
+# With explicit tasks, one Gradle run with exactly those tasks. fatJar also copies its jar over
+# the committed artifact/ jar; that copy is reverted here, so the working tree stays clean.
+# Returns the Gradle exit code.
 build_fatjar() {
     local dest="$1" rc
+    shift
     git diff --quiet -- "$COMMITTED_JAR" \
         || die_env "$COMMITTED_JAR has local changes; it must equal the committed jar"
     rm -f build/libs/Qilin-*.jar "$dest"
-    gradle fatJar -x test > "$LOGS/fatjar.log" 2>&1
-    rc=$?
+    if [ $# -gt 0 ]; then
+        gradle "$@" > "$LOGS/fatjar.log" 2>&1
+        rc=$?
+    else
+        gradle build -x test > "$LOGS/fatjar.log" 2>&1 && gradle fatJar -x test >> "$LOGS/fatjar.log" 2>&1
+        rc=$?
+    fi
     [ $rc -eq 0 ] && [ -f build/libs/Qilin-0.9.9-SNAPSHOT.jar ] && cp build/libs/Qilin-0.9.9-SNAPSHOT.jar "$dest"
     git checkout -q -- "$COMMITTED_JAR"
     return $rc
@@ -118,6 +130,45 @@ run_qilin() {
     echo "$rc" > "$dir/rc"
     grep '^#' "$dir/out.txt" > "$dir/metrics.txt"
     return $rc
+}
+
+# ucfs_version -> ucfsVersion from gradle.properties
+ucfs_version() {
+    sed -n 's/^ucfsVersion=//p' "$ROOT/gradle.properties" | tail -n 1 | tr -d '\r'
+}
+
+# pom_stdlib_version -> version of org.jetbrains.kotlin:kotlin-stdlib in the published solver POM
+pom_stdlib_version() {
+    local v
+    v="$(ucfs_version)"
+    python3 - "$ROOT/.ucfs/m2/org/ucfs/solver/$v/solver-$v.pom" <<'PY'
+import re, sys
+t = open(sys.argv[1]).read()
+m = re.search(r"<artifactId>kotlin-stdlib</artifactId>\s*<version>([^<]+)</version>", t)
+print(m.group(1) if m else "")
+PY
+}
+
+# resolved_versions <gradle-dependencies-output> <group:artifact> -> sorted unique resolved
+# versions of that module ("1.0 -> 2.0" counts as 2.0; "(c)" constraint lines are ignored)
+resolved_versions() {
+    python3 - "$1" "$2" <<'PY'
+import re, sys
+mod = re.escape(sys.argv[2])
+vs = set()
+for line in open(sys.argv[1], errors="replace"):
+    if "(c)" in line:
+        continue
+    m = re.search(r"(?<![\w.-])" + mod + r":([^\s]+)(?:\s+->\s+([^\s]+))?", line)
+    if m:
+        vs.add(m.group(2) or m.group(1))
+print(" ".join(sorted(vs)))
+PY
+}
+
+# kotlin_metadata_class <jar> <entry> -> exit 0 if the class file carries kotlin.Metadata
+kotlin_metadata_class() {
+    unzip -p "$1" "$2" 2>/dev/null | grep -aq 'Lkotlin/Metadata;'
 }
 
 finish() {
