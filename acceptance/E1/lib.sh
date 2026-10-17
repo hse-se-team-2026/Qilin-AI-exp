@@ -57,6 +57,32 @@ print(status)
 PY
 }
 
+# safe_reset_dir <dir>: empty a scratch directory (rm -rf + mkdir), but only in disposable
+# places: <repo>/build/..., any .../acceptance/E1/out/..., or a mktemp dir (${TMPDIR:-/tmp}/tmp.*).
+safe_reset_dir() {
+    local d
+    d="$(realpath -m "$1")"
+    case "$d" in
+        "$ROOT"/build/?*|*/acceptance/E1/out/?*|"${TMPDIR:-/tmp}"/tmp.?*) ;;
+        *) die_env "refusing to delete '$d': allowed only under $ROOT/build/, */acceptance/E1/out/ or a mktemp dir" ;;
+    esac
+    case "/$d/" in
+        */.m2/*) die_env "refusing to delete '$d': looks like a Maven home" ;;
+    esac
+    rm -rf "$d" && mkdir -p "$d"
+}
+
+# m2_ucfs_snapshot -> listing of ~/.m2/repository/org/ucfs (path size mtime), to prove the
+# real ~/.m2 was not touched. Another agent publishing at the same time would also show up.
+m2_ucfs_snapshot() {
+    find "$HOME/.m2/repository/org/ucfs" -type f -printf '%P %s %T@\n' 2>/dev/null | sort
+}
+
+# ucfs_prop <name> [gradle.properties] -> value of a property (last occurrence), empty if absent
+ucfs_prop() {
+    sed -n "s/^$1=//p" "${2:-$ROOT/gradle.properties}" 2>/dev/null | tail -n 1 | tr -d '\r'
+}
+
 finish() {
     if [ "$FAILS" -eq 0 ]; then
         echo "RESULT: PASS ($1)"
