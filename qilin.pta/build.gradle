@@ -48,8 +48,11 @@ dependencies {
     // https://mvnrepository.com/artifact/commons-cli/commons-cli
     implementation group: 'commons-cli', name: 'commons-cli', version: '1.7.0'
     implementation group: 'com.google.guava', name: 'guava', version: '33.2.0-jre'
+    // Kotlin module running UCFS (E2.md D2: qilin.pta -> qilin.ucfs -> qilin.core, never back).
+    // It exports org.ucfs:solver as api, with logback-classic excluded.
+    implementation(project(':qilin.ucfs'))
     testImplementation group: 'junit', name: 'junit', version: '4.13.2'
-    // UCFS solver; tests only for now (a Qilin UCFS module is a later step).
+    // UCFS solver declared directly for the E1 smoke test (UcfsDependencySmokeTest).
     testImplementation "org.ucfs:solver:${ucfsVersion}"
 }
 

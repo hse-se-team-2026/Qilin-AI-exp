@@ -20,9 +20,26 @@ java {
     }
 }
 
+// The root project resolves runtimeClasspath (what fatJar packs) with its own repositories, so it
+// needs ucfsRepo too: org.ucfs:solver comes through qilin.pta -> qilin.ucfs. Same repository as in
+// qilin.pta/qilin.ucfs: .ucfs/m2 filled by scripts/ucfs/bootstrap.sh, or -PucfsRepo=<dir>.
+def ucfsRepo = rootProject.file(findProperty('ucfsRepo') ?: '.ucfs/m2')
+
 repositories {
     google()
     mavenCentral()
+    // org.ucfs is resolved only from ucfsRepo, and ucfsRepo serves nothing else.
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = 'ucfsRepo'
+                url = ucfsRepo.toURI()
+            }
+        }
+        filter {
+            includeGroup 'org.ucfs'
+        }
+    }
 }
 
 dependencies {
@@ -38,6 +55,11 @@ ext {
 
 tasks.register('fatJar', Jar) {
     dependsOn(tasks.named('build'))
+    // The from { } closure below hides from Gradle which tasks build the files it unpacks, so
+    // depend on the configuration itself: that schedules the subproject jar tasks (:qilin.pta:jar,
+    // :qilin.ucfs:jar, :qilin.core:jar, :qilin.util:jar) and the jar is packed from fresh classes,
+    // also after clean and with -x test.
+    dependsOn(configurations.runtimeClasspath)
     manifest {
         attributes 'artifact': 'qilin',
                 'Version': getArchiveVersion(),
