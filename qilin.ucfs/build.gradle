@@ -35,8 +35,8 @@ repositories {
 }
 
 dependencies {
-    // No qilin.core type is part of the public API yet; switch to api once one is (E2-S5).
-    implementation(project(':qilin.core'))
+    // api: qilin.core types (PTA, pag.Node) are in the signatures of QilinPagSeam and PagEdge (E2-S5).
+    api(project(':qilin.core'))
     // qilin.core keeps Soot as implementation, so Soot types need their own declaration here.
     implementation("org.soot-oss:soot:${rootProject.ext.sootVersion}")
     // api: org.ucfs.grammar.combinator.Grammar is in the signatures of UcfsSolver and AnBnGrammar.

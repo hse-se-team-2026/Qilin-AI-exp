@@ -83,4 +83,10 @@ public class PTAConfig extends CoreConfig {
     }
 
     public CallgraphAlgorithm callgraphAlg = CallgraphAlgorithm.QILIN;
+
+    /**
+     * If this option is turned on (-ucfsseam), driver.Main prints the edge counts of the global PAG
+     * after the analysis (qilin.pta.ucfs.UcfsSeam).
+     */
+    public boolean ucfsSeam = false;
 }
