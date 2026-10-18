@@ -71,6 +71,8 @@ $ ./run.sh
 
 This script contains commands to generate `Qilin-VERSION-SNAPSHOT.jar`, which will be automatically moved
 into `artifact/`.
+The jar includes the Kotlin module `qilin.ucfs` and the UCFS solver, so building it (and compiling `qilin.pta`)
+needs the UCFS bootstrap first: `bash scripts/ucfs/bootstrap.sh` (see above).
 
 For users who want to build Qilin in IDE, please refer
 to [this page](https://github.com/QilinPTA/Qilin/wiki/Set-up-the-Debugging-Environment-for-Qilin-in-IntelliJ-IDEA).
