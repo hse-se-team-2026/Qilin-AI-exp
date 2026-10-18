@@ -61,9 +61,9 @@ object UcfsSolver {
      * `addStartVertex` set of the input graph), not by filtering the all-pairs answer. A pair
      * `(v, v)` for the empty word is reported for a start vertex `v` when the start nonterminal of
      * [grammar] derives the empty word, also when `v` has no edges, and is not reported for other
-     * vertices. Paths may
-     * pass through and end at any vertex of [edges]. An empty [startVertices] gives an empty
-     * answer. Labels are matched as in the two-argument [reachablePairs].
+     * vertices. Paths may pass through and end at any vertex of [edges]. An empty
+     * [startVertices] gives an empty answer. Labels are matched as in the two-argument
+     * [reachablePairs].
      *
      * Each call builds a new input graph and runs one fresh `Gll` instance; the grammar RSM is
      * built once per [grammar] instance and is reused across calls.
