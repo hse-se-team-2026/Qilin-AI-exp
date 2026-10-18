@@ -17,7 +17,7 @@ PAG (pointer assignment graph, наследник Spark `Lhotak2003Scaling`) х�
 | `qilin.core/src/qilin/core/pag/ValNode.java:28-49#getP2Set` | общий предок всех узлов, у которых есть множество указателей (points-to set) |
 | `qilin.core/src/qilin/core/pag/LocalVarNode.java:27#LocalVarNode` | локальная переменная метода; этим же классом заданы параметры, возврат и временная переменная приведения типа |
 | `qilin.core/src/qilin/core/builder/MethodNodeFactory.java:272-289#caseRet` | узлы `this`, параметров и возврата метода имеют класс `LocalVarNode` над `Parm` и флаги межпроцедурности |
-| `qilin.core/src/qilin/core/pag/GlobalVarNode.java:31#GlobalVarNode` | глобальная переменная: статическое поле, а также переменная строковой или классовой константы |
+| `qilin.core/src/qilin/core/pag/GlobalVarNode.java:31#GlobalVarNode` | глобальная переменная: статическое поле (`qilin.core/src/qilin/core/builder/MethodNodeFactory.java:318-320#caseStaticFieldRef`), а также переменная строковой или классовой константы (`qilin.core/src/qilin/core/builder/MethodNodeFactory.java:328#makeGlobalVarNode`, `qilin.core/src/qilin/core/builder/MethodNodeFactory.java:341#makeGlobalVarNode`) |
 | `qilin.core/src/qilin/core/pag/AllocNode.java:33#AllocNode` | место создания объекта; это не `ValNode`, поэтому своего множества указателей у него нет |
 | `qilin.core/src/qilin/core/pag/FieldRefNode.java:29-38#FieldRefNode` | обращение к полю вида база точка поле, где база есть переменная `VarNode` |
 | `qilin.core/src/qilin/core/pag/FieldValNode.java:23#FieldValNode` | поле без базы, шаблон для узла поля конкретного объекта; создаётся только в решателе |
@@ -30,13 +30,13 @@ PAG (pointer assignment graph, наследник Spark `Lhotak2003Scaling`) х�
 | Якорь | Роль |
 |---|---|
 | `qilin.core/src/qilin/core/pag/ContextVarNode.java:23-31#ContextVarNode` | переменная вместе с контекстом метода; в глобальном графе так представлены и локальные, и глобальные переменные |
-| `qilin.core/src/qilin/core/pag/ContextField.java:30-38#ContextField` | узел поля конкретного абстрактного объекта; объект хранится первым элементом контекста, а наследует узел класс `ValNode` |
+| `qilin.core/src/qilin/core/pag/ContextField.java:30-38#ContextField` | узел поля конкретного абстрактного объекта; объект хранится первым элементом контекста, а сам узел наследует `ValNode` и имеет своё множество указателей |
 
 Базовый объект узла `ContextField` метод `getBase` берёт из нулевого элемента контекста: `qilin.core/src/qilin/core/pag/ContextField.java:72-75#getBase`.
 
 ### Рёбра: четыре вида и правило классификации
 
-Отдельного типа «ребро» нет. Вид ребра определяется классами концов в одном методе:
+Отдельного типа «ребро» нет. Вид ребра определяется классами его концов при добавлении:
 
 | Якорь | Роль |
 |---|---|
@@ -44,7 +44,7 @@ PAG (pointer assignment graph, наследник Spark `Lhotak2003Scaling`) х�
 
 Правило классификации в `qilin.core/src/qilin/core/pag/PAG.java:216-229#addEdgeIntenal` такое: если оба конца `ValNode`, ребро простое (`simple`, присваивание); если источник `ValNode`, а приёмник поле, это запись (`store`); если источник `FieldRefNode`, это чтение (`load`); иначе источник `AllocNode`, и ребро есть создание объекта (`alloc`).
 
-Следствие правила (проверено по классам): `ContextField` наследует `ValNode`, поэтому рёбра решателя `x → o.f` и `o.f → y` попадают в карту `simple`, а не в `store` или `load`. В картах `store` и `load` остаются только рёбра с `FieldRefNode`, то есть рёбра из тел методов.
+Следствие правила (проверено по классам): `ContextField` наследует `ValNode`, поэтому рёбра решателя `x → o.f` и `o.f → y` попадают в карту `simple`, а не в `store` или `load`. Рёбра с `FieldRefNode` приходят только из тел методов через `addToPAG`: среди выведенных ядром рёбер (таблица в разделе «Два представления PAG») нет ни одного с `FieldRefNode`.
 
 Карты рёбер глобального графа и их публичные геттеры:
 
@@ -53,7 +53,7 @@ PAG (pointer assignment graph, наследник Spark `Lhotak2003Scaling`) х�
 | `qilin.core/src/qilin/core/pag/PAG.java:134#getAlloc` | отдаёт карту рёбер создания объекта: объект указывает на множество переменных, которые получают его |
 | `qilin.core/src/qilin/core/pag/PAG.java:138#getSimple` | отдаёт карту простых рёбер присваивания от источника к множеству приёмников, включая рёбра полей объектов |
 | `qilin.core/src/qilin/core/pag/PAG.java:146#getLoad` | отдаёт карту рёбер чтения поля: узел обращения к полю указывает на переменные, куда читают |
-| `qilin.core/src/qilin/core/pag/PAG.java:150#getStoreInv` | отдаёт обратную карту записи в поле: узел поля указывает на переменные, значения которых туда пишут |
+| `qilin.core/src/qilin/core/pag/PAG.java:150#getStoreInv` | отдаёт обратную карту записи в поле: узел обращения к полю указывает на переменные, значения которых туда пишут |
 
 Прямой карты записи наружу не отдаётся, геттера `getStore` нет: в блоке геттеров `qilin.core/src/qilin/core/pag/PAG.java:134-152#getSimpleInv` только эти карты и обратная простая карта. Для перебора записей нужна обратная карта или поиск `qilin.core/src/qilin/core/pag/PAG.java:260#storeLookup` по одной переменной.
 
@@ -61,7 +61,7 @@ PAG (pointer assignment graph, наследник Spark `Lhotak2003Scaling`) х�
 
 | Якорь | Роль |
 |---|---|
-| `qilin.core/src/qilin/core/pag/PAG.java:528-556#getMethodPAG` | возвращает граф метода из кэша или строит его один раз, до этого применяя модели рефлексии и нативных методов |
+| `qilin.core/src/qilin/core/pag/PAG.java:528-556#getMethodPAG` | возвращает граф метода из кэша или строит его один раз, до этого применяя модели рефлексии, нативных методов и переписывание `System.arraycopy` |
 | `qilin.core/src/qilin/core/pag/MethodPAG.java:190-192#getInternalReader` | читатель очереди внутренних рёбер метода: пары источник и приёмник без контекстов и без рёбер вызовов |
 | `qilin.core/src/qilin/core/pag/MethodPAG.java:87-89#getInvokeStmts` | возвращает все операторы вызова метода, которые решатель потом превращает в рёбра графа вызовов |
 | `qilin.core/src/qilin/core/builder/MethodNodeFactory.java:120-127#handleStmt` | разбирает один оператор Jimple: вызов только запоминается, остальные операторы дают внутренние рёбра метода |
@@ -91,7 +91,7 @@ PAG (pointer assignment graph, наследник Spark `Lhotak2003Scaling`) х�
 
 Порядок работы `propagate`:
 - Инициализация: вызывается построитель графа вызовов (точки входа), затем `processStmts` для них, затем все рёбра создания объекта засевают множества (`qilin.core/src/qilin/core/solver/Solver.java:94-96#initReachableMethods`).
-- Шаг 1, простые ограничения: новая часть множества идёт по простым рёбрам, и здесь же объекты исключений рассылаются по местам броска (`qilin.core/src/qilin/core/solver/Solver.java:101-110#exceptionDispatch`).
+- Шаг 1, простые ограничения: новая часть множества идёт по простым рёбрам, и здесь же для переменной её новые объекты исключений рассылаются по её местам броска (`qilin.core/src/qilin/core/solver/Solver.java:101-110#exceptionDispatch`).
 - Шаг 2, запись и чтение по базе: для полей переменной вызывается `handleStoreAndLoadOnBase`, она порождает рёбра `x → o.f` и `o.f → y` (`qilin.core/src/qilin/core/solver/Solver.java:112#handleStoreAndLoadOnBase`).
 - Шаг 3, виртуальные вызовы: новые объекты получателя рассылаются по его местам вызова, затем разбираются новые достижимые методы (`qilin.core/src/qilin/core/solver/Solver.java:114-118#virtualCallDispatch`).
 - Шаг 4, активация: `activateConstraints` дочитывает очереди новых вызовов, бросков и рёбер (`qilin.core/src/qilin/core/solver/Solver.java:122#activateConstraints`).
@@ -115,7 +115,7 @@ PAG (pointer assignment graph, наследник Spark `Lhotak2003Scaling`) х�
 | `qilin.core/src/qilin/core/CorePTA.java:79-100#parameterize` | переводит нечувствительный узел в контекстный по его виду: переменная, обращение к полю, объект, поле объекта, глобальная |
 | `qilin.core/src/qilin/core/builder/CallGraphBuilder.java:141-147#initReachableMethods` | помещает точки входа в множество достижимых методов и в очередь, которую затем читает решатель |
 | `qilin.core/src/qilin/core/builder/CallGraphBuilder.java:214-220#virtualCallDispatch` | для каждого объекта из множества получателя выбирает цели виртуального вызова по типу этого объекта |
-| `qilin.core/src/qilin/core/builder/CallGraphBuilder.java:169-179#addVirtualEdge` | строит контекст вызываемого метода, добавляет ребро графа вызовов и ребро от объекта получателя к его переменной этого |
+| `qilin.core/src/qilin/core/builder/CallGraphBuilder.java:169-179#addVirtualEdge` | строит контекст вызываемого метода, добавляет ребро графа вызовов и ребро от объекта получателя к переменной `this` вызываемого метода в новом контексте |
 | `qilin.core/src/qilin/core/builder/CallGraphBuilder.java:227-287#processCallAssign` | для нового ребра графа вызовов добавляет рёбра от аргументов к параметрам, от возврата к результату и для исключений |
 | `qilin.core/src/qilin/core/builder/ExceptionHandler.java:65-71#exceptionDispatch` | рассылает каждый объект исключения из множества места броска к подходящему обработчику или наружу метода |
 
@@ -125,7 +125,7 @@ PAG (pointer assignment graph, наследник Spark `Lhotak2003Scaling`) х�
 
 Spark в Qilin — это то же ядро с параметрами без контекстов: `qilin.pta/src/qilin/pta/tools/Spark.java:31-38#InsensCtxConstructor`. Селектор Spark оставляет полю объекта один элемент контекста, то есть сам объект, поэтому Spark чувствителен к полям: `qilin.core/src/qilin/parm/select/InsenSelector.java:39-42#contextTailor`.
 
-Цепочка «быстро граф 3-4, предварительный анализ, полный граф 3-4, анализ» из AGENTS.md (интерпретация) соответствует методу `qilin.pta/src/qilin/pta/tools/StagedPTA.java:43-48#preAnalysis`: предварительный анализ, сброс множеств указателей, основной анализ. Например, у анализов с частичной объектной чувствительностью предварительный анализ `prePTA` — это `new Spark()`, и он запускается через `pureRun` на том же ядре: `qilin.pta/src/qilin/pta/tools/PartialObjSensPTA.java:77-89#pureRun`.
+Цепочка «быстро граф 3-4, предварительный анализ, полный граф 3-4, анализ» из AGENTS.md (интерпретация) соответствует методу `run` двухэтапных анализов (`qilin.pta/src/qilin/pta/tools/StagedPTA.java:43-48#preAnalysis`): сначала `preAnalysis`, затем сброс множеств указателей графа предварительного анализа, затем `mainAnalysis`. Например, у анализов с частичной объектной чувствительностью предварительный анализ `prePTA` — это `new Spark()`, и он запускается через `pureRun` на том же ядре: `qilin.pta/src/qilin/pta/tools/PartialObjSensPTA.java:77-89#pureRun`.
 
 Другие точки, где граф вызовов меняет глобальный граф: статический вызов (`qilin.core/src/qilin/core/builder/CallGraphBuilder.java:191-197#addStaticEdge`) и общая обработка нового ребра, которая делает цель достижимой и вызывает `processCallAssign` (`qilin.core/src/qilin/core/builder/CallGraphBuilder.java:199-207#handleCallEdge`).
 
