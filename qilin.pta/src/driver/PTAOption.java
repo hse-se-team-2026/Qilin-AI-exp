@@ -30,6 +30,7 @@ import qilin.pta.toolkits.turner.Turner;
 import qilin.pta.tools.DebloatedPTA;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -112,7 +113,9 @@ public class PTAOption extends Options {
 
     public void parseCommandLine(String[] args) {
         try {
-            CommandLine cmd = new DefaultParser().parse(this, args);
+            // GnuParser stripped surrounding quotes from every value ("-pta=\"2o\""); keep that.
+            CommandLine cmd = DefaultParser.builder().setStripLeadingAndTrailingQuotes(true).build()
+                    .parse(this, normalizeShortOptionForms(this, args));
             if (cmd.hasOption("help")) {
                 new HelpFormatter().printHelp("qilin", this);
                 System.exit(0);
@@ -122,6 +125,50 @@ public class PTAOption extends Options {
             logger.error("Error parsing command line options", e);
             System.exit(1);
         }
+    }
+
+    /**
+     * Rewrites the short-name forms that GnuParser accepted (used before 91d6d97, and by
+     * artifact/qilin.py) into forms that DefaultParser accepts. DefaultParser reads a
+     * multi-letter "-X=V" or "--X" as a long option, so "-pta=insens" and "--pta" fail with
+     * UnrecognizedOptionException. For every X that is the short name of an option:
+     * <ul>
+     *   <li>"-X=V" and "--X=V", X takes an argument: "--longName=V" ("-X" "V" if X has no long
+     *       name). V is everything after the first '='; it stays bound to X even if it starts
+     *       with '-'.</li>
+     *   <li>"--X": "-X".</li>
+     *   <li>"-X=V" and "--X=V", X takes no argument: left as is, DefaultParser rejects them.</li>
+     * </ul>
+     * Long names ("-jre=dir", "--pointstoanalysis=2o"), "-" and everything after "--" are kept.
+     */
+    static String[] normalizeShortOptionForms(Options options, String[] args) {
+        List<String> result = new ArrayList<>(args.length);
+        for (int i = 0; i < args.length; i++) {
+            String arg = args[i];
+            if ("--".equals(arg)) {
+                result.addAll(Arrays.asList(args).subList(i, args.length));
+                break;
+            }
+            String body = arg.startsWith("--") ? arg.substring(2) : arg.startsWith("-") ? arg.substring(1) : "";
+            int eq = body.indexOf('=');
+            String name = eq < 0 ? body : body.substring(0, eq);
+            if (name.isEmpty() || name.startsWith("-") || !options.hasShortOption(name)) {
+                result.add(arg);
+                continue;
+            }
+            Option option = options.getOption(name);
+            if (eq < 0) {
+                result.add("-" + name);
+            } else if (!option.hasArg()) {
+                result.add(arg);
+            } else if (option.getLongOpt() != null) {
+                result.add("--" + option.getLongOpt() + "=" + body.substring(eq + 1));
+            } else {
+                result.add("-" + name);
+                result.add(body.substring(eq + 1));
+            }
+        }
+        return result.toArray(new String[0]);
     }
 
     /**
