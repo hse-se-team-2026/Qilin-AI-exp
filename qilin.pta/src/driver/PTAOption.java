@@ -108,6 +108,8 @@ public class PTAOption extends Options {
         // others
         addOption("h", "help", "print this message");
         addOption("pre", "preonly", "Run only pre-analysis (default value: false)");
+        addOption("ucfsseam", "ucfspagseam",
+                "After the analysis, print the edge counts of the global PAG read by qilin.ucfs (default value: false)");
 
     }
 
@@ -264,6 +266,9 @@ public class PTAOption extends Options {
         }
         if (cmd.hasOption("dumpsimplestats")) {
             PTAConfig.v().getOutConfig().dumpSimpleStats = true;
+        }
+        if (cmd.hasOption("ucfspagseam")) {
+            PTAConfig.v().ucfsSeam = true;
         }
     }
 

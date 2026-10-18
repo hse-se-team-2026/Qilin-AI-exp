@@ -25,6 +25,7 @@ import qilin.core.PTA;
 import qilin.core.PTAScene;
 import qilin.core.builder.FakeMainFactory;
 import qilin.pta.PTAConfig;
+import qilin.pta.ucfs.UcfsSeam;
 import qilin.util.MemoryWatcher;
 import qilin.util.PTAUtils;
 import qilin.util.Stopwatch;
@@ -53,6 +54,9 @@ public class Main {
         }
         pta = PTAFactory.createPTA(PTAConfig.v().getPtaConfig().ptaPattern);
         pta.run();
+        if (PTAConfig.v().ucfsSeam) {
+            UcfsSeam.printEdgeCounts(pta);
+        }
         return pta;
     }
 
