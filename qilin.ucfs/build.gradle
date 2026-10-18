@@ -1,0 +1,52 @@
+// qilin.ucfs: Kotlin module that runs UCFS (org.ucfs:solver, GLL over RSM) for Qilin.
+// It depends on qilin.core only, never on qilin.pta: qilin.pta will depend on this module (E2-S4).
+// The root build.gradle applies java, the Java 21 toolchain and publishing to every subproject;
+// the Kotlin plugin takes the same toolchain.
+plugins {
+    // Same Kotlin as the solver (its POM pins kotlin-stdlib 2.4.0). KGP 2.4.0 warns that
+    // Gradle 8.12 is deprecated for Kotlin 2.5.0; the wrapper stays 8.12 (E2.md D3).
+    id 'org.jetbrains.kotlin.jvm' version '2.4.0'
+}
+
+// UCFS comes from the project-local Maven repository filled by scripts/ucfs/bootstrap.sh
+// (default .ucfs/m2; -PucfsRepo=<dir> points elsewhere), as in qilin.pta/build.gradle.
+// Version: ucfsVersion in gradle.properties.
+def ucfsRepo = rootProject.file(findProperty('ucfsRepo') ?: '.ucfs/m2')
+if (!new File(ucfsRepo, "org/ucfs/solver/${ucfsVersion}").isDirectory()) {
+    logger.warn("UCFS org.ucfs:solver:${ucfsVersion} is not in ${ucfsRepo}: " +
+            "run 'bash scripts/ucfs/bootstrap.sh' (see README.md)")
+}
+
+repositories {
+    google()   // Soot needs com.android.tools.smali:smali-dexlib2
+    maven { url = "https://repo.maven.apache.org/maven2/" }
+    // org.ucfs is resolved only from ucfsRepo, and ucfsRepo serves nothing else.
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = 'ucfsRepo'
+                url = ucfsRepo.toURI()
+            }
+        }
+        filter {
+            includeGroup 'org.ucfs'
+        }
+    }
+}
+
+dependencies {
+    // No qilin.core type is part of the public API yet; switch to api once one is (E2-S5).
+    implementation(project(':qilin.core'))
+    // qilin.core keeps Soot as implementation, so Soot types need their own declaration here.
+    implementation("org.soot-oss:soot:${rootProject.ext.sootVersion}")
+    // api: org.ucfs.grammar.combinator.Grammar is in the signatures of UcfsSolver and AnBnGrammar.
+    // logback-classic is excluded: through it Soot would log at DEBUG level in Qilin.
+    api("org.ucfs:solver:${ucfsVersion}") {
+        exclude group: 'ch.qos.logback'
+    }
+    testImplementation 'junit:junit:4.13.2'
+}
+
+test {
+    useJUnit()
+}
