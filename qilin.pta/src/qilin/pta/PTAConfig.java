@@ -89,4 +89,11 @@ public class PTAConfig extends CoreConfig {
      * after the analysis (qilin.pta.ucfs.UcfsSeam).
      */
     public boolean ucfsSeam = false;
+
+    /**
+     * If this option is turned on (-ucfspt), driver.Main runs UCFS points-to on the exported PAG
+     * after the analysis and dumps the graph and the answer to outDir/ucfs
+     * (qilin.pta.ucfs.UcfsPointsToDump).
+     */
+    public boolean ucfsPointsTo = false;
 }
