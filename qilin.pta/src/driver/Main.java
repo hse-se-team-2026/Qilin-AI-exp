@@ -25,6 +25,7 @@ import qilin.core.PTA;
 import qilin.core.PTAScene;
 import qilin.core.builder.FakeMainFactory;
 import qilin.pta.PTAConfig;
+import qilin.pta.ucfs.UcfsPointsToDump;
 import qilin.pta.ucfs.UcfsSeam;
 import qilin.util.MemoryWatcher;
 import qilin.util.PTAUtils;
@@ -56,6 +57,9 @@ public class Main {
         pta.run();
         if (PTAConfig.v().ucfsSeam) {
             UcfsSeam.printEdgeCounts(pta);
+        }
+        if (PTAConfig.v().ucfsPointsTo) {
+            UcfsPointsToDump.run(pta);
         }
         return pta;
     }
