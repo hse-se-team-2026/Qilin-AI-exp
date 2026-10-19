@@ -6,6 +6,7 @@ import org.ucfs.input.utils.DotWriter;
 import org.ucfs.rsm.symbol.Term;
 import qilin.core.PTA;
 import qilin.core.pag.AllocNode;
+import qilin.core.pag.ArrayElement;
 import qilin.core.pag.Node;
 import qilin.core.pag.VarNode;
 import qilin.pta.PTAConfig;
@@ -45,7 +46,10 @@ import java.util.TreeSet;
  *   <li>{@code vertices.tsv}: {@code id<TAB>label<TAB>node} per vertex id, {@code label} is
  *       {@link PTAUtils#getNodeLabel} of the CI node and {@code node} its {@code toString()} with
  *       runs of white space replaced by one space;</li>
- *   <li>{@code fields.tsv}: {@code index<TAB>field} per field index of the labels store_i/load_i;</li>
+ *   <li>{@code fields.tsv}: {@code index<TAB>field} per field index of the labels store_i/load_i;
+ *       {@code field} is the field's {@code toString()} (white space squeezed as above), except
+ *       for the array element field, written {@code ArrayElement} (that class has no
+ *       {@code toString()} of its own, so the default one would print a hash code);</li>
  *   <li>{@code pts.tsv}: {@code var-label<TAB>object-label} per pair of the answer.</li>
  * </ul>
  * Prints the five lines {@code #UCFS-pt-vertices}, {@code -edges} (forward and reversed edges),
@@ -109,7 +113,8 @@ public final class UcfsPointsToDump {
         List<SparkField> fields = graph.getFields();
         List<String> lines = new ArrayList<>(fields.size());
         for (int i = 0; i < fields.size(); i++) {
-            lines.add(i + "\t" + squeeze(fields.get(i).toString()));
+            SparkField f = fields.get(i);
+            lines.add(i + "\t" + (f instanceof ArrayElement ? "ArrayElement" : squeeze(f.toString())));
         }
         return lines;
     }
