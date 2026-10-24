@@ -11,7 +11,8 @@
 # Environment:
 #   QILIN_JAR  fat jar of Qilin (default build/libs/Qilin-0.9.9-SNAPSHOT.jar of this repository)
 #   JAVA_HOME  JDK 21 (default ~/.gradle/jdks/eclipse_adoptium-21-amd64-linux.2); java is $JAVA_HOME/bin/java
-#   TIMEOUT    seconds per run (default 900); a run over it is stopped by timeout(1), exit 124
+#   TIMEOUT    seconds per run (default 900); a run over it gets SIGTERM from timeout(1), exit 124 (SIGKILL 60 s
+#              later if it is still alive, then exit 137)
 #   XMX        maximum heap of each run, -Xmx (default 16g)
 #   RUNS       the runs of each benchmark, in this order (default "insens ucfs-ANALYSIS ucfs-CALL_GRAPH cov-D3 cov-JDK"):
 #                insens          -pta=insens
@@ -30,8 +31,9 @@
 #     time.txt  the report of /usr/bin/time -v
 #     exit      the exit code of the run
 #     The directory is removed before its run. After cov-D3 and cov-JDK the files sootOutput/**/*VarPointsTo.csv
-#     of -stats are deleted (with JDK bodies up to gigabytes per run; nothing here reads them), one line
-#     "e4-bench: removed ..." per file on stdout.
+#     that -stats writes are deleted (large with JDK bodies, e.g. 777909104 bytes on pmd cov-JDK; this script
+#     does not read them), one line "e4-bench: removed <file> (<size> bytes)" per file on stdout; cmd.txt and
+#     out.txt stay as they are.
 #   <out-dir>/runs.tsv      bench run status exit wall_s max_rss_mb; status ok (exit 0), timeout (exit 124) or
 #                           error; wall_s = "Elapsed (wall clock)" of time.txt with one decimal; max_rss_mb =
 #                           "Maximum resident set size" / 1024, rounded down
@@ -176,7 +178,7 @@ run_one() {
             size="$(stat -c %s "$f")"
             rm -f -- "$f"
             echo "e4-bench: removed ${f#"$OUTDIR"/} ($size bytes)"
-        done < <(find "$dir/sootOutput" -type f -name '*VarPointsTo.csv' -print0 | sort -z)
+        done < <(find "$dir/sootOutput" -type f -name '*VarPointsTo.csv' -print0 | LC_ALL=C sort -z)
     fi
 }
 
@@ -249,6 +251,7 @@ for b in benches:
         vt = os.path.join(so, "ucfs", "vertices.tsv")
         if r.startswith("ucfs-") and status == "ok" and os.path.isfile(pt) and os.path.isfile(vt):
             node = node_strings(vt)
+            # a label without a row in vertices.tsv is written as the label itself
             by = {}
             for l in lines(pt):
                 f = l.split("\t")
