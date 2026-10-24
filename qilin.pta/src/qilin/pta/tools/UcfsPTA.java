@@ -42,6 +42,7 @@ import soot.jimple.spark.pag.SparkField;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -149,6 +150,44 @@ public class UcfsPTA extends Spark {
         long t2 = System.currentTimeMillis();
         sparkTimeMs = t1 - t0;
         ucfsTimeMs = t2 - t1;
+    }
+
+    /**
+     * {@link BasePTA#run()} (evaluator, {@code pureRun()}, dumps such as {@code -pts} in the current
+     * view, the evaluator's lines), then the six lines {@code #UCFS-import-<k>: <value>} of
+     * {@link #importLines()}, each once. This is the run of {@code -pta=ucfs} in driver.Main (E4-S2).
+     */
+    @Override
+    public void run() {
+        super.run();
+        for (String line : importLines()) {
+            System.out.println(line);
+        }
+    }
+
+    /**
+     * The six lines printed by {@link #run()}, in this order: {@code #UCFS-import-binding} ({@link #getBinding()}),
+     * {@code -pairs} (pairs of the view UCFS, without ROOT), {@code -typed-pairs} (pairs of the view
+     * UCFS_TYPED), {@code -root-pairs} ({@link #getRootPairs()}), {@code -spark-ms} ({@link #getSparkTimeMs()})
+     * and {@code -ucfs-ms} ({@link #getUcfsTimeMs()}). The pairs are counted over all CI variables of
+     * the answer, not only those of the application.
+     */
+    public List<String> importLines() {
+        return List.of(
+                "#UCFS-import-binding: " + binding,
+                "#UCFS-import-pairs: " + pairs(ucfsSets),
+                "#UCFS-import-typed-pairs: " + pairs(typedSets),
+                "#UCFS-import-root-pairs: " + rootPairs,
+                "#UCFS-import-spark-ms: " + sparkTimeMs,
+                "#UCFS-import-ucfs-ms: " + ucfsTimeMs);
+    }
+
+    private static long pairs(Map<VarNode, PointsToSetInternal> sets) {
+        long n = 0;
+        for (PointsToSetInternal s : sets.values()) {
+            n += s.size();
+        }
+        return n;
     }
 
     private void importAnswer(UcfsGraph graph, Map<VarNode, Set<AllocNode>> answer) {

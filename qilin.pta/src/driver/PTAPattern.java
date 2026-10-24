@@ -27,6 +27,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class PTAPattern {
+    /**
+     * The pattern of the analysis {@code qilin.pta.tools.UcfsPTA} (E4-S2): the Spark kernel, then
+     * UCFS on its exported PAG. Matched as the whole string, before the "approach-context" regex;
+     * it is not an alias of {@link Approach}, so it does not combine with a context ("ucfs-2o" is
+     * unsupported).
+     */
+    public static final String UCFS = "ucfs";
+
     private ContextKind ctxKind;
     private Approach approach;
     private int k, hk;
@@ -45,6 +53,14 @@ public class PTAPattern {
     }
 
     private void parsePTACommand(String ptacmd) {
+        if (UCFS.equals(ptacmd)) {
+            // context-insensitive like "insens" (k = 1, hk = 0), with its own approach
+            approach = Approach.UCFS;
+            ctxKind = ContextKind.INSENS;
+            k = 1;
+            hk = 0;
+            return;
+        }
         Pattern pattern = getSupportPTAPattern();
         Matcher matcher = pattern.matcher(ptacmd);
         if (!matcher.find()) {
@@ -147,6 +163,9 @@ public class PTAPattern {
 
     @Override
     public String toString() {
+        if (approach == Approach.UCFS) {
+            return UCFS;
+        }
         if (ctxKind == ContextKind.INSENS) {
             return "insensitive";
         }
@@ -177,7 +196,9 @@ public class PTAPattern {
         TUNNELING,
         MERCURIAL,
         MAHJONG,
-        SELECTX;
+        SELECTX,
+        // -pta=ucfs only (PTAPattern.UCFS); no alias, so the regex never yields it
+        UCFS;
 
         static final Map<String, Approach> approaches = new HashMap<>();
 
@@ -217,6 +238,7 @@ public class PTAPattern {
                 case MAHJONG -> "mahjong";
                 case SELECTX -> "selectx";
                 case SPARK -> "spark";
+                case UCFS -> "ucfs";
                 default -> "";
             };
         }

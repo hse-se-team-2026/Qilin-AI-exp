@@ -21,6 +21,7 @@ package qilin.pta;
 import driver.PTAPattern;
 import qilin.CoreConfig;
 import qilin.pta.tools.DebloatedPTA;
+import qilin.ucfs.ReceiverBinding;
 
 public class PTAConfig extends CoreConfig {
     private static PTAConfig config = null;
@@ -93,7 +94,14 @@ public class PTAConfig extends CoreConfig {
     /**
      * If this option is turned on (-ucfspt), driver.Main runs UCFS points-to on the exported PAG
      * after the analysis and dumps the graph and the answer to outDir/ucfs
-     * (qilin.pta.ucfs.UcfsPointsToDump).
+     * (qilin.pta.ucfs.UcfsPointsToDump); with -pta=ucfs it dumps the graph and the answer of
+     * that analysis, without running UCFS again.
      */
     public boolean ucfsPointsTo = false;
+
+    /**
+     * How the analysis {@code -pta=ucfs} ({@code qilin.pta.tools.UcfsPTA}) binds receivers to
+     * {@code this} in its export (-ucfsbinding, E4-S2); read only by that analysis.
+     */
+    public ReceiverBinding ucfsBinding = ReceiverBinding.ANALYSIS;
 }
