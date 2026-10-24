@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 # E4 epic check: on the current tree (main after all E4 stories)
 #  1. integrity: every E4 acceptance file and the E4 acceptance tests have the sha256 fixed when the
-#     acceptance branch ai/E4-acceptance-r2 was written, and acceptance/E3/E3_e2e.sh is the E3 one (it
+#     acceptance branch ai/E4-acceptance-r2 was written (r3 adds the check of E4-S3b: S3b_weak_type.sh,
+#     WeakTypeProbe.java, prog/e4prog/WeakCastProg.java), and acceptance/E3/E3_e2e.sh is the E3 one (it
 #     carries the hashes of the E3 checks and tests and of acceptance/E2/E2_e2e.sh, which carries E1/E2).
 #     The hash of THIS file is in docs/ai/tickets/E4.md, so the epic verifier checks it from outside;
-#  2. every E4 story check (S1 ... S7), each with its own log; S6 reuses the benchmark run of S5
+#  2. every E4 story check (S1, S2, S3, S3b, S4 ... S7), each with its own log; S6 reuses the benchmark run of S5
 #     (acceptance/E4/out/bench, made at the same HEAD) for its reproducibility check;
 #  3. the E3 epic check acceptance/E3/E3_e2e.sh (which runs the E2 and E1 regressions) still passes.
 # acceptance/E4/probe_jdk.sh is the measurement of S6 (its output is committed) and is not run here.
@@ -41,15 +42,18 @@ c2f324a0dc977f1ffb1285317965fa235e1a28103f551017c6ced481d3554fb5  acceptance/E4/
 ed66a5f146a5287f797ca755becd25b803b406da6a9871b829a960f58b337e5c  acceptance/E4/probe_jdk.sh
 32b59002c51e66dd4f3020e0271f506c0d4cf4b2b1e5d269cd36c9cdf1f6dfff  acceptance/E4/prog/e4prog/DispatchProg.java
 646b4732ce758dca83785c9b2606316c54a6045aa7b55ebda9bf0194eea1ccf7  acceptance/E4/prog/e4prog/EmptyArrayProg.java
+5f6c324f815487887046b8aee27c66d600671f8539c6148d41a4605f5182ea6c  acceptance/E4/prog/e4prog/WeakCastProg.java
 4b6db73d2e4635275bb9a9a558390bac9ae9d100d8543e1178fb3e7c7a168677  acceptance/E4/S1_ucfs_pta.sh
 6c5e78608f5cd0f7e5501ab263bf6a27dc6a626611819282464a96660b2e84d2  acceptance/E4/S2_cli_ucfs.sh
 55e988a330d7114c9d744192c88e5d6e83ad84b9eb769ea923492fdb32373920  acceptance/E4/S3_compare.sh
+a2b93c49844874b2c5a79bb1b8bdd2aea96d6702c693e59d99c7455b7182215f  acceptance/E4/S3b_weak_type.sh
 92847fe7d33fad22c21fff3cfba496ac63c0fee0be4b314d9c32cab180c7e3dc  acceptance/E4/S4_dispatch.sh
 aa49a8c95a34176a58b2d26627f82cc9abb43ae163c1563302eb74b4e3ed8771  acceptance/E4/S5_bench.sh
 327b52d35355cbd6ad590c7f981e214ce3567810e8b069688fe9b6dc9d7b3297  acceptance/E4/S6_results.sh
 5a4abcb3f7d78b9e9a312a05b8e827392ae7ac8ba4772d94ca58d51a912661e5  acceptance/E4/S7_doc.sh
 283064866d76b0a1c684c11b96f0003650b0125ec6d10084299d12c130f84c01  acceptance/E4/SeedCheck.java
 02b4b498bfcdda85d73c230aee4dedfe4e0ec7782b997998e968b999b1018c5c  acceptance/E4/tables.py
+67d6729d1639069db2dde8d71309a9a9f1c434af3f6deb75e3d2fa6150d84be0  acceptance/E4/WeakTypeProbe.java
 bede91cb9ff70f5fa54e35750ce0b0f7b2e2cc35345329c12b910e240c8ea42b  qilin.pta/test/qilin/test/ucfs/E4UcfsPtaTest.java
 f2488eb9ea5b70b23e39af9cbee1df3d9ff7f5b64ea44f5a10269d537f2fd3e1  qilin.pta/test/qilin/test/ucfs/E4UcfsCompareTest.java
 94ceba62a36f518313bea9cb5b533093a677dc69e1094c9ef498234abaf5842e  qilin.pta/test/qilin/test/ucfs/E4DispatchTest.java
@@ -58,7 +62,7 @@ SUMS
 [ $nbad -eq 0 ] && pass "$nok protected files have the fixed sha256"
 
 # --- 2. story checks -----------------------------------------------------------------------------
-for s in S1_ucfs_pta S2_cli_ucfs S3_compare S4_dispatch S5_bench S6_results S7_doc; do
+for s in S1_ucfs_pta S2_cli_ucfs S3_compare S3b_weak_type S4_dispatch S5_bench S6_results S7_doc; do
     start=$(date +%s)
     bash "acceptance/E4/$s.sh" > "$LOGS/e2e-$s.log" 2>&1
     rc=$?
