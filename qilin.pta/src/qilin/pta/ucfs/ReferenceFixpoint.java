@@ -32,8 +32,9 @@ import java.util.function.BiPredicate;
  * {@code new}, {@code assign}, {@code store_i}, {@code load_i} of {@link PtLabels}; the reversed
  * {@code _bar} edges are not read), with the filters of Qilin's solver switched on or off
  * ({@link Filters}). Without filters it is the language L_FT of UCFS on the same graph (flowsTo of
- * {@code Sridharan2005Demand} is Andersen as CFL-reachability); with all filters it is the
- * propagation of {@code qilin.core.solver.Solver} on the edges of the graph.
+ * {@code Sridharan2005Demand} is Andersen as CFL-reachability); with all filters it repeats the
+ * filters of the propagation of {@code qilin.core.solver.Solver} listed below, on the edges of the
+ * graph (whether that gives Spark's answer is checked outside, E4.md D5).
  *
  * <p>Rules, for a store {@code y -store_f-> x} ({@code x.f = y}) and a load {@code x -load_f-> z}
  * ({@code z = x.f}): for each object {@code b} in {@code pts(x)}, {@code pts(b.f)} gets

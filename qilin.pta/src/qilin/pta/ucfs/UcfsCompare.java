@@ -61,8 +61,10 @@ import java.util.function.BiPredicate;
  * first): a pair that two filters remove each alone gets the class of the earlier step; the declared
  * type comes before the cast type because a cast node is a special typed variable.
  *
- * <p>The last step has all the filters of the solver on the edges that Spark solved, so when the
- * classification is complete its pairs are Spark's pairs ({@code last-step-pairs} below). The
+ * <p>The last step has all the filters of the solver listed above on the edges that Spark solved, so
+ * its pairs are expected to be Spark's pairs when no other filter matters; this code does not check
+ * that, it prints the count ({@code last-step-pairs} below) for a comparison with Spark's own count
+ * (E4.md D5: the acceptance compares it with {@code -ptsall} of another JVM). The
  * pts of the field nodes are not compared: UCFS does not compute them (the edges into {@code o.f}
  * are not exported, see {@link PagExport}).
  *
