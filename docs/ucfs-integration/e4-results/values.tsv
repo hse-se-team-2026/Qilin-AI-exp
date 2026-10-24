@@ -1,0 +1,3387 @@
+bench	run	key	value
+antlr	insens	EntrySize	15
+antlr	insens	Reachable Method (CI)	1746
+antlr	insens	Call Edge(CI)	20668
+antlr	insens	May Fail Cast (Total)	189
+antlr	insens	Virtual Call Site(Polymorphic)	850
+antlr	insens	globalAlias_incstst	5459
+antlr	insens	Avg Points-to Target without Native Var(CI)	25.69196067090804
+antlr	insens	UCFS-seam-NEW	15165
+antlr	insens	UCFS-seam-ASSIGN	49053
+antlr	insens	UCFS-seam-LOAD	2003
+antlr	insens	UCFS-seam-STORE	768
+antlr	ucfs-ANALYSIS	EntrySize	15
+antlr	ucfs-ANALYSIS	Reachable Method (CI)	1746
+antlr	ucfs-ANALYSIS	Call Edge(CI)	20668
+antlr	ucfs-ANALYSIS	May Fail Cast (Total)	216
+antlr	ucfs-ANALYSIS	Virtual Call Site(Polymorphic)	850
+antlr	ucfs-ANALYSIS	globalAlias_incstst	5465
+antlr	ucfs-ANALYSIS	Avg Points-to Target without Native Var(CI)	36.653819524578815
+antlr	ucfs-ANALYSIS	UCFS-import-binding	ANALYSIS
+antlr	ucfs-ANALYSIS	UCFS-import-pairs	399466
+antlr	ucfs-ANALYSIS	UCFS-import-typed-pairs	279442
+antlr	ucfs-ANALYSIS	UCFS-import-root-pairs	1
+antlr	ucfs-ANALYSIS	UCFS-import-spark-ms	11687
+antlr	ucfs-ANALYSIS	UCFS-import-ucfs-ms	139069
+antlr	ucfs-ANALYSIS	UCFS-seam-NEW	15165
+antlr	ucfs-ANALYSIS	UCFS-seam-ASSIGN	49053
+antlr	ucfs-ANALYSIS	UCFS-seam-LOAD	2003
+antlr	ucfs-ANALYSIS	UCFS-seam-STORE	768
+antlr	ucfs-ANALYSIS	UCFS-pt-vertices	37257
+antlr	ucfs-ANALYSIS	UCFS-pt-edges	112938
+antlr	ucfs-ANALYSIS	UCFS-pt-fields	301
+antlr	ucfs-ANALYSIS	UCFS-pt-pairs	399467
+antlr	ucfs-ANALYSIS	UCFS-pt-time-ms	139069
+antlr	ucfs-ANALYSIS	UCFS-cmp-binding	ANALYSIS
+antlr	ucfs-ANALYSIS	UCFS-cmp-spark-pairs	277590
+antlr	ucfs-ANALYSIS	UCFS-cmp-ucfs-pairs	399467
+antlr	ucfs-ANALYSIS	UCFS-cmp-typed-pairs	279442
+antlr	ucfs-ANALYSIS	UCFS-cmp-SAME	277590
+antlr	ucfs-ANALYSIS	UCFS-cmp-R3	0
+antlr	ucfs-ANALYSIS	UCFS-cmp-R4b	1
+antlr	ucfs-ANALYSIS	UCFS-cmp-R1	108086
+antlr	ucfs-ANALYSIS	UCFS-cmp-R2	13790
+antlr	ucfs-ANALYSIS	UCFS-cmp-R5	0
+antlr	ucfs-ANALYSIS	UCFS-cmp-UNEXPLAINED	0
+antlr	ucfs-ANALYSIS	UCFS-cmp-MISSING	0
+antlr	ucfs-ANALYSIS	UCFS-cmp-new-edges	15165
+antlr	ucfs-ANALYSIS	UCFS-cmp-seed-this-edges	8442
+antlr	ucfs-ANALYSIS	UCFS-cmp-seed-exception-edges	3755
+antlr	ucfs-ANALYSIS	UCFS-cmp-seed-finalizer-edges	6
+antlr	ucfs-ANALYSIS	UCFS-cmp-same-without-this-seeds	46235
+antlr	ucfs-ANALYSIS	UCFS-cmp-same-without-seeds	22472
+antlr	ucfs-ANALYSIS	UCFS-cmp-last-step-pairs	277590
+antlr	ucfs-ANALYSIS	UCFS-cmp-dispatch-cg-edges	20059
+antlr	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-UCFS	20132
+antlr	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-UCFS_TYPED	20132
+antlr	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-SPARK	20059
+antlr	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-UCFS	73
+antlr	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-UCFS_TYPED	73
+antlr	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-SPARK	0
+antlr	ucfs-ANALYSIS	cmp/SPARK/Reachable Method (CI)	1746
+antlr	ucfs-ANALYSIS	cmp/UCFS/Reachable Method (CI)	1746
+antlr	ucfs-ANALYSIS	cmp/UCFS_TYPED/Reachable Method (CI)	1746
+antlr	ucfs-ANALYSIS	cmp/SPARK/Call Edge(CI)	20668
+antlr	ucfs-ANALYSIS	cmp/UCFS/Call Edge(CI)	20668
+antlr	ucfs-ANALYSIS	cmp/UCFS_TYPED/Call Edge(CI)	20668
+antlr	ucfs-ANALYSIS	cmp/SPARK/May Fail Cast (Total)	189
+antlr	ucfs-ANALYSIS	cmp/UCFS/May Fail Cast (Total)	216
+antlr	ucfs-ANALYSIS	cmp/UCFS_TYPED/May Fail Cast (Total)	202
+antlr	ucfs-ANALYSIS	cmp/SPARK/Virtual Call Site(Polymorphic)	850
+antlr	ucfs-ANALYSIS	cmp/UCFS/Virtual Call Site(Polymorphic)	850
+antlr	ucfs-ANALYSIS	cmp/UCFS_TYPED/Virtual Call Site(Polymorphic)	850
+antlr	ucfs-ANALYSIS	cmp/SPARK/globalAlias_incstst	5459
+antlr	ucfs-ANALYSIS	cmp/UCFS/globalAlias_incstst	5465
+antlr	ucfs-ANALYSIS	cmp/UCFS_TYPED/globalAlias_incstst	5465
+antlr	ucfs-ANALYSIS	cmp/SPARK/Avg Points-to Target without Native Var(CI)	25.69196067090804
+antlr	ucfs-ANALYSIS	cmp/UCFS/Avg Points-to Target without Native Var(CI)	36.653819524578815
+antlr	ucfs-ANALYSIS	cmp/UCFS_TYPED/Avg Points-to Target without Native Var(CI)	25.87670441414375
+antlr	ucfs-CALL_GRAPH	EntrySize	15
+antlr	cov-D3	EntrySize	15
+antlr	cov-D3	Single-Call Methods	660
+antlr	cov-D3	Single-Receiver Methods	664
+antlr	cov-D3	Single-Call-Single-Receiver Methods	412
+antlr	cov-D3	Method (Static)	-1
+antlr	cov-D3	Reachable Method (CI)	1746
+antlr	cov-D3	Reachable Method (CS)	1746
+antlr	cov-D3	Reachable App Method (CI)	1312
+antlr	cov-D3	Reachable App Method (CS)	1312
+antlr	cov-D3	Call Edge(CI)	20668
+antlr	cov-D3	Call Edge(CS)	20668
+antlr	cov-D3	receivers	3744
+antlr	cov-D3	avg p2s size for virtualcalls	5.370993589743589
+antlr	cov-D3	Cast (Total)	381
+antlr	cov-D3	Cast (AppOnly)	302
+antlr	cov-D3	May Fail Cast (Total)	189
+antlr	cov-D3	May Fail Cast (AppOnly)	189
+antlr	cov-D3	Static Call Site(Total)	553
+antlr	cov-D3	Virtual Call Site(Total)	19095
+antlr	cov-D3	Virtual Call Site(AppOnly)	18640
+antlr	cov-D3	Virtual Call Site(Polymorphic)	850
+antlr	cov-D3	Virtual Call Site(Polymorphic AppOnly)	779
+antlr	cov-D3	Virtual Call Site(Unreachable)	436
+antlr	cov-D3	Avg Poly Call Targets	2.6470588235294117
+antlr	cov-D3	Context	1526
+antlr	cov-D3	Avg Context per Method	1.0
+antlr	cov-D3	Method with Throw Pointer-to	805
+antlr	cov-D3	Alloc Node(CI)	2453
+antlr	cov-D3	Alloc Node(CS)	885
+antlr	cov-D3	Global CS Pointer-to Relation	3205
+antlr	cov-D3	Local CS Pointer-to Relation	169705
+antlr	cov-D3	Field CS Pointer-to Relation	65253
+antlr	cov-D3	Global Pointer (lib + app)	177
+antlr	cov-D3	Global Avg Points-To Target(CI)	18.10734463276836
+antlr	cov-D3	Global Avg Points-To Target(CS)	18.10734463276836
+antlr	cov-D3	App Global Pointer	147
+antlr	cov-D3	App Global Avg Points-To Target(CI)	21.60544217687075
+antlr	cov-D3	App Global Avg Points-To Target(CS)	21.60544217687075
+antlr	cov-D3	Avg Points-to Target(CI)	25.677147150618424
+antlr	cov-D3	Avg Points-to Target without Native Var(CI)	25.69196067090804
+antlr	cov-D3	Local Pointer (lib + app)	6845
+antlr	cov-D3	Local Avg Points-To Target(CI)	24.79254930606282
+antlr	cov-D3	Local Avg Points-To Target(CS)	24.79254930606282
+antlr	cov-D3	App Local Pointer	6350
+antlr	cov-D3	App Local Avg Points-To Target(CI)	24.854173228346458
+antlr	cov-D3	App Local Avg Points-To Target(CS)	24.854173228346458
+antlr	cov-D3	Context Local Pointer (lib + app)	6835
+antlr	cov-D3	Context Local Avg Points-To Target(CI)	24.82882223847842
+antlr	cov-D3	Context Local Avg Points-To Target(CS)	24.82882223847842
+antlr	cov-D3	App Context Local Pointer	6343
+antlr	cov-D3	App Context Local Avg Points-To Target(CI)	24.881601765725996
+antlr	cov-D3	App Context Local Avg Points-To Target(CS)	24.881601765725996
+antlr	cov-D3	Alloc-pag-edge	15165
+antlr	cov-D3	Simple-pag-edge	49053
+antlr	cov-D3	Store-pag-edge	768
+antlr	cov-D3	Load-pag-edge	2003
+antlr	cov-D3	intraAlias(App)	24
+antlr	cov-D3	intraAlias_incstst(App)	25
+antlr	cov-D3	globalAlias(App)	3286
+antlr	cov-D3	globalAlias_incstst(App)	5343
+antlr	cov-D3	intraAlias	28
+antlr	cov-D3	intraAlias_incstst	29
+antlr	cov-D3	globalAlias	3395
+antlr	cov-D3	globalAlias_incstst	5459
+antlr	cov-D3	Class	1453
+antlr	cov-D3	Appclass	228
+antlr	cov-D3	Libclass	78
+antlr	cov-D3	Phantomclass	1147
+antlr	cov-D3	Class(reachable)	231
+antlr	cov-D3	Appclass(reachable)	115
+antlr	cov-D3	Libclass(reachable)	115
+antlr	cov-D3	UCFS-seam-NEW	15165
+antlr	cov-D3	UCFS-seam-ASSIGN	49053
+antlr	cov-D3	UCFS-seam-LOAD	2003
+antlr	cov-D3	UCFS-seam-STORE	768
+antlr	cov-JDK	EntrySize	15
+antlr	cov-JDK	Single-Call Methods	2914
+antlr	cov-JDK	Single-Receiver Methods	3271
+antlr	cov-JDK	Single-Call-Single-Receiver Methods	2097
+antlr	cov-JDK	Method (Static)	-1
+antlr	cov-JDK	Reachable Method (CI)	8264
+antlr	cov-JDK	Reachable Method (CS)	8264
+antlr	cov-JDK	Reachable App Method (CI)	1369
+antlr	cov-JDK	Reachable App Method (CS)	1369
+antlr	cov-JDK	Call Edge(CI)	60633
+antlr	cov-JDK	Call Edge(CS)	60633
+antlr	cov-JDK	receivers	14279
+antlr	cov-JDK	avg p2s size for virtualcalls	3.87856292457455
+antlr	cov-JDK	Cast (Total)	1524
+antlr	cov-JDK	Cast (AppOnly)	308
+antlr	cov-JDK	May Fail Cast (Total)	1275
+antlr	cov-JDK	May Fail Cast (AppOnly)	281
+antlr	cov-JDK	Static Call Site(Total)	5177
+antlr	cov-JDK	Virtual Call Site(Total)	42000
+antlr	cov-JDK	Virtual Call Site(AppOnly)	18958
+antlr	cov-JDK	Virtual Call Site(Polymorphic)	2163
+antlr	cov-JDK	Virtual Call Site(Polymorphic AppOnly)	836
+antlr	cov-JDK	Virtual Call Site(Unreachable)	654
+antlr	cov-JDK	Avg Poly Call Targets	7.348127600554785
+antlr	cov-JDK	Context	8265
+antlr	cov-JDK	Avg Context per Method	1.0
+antlr	cov-JDK	Method with Throw Pointer-to	4529
+antlr	cov-JDK	Alloc Node(CI)	9240
+antlr	cov-JDK	Alloc Node(CS)	5249
+antlr	cov-JDK	Global CS Pointer-to Relation	29649
+antlr	cov-JDK	Local CS Pointer-to Relation	1653030
+antlr	cov-JDK	Field CS Pointer-to Relation	607920
+antlr	cov-JDK	Global Pointer (lib + app)	1225
+antlr	cov-JDK	Global Avg Points-To Target(CI)	24.20326530612245
+antlr	cov-JDK	Global Avg Points-To Target(CS)	24.20326530612245
+antlr	cov-JDK	App Global Pointer	147
+antlr	cov-JDK	App Global Avg Points-To Target(CI)	23.238095238095237
+antlr	cov-JDK	App Global Avg Points-To Target(CS)	23.238095238095237
+antlr	cov-JDK	Avg Points-to Target(CI)	55.990591836222684
+antlr	cov-JDK	Avg Points-to Target without Native Var(CI)	55.95189314050417
+antlr	cov-JDK	Local Pointer (lib + app)	30064
+antlr	cov-JDK	Local Avg Points-To Target(CI)	54.98370143693454
+antlr	cov-JDK	Local Avg Points-To Target(CS)	54.98370143693454
+antlr	cov-JDK	App Local Pointer	6581
+antlr	cov-JDK	App Local Avg Points-To Target(CI)	41.2536088740313
+antlr	cov-JDK	App Local Avg Points-To Target(CS)	41.2536088740313
+antlr	cov-JDK	Context Local Pointer (lib + app)	30044
+antlr	cov-JDK	Context Local Avg Points-To Target(CI)	55.02030355478632
+antlr	cov-JDK	Context Local Avg Points-To Target(CS)	55.02030355478632
+antlr	cov-JDK	App Context Local Pointer	6580
+antlr	cov-JDK	App Context Local Avg Points-To Target(CI)	41.25987841945289
+antlr	cov-JDK	App Context Local Avg Points-To Target(CS)	41.25987841945289
+antlr	cov-JDK	Alloc-pag-edge	245203
+antlr	cov-JDK	Simple-pag-edge	292739
+antlr	cov-JDK	Store-pag-edge	4158
+antlr	cov-JDK	Load-pag-edge	6312
+antlr	cov-JDK	intraAlias(App)	36
+antlr	cov-JDK	intraAlias_incstst(App)	37
+antlr	cov-JDK	globalAlias(App)	3477
+antlr	cov-JDK	globalAlias_incstst(App)	5564
+antlr	cov-JDK	intraAlias	170
+antlr	cov-JDK	intraAlias_incstst	195
+antlr	cov-JDK	globalAlias	14478
+antlr	cov-JDK	globalAlias_incstst	18289
+antlr	cov-JDK	Class	6174
+antlr	cov-JDK	Appclass	228
+antlr	cov-JDK	Libclass	5939
+antlr	cov-JDK	Phantomclass	7
+antlr	cov-JDK	Class(reachable)	1169
+antlr	cov-JDK	Appclass(reachable)	116
+antlr	cov-JDK	Libclass(reachable)	1052
+antlr	cov-JDK	UCFS-seam-NEW	245203
+antlr	cov-JDK	UCFS-seam-ASSIGN	292739
+antlr	cov-JDK	UCFS-seam-LOAD	6312
+antlr	cov-JDK	UCFS-seam-STORE	4158
+bloat	insens	EntrySize	15
+bloat	insens	Reachable Method (CI)	1802
+bloat	insens	Call Edge(CI)	11420
+bloat	insens	May Fail Cast (Total)	447
+bloat	insens	Virtual Call Site(Polymorphic)	201
+bloat	insens	globalAlias_incstst	1493
+bloat	insens	Avg Points-to Target without Native Var(CI)	6.547245447256901
+bloat	insens	UCFS-seam-NEW	18403
+bloat	insens	UCFS-seam-ASSIGN	34380
+bloat	insens	UCFS-seam-LOAD	1331
+bloat	insens	UCFS-seam-STORE	915
+bloat	ucfs-ANALYSIS	EntrySize	15
+bloat	ucfs-ANALYSIS	Reachable Method (CI)	1802
+bloat	ucfs-ANALYSIS	Call Edge(CI)	11420
+bloat	ucfs-ANALYSIS	May Fail Cast (Total)	497
+bloat	ucfs-ANALYSIS	Virtual Call Site(Polymorphic)	201
+bloat	ucfs-ANALYSIS	globalAlias_incstst	1526
+bloat	ucfs-ANALYSIS	Avg Points-to Target without Native Var(CI)	14.806906669676108
+bloat	ucfs-ANALYSIS	UCFS-import-binding	ANALYSIS
+bloat	ucfs-ANALYSIS	UCFS-import-pairs	202310
+bloat	ucfs-ANALYSIS	UCFS-import-typed-pairs	102801
+bloat	ucfs-ANALYSIS	UCFS-import-root-pairs	1
+bloat	ucfs-ANALYSIS	UCFS-import-spark-ms	7593
+bloat	ucfs-ANALYSIS	UCFS-import-ucfs-ms	14059
+bloat	ucfs-ANALYSIS	UCFS-seam-NEW	18403
+bloat	ucfs-ANALYSIS	UCFS-seam-ASSIGN	34380
+bloat	ucfs-ANALYSIS	UCFS-seam-LOAD	1331
+bloat	ucfs-ANALYSIS	UCFS-seam-STORE	915
+bloat	ucfs-ANALYSIS	UCFS-pt-vertices	27460
+bloat	ucfs-ANALYSIS	UCFS-pt-edges	92310
+bloat	ucfs-ANALYSIS	UCFS-pt-fields	489
+bloat	ucfs-ANALYSIS	UCFS-pt-pairs	202311
+bloat	ucfs-ANALYSIS	UCFS-pt-time-ms	14059
+bloat	ucfs-ANALYSIS	UCFS-cmp-binding	ANALYSIS
+bloat	ucfs-ANALYSIS	UCFS-cmp-spark-pairs	92413
+bloat	ucfs-ANALYSIS	UCFS-cmp-ucfs-pairs	202311
+bloat	ucfs-ANALYSIS	UCFS-cmp-typed-pairs	102801
+bloat	ucfs-ANALYSIS	UCFS-cmp-SAME	92413
+bloat	ucfs-ANALYSIS	UCFS-cmp-R3	0
+bloat	ucfs-ANALYSIS	UCFS-cmp-R4b	1
+bloat	ucfs-ANALYSIS	UCFS-cmp-R1	101675
+bloat	ucfs-ANALYSIS	UCFS-cmp-R2	8222
+bloat	ucfs-ANALYSIS	UCFS-cmp-R5	0
+bloat	ucfs-ANALYSIS	UCFS-cmp-UNEXPLAINED	0
+bloat	ucfs-ANALYSIS	UCFS-cmp-MISSING	0
+bloat	ucfs-ANALYSIS	UCFS-cmp-new-edges	18403
+bloat	ucfs-ANALYSIS	UCFS-cmp-seed-this-edges	10426
+bloat	ucfs-ANALYSIS	UCFS-cmp-seed-exception-edges	5408
+bloat	ucfs-ANALYSIS	UCFS-cmp-seed-finalizer-edges	10
+bloat	ucfs-ANALYSIS	UCFS-cmp-same-without-this-seeds	37259
+bloat	ucfs-ANALYSIS	UCFS-cmp-same-without-seeds	10443
+bloat	ucfs-ANALYSIS	UCFS-cmp-last-step-pairs	92413
+bloat	ucfs-ANALYSIS	UCFS-cmp-dispatch-cg-edges	10787
+bloat	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-UCFS	10848
+bloat	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-UCFS_TYPED	10848
+bloat	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-SPARK	10787
+bloat	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-UCFS	61
+bloat	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-UCFS_TYPED	61
+bloat	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-SPARK	0
+bloat	ucfs-ANALYSIS	cmp/SPARK/Reachable Method (CI)	1802
+bloat	ucfs-ANALYSIS	cmp/UCFS/Reachable Method (CI)	1802
+bloat	ucfs-ANALYSIS	cmp/UCFS_TYPED/Reachable Method (CI)	1802
+bloat	ucfs-ANALYSIS	cmp/SPARK/Call Edge(CI)	11420
+bloat	ucfs-ANALYSIS	cmp/UCFS/Call Edge(CI)	11420
+bloat	ucfs-ANALYSIS	cmp/UCFS_TYPED/Call Edge(CI)	11420
+bloat	ucfs-ANALYSIS	cmp/SPARK/May Fail Cast (Total)	447
+bloat	ucfs-ANALYSIS	cmp/UCFS/May Fail Cast (Total)	497
+bloat	ucfs-ANALYSIS	cmp/UCFS_TYPED/May Fail Cast (Total)	496
+bloat	ucfs-ANALYSIS	cmp/SPARK/Virtual Call Site(Polymorphic)	201
+bloat	ucfs-ANALYSIS	cmp/UCFS/Virtual Call Site(Polymorphic)	201
+bloat	ucfs-ANALYSIS	cmp/UCFS_TYPED/Virtual Call Site(Polymorphic)	201
+bloat	ucfs-ANALYSIS	cmp/SPARK/globalAlias_incstst	1493
+bloat	ucfs-ANALYSIS	cmp/UCFS/globalAlias_incstst	1526
+bloat	ucfs-ANALYSIS	cmp/UCFS_TYPED/globalAlias_incstst	1493
+bloat	ucfs-ANALYSIS	cmp/SPARK/Avg Points-to Target without Native Var(CI)	6.547245447256901
+bloat	ucfs-ANALYSIS	cmp/UCFS/Avg Points-to Target without Native Var(CI)	14.806906669676108
+bloat	ucfs-ANALYSIS	cmp/UCFS_TYPED/Avg Points-to Target without Native Var(CI)	7.551783069385895
+bloat	ucfs-CALL_GRAPH	EntrySize	15
+bloat	cov-D3	EntrySize	15
+bloat	cov-D3	Single-Call Methods	862
+bloat	cov-D3	Single-Receiver Methods	668
+bloat	cov-D3	Single-Call-Single-Receiver Methods	449
+bloat	cov-D3	Method (Static)	-1
+bloat	cov-D3	Reachable Method (CI)	1802
+bloat	cov-D3	Reachable Method (CS)	1802
+bloat	cov-D3	Reachable App Method (CI)	1346
+bloat	cov-D3	Reachable App Method (CS)	1346
+bloat	cov-D3	Call Edge(CI)	11420
+bloat	cov-D3	Call Edge(CS)	11420
+bloat	cov-D3	receivers	3992
+bloat	cov-D3	avg p2s size for virtualcalls	2.718687374749499
+bloat	cov-D3	Cast (Total)	871
+bloat	cov-D3	Cast (AppOnly)	867
+bloat	cov-D3	May Fail Cast (Total)	447
+bloat	cov-D3	May Fail Cast (AppOnly)	445
+bloat	cov-D3	Static Call Site(Total)	557
+bloat	cov-D3	Virtual Call Site(Total)	11380
+bloat	cov-D3	Virtual Call Site(AppOnly)	11070
+bloat	cov-D3	Virtual Call Site(Polymorphic)	201
+bloat	cov-D3	Virtual Call Site(Polymorphic AppOnly)	200
+bloat	cov-D3	Virtual Call Site(Unreachable)	1537
+bloat	cov-D3	Avg Poly Call Targets	5.696517412935323
+bloat	cov-D3	Context	1534
+bloat	cov-D3	Avg Context per Method	1.0
+bloat	cov-D3	Method with Throw Pointer-to	735
+bloat	cov-D3	Alloc Node(CI)	1929
+bloat	cov-D3	Alloc Node(CS)	1289
+bloat	cov-D3	Global CS Pointer-to Relation	87
+bloat	cov-D3	Local CS Pointer-to Relation	36448
+bloat	cov-D3	Field CS Pointer-to Relation	45057
+bloat	cov-D3	Global Pointer (lib + app)	70
+bloat	cov-D3	Global Avg Points-To Target(CI)	1.2428571428571429
+bloat	cov-D3	Global Avg Points-To Target(CS)	1.2428571428571429
+bloat	cov-D3	App Global Pointer	41
+bloat	cov-D3	App Global Avg Points-To Target(CI)	1.4146341463414633
+bloat	cov-D3	App Global Avg Points-To Target(CS)	1.4146341463414633
+bloat	cov-D3	Avg Points-to Target(CI)	6.5448196908986835
+bloat	cov-D3	Avg Points-to Target without Native Var(CI)	6.547245447256901
+bloat	cov-D3	Local Pointer (lib + app)	7441
+bloat	cov-D3	Local Avg Points-To Target(CI)	4.898266362048112
+bloat	cov-D3	Local Avg Points-To Target(CS)	4.898266362048112
+bloat	cov-D3	App Local Pointer	7029
+bloat	cov-D3	App Local Avg Points-To Target(CI)	4.734955185659411
+bloat	cov-D3	App Local Avg Points-To Target(CS)	4.734955185659411
+bloat	cov-D3	Context Local Pointer (lib + app)	7421
+bloat	cov-D3	Context Local Avg Points-To Target(CI)	4.911467457216008
+bloat	cov-D3	Context Local Avg Points-To Target(CS)	4.911467457216008
+bloat	cov-D3	App Context Local Pointer	7012
+bloat	cov-D3	App Context Local Avg Points-To Target(CI)	4.746434683399886
+bloat	cov-D3	App Context Local Avg Points-To Target(CS)	4.746434683399886
+bloat	cov-D3	Alloc-pag-edge	18403
+bloat	cov-D3	Simple-pag-edge	34380
+bloat	cov-D3	Store-pag-edge	915
+bloat	cov-D3	Load-pag-edge	1331
+bloat	cov-D3	intraAlias(App)	4
+bloat	cov-D3	intraAlias_incstst(App)	5
+bloat	cov-D3	globalAlias(App)	1333
+bloat	cov-D3	globalAlias_incstst(App)	1411
+bloat	cov-D3	intraAlias	7
+bloat	cov-D3	intraAlias_incstst	8
+bloat	cov-D3	globalAlias	1410
+bloat	cov-D3	globalAlias_incstst	1493
+bloat	cov-D3	Class	1097
+bloat	cov-D3	Appclass	360
+bloat	cov-D3	Libclass	79
+bloat	cov-D3	Phantomclass	658
+bloat	cov-D3	Class(reachable)	333
+bloat	cov-D3	Appclass(reachable)	234
+bloat	cov-D3	Libclass(reachable)	98
+bloat	cov-D3	UCFS-seam-NEW	18403
+bloat	cov-D3	UCFS-seam-ASSIGN	34380
+bloat	cov-D3	UCFS-seam-LOAD	1331
+bloat	cov-D3	UCFS-seam-STORE	915
+bloat	cov-JDK	EntrySize	15
+bloat	cov-JDK	Single-Call Methods	3839
+bloat	cov-JDK	Single-Receiver Methods	3903
+bloat	cov-JDK	Single-Call-Single-Receiver Methods	2598
+bloat	cov-JDK	Method (Static)	-1
+bloat	cov-JDK	Reachable Method (CI)	9531
+bloat	cov-JDK	Reachable Method (CS)	9531
+bloat	cov-JDK	Reachable App Method (CI)	2504
+bloat	cov-JDK	Reachable App Method (CS)	2504
+bloat	cov-JDK	Call Edge(CI)	73113
+bloat	cov-JDK	Call Edge(CS)	73113
+bloat	cov-JDK	receivers	16865
+bloat	cov-JDK	avg p2s size for virtualcalls	4.007826860361696
+bloat	cov-JDK	Cast (Total)	2573
+bloat	cov-JDK	Cast (AppOnly)	1346
+bloat	cov-JDK	May Fail Cast (Total)	2249
+bloat	cov-JDK	May Fail Cast (AppOnly)	1249
+bloat	cov-JDK	Static Call Site(Total)	5445
+bloat	cov-JDK	Virtual Call Site(Total)	40035
+bloat	cov-JDK	Virtual Call Site(AppOnly)	16815
+bloat	cov-JDK	Virtual Call Site(Polymorphic)	2809
+bloat	cov-JDK	Virtual Call Site(Polymorphic AppOnly)	1427
+bloat	cov-JDK	Virtual Call Site(Unreachable)	659
+bloat	cov-JDK	Avg Poly Call Targets	10.929868280526877
+bloat	cov-JDK	Context	9532
+bloat	cov-JDK	Avg Context per Method	1.0
+bloat	cov-JDK	Method with Throw Pointer-to	5274
+bloat	cov-JDK	Alloc Node(CI)	9325
+bloat	cov-JDK	Alloc Node(CS)	5962
+bloat	cov-JDK	Global CS Pointer-to Relation	23364
+bloat	cov-JDK	Local CS Pointer-to Relation	2512245
+bloat	cov-JDK	Field CS Pointer-to Relation	745336
+bloat	cov-JDK	Global Pointer (lib + app)	1119
+bloat	cov-JDK	Global Avg Points-To Target(CI)	20.87935656836461
+bloat	cov-JDK	Global Avg Points-To Target(CS)	20.87935656836461
+bloat	cov-JDK	App Global Pointer	41
+bloat	cov-JDK	App Global Avg Points-To Target(CI)	3.682926829268293
+bloat	cov-JDK	App Global Avg Points-To Target(CS)	3.682926829268293
+bloat	cov-JDK	Avg Points-to Target(CI)	66.96020261994228
+bloat	cov-JDK	Avg Points-to Target without Native Var(CI)	66.91871286717354
+bloat	cov-JDK	Local Pointer (lib + app)	35695
+bloat	cov-JDK	Local Avg Points-To Target(CI)	70.38086566746043
+bloat	cov-JDK	Local Avg Points-To Target(CS)	70.38086566746043
+bloat	cov-JDK	App Local Pointer	11906
+bloat	cov-JDK	App Local Avg Points-To Target(CI)	87.41869645556862
+bloat	cov-JDK	App Local Avg Points-To Target(CS)	87.41869645556862
+bloat	cov-JDK	Context Local Pointer (lib + app)	35675
+bloat	cov-JDK	Context Local Avg Points-To Target(CI)	70.42032235459006
+bloat	cov-JDK	Context Local Avg Points-To Target(CS)	70.42032235459006
+bloat	cov-JDK	App Context Local Pointer	11905
+bloat	cov-JDK	App Context Local Avg Points-To Target(CI)	87.42603947921042
+bloat	cov-JDK	App Context Local Avg Points-To Target(CS)	87.42603947921042
+bloat	cov-JDK	Alloc-pag-edge	314375
+bloat	cov-JDK	Simple-pag-edge	326632
+bloat	cov-JDK	Store-pag-edge	4512
+bloat	cov-JDK	Load-pag-edge	6735
+bloat	cov-JDK	intraAlias(App)	16
+bloat	cov-JDK	intraAlias_incstst(App)	18
+bloat	cov-JDK	globalAlias(App)	3383
+bloat	cov-JDK	globalAlias_incstst(App)	3871
+bloat	cov-JDK	intraAlias	154
+bloat	cov-JDK	intraAlias_incstst	181
+bloat	cov-JDK	globalAlias	16382
+bloat	cov-JDK	globalAlias_incstst	19054
+bloat	cov-JDK	Class	3167
+bloat	cov-JDK	Appclass	360
+bloat	cov-JDK	Libclass	2804
+bloat	cov-JDK	Phantomclass	3
+bloat	cov-JDK	Class(reachable)	1330
+bloat	cov-JDK	Appclass(reachable)	267
+bloat	cov-JDK	Libclass(reachable)	1062
+bloat	cov-JDK	UCFS-seam-NEW	314375
+bloat	cov-JDK	UCFS-seam-ASSIGN	326632
+bloat	cov-JDK	UCFS-seam-LOAD	6735
+bloat	cov-JDK	UCFS-seam-STORE	4512
+chart	insens	EntrySize	15
+chart	insens	Reachable Method (CI)	2436
+chart	insens	Call Edge(CI)	10407
+chart	insens	May Fail Cast (Total)	167
+chart	insens	Virtual Call Site(Polymorphic)	150
+chart	insens	globalAlias_incstst	1518
+chart	insens	Avg Points-to Target without Native Var(CI)	10.166451612903225
+chart	insens	UCFS-seam-NEW	20125
+chart	insens	UCFS-seam-ASSIGN	36685
+chart	insens	UCFS-seam-LOAD	1290
+chart	insens	UCFS-seam-STORE	1902
+chart	ucfs-ANALYSIS	EntrySize	15
+chart	ucfs-ANALYSIS	Reachable Method (CI)	2436
+chart	ucfs-ANALYSIS	Call Edge(CI)	10407
+chart	ucfs-ANALYSIS	May Fail Cast (Total)	188
+chart	ucfs-ANALYSIS	Virtual Call Site(Polymorphic)	150
+chart	ucfs-ANALYSIS	globalAlias_incstst	1523
+chart	ucfs-ANALYSIS	Avg Points-to Target without Native Var(CI)	12.77538793950108
+chart	ucfs-ANALYSIS	UCFS-import-binding	ANALYSIS
+chart	ucfs-ANALYSIS	UCFS-import-pairs	305824
+chart	ucfs-ANALYSIS	UCFS-import-typed-pairs	267892
+chart	ucfs-ANALYSIS	UCFS-import-root-pairs	1
+chart	ucfs-ANALYSIS	UCFS-import-spark-ms	10174
+chart	ucfs-ANALYSIS	UCFS-import-ucfs-ms	11049
+chart	ucfs-ANALYSIS	UCFS-seam-NEW	20125
+chart	ucfs-ANALYSIS	UCFS-seam-ASSIGN	36685
+chart	ucfs-ANALYSIS	UCFS-seam-LOAD	1290
+chart	ucfs-ANALYSIS	UCFS-seam-STORE	1902
+chart	ucfs-ANALYSIS	UCFS-pt-vertices	33804
+chart	ucfs-ANALYSIS	UCFS-pt-edges	100984
+chart	ucfs-ANALYSIS	UCFS-pt-fields	676
+chart	ucfs-ANALYSIS	UCFS-pt-pairs	305825
+chart	ucfs-ANALYSIS	UCFS-pt-time-ms	11049
+chart	ucfs-ANALYSIS	UCFS-cmp-binding	ANALYSIS
+chart	ucfs-ANALYSIS	UCFS-cmp-spark-pairs	266907
+chart	ucfs-ANALYSIS	UCFS-cmp-ucfs-pairs	305825
+chart	ucfs-ANALYSIS	UCFS-cmp-typed-pairs	267892
+chart	ucfs-ANALYSIS	UCFS-cmp-SAME	266907
+chart	ucfs-ANALYSIS	UCFS-cmp-R3	0
+chart	ucfs-ANALYSIS	UCFS-cmp-R4b	1
+chart	ucfs-ANALYSIS	UCFS-cmp-R1	34010
+chart	ucfs-ANALYSIS	UCFS-cmp-R2	4907
+chart	ucfs-ANALYSIS	UCFS-cmp-R5	0
+chart	ucfs-ANALYSIS	UCFS-cmp-UNEXPLAINED	0
+chart	ucfs-ANALYSIS	UCFS-cmp-MISSING	0
+chart	ucfs-ANALYSIS	UCFS-cmp-new-edges	20125
+chart	ucfs-ANALYSIS	UCFS-cmp-seed-this-edges	12607
+chart	ucfs-ANALYSIS	UCFS-cmp-seed-exception-edges	2707
+chart	ucfs-ANALYSIS	UCFS-cmp-seed-finalizer-edges	26
+chart	ucfs-ANALYSIS	UCFS-cmp-same-without-this-seeds	223071
+chart	ucfs-ANALYSIS	UCFS-cmp-same-without-seeds	211848
+chart	ucfs-ANALYSIS	UCFS-cmp-last-step-pairs	266907
+chart	ucfs-ANALYSIS	UCFS-cmp-dispatch-cg-edges	9434
+chart	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-UCFS	9447
+chart	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-UCFS_TYPED	9447
+chart	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-SPARK	9434
+chart	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-UCFS	13
+chart	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-UCFS_TYPED	13
+chart	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-SPARK	0
+chart	ucfs-ANALYSIS	cmp/SPARK/Reachable Method (CI)	2436
+chart	ucfs-ANALYSIS	cmp/UCFS/Reachable Method (CI)	2436
+chart	ucfs-ANALYSIS	cmp/UCFS_TYPED/Reachable Method (CI)	2436
+chart	ucfs-ANALYSIS	cmp/SPARK/Call Edge(CI)	10407
+chart	ucfs-ANALYSIS	cmp/UCFS/Call Edge(CI)	10407
+chart	ucfs-ANALYSIS	cmp/UCFS_TYPED/Call Edge(CI)	10407
+chart	ucfs-ANALYSIS	cmp/SPARK/May Fail Cast (Total)	167
+chart	ucfs-ANALYSIS	cmp/UCFS/May Fail Cast (Total)	188
+chart	ucfs-ANALYSIS	cmp/UCFS_TYPED/May Fail Cast (Total)	185
+chart	ucfs-ANALYSIS	cmp/SPARK/Virtual Call Site(Polymorphic)	150
+chart	ucfs-ANALYSIS	cmp/UCFS/Virtual Call Site(Polymorphic)	150
+chart	ucfs-ANALYSIS	cmp/UCFS_TYPED/Virtual Call Site(Polymorphic)	150
+chart	ucfs-ANALYSIS	cmp/SPARK/globalAlias_incstst	1518
+chart	ucfs-ANALYSIS	cmp/UCFS/globalAlias_incstst	1523
+chart	ucfs-ANALYSIS	cmp/UCFS_TYPED/globalAlias_incstst	1520
+chart	ucfs-ANALYSIS	cmp/SPARK/Avg Points-to Target without Native Var(CI)	10.166451612903225
+chart	ucfs-ANALYSIS	cmp/UCFS/Avg Points-to Target without Native Var(CI)	12.77538793950108
+chart	ucfs-ANALYSIS	cmp/UCFS_TYPED/Avg Points-to Target without Native Var(CI)	10.24744720927927
+chart	ucfs-CALL_GRAPH	EntrySize	15
+chart	ucfs-CALL_GRAPH	Reachable Method (CI)	2436
+chart	ucfs-CALL_GRAPH	Call Edge(CI)	10407
+chart	ucfs-CALL_GRAPH	May Fail Cast (Total)	188
+chart	ucfs-CALL_GRAPH	Virtual Call Site(Polymorphic)	150
+chart	ucfs-CALL_GRAPH	globalAlias_incstst	1527
+chart	ucfs-CALL_GRAPH	Avg Points-to Target without Native Var(CI)	16.83578864663131
+chart	ucfs-CALL_GRAPH	UCFS-import-binding	CALL_GRAPH
+chart	ucfs-CALL_GRAPH	UCFS-import-pairs	347388
+chart	ucfs-CALL_GRAPH	UCFS-import-typed-pairs	269214
+chart	ucfs-CALL_GRAPH	UCFS-import-root-pairs	1
+chart	ucfs-CALL_GRAPH	UCFS-import-spark-ms	8426
+chart	ucfs-CALL_GRAPH	UCFS-import-ucfs-ms	23570
+chart	ucfs-CALL_GRAPH	UCFS-seam-NEW	20125
+chart	ucfs-CALL_GRAPH	UCFS-seam-ASSIGN	36685
+chart	ucfs-CALL_GRAPH	UCFS-seam-LOAD	1290
+chart	ucfs-CALL_GRAPH	UCFS-seam-STORE	1902
+chart	ucfs-CALL_GRAPH	UCFS-pt-vertices	33804
+chart	ucfs-CALL_GRAPH	UCFS-pt-edges	87584
+chart	ucfs-CALL_GRAPH	UCFS-pt-fields	676
+chart	ucfs-CALL_GRAPH	UCFS-pt-pairs	347389
+chart	ucfs-CALL_GRAPH	UCFS-pt-time-ms	23570
+chart	ucfs-CALL_GRAPH	UCFS-cmp-binding	CALL_GRAPH
+chart	ucfs-CALL_GRAPH	UCFS-cmp-spark-pairs	266907
+chart	ucfs-CALL_GRAPH	UCFS-cmp-ucfs-pairs	347389
+chart	ucfs-CALL_GRAPH	UCFS-cmp-typed-pairs	269214
+chart	ucfs-CALL_GRAPH	UCFS-cmp-SAME	266907
+chart	ucfs-CALL_GRAPH	UCFS-cmp-R3	41564
+chart	ucfs-CALL_GRAPH	UCFS-cmp-R4b	1
+chart	ucfs-CALL_GRAPH	UCFS-cmp-R1	34010
+chart	ucfs-CALL_GRAPH	UCFS-cmp-R2	4907
+chart	ucfs-CALL_GRAPH	UCFS-cmp-R5	0
+chart	ucfs-CALL_GRAPH	UCFS-cmp-UNEXPLAINED	0
+chart	ucfs-CALL_GRAPH	UCFS-cmp-MISSING	0
+chart	ucfs-CALL_GRAPH	UCFS-cmp-new-edges	7518
+chart	ucfs-CALL_GRAPH	UCFS-cmp-seed-this-edges	0
+chart	ucfs-CALL_GRAPH	UCFS-cmp-seed-exception-edges	2707
+chart	ucfs-CALL_GRAPH	UCFS-cmp-seed-finalizer-edges	26
+chart	ucfs-CALL_GRAPH	UCFS-cmp-same-without-this-seeds	266907
+chart	ucfs-CALL_GRAPH	UCFS-cmp-same-without-seeds	254776
+chart	ucfs-CALL_GRAPH	UCFS-cmp-last-step-pairs	266907
+chart	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-cg-edges	9434
+chart	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-UCFS	9454
+chart	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-UCFS_TYPED	9454
+chart	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-SPARK	9434
+chart	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-UCFS	20
+chart	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-UCFS_TYPED	20
+chart	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-SPARK	0
+chart	ucfs-CALL_GRAPH	cmp/SPARK/Reachable Method (CI)	2436
+chart	ucfs-CALL_GRAPH	cmp/UCFS/Reachable Method (CI)	2436
+chart	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Reachable Method (CI)	2436
+chart	ucfs-CALL_GRAPH	cmp/SPARK/Call Edge(CI)	10407
+chart	ucfs-CALL_GRAPH	cmp/UCFS/Call Edge(CI)	10407
+chart	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Call Edge(CI)	10407
+chart	ucfs-CALL_GRAPH	cmp/SPARK/May Fail Cast (Total)	167
+chart	ucfs-CALL_GRAPH	cmp/UCFS/May Fail Cast (Total)	188
+chart	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/May Fail Cast (Total)	185
+chart	ucfs-CALL_GRAPH	cmp/SPARK/Virtual Call Site(Polymorphic)	150
+chart	ucfs-CALL_GRAPH	cmp/UCFS/Virtual Call Site(Polymorphic)	150
+chart	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Virtual Call Site(Polymorphic)	150
+chart	ucfs-CALL_GRAPH	cmp/SPARK/globalAlias_incstst	1518
+chart	ucfs-CALL_GRAPH	cmp/UCFS/globalAlias_incstst	1527
+chart	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/globalAlias_incstst	1521
+chart	ucfs-CALL_GRAPH	cmp/SPARK/Avg Points-to Target without Native Var(CI)	10.166451612903225
+chart	ucfs-CALL_GRAPH	cmp/UCFS/Avg Points-to Target without Native Var(CI)	16.83578864663131
+chart	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Avg Points-to Target without Native Var(CI)	10.378308714186577
+chart	cov-D3	EntrySize	15
+chart	cov-D3	Single-Call Methods	930
+chart	cov-D3	Single-Receiver Methods	842
+chart	cov-D3	Single-Call-Single-Receiver Methods	560
+chart	cov-D3	Method (Static)	-1
+chart	cov-D3	Reachable Method (CI)	2436
+chart	cov-D3	Reachable Method (CS)	2436
+chart	cov-D3	Reachable App Method (CI)	771
+chart	cov-D3	Reachable App Method (CS)	771
+chart	cov-D3	Call Edge(CI)	10407
+chart	cov-D3	Call Edge(CS)	10407
+chart	cov-D3	receivers	3826
+chart	cov-D3	avg p2s size for virtualcalls	2.4994772608468376
+chart	cov-D3	Cast (Total)	533
+chart	cov-D3	Cast (AppOnly)	169
+chart	cov-D3	May Fail Cast (Total)	167
+chart	cov-D3	May Fail Cast (AppOnly)	60
+chart	cov-D3	Static Call Site(Total)	818
+chart	cov-D3	Virtual Call Site(Total)	10612
+chart	cov-D3	Virtual Call Site(AppOnly)	4195
+chart	cov-D3	Virtual Call Site(Polymorphic)	150
+chart	cov-D3	Virtual Call Site(Polymorphic AppOnly)	34
+chart	cov-D3	Virtual Call Site(Unreachable)	1362
+chart	cov-D3	Avg Poly Call Targets	2.2266666666666666
+chart	cov-D3	Context	2019
+chart	cov-D3	Avg Context per Method	1.0
+chart	cov-D3	Method with Throw Pointer-to	858
+chart	cov-D3	Alloc Node(CI)	2694
+chart	cov-D3	Alloc Node(CS)	2188
+chart	cov-D3	Global CS Pointer-to Relation	141909
+chart	cov-D3	Local CS Pointer-to Relation	72427
+chart	cov-D3	Field CS Pointer-to Relation	12930
+chart	cov-D3	Global Pointer (lib + app)	790
+chart	cov-D3	Global Avg Points-To Target(CI)	179.63164556962025
+chart	cov-D3	Global Avg Points-To Target(CS)	179.63164556962025
+chart	cov-D3	App Global Pointer	148
+chart	cov-D3	App Global Avg Points-To Target(CI)	9.202702702702704
+chart	cov-D3	App Global Avg Points-To Target(CS)	9.202702702702704
+chart	cov-D3	Avg Points-to Target(CI)	10.161095129451443
+chart	cov-D3	Avg Points-to Target without Native Var(CI)	10.166451612903225
+chart	cov-D3	Local Pointer (lib + app)	8129
+chart	cov-D3	Local Avg Points-To Target(CI)	8.90970599089679
+chart	cov-D3	Local Avg Points-To Target(CS)	8.90970599089679
+chart	cov-D3	App Local Pointer	3678
+chart	cov-D3	App Local Avg Points-To Target(CI)	3.2487765089722673
+chart	cov-D3	App Local Avg Points-To Target(CS)	3.2487765089722673
+chart	cov-D3	Context Local Pointer (lib + app)	8115
+chart	cov-D3	Context Local Avg Points-To Target(CI)	8.925077017868146
+chart	cov-D3	Context Local Avg Points-To Target(CS)	8.925077017868146
+chart	cov-D3	App Context Local Pointer	3678
+chart	cov-D3	App Context Local Avg Points-To Target(CI)	3.2487765089722673
+chart	cov-D3	App Context Local Avg Points-To Target(CS)	3.2487765089722673
+chart	cov-D3	Alloc-pag-edge	20125
+chart	cov-D3	Simple-pag-edge	36685
+chart	cov-D3	Store-pag-edge	1902
+chart	cov-D3	Load-pag-edge	1290
+chart	cov-D3	intraAlias(App)	0
+chart	cov-D3	intraAlias_incstst(App)	0
+chart	cov-D3	globalAlias(App)	404
+chart	cov-D3	globalAlias_incstst(App)	422
+chart	cov-D3	intraAlias	17
+chart	cov-D3	intraAlias_incstst	18
+chart	cov-D3	globalAlias	1397
+chart	cov-D3	globalAlias_incstst	1518
+chart	cov-D3	Class	2880
+chart	cov-D3	Appclass	515
+chart	cov-D3	Libclass	405
+chart	cov-D3	Phantomclass	1960
+chart	cov-D3	Class(reachable)	411
+chart	cov-D3	Appclass(reachable)	111
+chart	cov-D3	Libclass(reachable)	299
+chart	cov-D3	UCFS-seam-NEW	20125
+chart	cov-D3	UCFS-seam-ASSIGN	36685
+chart	cov-D3	UCFS-seam-LOAD	1290
+chart	cov-D3	UCFS-seam-STORE	1902
+chart	cov-JDK	EntrySize	15
+chart	cov-JDK	Single-Call Methods	5984
+chart	cov-JDK	Single-Receiver Methods	6379
+chart	cov-JDK	Single-Call-Single-Receiver Methods	4260
+chart	cov-JDK	Method (Static)	-1
+chart	cov-JDK	Reachable Method (CI)	16087
+chart	cov-JDK	Reachable Method (CS)	16087
+chart	cov-JDK	Reachable App Method (CI)	1042
+chart	cov-JDK	Reachable App Method (CS)	1042
+chart	cov-JDK	Call Edge(CI)	96566
+chart	cov-JDK	Call Edge(CS)	96566
+chart	cov-JDK	receivers	24770
+chart	cov-JDK	avg p2s size for virtualcalls	3.4412192167945097
+chart	cov-JDK	Cast (Total)	3226
+chart	cov-JDK	Cast (AppOnly)	232
+chart	cov-JDK	May Fail Cast (Total)	2801
+chart	cov-JDK	May Fail Cast (AppOnly)	211
+chart	cov-JDK	Static Call Site(Total)	11083
+chart	cov-JDK	Virtual Call Site(Total)	58952
+chart	cov-JDK	Virtual Call Site(AppOnly)	5008
+chart	cov-JDK	Virtual Call Site(Polymorphic)	3111
+chart	cov-JDK	Virtual Call Site(Polymorphic AppOnly)	137
+chart	cov-JDK	Virtual Call Site(Unreachable)	1950
+chart	cov-JDK	Avg Poly Call Targets	9.85920925747348
+chart	cov-JDK	Context	16088
+chart	cov-JDK	Avg Context per Method	1.0
+chart	cov-JDK	Method with Throw Pointer-to	8579
+chart	cov-JDK	Alloc Node(CI)	16307
+chart	cov-JDK	Alloc Node(CS)	11372
+chart	cov-JDK	Global CS Pointer-to Relation	183614
+chart	cov-JDK	Local CS Pointer-to Relation	7091081
+chart	cov-JDK	Field CS Pointer-to Relation	2038640
+chart	cov-JDK	Global Pointer (lib + app)	2965
+chart	cov-JDK	Global Avg Points-To Target(CI)	61.927150084317034
+chart	cov-JDK	Global Avg Points-To Target(CS)	61.927150084317034
+chart	cov-JDK	App Global Pointer	152
+chart	cov-JDK	App Global Avg Points-To Target(CI)	12.0
+chart	cov-JDK	App Global Avg Points-To Target(CS)	12.0
+chart	cov-JDK	Avg Points-to Target(CI)	124.51734722727089
+chart	cov-JDK	Avg Points-to Target without Native Var(CI)	124.4270802467473
+chart	cov-JDK	Local Pointer (lib + app)	55827
+chart	cov-JDK	Local Avg Points-To Target(CI)	127.01884392856503
+chart	cov-JDK	Local Avg Points-To Target(CS)	127.01884392856503
+chart	cov-JDK	App Local Pointer	5001
+chart	cov-JDK	App Local Avg Points-To Target(CI)	97.21455708858228
+chart	cov-JDK	App Local Avg Points-To Target(CS)	97.21455708858228
+chart	cov-JDK	Context Local Pointer (lib + app)	55784
+chart	cov-JDK	Context Local Avg Points-To Target(CI)	127.11675390793059
+chart	cov-JDK	Context Local Avg Points-To Target(CS)	127.11675390793059
+chart	cov-JDK	App Context Local Pointer	5001
+chart	cov-JDK	App Context Local Avg Points-To Target(CI)	97.21455708858228
+chart	cov-JDK	App Context Local Avg Points-To Target(CS)	97.21455708858228
+chart	cov-JDK	Alloc-pag-edge	601499
+chart	cov-JDK	Simple-pag-edge	944550
+chart	cov-JDK	Store-pag-edge	11582
+chart	cov-JDK	Load-pag-edge	10128
+chart	cov-JDK	intraAlias(App)	0
+chart	cov-JDK	intraAlias_incstst(App)	0
+chart	cov-JDK	globalAlias(App)	1075
+chart	cov-JDK	globalAlias_incstst(App)	1099
+chart	cov-JDK	intraAlias	228
+chart	cov-JDK	intraAlias_incstst	271
+chart	cov-JDK	globalAlias	38995
+chart	cov-JDK	globalAlias_incstst	47118
+chart	cov-JDK	Class	7682
+chart	cov-JDK	Appclass	515
+chart	cov-JDK	Libclass	7162
+chart	cov-JDK	Phantomclass	5
+chart	cov-JDK	Class(reachable)	2271
+chart	cov-JDK	Appclass(reachable)	118
+chart	cov-JDK	Libclass(reachable)	2152
+chart	cov-JDK	UCFS-seam-NEW	601499
+chart	cov-JDK	UCFS-seam-ASSIGN	944550
+chart	cov-JDK	UCFS-seam-LOAD	10128
+chart	cov-JDK	UCFS-seam-STORE	11582
+eclipse	insens	EntrySize	15
+eclipse	insens	Reachable Method (CI)	1767
+eclipse	insens	Call Edge(CI)	6996
+eclipse	insens	May Fail Cast (Total)	71
+eclipse	insens	Virtual Call Site(Polymorphic)	147
+eclipse	insens	globalAlias_incstst	1013
+eclipse	insens	Avg Points-to Target without Native Var(CI)	6.324279958215191
+eclipse	insens	UCFS-seam-NEW	10947
+eclipse	insens	UCFS-seam-ASSIGN	22950
+eclipse	insens	UCFS-seam-LOAD	869
+eclipse	insens	UCFS-seam-STORE	597
+eclipse	ucfs-ANALYSIS	EntrySize	15
+eclipse	ucfs-ANALYSIS	Reachable Method (CI)	1767
+eclipse	ucfs-ANALYSIS	Call Edge(CI)	6996
+eclipse	ucfs-ANALYSIS	May Fail Cast (Total)	71
+eclipse	ucfs-ANALYSIS	Virtual Call Site(Polymorphic)	147
+eclipse	ucfs-ANALYSIS	globalAlias_incstst	1025
+eclipse	ucfs-ANALYSIS	Avg Points-to Target without Native Var(CI)	7.3324396782841825
+eclipse	ucfs-ANALYSIS	UCFS-import-binding	ANALYSIS
+eclipse	ucfs-ANALYSIS	UCFS-import-pairs	68807
+eclipse	ucfs-ANALYSIS	UCFS-import-typed-pairs	60740
+eclipse	ucfs-ANALYSIS	UCFS-import-root-pairs	1
+eclipse	ucfs-ANALYSIS	UCFS-import-spark-ms	10870
+eclipse	ucfs-ANALYSIS	UCFS-import-ucfs-ms	4149
+eclipse	ucfs-ANALYSIS	UCFS-seam-NEW	10947
+eclipse	ucfs-ANALYSIS	UCFS-seam-ASSIGN	22950
+eclipse	ucfs-ANALYSIS	UCFS-seam-LOAD	869
+eclipse	ucfs-ANALYSIS	UCFS-seam-STORE	597
+eclipse	ucfs-ANALYSIS	UCFS-pt-vertices	21309
+eclipse	ucfs-ANALYSIS	UCFS-pt-edges	61334
+eclipse	ucfs-ANALYSIS	UCFS-pt-fields	425
+eclipse	ucfs-ANALYSIS	UCFS-pt-pairs	68808
+eclipse	ucfs-ANALYSIS	UCFS-pt-time-ms	4149
+eclipse	ucfs-ANALYSIS	UCFS-cmp-binding	ANALYSIS
+eclipse	ucfs-ANALYSIS	UCFS-cmp-spark-pairs	60210
+eclipse	ucfs-ANALYSIS	UCFS-cmp-ucfs-pairs	68808
+eclipse	ucfs-ANALYSIS	UCFS-cmp-typed-pairs	60740
+eclipse	ucfs-ANALYSIS	UCFS-cmp-SAME	60210
+eclipse	ucfs-ANALYSIS	UCFS-cmp-R3	0
+eclipse	ucfs-ANALYSIS	UCFS-cmp-R4b	1
+eclipse	ucfs-ANALYSIS	UCFS-cmp-R1	7759
+eclipse	ucfs-ANALYSIS	UCFS-cmp-R2	838
+eclipse	ucfs-ANALYSIS	UCFS-cmp-R5	0
+eclipse	ucfs-ANALYSIS	UCFS-cmp-UNEXPLAINED	0
+eclipse	ucfs-ANALYSIS	UCFS-cmp-MISSING	0
+eclipse	ucfs-ANALYSIS	UCFS-cmp-new-edges	10947
+eclipse	ucfs-ANALYSIS	UCFS-cmp-seed-this-edges	5379
+eclipse	ucfs-ANALYSIS	UCFS-cmp-seed-exception-edges	3472
+eclipse	ucfs-ANALYSIS	UCFS-cmp-seed-finalizer-edges	29
+eclipse	ucfs-ANALYSIS	UCFS-cmp-same-without-this-seeds	24500
+eclipse	ucfs-ANALYSIS	UCFS-cmp-same-without-seeds	13103
+eclipse	ucfs-ANALYSIS	UCFS-cmp-last-step-pairs	60210
+eclipse	ucfs-ANALYSIS	UCFS-cmp-dispatch-cg-edges	5584
+eclipse	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-UCFS	5592
+eclipse	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-UCFS_TYPED	5592
+eclipse	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-SPARK	5584
+eclipse	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-UCFS	8
+eclipse	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-UCFS_TYPED	8
+eclipse	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-SPARK	0
+eclipse	ucfs-ANALYSIS	cmp/SPARK/Reachable Method (CI)	1767
+eclipse	ucfs-ANALYSIS	cmp/UCFS/Reachable Method (CI)	1767
+eclipse	ucfs-ANALYSIS	cmp/UCFS_TYPED/Reachable Method (CI)	1767
+eclipse	ucfs-ANALYSIS	cmp/SPARK/Call Edge(CI)	6996
+eclipse	ucfs-ANALYSIS	cmp/UCFS/Call Edge(CI)	6996
+eclipse	ucfs-ANALYSIS	cmp/UCFS_TYPED/Call Edge(CI)	6996
+eclipse	ucfs-ANALYSIS	cmp/SPARK/May Fail Cast (Total)	71
+eclipse	ucfs-ANALYSIS	cmp/UCFS/May Fail Cast (Total)	71
+eclipse	ucfs-ANALYSIS	cmp/UCFS_TYPED/May Fail Cast (Total)	71
+eclipse	ucfs-ANALYSIS	cmp/SPARK/Virtual Call Site(Polymorphic)	147
+eclipse	ucfs-ANALYSIS	cmp/UCFS/Virtual Call Site(Polymorphic)	147
+eclipse	ucfs-ANALYSIS	cmp/UCFS_TYPED/Virtual Call Site(Polymorphic)	147
+eclipse	ucfs-ANALYSIS	cmp/SPARK/globalAlias_incstst	1013
+eclipse	ucfs-ANALYSIS	cmp/UCFS/globalAlias_incstst	1025
+eclipse	ucfs-ANALYSIS	cmp/UCFS_TYPED/globalAlias_incstst	1017
+eclipse	ucfs-ANALYSIS	cmp/SPARK/Avg Points-to Target without Native Var(CI)	6.324279958215191
+eclipse	ucfs-ANALYSIS	cmp/UCFS/Avg Points-to Target without Native Var(CI)	7.3324396782841825
+eclipse	ucfs-ANALYSIS	cmp/UCFS_TYPED/Avg Points-to Target without Native Var(CI)	6.3952551477171
+eclipse	ucfs-CALL_GRAPH	EntrySize	15
+eclipse	ucfs-CALL_GRAPH	Reachable Method (CI)	1767
+eclipse	ucfs-CALL_GRAPH	Call Edge(CI)	6996
+eclipse	ucfs-CALL_GRAPH	May Fail Cast (Total)	143
+eclipse	ucfs-CALL_GRAPH	Virtual Call Site(Polymorphic)	147
+eclipse	ucfs-CALL_GRAPH	globalAlias_incstst	1041
+eclipse	ucfs-CALL_GRAPH	Avg Points-to Target without Native Var(CI)	25.67902889484659
+eclipse	ucfs-CALL_GRAPH	UCFS-import-binding	CALL_GRAPH
+eclipse	ucfs-CALL_GRAPH	UCFS-import-pairs	211620
+eclipse	ucfs-CALL_GRAPH	UCFS-import-typed-pairs	74042
+eclipse	ucfs-CALL_GRAPH	UCFS-import-root-pairs	1
+eclipse	ucfs-CALL_GRAPH	UCFS-import-spark-ms	5645
+eclipse	ucfs-CALL_GRAPH	UCFS-import-ucfs-ms	35666
+eclipse	ucfs-CALL_GRAPH	UCFS-seam-NEW	10947
+eclipse	ucfs-CALL_GRAPH	UCFS-seam-ASSIGN	22950
+eclipse	ucfs-CALL_GRAPH	UCFS-seam-LOAD	869
+eclipse	ucfs-CALL_GRAPH	UCFS-seam-STORE	597
+eclipse	ucfs-CALL_GRAPH	UCFS-pt-vertices	21309
+eclipse	ucfs-CALL_GRAPH	UCFS-pt-edges	58390
+eclipse	ucfs-CALL_GRAPH	UCFS-pt-fields	425
+eclipse	ucfs-CALL_GRAPH	UCFS-pt-pairs	211621
+eclipse	ucfs-CALL_GRAPH	UCFS-pt-time-ms	35666
+eclipse	ucfs-CALL_GRAPH	UCFS-cmp-binding	CALL_GRAPH
+eclipse	ucfs-CALL_GRAPH	UCFS-cmp-spark-pairs	60210
+eclipse	ucfs-CALL_GRAPH	UCFS-cmp-ucfs-pairs	211621
+eclipse	ucfs-CALL_GRAPH	UCFS-cmp-typed-pairs	74042
+eclipse	ucfs-CALL_GRAPH	UCFS-cmp-SAME	60210
+eclipse	ucfs-CALL_GRAPH	UCFS-cmp-R3	142813
+eclipse	ucfs-CALL_GRAPH	UCFS-cmp-R4b	1
+eclipse	ucfs-CALL_GRAPH	UCFS-cmp-R1	7759
+eclipse	ucfs-CALL_GRAPH	UCFS-cmp-R2	838
+eclipse	ucfs-CALL_GRAPH	UCFS-cmp-R5	0
+eclipse	ucfs-CALL_GRAPH	UCFS-cmp-UNEXPLAINED	0
+eclipse	ucfs-CALL_GRAPH	UCFS-cmp-MISSING	0
+eclipse	ucfs-CALL_GRAPH	UCFS-cmp-new-edges	5568
+eclipse	ucfs-CALL_GRAPH	UCFS-cmp-seed-this-edges	0
+eclipse	ucfs-CALL_GRAPH	UCFS-cmp-seed-exception-edges	3472
+eclipse	ucfs-CALL_GRAPH	UCFS-cmp-seed-finalizer-edges	29
+eclipse	ucfs-CALL_GRAPH	UCFS-cmp-same-without-this-seeds	60210
+eclipse	ucfs-CALL_GRAPH	UCFS-cmp-same-without-seeds	47490
+eclipse	ucfs-CALL_GRAPH	UCFS-cmp-last-step-pairs	60210
+eclipse	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-cg-edges	5584
+eclipse	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-UCFS	5695
+eclipse	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-UCFS_TYPED	5695
+eclipse	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-SPARK	5584
+eclipse	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-UCFS	111
+eclipse	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-UCFS_TYPED	111
+eclipse	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-SPARK	0
+eclipse	ucfs-CALL_GRAPH	cmp/SPARK/Reachable Method (CI)	1767
+eclipse	ucfs-CALL_GRAPH	cmp/UCFS/Reachable Method (CI)	1767
+eclipse	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Reachable Method (CI)	1767
+eclipse	ucfs-CALL_GRAPH	cmp/SPARK/Call Edge(CI)	6996
+eclipse	ucfs-CALL_GRAPH	cmp/UCFS/Call Edge(CI)	6996
+eclipse	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Call Edge(CI)	6996
+eclipse	ucfs-CALL_GRAPH	cmp/SPARK/May Fail Cast (Total)	71
+eclipse	ucfs-CALL_GRAPH	cmp/UCFS/May Fail Cast (Total)	143
+eclipse	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/May Fail Cast (Total)	143
+eclipse	ucfs-CALL_GRAPH	cmp/SPARK/Virtual Call Site(Polymorphic)	147
+eclipse	ucfs-CALL_GRAPH	cmp/UCFS/Virtual Call Site(Polymorphic)	147
+eclipse	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Virtual Call Site(Polymorphic)	147
+eclipse	ucfs-CALL_GRAPH	cmp/SPARK/globalAlias_incstst	1013
+eclipse	ucfs-CALL_GRAPH	cmp/UCFS/globalAlias_incstst	1041
+eclipse	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/globalAlias_incstst	1025
+eclipse	ucfs-CALL_GRAPH	cmp/SPARK/Avg Points-to Target without Native Var(CI)	6.324279958215191
+eclipse	ucfs-CALL_GRAPH	cmp/UCFS/Avg Points-to Target without Native Var(CI)	25.67902889484659
+eclipse	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Avg Points-to Target without Native Var(CI)	8.219603162762942
+eclipse	cov-D3	EntrySize	15
+eclipse	cov-D3	Single-Call Methods	733
+eclipse	cov-D3	Single-Receiver Methods	625
+eclipse	cov-D3	Single-Call-Single-Receiver Methods	480
+eclipse	cov-D3	Method (Static)	-1
+eclipse	cov-D3	Reachable Method (CI)	1767
+eclipse	cov-D3	Reachable Method (CS)	1767
+eclipse	cov-D3	Reachable App Method (CI)	852
+eclipse	cov-D3	Reachable App Method (CS)	852
+eclipse	cov-D3	Call Edge(CI)	6996
+eclipse	cov-D3	Call Edge(CS)	6996
+eclipse	cov-D3	receivers	2695
+eclipse	cov-D3	avg p2s size for virtualcalls	2.1153988868274585
+eclipse	cov-D3	Cast (Total)	392
+eclipse	cov-D3	Cast (AppOnly)	283
+eclipse	cov-D3	May Fail Cast (Total)	71
+eclipse	cov-D3	May Fail Cast (AppOnly)	65
+eclipse	cov-D3	Static Call Site(Total)	1266
+eclipse	cov-D3	Virtual Call Site(Total)	6097
+eclipse	cov-D3	Virtual Call Site(AppOnly)	4741
+eclipse	cov-D3	Virtual Call Site(Polymorphic)	147
+eclipse	cov-D3	Virtual Call Site(Polymorphic AppOnly)	64
+eclipse	cov-D3	Virtual Call Site(Unreachable)	708
+eclipse	cov-D3	Avg Poly Call Targets	2.326530612244898
+eclipse	cov-D3	Context	1387
+eclipse	cov-D3	Avg Context per Method	1.0
+eclipse	cov-D3	Method with Throw Pointer-to	643
+eclipse	cov-D3	Alloc Node(CI)	1507
+eclipse	cov-D3	Alloc Node(CS)	937
+eclipse	cov-D3	Global CS Pointer-to Relation	541
+eclipse	cov-D3	Local CS Pointer-to Relation	27384
+eclipse	cov-D3	Field CS Pointer-to Relation	13238
+eclipse	cov-D3	Global Pointer (lib + app)	298
+eclipse	cov-D3	Global Avg Points-To Target(CI)	1.8154362416107384
+eclipse	cov-D3	Global Avg Points-To Target(CS)	1.8154362416107384
+eclipse	cov-D3	App Global Pointer	159
+eclipse	cov-D3	App Global Avg Points-To Target(CI)	1.5220125786163523
+eclipse	cov-D3	App Global Avg Points-To Target(CS)	1.5220125786163523
+eclipse	cov-D3	Avg Points-to Target(CI)	6.3240423311969
+eclipse	cov-D3	Avg Points-to Target without Native Var(CI)	6.324279958215191
+eclipse	cov-D3	Local Pointer (lib + app)	5728
+eclipse	cov-D3	Local Avg Points-To Target(CI)	4.7807262569832405
+eclipse	cov-D3	Local Avg Points-To Target(CS)	4.7807262569832405
+eclipse	cov-D3	App Local Pointer	4314
+eclipse	cov-D3	App Local Avg Points-To Target(CI)	4.151599443671766
+eclipse	cov-D3	App Local Avg Points-To Target(CS)	4.151599443671766
+eclipse	cov-D3	Context Local Pointer (lib + app)	5710
+eclipse	cov-D3	Context Local Avg Points-To Target(CI)	4.795796847635727
+eclipse	cov-D3	Context Local Avg Points-To Target(CS)	4.795796847635727
+eclipse	cov-D3	App Context Local Pointer	4311
+eclipse	cov-D3	App Context Local Avg Points-To Target(CI)	4.154488517745302
+eclipse	cov-D3	App Context Local Avg Points-To Target(CS)	4.154488517745302
+eclipse	cov-D3	Alloc-pag-edge	10947
+eclipse	cov-D3	Simple-pag-edge	22950
+eclipse	cov-D3	Store-pag-edge	597
+eclipse	cov-D3	Load-pag-edge	869
+eclipse	cov-D3	intraAlias(App)	8
+eclipse	cov-D3	intraAlias_incstst(App)	9
+eclipse	cov-D3	globalAlias(App)	537
+eclipse	cov-D3	globalAlias_incstst(App)	565
+eclipse	cov-D3	intraAlias	27
+eclipse	cov-D3	intraAlias_incstst	29
+eclipse	cov-D3	globalAlias	939
+eclipse	cov-D3	globalAlias_incstst	1013
+eclipse	cov-D3	Class	3428
+eclipse	cov-D3	Appclass	413
+eclipse	cov-D3	Libclass	2211
+eclipse	cov-D3	Phantomclass	804
+eclipse	cov-D3	Class(reachable)	398
+eclipse	cov-D3	Appclass(reachable)	152
+eclipse	cov-D3	Libclass(reachable)	245
+eclipse	cov-D3	UCFS-seam-NEW	10947
+eclipse	cov-D3	UCFS-seam-ASSIGN	22950
+eclipse	cov-D3	UCFS-seam-LOAD	869
+eclipse	cov-D3	UCFS-seam-STORE	597
+eclipse	cov-JDK	EntrySize	15
+eclipse	cov-JDK	Single-Call Methods	9142
+eclipse	cov-JDK	Single-Receiver Methods	9917
+eclipse	cov-JDK	Single-Call-Single-Receiver Methods	6064
+eclipse	cov-JDK	Method (Static)	-1
+eclipse	cov-JDK	Reachable Method (CI)	23517
+eclipse	cov-JDK	Reachable Method (CS)	23517
+eclipse	cov-JDK	Reachable App Method (CI)	2293
+eclipse	cov-JDK	Reachable App Method (CS)	2293
+eclipse	cov-JDK	Call Edge(CI)	191814
+eclipse	cov-JDK	Call Edge(CS)	191814
+eclipse	cov-JDK	receivers	45180
+eclipse	cov-JDK	avg p2s size for virtualcalls	3.898450641876937
+eclipse	cov-JDK	Cast (Total)	6275
+eclipse	cov-JDK	Cast (AppOnly)	794
+eclipse	cov-JDK	May Fail Cast (Total)	5277
+eclipse	cov-JDK	May Fail Cast (AppOnly)	631
+eclipse	cov-JDK	Static Call Site(Total)	15486
+eclipse	cov-JDK	Virtual Call Site(Total)	101616
+eclipse	cov-JDK	Virtual Call Site(AppOnly)	12035
+eclipse	cov-JDK	Virtual Call Site(Polymorphic)	11269
+eclipse	cov-JDK	Virtual Call Site(Polymorphic AppOnly)	529
+eclipse	cov-JDK	Virtual Call Site(Unreachable)	1923
+eclipse	cov-JDK	Avg Poly Call Targets	7.721714437838317
+eclipse	cov-JDK	Context	23518
+eclipse	cov-JDK	Avg Context per Method	1.0
+eclipse	cov-JDK	Method with Throw Pointer-to	13159
+eclipse	cov-JDK	Alloc Node(CI)	21891
+eclipse	cov-JDK	Alloc Node(CS)	15928
+eclipse	cov-JDK	Global CS Pointer-to Relation	122048
+eclipse	cov-JDK	Local CS Pointer-to Relation	22025831
+eclipse	cov-JDK	Field CS Pointer-to Relation	7941301
+eclipse	cov-JDK	Global Pointer (lib + app)	3974
+eclipse	cov-JDK	Global Avg Points-To Target(CI)	30.71162556618017
+eclipse	cov-JDK	Global Avg Points-To Target(CS)	30.71162556618017
+eclipse	cov-JDK	App Global Pointer	274
+eclipse	cov-JDK	App Global Avg Points-To Target(CI)	47.332116788321166
+eclipse	cov-JDK	App Global Avg Points-To Target(CS)	47.332116788321166
+eclipse	cov-JDK	Avg Points-to Target(CI)	199.25188514463426
+eclipse	cov-JDK	Avg Points-to Target without Native Var(CI)	199.11339715637118
+eclipse	cov-JDK	Local Pointer (lib + app)	105915
+eclipse	cov-JDK	Local Avg Points-To Target(CI)	207.9576169569938
+eclipse	cov-JDK	Local Avg Points-To Target(CS)	207.9576169569938
+eclipse	cov-JDK	App Local Pointer	11589
+eclipse	cov-JDK	App Local Avg Points-To Target(CI)	307.4634567262059
+eclipse	cov-JDK	App Local Avg Points-To Target(CS)	307.4634567262059
+eclipse	cov-JDK	Context Local Pointer (lib + app)	105887
+eclipse	cov-JDK	Context Local Avg Points-To Target(CI)	208.01260777999187
+eclipse	cov-JDK	Context Local Avg Points-To Target(CS)	208.01260777999187
+eclipse	cov-JDK	App Context Local Pointer	11584
+eclipse	cov-JDK	App Context Local Avg Points-To Target(CI)	307.59616712707185
+eclipse	cov-JDK	App Context Local Avg Points-To Target(CS)	307.59616712707185
+eclipse	cov-JDK	Alloc-pag-edge	1369667
+eclipse	cov-JDK	Simple-pag-edge	1347964
+eclipse	cov-JDK	Store-pag-edge	12703
+eclipse	cov-JDK	Load-pag-edge	25421
+eclipse	cov-JDK	intraAlias(App)	25
+eclipse	cov-JDK	intraAlias_incstst(App)	27
+eclipse	cov-JDK	globalAlias(App)	3107
+eclipse	cov-JDK	globalAlias_incstst(App)	3225
+eclipse	cov-JDK	intraAlias	810
+eclipse	cov-JDK	intraAlias_incstst	990
+eclipse	cov-JDK	globalAlias	200511
+eclipse	cov-JDK	globalAlias_incstst	226937
+eclipse	cov-JDK	Class	5394
+eclipse	cov-JDK	Appclass	413
+eclipse	cov-JDK	Libclass	4940
+eclipse	cov-JDK	Phantomclass	41
+eclipse	cov-JDK	Class(reachable)	2730
+eclipse	cov-JDK	Appclass(reachable)	278
+eclipse	cov-JDK	Libclass(reachable)	2451
+eclipse	cov-JDK	UCFS-seam-NEW	1369667
+eclipse	cov-JDK	UCFS-seam-ASSIGN	1347964
+eclipse	cov-JDK	UCFS-seam-LOAD	25421
+eclipse	cov-JDK	UCFS-seam-STORE	12703
+fop	insens	EntrySize	15
+fop	insens	Reachable Method (CI)	1360
+fop	insens	Call Edge(CI)	3786
+fop	insens	May Fail Cast (Total)	6
+fop	insens	Virtual Call Site(Polymorphic)	83
+fop	insens	globalAlias_incstst	156
+fop	insens	Avg Points-to Target without Native Var(CI)	2.747948717948718
+fop	insens	UCFS-seam-NEW	5613
+fop	insens	UCFS-seam-ASSIGN	11783
+fop	insens	UCFS-seam-LOAD	163
+fop	insens	UCFS-seam-STORE	173
+fop	ucfs-ANALYSIS	EntrySize	15
+fop	ucfs-ANALYSIS	Reachable Method (CI)	1360
+fop	ucfs-ANALYSIS	Call Edge(CI)	3786
+fop	ucfs-ANALYSIS	May Fail Cast (Total)	6
+fop	ucfs-ANALYSIS	Virtual Call Site(Polymorphic)	83
+fop	ucfs-ANALYSIS	globalAlias_incstst	156
+fop	ucfs-ANALYSIS	Avg Points-to Target without Native Var(CI)	2.7581347681270816
+fop	ucfs-ANALYSIS	UCFS-import-binding	ANALYSIS
+fop	ucfs-ANALYSIS	UCFS-import-pairs	16494
+fop	ucfs-ANALYSIS	UCFS-import-typed-pairs	16419
+fop	ucfs-ANALYSIS	UCFS-import-root-pairs	1
+fop	ucfs-ANALYSIS	UCFS-import-spark-ms	4770
+fop	ucfs-ANALYSIS	UCFS-import-ucfs-ms	1327
+fop	ucfs-ANALYSIS	UCFS-seam-NEW	5613
+fop	ucfs-ANALYSIS	UCFS-seam-ASSIGN	11783
+fop	ucfs-ANALYSIS	UCFS-seam-LOAD	163
+fop	ucfs-ANALYSIS	UCFS-seam-STORE	173
+fop	ucfs-ANALYSIS	UCFS-pt-vertices	13524
+fop	ucfs-ANALYSIS	UCFS-pt-edges	33708
+fop	ucfs-ANALYSIS	UCFS-pt-fields	161
+fop	ucfs-ANALYSIS	UCFS-pt-pairs	16495
+fop	ucfs-ANALYSIS	UCFS-pt-time-ms	1327
+fop	ucfs-ANALYSIS	UCFS-cmp-binding	ANALYSIS
+fop	ucfs-ANALYSIS	UCFS-cmp-spark-pairs	16419
+fop	ucfs-ANALYSIS	UCFS-cmp-ucfs-pairs	16495
+fop	ucfs-ANALYSIS	UCFS-cmp-typed-pairs	16419
+fop	ucfs-ANALYSIS	UCFS-cmp-SAME	16419
+fop	ucfs-ANALYSIS	UCFS-cmp-R3	0
+fop	ucfs-ANALYSIS	UCFS-cmp-R4b	1
+fop	ucfs-ANALYSIS	UCFS-cmp-R1	48
+fop	ucfs-ANALYSIS	UCFS-cmp-R2	27
+fop	ucfs-ANALYSIS	UCFS-cmp-R5	0
+fop	ucfs-ANALYSIS	UCFS-cmp-UNEXPLAINED	0
+fop	ucfs-ANALYSIS	UCFS-cmp-MISSING	0
+fop	ucfs-ANALYSIS	UCFS-cmp-new-edges	5613
+fop	ucfs-ANALYSIS	UCFS-cmp-seed-this-edges	3214
+fop	ucfs-ANALYSIS	UCFS-cmp-seed-exception-edges	400
+fop	ucfs-ANALYSIS	UCFS-cmp-seed-finalizer-edges	5
+fop	ucfs-ANALYSIS	UCFS-cmp-same-without-this-seeds	9195
+fop	ucfs-ANALYSIS	UCFS-cmp-same-without-seeds	7963
+fop	ucfs-ANALYSIS	UCFS-cmp-last-step-pairs	16419
+fop	ucfs-ANALYSIS	UCFS-cmp-dispatch-cg-edges	3059
+fop	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-UCFS	3059
+fop	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-UCFS_TYPED	3059
+fop	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-SPARK	3059
+fop	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-UCFS	0
+fop	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-UCFS_TYPED	0
+fop	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-SPARK	0
+fop	ucfs-ANALYSIS	cmp/SPARK/Reachable Method (CI)	1360
+fop	ucfs-ANALYSIS	cmp/UCFS/Reachable Method (CI)	1360
+fop	ucfs-ANALYSIS	cmp/UCFS_TYPED/Reachable Method (CI)	1360
+fop	ucfs-ANALYSIS	cmp/SPARK/Call Edge(CI)	3786
+fop	ucfs-ANALYSIS	cmp/UCFS/Call Edge(CI)	3786
+fop	ucfs-ANALYSIS	cmp/UCFS_TYPED/Call Edge(CI)	3786
+fop	ucfs-ANALYSIS	cmp/SPARK/May Fail Cast (Total)	6
+fop	ucfs-ANALYSIS	cmp/UCFS/May Fail Cast (Total)	6
+fop	ucfs-ANALYSIS	cmp/UCFS_TYPED/May Fail Cast (Total)	6
+fop	ucfs-ANALYSIS	cmp/SPARK/Virtual Call Site(Polymorphic)	83
+fop	ucfs-ANALYSIS	cmp/UCFS/Virtual Call Site(Polymorphic)	83
+fop	ucfs-ANALYSIS	cmp/UCFS_TYPED/Virtual Call Site(Polymorphic)	83
+fop	ucfs-ANALYSIS	cmp/SPARK/globalAlias_incstst	156
+fop	ucfs-ANALYSIS	cmp/UCFS/globalAlias_incstst	156
+fop	ucfs-ANALYSIS	cmp/UCFS_TYPED/globalAlias_incstst	156
+fop	ucfs-ANALYSIS	cmp/SPARK/Avg Points-to Target without Native Var(CI)	2.747948717948718
+fop	ucfs-ANALYSIS	cmp/UCFS/Avg Points-to Target without Native Var(CI)	2.7581347681270816
+fop	ucfs-ANALYSIS	cmp/UCFS_TYPED/Avg Points-to Target without Native Var(CI)	2.747948717948718
+fop	ucfs-CALL_GRAPH	EntrySize	15
+fop	ucfs-CALL_GRAPH	Reachable Method (CI)	1360
+fop	ucfs-CALL_GRAPH	Call Edge(CI)	3786
+fop	ucfs-CALL_GRAPH	May Fail Cast (Total)	77
+fop	ucfs-CALL_GRAPH	Virtual Call Site(Polymorphic)	83
+fop	ucfs-CALL_GRAPH	globalAlias_incstst	156
+fop	ucfs-CALL_GRAPH	Avg Points-to Target without Native Var(CI)	3.031258006661542
+fop	ucfs-CALL_GRAPH	UCFS-import-binding	CALL_GRAPH
+fop	ucfs-CALL_GRAPH	UCFS-import-pairs	18509
+fop	ucfs-CALL_GRAPH	UCFS-import-typed-pairs	16482
+fop	ucfs-CALL_GRAPH	UCFS-import-root-pairs	1
+fop	ucfs-CALL_GRAPH	UCFS-import-spark-ms	3578
+fop	ucfs-CALL_GRAPH	UCFS-import-ucfs-ms	1273
+fop	ucfs-CALL_GRAPH	UCFS-seam-NEW	5613
+fop	ucfs-CALL_GRAPH	UCFS-seam-ASSIGN	11783
+fop	ucfs-CALL_GRAPH	UCFS-seam-LOAD	163
+fop	ucfs-CALL_GRAPH	UCFS-seam-STORE	173
+fop	ucfs-CALL_GRAPH	UCFS-pt-vertices	13524
+fop	ucfs-CALL_GRAPH	UCFS-pt-edges	30558
+fop	ucfs-CALL_GRAPH	UCFS-pt-fields	161
+fop	ucfs-CALL_GRAPH	UCFS-pt-pairs	18510
+fop	ucfs-CALL_GRAPH	UCFS-pt-time-ms	1273
+fop	ucfs-CALL_GRAPH	UCFS-cmp-binding	CALL_GRAPH
+fop	ucfs-CALL_GRAPH	UCFS-cmp-spark-pairs	16419
+fop	ucfs-CALL_GRAPH	UCFS-cmp-ucfs-pairs	18510
+fop	ucfs-CALL_GRAPH	UCFS-cmp-typed-pairs	16482
+fop	ucfs-CALL_GRAPH	UCFS-cmp-SAME	16419
+fop	ucfs-CALL_GRAPH	UCFS-cmp-R3	2015
+fop	ucfs-CALL_GRAPH	UCFS-cmp-R4b	1
+fop	ucfs-CALL_GRAPH	UCFS-cmp-R1	48
+fop	ucfs-CALL_GRAPH	UCFS-cmp-R2	27
+fop	ucfs-CALL_GRAPH	UCFS-cmp-R5	0
+fop	ucfs-CALL_GRAPH	UCFS-cmp-UNEXPLAINED	0
+fop	ucfs-CALL_GRAPH	UCFS-cmp-MISSING	0
+fop	ucfs-CALL_GRAPH	UCFS-cmp-new-edges	2399
+fop	ucfs-CALL_GRAPH	UCFS-cmp-seed-this-edges	0
+fop	ucfs-CALL_GRAPH	UCFS-cmp-seed-exception-edges	400
+fop	ucfs-CALL_GRAPH	UCFS-cmp-seed-finalizer-edges	5
+fop	ucfs-CALL_GRAPH	UCFS-cmp-same-without-this-seeds	16419
+fop	ucfs-CALL_GRAPH	UCFS-cmp-same-without-seeds	14940
+fop	ucfs-CALL_GRAPH	UCFS-cmp-last-step-pairs	16419
+fop	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-cg-edges	3059
+fop	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-UCFS	3059
+fop	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-UCFS_TYPED	3059
+fop	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-SPARK	3059
+fop	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-UCFS	0
+fop	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-UCFS_TYPED	0
+fop	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-SPARK	0
+fop	ucfs-CALL_GRAPH	cmp/SPARK/Reachable Method (CI)	1360
+fop	ucfs-CALL_GRAPH	cmp/UCFS/Reachable Method (CI)	1360
+fop	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Reachable Method (CI)	1360
+fop	ucfs-CALL_GRAPH	cmp/SPARK/Call Edge(CI)	3786
+fop	ucfs-CALL_GRAPH	cmp/UCFS/Call Edge(CI)	3786
+fop	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Call Edge(CI)	3786
+fop	ucfs-CALL_GRAPH	cmp/SPARK/May Fail Cast (Total)	6
+fop	ucfs-CALL_GRAPH	cmp/UCFS/May Fail Cast (Total)	77
+fop	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/May Fail Cast (Total)	77
+fop	ucfs-CALL_GRAPH	cmp/SPARK/Virtual Call Site(Polymorphic)	83
+fop	ucfs-CALL_GRAPH	cmp/UCFS/Virtual Call Site(Polymorphic)	83
+fop	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Virtual Call Site(Polymorphic)	83
+fop	ucfs-CALL_GRAPH	cmp/SPARK/globalAlias_incstst	156
+fop	ucfs-CALL_GRAPH	cmp/UCFS/globalAlias_incstst	156
+fop	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/globalAlias_incstst	156
+fop	ucfs-CALL_GRAPH	cmp/SPARK/Avg Points-to Target without Native Var(CI)	2.747948717948718
+fop	ucfs-CALL_GRAPH	cmp/UCFS/Avg Points-to Target without Native Var(CI)	3.031258006661542
+fop	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Avg Points-to Target without Native Var(CI)	2.764102564102564
+fop	cov-D3	EntrySize	15
+fop	cov-D3	Single-Call Methods	610
+fop	cov-D3	Single-Receiver Methods	540
+fop	cov-D3	Single-Call-Single-Receiver Methods	496
+fop	cov-D3	Method (Static)	-1
+fop	cov-D3	Reachable Method (CI)	1360
+fop	cov-D3	Reachable Method (CS)	1360
+fop	cov-D3	Reachable App Method (CI)	971
+fop	cov-D3	Reachable App Method (CS)	971
+fop	cov-D3	Call Edge(CI)	3786
+fop	cov-D3	Call Edge(CS)	3786
+fop	cov-D3	receivers	1452
+fop	cov-D3	avg p2s size for virtualcalls	2.1921487603305785
+fop	cov-D3	Cast (Total)	143
+fop	cov-D3	Cast (AppOnly)	62
+fop	cov-D3	May Fail Cast (Total)	6
+fop	cov-D3	May Fail Cast (AppOnly)	6
+fop	cov-D3	Static Call Site(Total)	598
+fop	cov-D3	Virtual Call Site(Total)	3219
+fop	cov-D3	Virtual Call Site(AppOnly)	2705
+fop	cov-D3	Virtual Call Site(Polymorphic)	83
+fop	cov-D3	Virtual Call Site(Polymorphic AppOnly)	10
+fop	cov-D3	Virtual Call Site(Unreachable)	250
+fop	cov-D3	Avg Poly Call Targets	2.0843373493975905
+fop	cov-D3	Context	1178
+fop	cov-D3	Avg Context per Method	1.0
+fop	cov-D3	Method with Throw Pointer-to	133
+fop	cov-D3	Alloc Node(CI)	1035
+fop	cov-D3	Alloc Node(CS)	867
+fop	cov-D3	Global CS Pointer-to Relation	1590
+fop	cov-D3	Local CS Pointer-to Relation	5956
+fop	cov-D3	Field CS Pointer-to Relation	850
+fop	cov-D3	Global Pointer (lib + app)	345
+fop	cov-D3	Global Avg Points-To Target(CI)	4.608695652173913
+fop	cov-D3	Global Avg Points-To Target(CS)	4.608695652173913
+fop	cov-D3	App Global Pointer	310
+fop	cov-D3	App Global Avg Points-To Target(CI)	5.02258064516129
+fop	cov-D3	App Global Avg Points-To Target(CS)	5.02258064516129
+fop	cov-D3	Avg Points-to Target(CI)	2.7476946721311477
+fop	cov-D3	Avg Points-to Target without Native Var(CI)	2.747948717948718
+fop	cov-D3	Local Pointer (lib + app)	2698
+fop	cov-D3	Local Avg Points-To Target(CI)	2.207561156412157
+fop	cov-D3	Local Avg Points-To Target(CS)	2.207561156412157
+fop	cov-D3	App Local Pointer	2186
+fop	cov-D3	App Local Avg Points-To Target(CI)	1.9647758462946021
+fop	cov-D3	App Local Avg Points-To Target(CS)	1.9647758462946021
+fop	cov-D3	Context Local Pointer (lib + app)	2691
+fop	cov-D3	Context Local Avg Points-To Target(CI)	2.2133036046079524
+fop	cov-D3	Context Local Avg Points-To Target(CS)	2.2133036046079524
+fop	cov-D3	App Context Local Pointer	2184
+fop	cov-D3	App Context Local Avg Points-To Target(CI)	1.9665750915750915
+fop	cov-D3	App Context Local Avg Points-To Target(CS)	1.9665750915750915
+fop	cov-D3	Alloc-pag-edge	5613
+fop	cov-D3	Simple-pag-edge	11783
+fop	cov-D3	Store-pag-edge	173
+fop	cov-D3	Load-pag-edge	163
+fop	cov-D3	intraAlias(App)	0
+fop	cov-D3	intraAlias_incstst(App)	0
+fop	cov-D3	globalAlias(App)	88
+fop	cov-D3	globalAlias_incstst(App)	95
+fop	cov-D3	intraAlias	2
+fop	cov-D3	intraAlias_incstst	2
+fop	cov-D3	globalAlias	145
+fop	cov-D3	globalAlias_incstst	156
+fop	cov-D3	Class	4041
+fop	cov-D3	Appclass	998
+fop	cov-D3	Libclass	1367
+fop	cov-D3	Phantomclass	1676
+fop	cov-D3	Class(reachable)	605
+fop	cov-D3	Appclass(reachable)	473
+fop	cov-D3	Libclass(reachable)	131
+fop	cov-D3	UCFS-seam-NEW	5613
+fop	cov-D3	UCFS-seam-ASSIGN	11783
+fop	cov-D3	UCFS-seam-LOAD	163
+fop	cov-D3	UCFS-seam-STORE	173
+fop	cov-JDK	EntrySize	15
+fop	cov-JDK	Single-Call Methods	2951
+fop	cov-JDK	Single-Receiver Methods	3207
+fop	cov-JDK	Single-Call-Single-Receiver Methods	2239
+fop	cov-JDK	Method (Static)	-1
+fop	cov-JDK	Reachable Method (CI)	8079
+fop	cov-JDK	Reachable Method (CS)	8079
+fop	cov-JDK	Reachable App Method (CI)	978
+fop	cov-JDK	Reachable App Method (CS)	978
+fop	cov-JDK	Call Edge(CI)	43891
+fop	cov-JDK	Call Edge(CS)	43891
+fop	cov-JDK	receivers	12150
+fop	cov-JDK	avg p2s size for virtualcalls	3.1636213991769546
+fop	cov-JDK	Cast (Total)	1289
+fop	cov-JDK	Cast (AppOnly)	46
+fop	cov-JDK	May Fail Cast (Total)	1048
+fop	cov-JDK	May Fail Cast (AppOnly)	35
+fop	cov-JDK	Static Call Site(Total)	5376
+fop	cov-JDK	Virtual Call Site(Total)	26429
+fop	cov-JDK	Virtual Call Site(AppOnly)	2727
+fop	cov-JDK	Virtual Call Site(Polymorphic)	1439
+fop	cov-JDK	Virtual Call Site(Polymorphic AppOnly)	24
+fop	cov-JDK	Virtual Call Site(Unreachable)	718
+fop	cov-JDK	Avg Poly Call Targets	9.574704656011118
+fop	cov-JDK	Context	8080
+fop	cov-JDK	Avg Context per Method	1.0
+fop	cov-JDK	Method with Throw Pointer-to	3912
+fop	cov-JDK	Alloc Node(CI)	8096
+fop	cov-JDK	Alloc Node(CS)	5465
+fop	cov-JDK	Global CS Pointer-to Relation	24725
+fop	cov-JDK	Local CS Pointer-to Relation	1173474
+fop	cov-JDK	Field CS Pointer-to Relation	270643
+fop	cov-JDK	Global Pointer (lib + app)	1405
+fop	cov-JDK	Global Avg Points-To Target(CI)	17.597864768683273
+fop	cov-JDK	Global Avg Points-To Target(CS)	17.597864768683273
+fop	cov-JDK	App Global Pointer	310
+fop	cov-JDK	App Global Avg Points-To Target(CI)	5.248387096774193
+fop	cov-JDK	App Global Avg Points-To Target(CS)	5.248387096774193
+fop	cov-JDK	Avg Points-to Target(CI)	44.265776801554445
+fop	cov-JDK	Avg Points-to Target without Native Var(CI)	44.21206313416009
+fop	cov-JDK	Local Pointer (lib + app)	26355
+fop	cov-JDK	Local Avg Points-To Target(CI)	44.5256687535572
+fop	cov-JDK	Local Avg Points-To Target(CS)	44.5256687535572
+fop	cov-JDK	App Local Pointer	2194
+fop	cov-JDK	App Local Avg Points-To Target(CI)	14.611668185961713
+fop	cov-JDK	App Local Avg Points-To Target(CS)	14.611668185961713
+fop	cov-JDK	Context Local Pointer (lib + app)	26335
+fop	cov-JDK	Context Local Avg Points-To Target(CI)	44.5594835769888
+fop	cov-JDK	Context Local Avg Points-To Target(CS)	44.5594835769888
+fop	cov-JDK	App Context Local Pointer	2193
+fop	cov-JDK	App Context Local Avg Points-To Target(CI)	14.618331053351573
+fop	cov-JDK	App Context Local Avg Points-To Target(CS)	14.618331053351573
+fop	cov-JDK	Alloc-pag-edge	216239
+fop	cov-JDK	Simple-pag-edge	311267
+fop	cov-JDK	Store-pag-edge	3959
+fop	cov-JDK	Load-pag-edge	4452
+fop	cov-JDK	intraAlias(App)	0
+fop	cov-JDK	intraAlias_incstst(App)	0
+fop	cov-JDK	globalAlias(App)	94
+fop	cov-JDK	globalAlias_incstst(App)	101
+fop	cov-JDK	intraAlias	131
+fop	cov-JDK	intraAlias_incstst	155
+fop	cov-JDK	globalAlias	10987
+fop	cov-JDK	globalAlias_incstst	12699
+fop	cov-JDK	Class	8498
+fop	cov-JDK	Appclass	998
+fop	cov-JDK	Libclass	7494
+fop	cov-JDK	Phantomclass	6
+fop	cov-JDK	Class(reachable)	1594
+fop	cov-JDK	Appclass(reachable)	473
+fop	cov-JDK	Libclass(reachable)	1120
+fop	cov-JDK	UCFS-seam-NEW	216239
+fop	cov-JDK	UCFS-seam-ASSIGN	311267
+fop	cov-JDK	UCFS-seam-LOAD	4452
+fop	cov-JDK	UCFS-seam-STORE	3959
+luindex	insens	EntrySize	15
+luindex	insens	Reachable Method (CI)	805
+luindex	insens	Call Edge(CI)	2819
+luindex	insens	May Fail Cast (Total)	11
+luindex	insens	Virtual Call Site(Polymorphic)	138
+luindex	insens	globalAlias_incstst	431
+luindex	insens	Avg Points-to Target without Native Var(CI)	2.5764307228915664
+luindex	insens	UCFS-seam-NEW	3168
+luindex	insens	UCFS-seam-ASSIGN	8045
+luindex	insens	UCFS-seam-LOAD	453
+luindex	insens	UCFS-seam-STORE	302
+luindex	ucfs-ANALYSIS	EntrySize	15
+luindex	ucfs-ANALYSIS	Reachable Method (CI)	805
+luindex	ucfs-ANALYSIS	Call Edge(CI)	2819
+luindex	ucfs-ANALYSIS	May Fail Cast (Total)	11
+luindex	ucfs-ANALYSIS	Virtual Call Site(Polymorphic)	138
+luindex	ucfs-ANALYSIS	globalAlias_incstst	431
+luindex	ucfs-ANALYSIS	Avg Points-to Target without Native Var(CI)	2.8922268118663164
+luindex	ucfs-ANALYSIS	UCFS-import-binding	ANALYSIS
+luindex	ucfs-ANALYSIS	UCFS-import-pairs	11985
+luindex	ucfs-ANALYSIS	UCFS-import-typed-pairs	11029
+luindex	ucfs-ANALYSIS	UCFS-import-root-pairs	1
+luindex	ucfs-ANALYSIS	UCFS-import-spark-ms	3602
+luindex	ucfs-ANALYSIS	UCFS-import-ucfs-ms	900
+luindex	ucfs-ANALYSIS	UCFS-seam-NEW	3168
+luindex	ucfs-ANALYSIS	UCFS-seam-ASSIGN	8045
+luindex	ucfs-ANALYSIS	UCFS-seam-LOAD	453
+luindex	ucfs-ANALYSIS	UCFS-seam-STORE	302
+luindex	ucfs-ANALYSIS	UCFS-pt-vertices	8424
+luindex	ucfs-ANALYSIS	UCFS-pt-edges	21302
+luindex	ucfs-ANALYSIS	UCFS-pt-fields	194
+luindex	ucfs-ANALYSIS	UCFS-pt-pairs	11986
+luindex	ucfs-ANALYSIS	UCFS-pt-time-ms	900
+luindex	ucfs-ANALYSIS	UCFS-cmp-binding	ANALYSIS
+luindex	ucfs-ANALYSIS	UCFS-cmp-spark-pairs	11007
+luindex	ucfs-ANALYSIS	UCFS-cmp-ucfs-pairs	11986
+luindex	ucfs-ANALYSIS	UCFS-cmp-typed-pairs	11029
+luindex	ucfs-ANALYSIS	UCFS-cmp-SAME	11007
+luindex	ucfs-ANALYSIS	UCFS-cmp-R3	0
+luindex	ucfs-ANALYSIS	UCFS-cmp-R4b	1
+luindex	ucfs-ANALYSIS	UCFS-cmp-R1	925
+luindex	ucfs-ANALYSIS	UCFS-cmp-R2	53
+luindex	ucfs-ANALYSIS	UCFS-cmp-R5	0
+luindex	ucfs-ANALYSIS	UCFS-cmp-UNEXPLAINED	0
+luindex	ucfs-ANALYSIS	UCFS-cmp-MISSING	0
+luindex	ucfs-ANALYSIS	UCFS-cmp-new-edges	3168
+luindex	ucfs-ANALYSIS	UCFS-cmp-seed-this-edges	1481
+luindex	ucfs-ANALYSIS	UCFS-cmp-seed-exception-edges	770
+luindex	ucfs-ANALYSIS	UCFS-cmp-seed-finalizer-edges	13
+luindex	ucfs-ANALYSIS	UCFS-cmp-same-without-this-seeds	6256
+luindex	ucfs-ANALYSIS	UCFS-cmp-same-without-seeds	3858
+luindex	ucfs-ANALYSIS	UCFS-cmp-last-step-pairs	11007
+luindex	ucfs-ANALYSIS	UCFS-cmp-dispatch-cg-edges	2462
+luindex	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-UCFS	2462
+luindex	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-UCFS_TYPED	2462
+luindex	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-SPARK	2462
+luindex	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-UCFS	0
+luindex	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-UCFS_TYPED	0
+luindex	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-SPARK	0
+luindex	ucfs-ANALYSIS	cmp/SPARK/Reachable Method (CI)	805
+luindex	ucfs-ANALYSIS	cmp/UCFS/Reachable Method (CI)	805
+luindex	ucfs-ANALYSIS	cmp/UCFS_TYPED/Reachable Method (CI)	805
+luindex	ucfs-ANALYSIS	cmp/SPARK/Call Edge(CI)	2819
+luindex	ucfs-ANALYSIS	cmp/UCFS/Call Edge(CI)	2819
+luindex	ucfs-ANALYSIS	cmp/UCFS_TYPED/Call Edge(CI)	2819
+luindex	ucfs-ANALYSIS	cmp/SPARK/May Fail Cast (Total)	11
+luindex	ucfs-ANALYSIS	cmp/UCFS/May Fail Cast (Total)	11
+luindex	ucfs-ANALYSIS	cmp/UCFS_TYPED/May Fail Cast (Total)	11
+luindex	ucfs-ANALYSIS	cmp/SPARK/Virtual Call Site(Polymorphic)	138
+luindex	ucfs-ANALYSIS	cmp/UCFS/Virtual Call Site(Polymorphic)	138
+luindex	ucfs-ANALYSIS	cmp/UCFS_TYPED/Virtual Call Site(Polymorphic)	138
+luindex	ucfs-ANALYSIS	cmp/SPARK/globalAlias_incstst	431
+luindex	ucfs-ANALYSIS	cmp/UCFS/globalAlias_incstst	431
+luindex	ucfs-ANALYSIS	cmp/UCFS_TYPED/globalAlias_incstst	431
+luindex	ucfs-ANALYSIS	cmp/SPARK/Avg Points-to Target without Native Var(CI)	2.5764307228915664
+luindex	ucfs-ANALYSIS	cmp/UCFS/Avg Points-to Target without Native Var(CI)	2.8922268118663164
+luindex	ucfs-ANALYSIS	cmp/UCFS_TYPED/Avg Points-to Target without Native Var(CI)	2.5847138554216866
+luindex	ucfs-CALL_GRAPH	EntrySize	15
+luindex	ucfs-CALL_GRAPH	Reachable Method (CI)	805
+luindex	ucfs-CALL_GRAPH	Call Edge(CI)	2819
+luindex	ucfs-CALL_GRAPH	May Fail Cast (Total)	82
+luindex	ucfs-CALL_GRAPH	Virtual Call Site(Polymorphic)	138
+luindex	ucfs-CALL_GRAPH	globalAlias_incstst	431
+luindex	ucfs-CALL_GRAPH	Avg Points-to Target without Native Var(CI)	3.5418700713481037
+luindex	ucfs-CALL_GRAPH	UCFS-import-binding	CALL_GRAPH
+luindex	ucfs-CALL_GRAPH	UCFS-import-pairs	14496
+luindex	ucfs-CALL_GRAPH	UCFS-import-typed-pairs	11084
+luindex	ucfs-CALL_GRAPH	UCFS-import-root-pairs	1
+luindex	ucfs-CALL_GRAPH	UCFS-import-spark-ms	2755
+luindex	ucfs-CALL_GRAPH	UCFS-import-ucfs-ms	1122
+luindex	ucfs-CALL_GRAPH	UCFS-seam-NEW	3168
+luindex	ucfs-CALL_GRAPH	UCFS-seam-ASSIGN	8045
+luindex	ucfs-CALL_GRAPH	UCFS-seam-LOAD	453
+luindex	ucfs-CALL_GRAPH	UCFS-seam-STORE	302
+luindex	ucfs-CALL_GRAPH	UCFS-pt-vertices	8424
+luindex	ucfs-CALL_GRAPH	UCFS-pt-edges	21362
+luindex	ucfs-CALL_GRAPH	UCFS-pt-fields	194
+luindex	ucfs-CALL_GRAPH	UCFS-pt-pairs	14497
+luindex	ucfs-CALL_GRAPH	UCFS-pt-time-ms	1122
+luindex	ucfs-CALL_GRAPH	UCFS-cmp-binding	CALL_GRAPH
+luindex	ucfs-CALL_GRAPH	UCFS-cmp-spark-pairs	11007
+luindex	ucfs-CALL_GRAPH	UCFS-cmp-ucfs-pairs	14497
+luindex	ucfs-CALL_GRAPH	UCFS-cmp-typed-pairs	11084
+luindex	ucfs-CALL_GRAPH	UCFS-cmp-SAME	11007
+luindex	ucfs-CALL_GRAPH	UCFS-cmp-R3	2511
+luindex	ucfs-CALL_GRAPH	UCFS-cmp-R4b	1
+luindex	ucfs-CALL_GRAPH	UCFS-cmp-R1	925
+luindex	ucfs-CALL_GRAPH	UCFS-cmp-R2	53
+luindex	ucfs-CALL_GRAPH	UCFS-cmp-R5	0
+luindex	ucfs-CALL_GRAPH	UCFS-cmp-UNEXPLAINED	0
+luindex	ucfs-CALL_GRAPH	UCFS-cmp-MISSING	0
+luindex	ucfs-CALL_GRAPH	UCFS-cmp-new-edges	1687
+luindex	ucfs-CALL_GRAPH	UCFS-cmp-seed-this-edges	0
+luindex	ucfs-CALL_GRAPH	UCFS-cmp-seed-exception-edges	770
+luindex	ucfs-CALL_GRAPH	UCFS-cmp-seed-finalizer-edges	13
+luindex	ucfs-CALL_GRAPH	UCFS-cmp-same-without-this-seeds	11007
+luindex	ucfs-CALL_GRAPH	UCFS-cmp-same-without-seeds	8580
+luindex	ucfs-CALL_GRAPH	UCFS-cmp-last-step-pairs	11007
+luindex	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-cg-edges	2462
+luindex	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-UCFS	2462
+luindex	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-UCFS_TYPED	2462
+luindex	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-SPARK	2462
+luindex	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-UCFS	0
+luindex	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-UCFS_TYPED	0
+luindex	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-SPARK	0
+luindex	ucfs-CALL_GRAPH	cmp/SPARK/Reachable Method (CI)	805
+luindex	ucfs-CALL_GRAPH	cmp/UCFS/Reachable Method (CI)	805
+luindex	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Reachable Method (CI)	805
+luindex	ucfs-CALL_GRAPH	cmp/SPARK/Call Edge(CI)	2819
+luindex	ucfs-CALL_GRAPH	cmp/UCFS/Call Edge(CI)	2819
+luindex	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Call Edge(CI)	2819
+luindex	ucfs-CALL_GRAPH	cmp/SPARK/May Fail Cast (Total)	11
+luindex	ucfs-CALL_GRAPH	cmp/UCFS/May Fail Cast (Total)	82
+luindex	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/May Fail Cast (Total)	82
+luindex	ucfs-CALL_GRAPH	cmp/SPARK/Virtual Call Site(Polymorphic)	138
+luindex	ucfs-CALL_GRAPH	cmp/UCFS/Virtual Call Site(Polymorphic)	138
+luindex	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Virtual Call Site(Polymorphic)	138
+luindex	ucfs-CALL_GRAPH	cmp/SPARK/globalAlias_incstst	431
+luindex	ucfs-CALL_GRAPH	cmp/UCFS/globalAlias_incstst	431
+luindex	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/globalAlias_incstst	431
+luindex	ucfs-CALL_GRAPH	cmp/SPARK/Avg Points-to Target without Native Var(CI)	2.5764307228915664
+luindex	ucfs-CALL_GRAPH	cmp/UCFS/Avg Points-to Target without Native Var(CI)	3.5418700713481037
+luindex	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Avg Points-to Target without Native Var(CI)	2.605421686746988
+luindex	cov-D3	EntrySize	15
+luindex	cov-D3	Single-Call Methods	321
+luindex	cov-D3	Single-Receiver Methods	264
+luindex	cov-D3	Single-Call-Single-Receiver Methods	179
+luindex	cov-D3	Method (Static)	-1
+luindex	cov-D3	Reachable Method (CI)	805
+luindex	cov-D3	Reachable Method (CS)	805
+luindex	cov-D3	Reachable App Method (CI)	404
+luindex	cov-D3	Reachable App Method (CS)	404
+luindex	cov-D3	Call Edge(CI)	2819
+luindex	cov-D3	Call Edge(CS)	2819
+luindex	cov-D3	receivers	1018
+luindex	cov-D3	avg p2s size for virtualcalls	2.4764243614931236
+luindex	cov-D3	Cast (Total)	155
+luindex	cov-D3	Cast (AppOnly)	75
+luindex	cov-D3	May Fail Cast (Total)	11
+luindex	cov-D3	May Fail Cast (AppOnly)	11
+luindex	cov-D3	Static Call Site(Total)	285
+luindex	cov-D3	Virtual Call Site(Total)	2591
+luindex	cov-D3	Virtual Call Site(AppOnly)	2174
+luindex	cov-D3	Virtual Call Site(Polymorphic)	138
+luindex	cov-D3	Virtual Call Site(Polymorphic AppOnly)	67
+luindex	cov-D3	Virtual Call Site(Unreachable)	301
+luindex	cov-D3	Avg Poly Call Targets	2.246376811594203
+luindex	cov-D3	Context	594
+luindex	cov-D3	Avg Context per Method	1.0
+luindex	cov-D3	Method with Throw Pointer-to	216
+luindex	cov-D3	Alloc Node(CI)	601
+luindex	cov-D3	Alloc Node(CS)	364
+luindex	cov-D3	Global CS Pointer-to Relation	608
+luindex	cov-D3	Local CS Pointer-to Relation	4159
+luindex	cov-D3	Field CS Pointer-to Relation	977
+luindex	cov-D3	Global Pointer (lib + app)	109
+luindex	cov-D3	Global Avg Points-To Target(CI)	5.577981651376147
+luindex	cov-D3	Global Avg Points-To Target(CS)	5.577981651376147
+luindex	cov-D3	App Global Pointer	80
+luindex	cov-D3	App Global Avg Points-To Target(CI)	7.2375
+luindex	cov-D3	App Global Avg Points-To Target(CS)	7.2375
+luindex	cov-D3	Avg Points-to Target(CI)	2.5763157894736843
+luindex	cov-D3	Avg Points-to Target without Native Var(CI)	2.5764307228915664
+luindex	cov-D3	Local Pointer (lib + app)	2129
+luindex	cov-D3	Local Avg Points-To Target(CI)	1.9534992954438704
+luindex	cov-D3	Local Avg Points-To Target(CS)	1.9534992954438704
+luindex	cov-D3	App Local Pointer	1664
+luindex	cov-D3	App Local Avg Points-To Target(CI)	1.6111778846153846
+luindex	cov-D3	App Local Avg Points-To Target(CS)	1.6111778846153846
+luindex	cov-D3	Context Local Pointer (lib + app)	2125
+luindex	cov-D3	Context Local Avg Points-To Target(CI)	1.9571764705882353
+luindex	cov-D3	Context Local Avg Points-To Target(CS)	1.9571764705882353
+luindex	cov-D3	App Context Local Pointer	1663
+luindex	cov-D3	App Context Local Avg Points-To Target(CI)	1.6121467227901383
+luindex	cov-D3	App Context Local Avg Points-To Target(CS)	1.6121467227901383
+luindex	cov-D3	Alloc-pag-edge	3168
+luindex	cov-D3	Simple-pag-edge	8045
+luindex	cov-D3	Store-pag-edge	302
+luindex	cov-D3	Load-pag-edge	453
+luindex	cov-D3	intraAlias(App)	5
+luindex	cov-D3	intraAlias_incstst(App)	5
+luindex	cov-D3	globalAlias(App)	319
+luindex	cov-D3	globalAlias_incstst(App)	341
+luindex	cov-D3	intraAlias	9
+luindex	cov-D3	intraAlias_incstst	9
+luindex	cov-D3	globalAlias	402
+luindex	cov-D3	globalAlias_incstst	431
+luindex	cov-D3	Class	1141
+luindex	cov-D3	Appclass	349
+luindex	cov-D3	Libclass	81
+luindex	cov-D3	Phantomclass	711
+luindex	cov-D3	Class(reachable)	218
+luindex	cov-D3	Appclass(reachable)	95
+luindex	cov-D3	Libclass(reachable)	122
+luindex	cov-D3	UCFS-seam-NEW	3168
+luindex	cov-D3	UCFS-seam-ASSIGN	8045
+luindex	cov-D3	UCFS-seam-LOAD	453
+luindex	cov-D3	UCFS-seam-STORE	302
+luindex	cov-JDK	EntrySize	15
+luindex	cov-JDK	Single-Call Methods	2645
+luindex	cov-JDK	Single-Receiver Methods	2937
+luindex	cov-JDK	Single-Call-Single-Receiver Methods	1930
+luindex	cov-JDK	Method (Static)	-1
+luindex	cov-JDK	Reachable Method (CI)	7481
+luindex	cov-JDK	Reachable Method (CS)	7481
+luindex	cov-JDK	Reachable App Method (CI)	547
+luindex	cov-JDK	Reachable App Method (CS)	547
+luindex	cov-JDK	Call Edge(CI)	42980
+luindex	cov-JDK	Call Edge(CS)	42980
+luindex	cov-JDK	receivers	11671
+luindex	cov-JDK	avg p2s size for virtualcalls	3.239910890240768
+luindex	cov-JDK	Cast (Total)	1302
+luindex	cov-JDK	Cast (AppOnly)	88
+luindex	cov-JDK	May Fail Cast (Total)	1069
+luindex	cov-JDK	May Fail Cast (AppOnly)	76
+luindex	cov-JDK	Static Call Site(Total)	5088
+luindex	cov-JDK	Virtual Call Site(Total)	25793
+luindex	cov-JDK	Virtual Call Site(AppOnly)	2689
+luindex	cov-JDK	Virtual Call Site(Polymorphic)	1481
+luindex	cov-JDK	Virtual Call Site(Polymorphic AppOnly)	148
+luindex	cov-JDK	Virtual Call Site(Unreachable)	665
+luindex	cov-JDK	Avg Poly Call Targets	9.354490209318028
+luindex	cov-JDK	Context	7482
+luindex	cov-JDK	Avg Context per Method	1.0
+luindex	cov-JDK	Method with Throw Pointer-to	3981
+luindex	cov-JDK	Alloc Node(CI)	7438
+luindex	cov-JDK	Alloc Node(CS)	4757
+luindex	cov-JDK	Global CS Pointer-to Relation	23954
+luindex	cov-JDK	Local CS Pointer-to Relation	983307
+luindex	cov-JDK	Field CS Pointer-to Relation	256441
+luindex	cov-JDK	Global Pointer (lib + app)	1159
+luindex	cov-JDK	Global Avg Points-To Target(CI)	20.66781708369284
+luindex	cov-JDK	Global Avg Points-To Target(CS)	20.66781708369284
+luindex	cov-JDK	App Global Pointer	81
+luindex	cov-JDK	App Global Avg Points-To Target(CI)	8.160493827160494
+luindex	cov-JDK	App Global Avg Points-To Target(CS)	8.160493827160494
+luindex	cov-JDK	Avg Points-to Target(CI)	38.499635153673275
+luindex	cov-JDK	Avg Points-to Target without Native Var(CI)	38.455740578439965
+luindex	cov-JDK	Local Pointer (lib + app)	25686
+luindex	cov-JDK	Local Avg Points-To Target(CI)	38.281826676010276
+luindex	cov-JDK	Local Avg Points-To Target(CS)	38.281826676010276
+luindex	cov-JDK	App Local Pointer	2171
+luindex	cov-JDK	App Local Avg Points-To Target(CI)	24.225241824044218
+luindex	cov-JDK	App Local Avg Points-To Target(CS)	24.225241824044218
+luindex	cov-JDK	Context Local Pointer (lib + app)	25667
+luindex	cov-JDK	Context Local Avg Points-To Target(CI)	38.310164803054505
+luindex	cov-JDK	Context Local Avg Points-To Target(CS)	38.310164803054505
+luindex	cov-JDK	App Context Local Pointer	2171
+luindex	cov-JDK	App Context Local Avg Points-To Target(CI)	24.225241824044218
+luindex	cov-JDK	App Context Local Avg Points-To Target(CS)	24.225241824044218
+luindex	cov-JDK	Alloc-pag-edge	202171
+luindex	cov-JDK	Simple-pag-edge	249106
+luindex	cov-JDK	Store-pag-edge	3728
+luindex	cov-JDK	Load-pag-edge	4890
+luindex	cov-JDK	intraAlias(App)	16
+luindex	cov-JDK	intraAlias_incstst(App)	16
+luindex	cov-JDK	globalAlias(App)	619
+luindex	cov-JDK	globalAlias_incstst(App)	660
+luindex	cov-JDK	intraAlias	148
+luindex	cov-JDK	intraAlias_incstst	172
+luindex	cov-JDK	globalAlias	11662
+luindex	cov-JDK	globalAlias_incstst	13416
+luindex	cov-JDK	Class	3325
+luindex	cov-JDK	Appclass	349
+luindex	cov-JDK	Libclass	2972
+luindex	cov-JDK	Phantomclass	4
+luindex	cov-JDK	Class(reachable)	1157
+luindex	cov-JDK	Appclass(reachable)	100
+luindex	cov-JDK	Libclass(reachable)	1056
+luindex	cov-JDK	UCFS-seam-NEW	202171
+luindex	cov-JDK	UCFS-seam-ASSIGN	249106
+luindex	cov-JDK	UCFS-seam-LOAD	4890
+luindex	cov-JDK	UCFS-seam-STORE	3728
+lusearch	insens	EntrySize	15
+lusearch	insens	Reachable Method (CI)	1333
+lusearch	insens	Call Edge(CI)	4639
+lusearch	insens	May Fail Cast (Total)	57
+lusearch	insens	Virtual Call Site(Polymorphic)	303
+lusearch	insens	globalAlias_incstst	1042
+lusearch	insens	Avg Points-to Target without Native Var(CI)	3.449188214070956
+lusearch	insens	UCFS-seam-NEW	5367
+lusearch	insens	UCFS-seam-ASSIGN	13753
+lusearch	insens	UCFS-seam-LOAD	873
+lusearch	insens	UCFS-seam-STORE	533
+lusearch	ucfs-ANALYSIS	EntrySize	15
+lusearch	ucfs-ANALYSIS	Reachable Method (CI)	1333
+lusearch	ucfs-ANALYSIS	Call Edge(CI)	4639
+lusearch	ucfs-ANALYSIS	May Fail Cast (Total)	67
+lusearch	ucfs-ANALYSIS	Virtual Call Site(Polymorphic)	303
+lusearch	ucfs-ANALYSIS	globalAlias_incstst	1042
+lusearch	ucfs-ANALYSIS	Avg Points-to Target without Native Var(CI)	4.100559776089564
+lusearch	ucfs-ANALYSIS	UCFS-import-binding	ANALYSIS
+lusearch	ucfs-ANALYSIS	UCFS-import-pairs	28238
+lusearch	ucfs-ANALYSIS	UCFS-import-typed-pairs	24502
+lusearch	ucfs-ANALYSIS	UCFS-import-root-pairs	1
+lusearch	ucfs-ANALYSIS	UCFS-import-spark-ms	4679
+lusearch	ucfs-ANALYSIS	UCFS-import-ucfs-ms	1444
+lusearch	ucfs-ANALYSIS	UCFS-seam-NEW	5367
+lusearch	ucfs-ANALYSIS	UCFS-seam-ASSIGN	13753
+lusearch	ucfs-ANALYSIS	UCFS-seam-LOAD	873
+lusearch	ucfs-ANALYSIS	UCFS-seam-STORE	533
+lusearch	ucfs-ANALYSIS	UCFS-pt-vertices	13566
+lusearch	ucfs-ANALYSIS	UCFS-pt-edges	35672
+lusearch	ucfs-ANALYSIS	UCFS-pt-fields	314
+lusearch	ucfs-ANALYSIS	UCFS-pt-pairs	28239
+lusearch	ucfs-ANALYSIS	UCFS-pt-time-ms	1444
+lusearch	ucfs-ANALYSIS	UCFS-cmp-binding	ANALYSIS
+lusearch	ucfs-ANALYSIS	UCFS-cmp-spark-pairs	24188
+lusearch	ucfs-ANALYSIS	UCFS-cmp-ucfs-pairs	28239
+lusearch	ucfs-ANALYSIS	UCFS-cmp-typed-pairs	24502
+lusearch	ucfs-ANALYSIS	UCFS-cmp-SAME	24188
+lusearch	ucfs-ANALYSIS	UCFS-cmp-R3	0
+lusearch	ucfs-ANALYSIS	UCFS-cmp-R4b	1
+lusearch	ucfs-ANALYSIS	UCFS-cmp-R1	3760
+lusearch	ucfs-ANALYSIS	UCFS-cmp-R2	290
+lusearch	ucfs-ANALYSIS	UCFS-cmp-R5	0
+lusearch	ucfs-ANALYSIS	UCFS-cmp-UNEXPLAINED	0
+lusearch	ucfs-ANALYSIS	UCFS-cmp-MISSING	0
+lusearch	ucfs-ANALYSIS	UCFS-cmp-new-edges	5367
+lusearch	ucfs-ANALYSIS	UCFS-cmp-seed-this-edges	2878
+lusearch	ucfs-ANALYSIS	UCFS-cmp-seed-exception-edges	1313
+lusearch	ucfs-ANALYSIS	UCFS-cmp-seed-finalizer-edges	14
+lusearch	ucfs-ANALYSIS	UCFS-cmp-same-without-this-seeds	10138
+lusearch	ucfs-ANALYSIS	UCFS-cmp-same-without-seeds	5981
+lusearch	ucfs-ANALYSIS	UCFS-cmp-last-step-pairs	24188
+lusearch	ucfs-ANALYSIS	UCFS-cmp-dispatch-cg-edges	4118
+lusearch	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-UCFS	4118
+lusearch	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-UCFS_TYPED	4118
+lusearch	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-SPARK	4118
+lusearch	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-UCFS	0
+lusearch	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-UCFS_TYPED	0
+lusearch	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-SPARK	0
+lusearch	ucfs-ANALYSIS	cmp/SPARK/Reachable Method (CI)	1333
+lusearch	ucfs-ANALYSIS	cmp/UCFS/Reachable Method (CI)	1333
+lusearch	ucfs-ANALYSIS	cmp/UCFS_TYPED/Reachable Method (CI)	1333
+lusearch	ucfs-ANALYSIS	cmp/SPARK/Call Edge(CI)	4639
+lusearch	ucfs-ANALYSIS	cmp/UCFS/Call Edge(CI)	4639
+lusearch	ucfs-ANALYSIS	cmp/UCFS_TYPED/Call Edge(CI)	4639
+lusearch	ucfs-ANALYSIS	cmp/SPARK/May Fail Cast (Total)	57
+lusearch	ucfs-ANALYSIS	cmp/UCFS/May Fail Cast (Total)	67
+lusearch	ucfs-ANALYSIS	cmp/UCFS_TYPED/May Fail Cast (Total)	67
+lusearch	ucfs-ANALYSIS	cmp/SPARK/Virtual Call Site(Polymorphic)	303
+lusearch	ucfs-ANALYSIS	cmp/UCFS/Virtual Call Site(Polymorphic)	303
+lusearch	ucfs-ANALYSIS	cmp/UCFS_TYPED/Virtual Call Site(Polymorphic)	303
+lusearch	ucfs-ANALYSIS	cmp/SPARK/globalAlias_incstst	1042
+lusearch	ucfs-ANALYSIS	cmp/UCFS/globalAlias_incstst	1042
+lusearch	ucfs-ANALYSIS	cmp/UCFS_TYPED/globalAlias_incstst	1042
+lusearch	ucfs-ANALYSIS	cmp/SPARK/Avg Points-to Target without Native Var(CI)	3.449188214070956
+lusearch	ucfs-ANALYSIS	cmp/UCFS/Avg Points-to Target without Native Var(CI)	4.100559776089564
+lusearch	ucfs-ANALYSIS	cmp/UCFS_TYPED/Avg Points-to Target without Native Var(CI)	3.4926839045900984
+lusearch	ucfs-CALL_GRAPH	EntrySize	15
+lusearch	ucfs-CALL_GRAPH	Reachable Method (CI)	1333
+lusearch	ucfs-CALL_GRAPH	Call Edge(CI)	4639
+lusearch	ucfs-CALL_GRAPH	May Fail Cast (Total)	138
+lusearch	ucfs-CALL_GRAPH	Virtual Call Site(Polymorphic)	303
+lusearch	ucfs-CALL_GRAPH	globalAlias_incstst	1042
+lusearch	ucfs-CALL_GRAPH	Avg Points-to Target without Native Var(CI)	5.8746501399440225
+lusearch	ucfs-CALL_GRAPH	UCFS-import-binding	CALL_GRAPH
+lusearch	ucfs-CALL_GRAPH	UCFS-import-pairs	38118
+lusearch	ucfs-CALL_GRAPH	UCFS-import-typed-pairs	24951
+lusearch	ucfs-CALL_GRAPH	UCFS-import-root-pairs	1
+lusearch	ucfs-CALL_GRAPH	UCFS-import-spark-ms	4516
+lusearch	ucfs-CALL_GRAPH	UCFS-import-ucfs-ms	3457
+lusearch	ucfs-CALL_GRAPH	UCFS-seam-NEW	5367
+lusearch	ucfs-CALL_GRAPH	UCFS-seam-ASSIGN	13753
+lusearch	ucfs-CALL_GRAPH	UCFS-seam-LOAD	873
+lusearch	ucfs-CALL_GRAPH	UCFS-seam-STORE	533
+lusearch	ucfs-CALL_GRAPH	UCFS-pt-vertices	13566
+lusearch	ucfs-CALL_GRAPH	UCFS-pt-edges	35356
+lusearch	ucfs-CALL_GRAPH	UCFS-pt-fields	314
+lusearch	ucfs-CALL_GRAPH	UCFS-pt-pairs	38119
+lusearch	ucfs-CALL_GRAPH	UCFS-pt-time-ms	3457
+lusearch	ucfs-CALL_GRAPH	UCFS-cmp-binding	CALL_GRAPH
+lusearch	ucfs-CALL_GRAPH	UCFS-cmp-spark-pairs	24188
+lusearch	ucfs-CALL_GRAPH	UCFS-cmp-ucfs-pairs	38119
+lusearch	ucfs-CALL_GRAPH	UCFS-cmp-typed-pairs	24951
+lusearch	ucfs-CALL_GRAPH	UCFS-cmp-SAME	24188
+lusearch	ucfs-CALL_GRAPH	UCFS-cmp-R3	9880
+lusearch	ucfs-CALL_GRAPH	UCFS-cmp-R4b	1
+lusearch	ucfs-CALL_GRAPH	UCFS-cmp-R1	3760
+lusearch	ucfs-CALL_GRAPH	UCFS-cmp-R2	290
+lusearch	ucfs-CALL_GRAPH	UCFS-cmp-R5	0
+lusearch	ucfs-CALL_GRAPH	UCFS-cmp-UNEXPLAINED	0
+lusearch	ucfs-CALL_GRAPH	UCFS-cmp-MISSING	0
+lusearch	ucfs-CALL_GRAPH	UCFS-cmp-new-edges	2489
+lusearch	ucfs-CALL_GRAPH	UCFS-cmp-seed-this-edges	0
+lusearch	ucfs-CALL_GRAPH	UCFS-cmp-seed-exception-edges	1313
+lusearch	ucfs-CALL_GRAPH	UCFS-cmp-seed-finalizer-edges	14
+lusearch	ucfs-CALL_GRAPH	UCFS-cmp-same-without-this-seeds	24188
+lusearch	ucfs-CALL_GRAPH	UCFS-cmp-same-without-seeds	19098
+lusearch	ucfs-CALL_GRAPH	UCFS-cmp-last-step-pairs	24188
+lusearch	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-cg-edges	4118
+lusearch	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-UCFS	4138
+lusearch	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-UCFS_TYPED	4138
+lusearch	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-SPARK	4118
+lusearch	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-UCFS	20
+lusearch	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-UCFS_TYPED	20
+lusearch	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-SPARK	0
+lusearch	ucfs-CALL_GRAPH	cmp/SPARK/Reachable Method (CI)	1333
+lusearch	ucfs-CALL_GRAPH	cmp/UCFS/Reachable Method (CI)	1333
+lusearch	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Reachable Method (CI)	1333
+lusearch	ucfs-CALL_GRAPH	cmp/SPARK/Call Edge(CI)	4639
+lusearch	ucfs-CALL_GRAPH	cmp/UCFS/Call Edge(CI)	4639
+lusearch	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Call Edge(CI)	4639
+lusearch	ucfs-CALL_GRAPH	cmp/SPARK/May Fail Cast (Total)	57
+lusearch	ucfs-CALL_GRAPH	cmp/UCFS/May Fail Cast (Total)	138
+lusearch	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/May Fail Cast (Total)	138
+lusearch	ucfs-CALL_GRAPH	cmp/SPARK/Virtual Call Site(Polymorphic)	303
+lusearch	ucfs-CALL_GRAPH	cmp/UCFS/Virtual Call Site(Polymorphic)	303
+lusearch	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Virtual Call Site(Polymorphic)	303
+lusearch	ucfs-CALL_GRAPH	cmp/SPARK/globalAlias_incstst	1042
+lusearch	ucfs-CALL_GRAPH	cmp/UCFS/globalAlias_incstst	1042
+lusearch	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/globalAlias_incstst	1042
+lusearch	ucfs-CALL_GRAPH	cmp/SPARK/Avg Points-to Target without Native Var(CI)	3.449188214070956
+lusearch	ucfs-CALL_GRAPH	cmp/UCFS/Avg Points-to Target without Native Var(CI)	5.8746501399440225
+lusearch	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Avg Points-to Target without Native Var(CI)	3.556825015033073
+lusearch	cov-D3	EntrySize	15
+lusearch	cov-D3	Single-Call Methods	562
+lusearch	cov-D3	Single-Receiver Methods	569
+lusearch	cov-D3	Single-Call-Single-Receiver Methods	379
+lusearch	cov-D3	Method (Static)	-1
+lusearch	cov-D3	Reachable Method (CI)	1333
+lusearch	cov-D3	Reachable Method (CS)	1333
+lusearch	cov-D3	Reachable App Method (CI)	866
+lusearch	cov-D3	Reachable App Method (CS)	866
+lusearch	cov-D3	Call Edge(CI)	4639
+lusearch	cov-D3	Call Edge(CS)	4639
+lusearch	cov-D3	receivers	1692
+lusearch	cov-D3	avg p2s size for virtualcalls	2.475177304964539
+lusearch	cov-D3	Cast (Total)	242
+lusearch	cov-D3	Cast (AppOnly)	158
+lusearch	cov-D3	May Fail Cast (Total)	57
+lusearch	cov-D3	May Fail Cast (AppOnly)	56
+lusearch	cov-D3	Static Call Site(Total)	437
+lusearch	cov-D3	Virtual Call Site(Total)	3924
+lusearch	cov-D3	Virtual Call Site(AppOnly)	3445
+lusearch	cov-D3	Virtual Call Site(Polymorphic)	303
+lusearch	cov-D3	Virtual Call Site(Polymorphic AppOnly)	230
+lusearch	cov-D3	Virtual Call Site(Unreachable)	297
+lusearch	cov-D3	Avg Poly Call Targets	2.6204620462046204
+lusearch	cov-D3	Context	1097
+lusearch	cov-D3	Avg Context per Method	1.0
+lusearch	cov-D3	Method with Throw Pointer-to	398
+lusearch	cov-D3	Alloc Node(CI)	836
+lusearch	cov-D3	Alloc Node(CS)	538
+lusearch	cov-D3	Global CS Pointer-to Relation	532
+lusearch	cov-D3	Local CS Pointer-to Relation	10919
+lusearch	cov-D3	Field CS Pointer-to Relation	2870
+lusearch	cov-D3	Global Pointer (lib + app)	118
+lusearch	cov-D3	Global Avg Points-To Target(CI)	4.508474576271187
+lusearch	cov-D3	Global Avg Points-To Target(CS)	4.508474576271187
+lusearch	cov-D3	App Global Pointer	88
+lusearch	cov-D3	App Global Avg Points-To Target(CI)	5.704545454545454
+lusearch	cov-D3	App Global Avg Points-To Target(CS)	5.704545454545454
+lusearch	cov-D3	Avg Points-to Target(CI)	3.453253253253253
+lusearch	cov-D3	Avg Points-to Target without Native Var(CI)	3.449188214070956
+lusearch	cov-D3	Local Pointer (lib + app)	3776
+lusearch	cov-D3	Local Avg Points-To Target(CI)	2.8916843220338984
+lusearch	cov-D3	Local Avg Points-To Target(CS)	2.8916843220338984
+lusearch	cov-D3	App Local Pointer	3233
+lusearch	cov-D3	App Local Avg Points-To Target(CI)	2.5787194556139807
+lusearch	cov-D3	App Local Avg Points-To Target(CS)	2.5787194556139807
+lusearch	cov-D3	Context Local Pointer (lib + app)	3771
+lusearch	cov-D3	Context Local Avg Points-To Target(CI)	2.8955184301246355
+lusearch	cov-D3	Context Local Avg Points-To Target(CS)	2.8955184301246355
+lusearch	cov-D3	App Context Local Pointer	3231
+lusearch	cov-D3	App Context Local Avg Points-To Target(CI)	2.5803156917363044
+lusearch	cov-D3	App Context Local Avg Points-To Target(CS)	2.5803156917363044
+lusearch	cov-D3	Alloc-pag-edge	5367
+lusearch	cov-D3	Simple-pag-edge	13753
+lusearch	cov-D3	Store-pag-edge	533
+lusearch	cov-D3	Load-pag-edge	873
+lusearch	cov-D3	intraAlias(App)	48
+lusearch	cov-D3	intraAlias_incstst(App)	54
+lusearch	cov-D3	globalAlias(App)	844
+lusearch	cov-D3	globalAlias_incstst(App)	926
+lusearch	cov-D3	intraAlias	53
+lusearch	cov-D3	intraAlias_incstst	59
+lusearch	cov-D3	globalAlias	949
+lusearch	cov-D3	globalAlias_incstst	1042
+lusearch	cov-D3	Class	1140
+lusearch	cov-D3	Appclass	349
+lusearch	cov-D3	Libclass	79
+lusearch	cov-D3	Phantomclass	712
+lusearch	cov-D3	Class(reachable)	298
+lusearch	cov-D3	Appclass(reachable)	173
+lusearch	cov-D3	Libclass(reachable)	124
+lusearch	cov-D3	UCFS-seam-NEW	5367
+lusearch	cov-D3	UCFS-seam-ASSIGN	13753
+lusearch	cov-D3	UCFS-seam-LOAD	873
+lusearch	cov-D3	UCFS-seam-STORE	533
+lusearch	cov-JDK	EntrySize	15
+lusearch	cov-JDK	Single-Call Methods	2868
+lusearch	cov-JDK	Single-Receiver Methods	3343
+lusearch	cov-JDK	Single-Call-Single-Receiver Methods	2129
+lusearch	cov-JDK	Method (Static)	-1
+lusearch	cov-JDK	Reachable Method (CI)	8170
+lusearch	cov-JDK	Reachable Method (CS)	8170
+lusearch	cov-JDK	Reachable App Method (CI)	937
+lusearch	cov-JDK	Reachable App Method (CS)	937
+lusearch	cov-JDK	Call Edge(CI)	46815
+lusearch	cov-JDK	Call Edge(CS)	46815
+lusearch	cov-JDK	receivers	12675
+lusearch	cov-JDK	avg p2s size for virtualcalls	3.2590927021696254
+lusearch	cov-JDK	Cast (Total)	1413
+lusearch	cov-JDK	Cast (AppOnly)	156
+lusearch	cov-JDK	May Fail Cast (Total)	1178
+lusearch	cov-JDK	May Fail Cast (AppOnly)	145
+lusearch	cov-JDK	Static Call Site(Total)	5425
+lusearch	cov-JDK	Virtual Call Site(Total)	27915
+lusearch	cov-JDK	Virtual Call Site(AppOnly)	3753
+lusearch	cov-JDK	Virtual Call Site(Polymorphic)	1696
+lusearch	cov-JDK	Virtual Call Site(Polymorphic AppOnly)	323
+lusearch	cov-JDK	Virtual Call Site(Unreachable)	677
+lusearch	cov-JDK	Avg Poly Call Targets	9.10436320754717
+lusearch	cov-JDK	Context	8171
+lusearch	cov-JDK	Avg Context per Method	1.0
+lusearch	cov-JDK	Method with Throw Pointer-to	4351
+lusearch	cov-JDK	Alloc Node(CI)	7811
+lusearch	cov-JDK	Alloc Node(CS)	5017
+lusearch	cov-JDK	Global CS Pointer-to Relation	24011
+lusearch	cov-JDK	Local CS Pointer-to Relation	1149719
+lusearch	cov-JDK	Field CS Pointer-to Relation	286270
+lusearch	cov-JDK	Global Pointer (lib + app)	1178
+lusearch	cov-JDK	Global Avg Points-To Target(CI)	20.382852292020374
+lusearch	cov-JDK	Global Avg Points-To Target(CS)	20.382852292020374
+lusearch	cov-JDK	App Global Pointer	88
+lusearch	cov-JDK	App Global Avg Points-To Target(CI)	6.6477272727272725
+lusearch	cov-JDK	App Global Avg Points-To Target(CS)	6.6477272727272725
+lusearch	cov-JDK	Avg Points-to Target(CI)	40.91039846580013
+lusearch	cov-JDK	Avg Points-to Target without Native Var(CI)	40.865726548129985
+lusearch	cov-JDK	Local Pointer (lib + app)	27993
+lusearch	cov-JDK	Local Avg Points-To Target(CI)	41.07166077233594
+lusearch	cov-JDK	Local Avg Points-To Target(CS)	41.07166077233594
+lusearch	cov-JDK	App Local Pointer	3447
+lusearch	cov-JDK	App Local Avg Points-To Target(CI)	27.93269509718596
+lusearch	cov-JDK	App Local Avg Points-To Target(CS)	27.93269509718596
+lusearch	cov-JDK	Context Local Pointer (lib + app)	27974
+lusearch	cov-JDK	Context Local Avg Points-To Target(CI)	41.099556731250445
+lusearch	cov-JDK	Context Local Avg Points-To Target(CS)	41.099556731250445
+lusearch	cov-JDK	App Context Local Pointer	3447
+lusearch	cov-JDK	App Context Local Avg Points-To Target(CI)	27.93269509718596
+lusearch	cov-JDK	App Context Local Avg Points-To Target(CS)	27.93269509718596
+lusearch	cov-JDK	Alloc-pag-edge	225210
+lusearch	cov-JDK	Simple-pag-edge	260663
+lusearch	cov-JDK	Store-pag-edge	3981
+lusearch	cov-JDK	Load-pag-edge	5493
+lusearch	cov-JDK	intraAlias(App)	50
+lusearch	cov-JDK	intraAlias_incstst(App)	56
+lusearch	cov-JDK	globalAlias(App)	983
+lusearch	cov-JDK	globalAlias_incstst(App)	1067
+lusearch	cov-JDK	intraAlias	189
+lusearch	cov-JDK	intraAlias_incstst	219
+lusearch	cov-JDK	globalAlias	13424
+lusearch	cov-JDK	globalAlias_incstst	15401
+lusearch	cov-JDK	Class	3324
+lusearch	cov-JDK	Appclass	349
+lusearch	cov-JDK	Libclass	2970
+lusearch	cov-JDK	Phantomclass	5
+lusearch	cov-JDK	Class(reachable)	1250
+lusearch	cov-JDK	Appclass(reachable)	173
+lusearch	cov-JDK	Libclass(reachable)	1076
+lusearch	cov-JDK	UCFS-seam-NEW	225210
+lusearch	cov-JDK	UCFS-seam-ASSIGN	260663
+lusearch	cov-JDK	UCFS-seam-LOAD	5493
+lusearch	cov-JDK	UCFS-seam-STORE	3981
+pmd	insens	EntrySize	15
+pmd	insens	Reachable Method (CI)	603
+pmd	insens	Call Edge(CI)	2350
+pmd	insens	May Fail Cast (Total)	4
+pmd	insens	Virtual Call Site(Polymorphic)	12
+pmd	insens	globalAlias_incstst	176
+pmd	insens	Avg Points-to Target without Native Var(CI)	2.493268712977921
+pmd	insens	UCFS-seam-NEW	2258
+pmd	insens	UCFS-seam-ASSIGN	6181
+pmd	insens	UCFS-seam-LOAD	165
+pmd	insens	UCFS-seam-STORE	132
+pmd	ucfs-ANALYSIS	EntrySize	15
+pmd	ucfs-ANALYSIS	Reachable Method (CI)	603
+pmd	ucfs-ANALYSIS	Call Edge(CI)	2350
+pmd	ucfs-ANALYSIS	May Fail Cast (Total)	4
+pmd	ucfs-ANALYSIS	Virtual Call Site(Polymorphic)	12
+pmd	ucfs-ANALYSIS	globalAlias_incstst	176
+pmd	ucfs-ANALYSIS	Avg Points-to Target without Native Var(CI)	2.497856377277599
+pmd	ucfs-ANALYSIS	UCFS-import-binding	ANALYSIS
+pmd	ucfs-ANALYSIS	UCFS-import-pairs	7430
+pmd	ucfs-ANALYSIS	UCFS-import-typed-pairs	7392
+pmd	ucfs-ANALYSIS	UCFS-import-root-pairs	1
+pmd	ucfs-ANALYSIS	UCFS-import-spark-ms	2113
+pmd	ucfs-ANALYSIS	UCFS-import-ucfs-ms	613
+pmd	ucfs-ANALYSIS	UCFS-seam-NEW	2258
+pmd	ucfs-ANALYSIS	UCFS-seam-ASSIGN	6181
+pmd	ucfs-ANALYSIS	UCFS-seam-LOAD	165
+pmd	ucfs-ANALYSIS	UCFS-seam-STORE	132
+pmd	ucfs-ANALYSIS	UCFS-pt-vertices	6844
+pmd	ucfs-ANALYSIS	UCFS-pt-edges	16318
+pmd	ucfs-ANALYSIS	UCFS-pt-fields	107
+pmd	ucfs-ANALYSIS	UCFS-pt-pairs	7431
+pmd	ucfs-ANALYSIS	UCFS-pt-time-ms	613
+pmd	ucfs-ANALYSIS	UCFS-cmp-binding	ANALYSIS
+pmd	ucfs-ANALYSIS	UCFS-cmp-spark-pairs	7392
+pmd	ucfs-ANALYSIS	UCFS-cmp-ucfs-pairs	7431
+pmd	ucfs-ANALYSIS	UCFS-cmp-typed-pairs	7392
+pmd	ucfs-ANALYSIS	UCFS-cmp-SAME	7392
+pmd	ucfs-ANALYSIS	UCFS-cmp-R3	0
+pmd	ucfs-ANALYSIS	UCFS-cmp-R4b	1
+pmd	ucfs-ANALYSIS	UCFS-cmp-R1	31
+pmd	ucfs-ANALYSIS	UCFS-cmp-R2	7
+pmd	ucfs-ANALYSIS	UCFS-cmp-R5	0
+pmd	ucfs-ANALYSIS	UCFS-cmp-UNEXPLAINED	0
+pmd	ucfs-ANALYSIS	UCFS-cmp-MISSING	0
+pmd	ucfs-ANALYSIS	UCFS-cmp-new-edges	2258
+pmd	ucfs-ANALYSIS	UCFS-cmp-seed-this-edges	1061
+pmd	ucfs-ANALYSIS	UCFS-cmp-seed-exception-edges	445
+pmd	ucfs-ANALYSIS	UCFS-cmp-seed-finalizer-edges	7
+pmd	ucfs-ANALYSIS	UCFS-cmp-same-without-this-seeds	4161
+pmd	ucfs-ANALYSIS	UCFS-cmp-same-without-seeds	2672
+pmd	ucfs-ANALYSIS	UCFS-cmp-last-step-pairs	7392
+pmd	ucfs-ANALYSIS	UCFS-cmp-dispatch-cg-edges	2101
+pmd	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-UCFS	2101
+pmd	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-UCFS_TYPED	2101
+pmd	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-SPARK	2101
+pmd	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-UCFS	0
+pmd	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-UCFS_TYPED	0
+pmd	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-SPARK	0
+pmd	ucfs-ANALYSIS	cmp/SPARK/Reachable Method (CI)	603
+pmd	ucfs-ANALYSIS	cmp/UCFS/Reachable Method (CI)	603
+pmd	ucfs-ANALYSIS	cmp/UCFS_TYPED/Reachable Method (CI)	603
+pmd	ucfs-ANALYSIS	cmp/SPARK/Call Edge(CI)	2350
+pmd	ucfs-ANALYSIS	cmp/UCFS/Call Edge(CI)	2350
+pmd	ucfs-ANALYSIS	cmp/UCFS_TYPED/Call Edge(CI)	2350
+pmd	ucfs-ANALYSIS	cmp/SPARK/May Fail Cast (Total)	4
+pmd	ucfs-ANALYSIS	cmp/UCFS/May Fail Cast (Total)	4
+pmd	ucfs-ANALYSIS	cmp/UCFS_TYPED/May Fail Cast (Total)	4
+pmd	ucfs-ANALYSIS	cmp/SPARK/Virtual Call Site(Polymorphic)	12
+pmd	ucfs-ANALYSIS	cmp/UCFS/Virtual Call Site(Polymorphic)	12
+pmd	ucfs-ANALYSIS	cmp/UCFS_TYPED/Virtual Call Site(Polymorphic)	12
+pmd	ucfs-ANALYSIS	cmp/SPARK/globalAlias_incstst	176
+pmd	ucfs-ANALYSIS	cmp/UCFS/globalAlias_incstst	176
+pmd	ucfs-ANALYSIS	cmp/UCFS_TYPED/globalAlias_incstst	176
+pmd	ucfs-ANALYSIS	cmp/SPARK/Avg Points-to Target without Native Var(CI)	2.493268712977921
+pmd	ucfs-ANALYSIS	cmp/UCFS/Avg Points-to Target without Native Var(CI)	2.497856377277599
+pmd	ucfs-ANALYSIS	cmp/UCFS_TYPED/Avg Points-to Target without Native Var(CI)	2.493268712977921
+pmd	ucfs-CALL_GRAPH	EntrySize	15
+pmd	ucfs-CALL_GRAPH	Reachable Method (CI)	603
+pmd	ucfs-CALL_GRAPH	Call Edge(CI)	2350
+pmd	ucfs-CALL_GRAPH	May Fail Cast (Total)	4
+pmd	ucfs-CALL_GRAPH	Virtual Call Site(Polymorphic)	12
+pmd	ucfs-CALL_GRAPH	globalAlias_incstst	176
+pmd	ucfs-CALL_GRAPH	Avg Points-to Target without Native Var(CI)	2.8981779206859595
+pmd	ucfs-CALL_GRAPH	UCFS-import-binding	CALL_GRAPH
+pmd	ucfs-CALL_GRAPH	UCFS-import-pairs	8177
+pmd	ucfs-CALL_GRAPH	UCFS-import-typed-pairs	7395
+pmd	ucfs-CALL_GRAPH	UCFS-import-root-pairs	1
+pmd	ucfs-CALL_GRAPH	UCFS-import-spark-ms	2364
+pmd	ucfs-CALL_GRAPH	UCFS-import-ucfs-ms	670
+pmd	ucfs-CALL_GRAPH	UCFS-seam-NEW	2258
+pmd	ucfs-CALL_GRAPH	UCFS-seam-ASSIGN	6181
+pmd	ucfs-CALL_GRAPH	UCFS-seam-LOAD	165
+pmd	ucfs-CALL_GRAPH	UCFS-seam-STORE	132
+pmd	ucfs-CALL_GRAPH	UCFS-pt-vertices	6844
+pmd	ucfs-CALL_GRAPH	UCFS-pt-edges	16352
+pmd	ucfs-CALL_GRAPH	UCFS-pt-fields	107
+pmd	ucfs-CALL_GRAPH	UCFS-pt-pairs	8178
+pmd	ucfs-CALL_GRAPH	UCFS-pt-time-ms	670
+pmd	ucfs-CALL_GRAPH	UCFS-cmp-binding	CALL_GRAPH
+pmd	ucfs-CALL_GRAPH	UCFS-cmp-spark-pairs	7392
+pmd	ucfs-CALL_GRAPH	UCFS-cmp-ucfs-pairs	8178
+pmd	ucfs-CALL_GRAPH	UCFS-cmp-typed-pairs	7395
+pmd	ucfs-CALL_GRAPH	UCFS-cmp-SAME	7392
+pmd	ucfs-CALL_GRAPH	UCFS-cmp-R3	747
+pmd	ucfs-CALL_GRAPH	UCFS-cmp-R4b	1
+pmd	ucfs-CALL_GRAPH	UCFS-cmp-R1	31
+pmd	ucfs-CALL_GRAPH	UCFS-cmp-R2	7
+pmd	ucfs-CALL_GRAPH	UCFS-cmp-R5	0
+pmd	ucfs-CALL_GRAPH	UCFS-cmp-UNEXPLAINED	0
+pmd	ucfs-CALL_GRAPH	UCFS-cmp-MISSING	0
+pmd	ucfs-CALL_GRAPH	UCFS-cmp-new-edges	1197
+pmd	ucfs-CALL_GRAPH	UCFS-cmp-seed-this-edges	0
+pmd	ucfs-CALL_GRAPH	UCFS-cmp-seed-exception-edges	445
+pmd	ucfs-CALL_GRAPH	UCFS-cmp-seed-finalizer-edges	7
+pmd	ucfs-CALL_GRAPH	UCFS-cmp-same-without-this-seeds	7392
+pmd	ucfs-CALL_GRAPH	UCFS-cmp-same-without-seeds	5580
+pmd	ucfs-CALL_GRAPH	UCFS-cmp-last-step-pairs	7392
+pmd	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-cg-edges	2101
+pmd	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-UCFS	2101
+pmd	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-UCFS_TYPED	2101
+pmd	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-SPARK	2101
+pmd	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-UCFS	0
+pmd	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-UCFS_TYPED	0
+pmd	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-SPARK	0
+pmd	ucfs-CALL_GRAPH	cmp/SPARK/Reachable Method (CI)	603
+pmd	ucfs-CALL_GRAPH	cmp/UCFS/Reachable Method (CI)	603
+pmd	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Reachable Method (CI)	603
+pmd	ucfs-CALL_GRAPH	cmp/SPARK/Call Edge(CI)	2350
+pmd	ucfs-CALL_GRAPH	cmp/UCFS/Call Edge(CI)	2350
+pmd	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Call Edge(CI)	2350
+pmd	ucfs-CALL_GRAPH	cmp/SPARK/May Fail Cast (Total)	4
+pmd	ucfs-CALL_GRAPH	cmp/UCFS/May Fail Cast (Total)	4
+pmd	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/May Fail Cast (Total)	4
+pmd	ucfs-CALL_GRAPH	cmp/SPARK/Virtual Call Site(Polymorphic)	12
+pmd	ucfs-CALL_GRAPH	cmp/UCFS/Virtual Call Site(Polymorphic)	12
+pmd	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Virtual Call Site(Polymorphic)	12
+pmd	ucfs-CALL_GRAPH	cmp/SPARK/globalAlias_incstst	176
+pmd	ucfs-CALL_GRAPH	cmp/UCFS/globalAlias_incstst	176
+pmd	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/globalAlias_incstst	176
+pmd	ucfs-CALL_GRAPH	cmp/SPARK/Avg Points-to Target without Native Var(CI)	2.493268712977921
+pmd	ucfs-CALL_GRAPH	cmp/UCFS/Avg Points-to Target without Native Var(CI)	2.8981779206859595
+pmd	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Avg Points-to Target without Native Var(CI)	2.49488422186322
+pmd	cov-D3	EntrySize	15
+pmd	cov-D3	Single-Call Methods	289
+pmd	cov-D3	Single-Receiver Methods	228
+pmd	cov-D3	Single-Call-Single-Receiver Methods	179
+pmd	cov-D3	Method (Static)	-1
+pmd	cov-D3	Reachable Method (CI)	603
+pmd	cov-D3	Reachable Method (CS)	603
+pmd	cov-D3	Reachable App Method (CI)	277
+pmd	cov-D3	Reachable App Method (CS)	277
+pmd	cov-D3	Call Edge(CI)	2350
+pmd	cov-D3	Call Edge(CS)	2350
+pmd	cov-D3	receivers	849
+pmd	cov-D3	avg p2s size for virtualcalls	2.522968197879859
+pmd	cov-D3	Cast (Total)	90
+pmd	cov-D3	Cast (AppOnly)	86
+pmd	cov-D3	May Fail Cast (Total)	4
+pmd	cov-D3	May Fail Cast (AppOnly)	4
+pmd	cov-D3	Static Call Site(Total)	201
+pmd	cov-D3	Virtual Call Site(Total)	2552
+pmd	cov-D3	Virtual Call Site(AppOnly)	2276
+pmd	cov-D3	Virtual Call Site(Polymorphic)	12
+pmd	cov-D3	Virtual Call Site(Polymorphic AppOnly)	11
+pmd	cov-D3	Virtual Call Site(Unreachable)	471
+pmd	cov-D3	Avg Poly Call Targets	2.6666666666666665
+pmd	cov-D3	Context	442
+pmd	cov-D3	Avg Context per Method	1.0
+pmd	cov-D3	Method with Throw Pointer-to	153
+pmd	cov-D3	Alloc Node(CI)	466
+pmd	cov-D3	Alloc Node(CS)	229
+pmd	cov-D3	Global CS Pointer-to Relation	58
+pmd	cov-D3	Local CS Pointer-to Relation	2648
+pmd	cov-D3	Field CS Pointer-to Relation	557
+pmd	cov-D3	Global Pointer (lib + app)	46
+pmd	cov-D3	Global Avg Points-To Target(CI)	1.2608695652173914
+pmd	cov-D3	Global Avg Points-To Target(CS)	1.2608695652173914
+pmd	cov-D3	App Global Pointer	19
+pmd	cov-D3	App Global Avg Points-To Target(CI)	1.5263157894736843
+pmd	cov-D3	App Global Avg Points-To Target(CS)	1.5263157894736843
+pmd	cov-D3	Avg Points-to Target(CI)	2.490596453519613
+pmd	cov-D3	Avg Points-to Target without Native Var(CI)	2.493268712977921
+pmd	cov-D3	Local Pointer (lib + app)	1592
+pmd	cov-D3	Local Avg Points-To Target(CI)	1.6633165829145728
+pmd	cov-D3	Local Avg Points-To Target(CS)	1.6633165829145728
+pmd	cov-D3	App Local Pointer	1211
+pmd	cov-D3	App Local Avg Points-To Target(CI)	1.2510322047894302
+pmd	cov-D3	App Local Avg Points-To Target(CS)	1.2510322047894302
+pmd	cov-D3	Context Local Pointer (lib + app)	1589
+pmd	cov-D3	Context Local Avg Points-To Target(CI)	1.6664568911264948
+pmd	cov-D3	Context Local Avg Points-To Target(CS)	1.6664568911264948
+pmd	cov-D3	App Context Local Pointer	1211
+pmd	cov-D3	App Context Local Avg Points-To Target(CI)	1.2510322047894302
+pmd	cov-D3	App Context Local Avg Points-To Target(CS)	1.2510322047894302
+pmd	cov-D3	Alloc-pag-edge	2258
+pmd	cov-D3	Simple-pag-edge	6181
+pmd	cov-D3	Store-pag-edge	132
+pmd	cov-D3	Load-pag-edge	165
+pmd	cov-D3	intraAlias(App)	0
+pmd	cov-D3	intraAlias_incstst(App)	0
+pmd	cov-D3	globalAlias(App)	98
+pmd	cov-D3	globalAlias_incstst(App)	113
+pmd	cov-D3	intraAlias	2
+pmd	cov-D3	intraAlias_incstst	2
+pmd	cov-D3	globalAlias	159
+pmd	cov-D3	globalAlias_incstst	176
+pmd	cov-D3	Class	2990
+pmd	cov-D3	Appclass	553
+pmd	cov-D3	Libclass	1034
+pmd	cov-D3	Phantomclass	1403
+pmd	cov-D3	Class(reachable)	159
+pmd	cov-D3	Appclass(reachable)	70
+pmd	cov-D3	Libclass(reachable)	88
+pmd	cov-D3	UCFS-seam-NEW	2258
+pmd	cov-D3	UCFS-seam-ASSIGN	6181
+pmd	cov-D3	UCFS-seam-LOAD	165
+pmd	cov-D3	UCFS-seam-STORE	132
+pmd	cov-JDK	EntrySize	15
+pmd	cov-JDK	Single-Call Methods	5135
+pmd	cov-JDK	Single-Receiver Methods	5149
+pmd	cov-JDK	Single-Call-Single-Receiver Methods	3416
+pmd	cov-JDK	Method (Static)	-1
+pmd	cov-JDK	Reachable Method (CI)	12477
+pmd	cov-JDK	Reachable Method (CS)	12477
+pmd	cov-JDK	Reachable App Method (CI)	1971
+pmd	cov-JDK	Reachable App Method (CS)	1971
+pmd	cov-JDK	Call Edge(CI)	74644
+pmd	cov-JDK	Call Edge(CS)	74644
+pmd	cov-JDK	receivers	19764
+pmd	cov-JDK	avg p2s size for virtualcalls	3.4167678607569316
+pmd	cov-JDK	Cast (Total)	2840
+pmd	cov-JDK	Cast (AppOnly)	614
+pmd	cov-JDK	May Fail Cast (Total)	2459
+pmd	cov-JDK	May Fail Cast (AppOnly)	587
+pmd	cov-JDK	Static Call Site(Total)	7036
+pmd	cov-JDK	Virtual Call Site(Total)	47363
+pmd	cov-JDK	Virtual Call Site(AppOnly)	8863
+pmd	cov-JDK	Virtual Call Site(Polymorphic)	3263
+pmd	cov-JDK	Virtual Call Site(Polymorphic AppOnly)	255
+pmd	cov-JDK	Virtual Call Site(Unreachable)	1024
+pmd	cov-JDK	Avg Poly Call Targets	7.378179589334968
+pmd	cov-JDK	Context	12478
+pmd	cov-JDK	Avg Context per Method	1.0
+pmd	cov-JDK	Method with Throw Pointer-to	6554
+pmd	cov-JDK	Alloc Node(CI)	10984
+pmd	cov-JDK	Alloc Node(CS)	7411
+pmd	cov-JDK	Global CS Pointer-to Relation	28413
+pmd	cov-JDK	Local CS Pointer-to Relation	2773875
+pmd	cov-JDK	Field CS Pointer-to Relation	635043
+pmd	cov-JDK	Global Pointer (lib + app)	1514
+pmd	cov-JDK	Global Avg Points-To Target(CI)	18.7668428005284
+pmd	cov-JDK	Global Avg Points-To Target(CS)	18.7668428005284
+pmd	cov-JDK	App Global Pointer	136
+pmd	cov-JDK	App Global Avg Points-To Target(CI)	33.536764705882355
+pmd	cov-JDK	App Global Avg Points-To Target(CS)	33.536764705882355
+pmd	cov-JDK	Avg Points-to Target(CI)	60.04731126776615
+pmd	cov-JDK	Avg Points-to Target without Native Var(CI)	60.008079491773906
+pmd	cov-JDK	Local Pointer (lib + app)	45123
+pmd	cov-JDK	Local Avg Points-To Target(CI)	61.47363872082973
+pmd	cov-JDK	Local Avg Points-To Target(CS)	61.47363872082973
+pmd	cov-JDK	App Local Pointer	6604
+pmd	cov-JDK	App Local Avg Points-To Target(CI)	45.47047244094488
+pmd	cov-JDK	App Local Avg Points-To Target(CS)	45.47047244094488
+pmd	cov-JDK	Context Local Pointer (lib + app)	45101
+pmd	cov-JDK	Context Local Avg Points-To Target(CI)	61.50362519678056
+pmd	cov-JDK	Context Local Avg Points-To Target(CS)	61.50362519678056
+pmd	cov-JDK	App Context Local Pointer	6603
+pmd	cov-JDK	App Context Local Avg Points-To Target(CI)	45.4773587763138
+pmd	cov-JDK	App Context Local Avg Points-To Target(CS)	45.4773587763138
+pmd	cov-JDK	Alloc-pag-edge	356259
+pmd	cov-JDK	Simple-pag-edge	362800
+pmd	cov-JDK	Store-pag-edge	7150
+pmd	cov-JDK	Load-pag-edge	9940
+pmd	cov-JDK	intraAlias(App)	7
+pmd	cov-JDK	intraAlias_incstst(App)	14
+pmd	cov-JDK	globalAlias(App)	23185
+pmd	cov-JDK	globalAlias_incstst(App)	39700
+pmd	cov-JDK	intraAlias	280
+pmd	cov-JDK	intraAlias_incstst	331
+pmd	cov-JDK	globalAlias	45378
+pmd	cov-JDK	globalAlias_incstst	65513
+pmd	cov-JDK	Class	7519
+pmd	cov-JDK	Appclass	553
+pmd	cov-JDK	Libclass	6955
+pmd	cov-JDK	Phantomclass	11
+pmd	cov-JDK	Class(reachable)	1830
+pmd	cov-JDK	Appclass(reachable)	280
+pmd	cov-JDK	Libclass(reachable)	1549
+pmd	cov-JDK	UCFS-seam-NEW	356259
+pmd	cov-JDK	UCFS-seam-ASSIGN	362800
+pmd	cov-JDK	UCFS-seam-LOAD	9940
+pmd	cov-JDK	UCFS-seam-STORE	7150
+xalan	insens	EntrySize	15
+xalan	insens	Reachable Method (CI)	268
+xalan	insens	Call Edge(CI)	605
+xalan	insens	May Fail Cast (Total)	0
+xalan	insens	Virtual Call Site(Polymorphic)	1
+xalan	insens	globalAlias_incstst	56
+xalan	insens	Avg Points-to Target without Native Var(CI)	1.734453781512605
+xalan	insens	UCFS-seam-NEW	678
+xalan	insens	UCFS-seam-ASSIGN	1660
+xalan	insens	UCFS-seam-LOAD	65
+xalan	insens	UCFS-seam-STORE	35
+xalan	ucfs-ANALYSIS	EntrySize	15
+xalan	ucfs-ANALYSIS	Reachable Method (CI)	268
+xalan	ucfs-ANALYSIS	Call Edge(CI)	605
+xalan	ucfs-ANALYSIS	May Fail Cast (Total)	0
+xalan	ucfs-ANALYSIS	Virtual Call Site(Polymorphic)	1
+xalan	ucfs-ANALYSIS	globalAlias_incstst	56
+xalan	ucfs-ANALYSIS	Avg Points-to Target without Native Var(CI)	1.734453781512605
+xalan	ucfs-ANALYSIS	UCFS-import-binding	ANALYSIS
+xalan	ucfs-ANALYSIS	UCFS-import-pairs	1739
+xalan	ucfs-ANALYSIS	UCFS-import-typed-pairs	1739
+xalan	ucfs-ANALYSIS	UCFS-import-root-pairs	1
+xalan	ucfs-ANALYSIS	UCFS-import-spark-ms	1038
+xalan	ucfs-ANALYSIS	UCFS-import-ucfs-ms	276
+xalan	ucfs-ANALYSIS	UCFS-seam-NEW	678
+xalan	ucfs-ANALYSIS	UCFS-seam-ASSIGN	1660
+xalan	ucfs-ANALYSIS	UCFS-seam-LOAD	65
+xalan	ucfs-ANALYSIS	UCFS-seam-STORE	35
+xalan	ucfs-ANALYSIS	UCFS-pt-vertices	2119
+xalan	ucfs-ANALYSIS	UCFS-pt-edges	4508
+xalan	ucfs-ANALYSIS	UCFS-pt-fields	33
+xalan	ucfs-ANALYSIS	UCFS-pt-pairs	1740
+xalan	ucfs-ANALYSIS	UCFS-pt-time-ms	276
+xalan	ucfs-ANALYSIS	UCFS-cmp-binding	ANALYSIS
+xalan	ucfs-ANALYSIS	UCFS-cmp-spark-pairs	1739
+xalan	ucfs-ANALYSIS	UCFS-cmp-ucfs-pairs	1740
+xalan	ucfs-ANALYSIS	UCFS-cmp-typed-pairs	1739
+xalan	ucfs-ANALYSIS	UCFS-cmp-SAME	1739
+xalan	ucfs-ANALYSIS	UCFS-cmp-R3	0
+xalan	ucfs-ANALYSIS	UCFS-cmp-R4b	1
+xalan	ucfs-ANALYSIS	UCFS-cmp-R1	0
+xalan	ucfs-ANALYSIS	UCFS-cmp-R2	0
+xalan	ucfs-ANALYSIS	UCFS-cmp-R5	0
+xalan	ucfs-ANALYSIS	UCFS-cmp-UNEXPLAINED	0
+xalan	ucfs-ANALYSIS	UCFS-cmp-MISSING	0
+xalan	ucfs-ANALYSIS	UCFS-cmp-new-edges	678
+xalan	ucfs-ANALYSIS	UCFS-cmp-seed-this-edges	308
+xalan	ucfs-ANALYSIS	UCFS-cmp-seed-exception-edges	143
+xalan	ucfs-ANALYSIS	UCFS-cmp-seed-finalizer-edges	6
+xalan	ucfs-ANALYSIS	UCFS-cmp-same-without-this-seeds	1098
+xalan	ucfs-ANALYSIS	UCFS-cmp-same-without-seeds	679
+xalan	ucfs-ANALYSIS	UCFS-cmp-last-step-pairs	1739
+xalan	ucfs-ANALYSIS	UCFS-cmp-dispatch-cg-edges	469
+xalan	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-UCFS	469
+xalan	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-UCFS_TYPED	469
+xalan	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-SPARK	469
+xalan	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-UCFS	0
+xalan	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-UCFS_TYPED	0
+xalan	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-SPARK	0
+xalan	ucfs-ANALYSIS	cmp/SPARK/Reachable Method (CI)	268
+xalan	ucfs-ANALYSIS	cmp/UCFS/Reachable Method (CI)	268
+xalan	ucfs-ANALYSIS	cmp/UCFS_TYPED/Reachable Method (CI)	268
+xalan	ucfs-ANALYSIS	cmp/SPARK/Call Edge(CI)	605
+xalan	ucfs-ANALYSIS	cmp/UCFS/Call Edge(CI)	605
+xalan	ucfs-ANALYSIS	cmp/UCFS_TYPED/Call Edge(CI)	605
+xalan	ucfs-ANALYSIS	cmp/SPARK/May Fail Cast (Total)	0
+xalan	ucfs-ANALYSIS	cmp/UCFS/May Fail Cast (Total)	0
+xalan	ucfs-ANALYSIS	cmp/UCFS_TYPED/May Fail Cast (Total)	0
+xalan	ucfs-ANALYSIS	cmp/SPARK/Virtual Call Site(Polymorphic)	1
+xalan	ucfs-ANALYSIS	cmp/UCFS/Virtual Call Site(Polymorphic)	1
+xalan	ucfs-ANALYSIS	cmp/UCFS_TYPED/Virtual Call Site(Polymorphic)	1
+xalan	ucfs-ANALYSIS	cmp/SPARK/globalAlias_incstst	56
+xalan	ucfs-ANALYSIS	cmp/UCFS/globalAlias_incstst	56
+xalan	ucfs-ANALYSIS	cmp/UCFS_TYPED/globalAlias_incstst	56
+xalan	ucfs-ANALYSIS	cmp/SPARK/Avg Points-to Target without Native Var(CI)	1.734453781512605
+xalan	ucfs-ANALYSIS	cmp/UCFS/Avg Points-to Target without Native Var(CI)	1.734453781512605
+xalan	ucfs-ANALYSIS	cmp/UCFS_TYPED/Avg Points-to Target without Native Var(CI)	1.734453781512605
+xalan	ucfs-CALL_GRAPH	EntrySize	15
+xalan	ucfs-CALL_GRAPH	Reachable Method (CI)	268
+xalan	ucfs-CALL_GRAPH	Call Edge(CI)	605
+xalan	ucfs-CALL_GRAPH	May Fail Cast (Total)	0
+xalan	ucfs-CALL_GRAPH	Virtual Call Site(Polymorphic)	1
+xalan	ucfs-CALL_GRAPH	globalAlias_incstst	56
+xalan	ucfs-CALL_GRAPH	Avg Points-to Target without Native Var(CI)	1.7394957983193278
+xalan	ucfs-CALL_GRAPH	UCFS-import-binding	CALL_GRAPH
+xalan	ucfs-CALL_GRAPH	UCFS-import-pairs	1742
+xalan	ucfs-CALL_GRAPH	UCFS-import-typed-pairs	1739
+xalan	ucfs-CALL_GRAPH	UCFS-import-root-pairs	1
+xalan	ucfs-CALL_GRAPH	UCFS-import-spark-ms	906
+xalan	ucfs-CALL_GRAPH	UCFS-import-ucfs-ms	225
+xalan	ucfs-CALL_GRAPH	UCFS-seam-NEW	678
+xalan	ucfs-CALL_GRAPH	UCFS-seam-ASSIGN	1660
+xalan	ucfs-CALL_GRAPH	UCFS-seam-LOAD	65
+xalan	ucfs-CALL_GRAPH	UCFS-seam-STORE	35
+xalan	ucfs-CALL_GRAPH	UCFS-pt-vertices	2119
+xalan	ucfs-CALL_GRAPH	UCFS-pt-edges	4496
+xalan	ucfs-CALL_GRAPH	UCFS-pt-fields	33
+xalan	ucfs-CALL_GRAPH	UCFS-pt-pairs	1743
+xalan	ucfs-CALL_GRAPH	UCFS-pt-time-ms	225
+xalan	ucfs-CALL_GRAPH	UCFS-cmp-binding	CALL_GRAPH
+xalan	ucfs-CALL_GRAPH	UCFS-cmp-spark-pairs	1739
+xalan	ucfs-CALL_GRAPH	UCFS-cmp-ucfs-pairs	1743
+xalan	ucfs-CALL_GRAPH	UCFS-cmp-typed-pairs	1739
+xalan	ucfs-CALL_GRAPH	UCFS-cmp-SAME	1739
+xalan	ucfs-CALL_GRAPH	UCFS-cmp-R3	3
+xalan	ucfs-CALL_GRAPH	UCFS-cmp-R4b	1
+xalan	ucfs-CALL_GRAPH	UCFS-cmp-R1	0
+xalan	ucfs-CALL_GRAPH	UCFS-cmp-R2	0
+xalan	ucfs-CALL_GRAPH	UCFS-cmp-R5	0
+xalan	ucfs-CALL_GRAPH	UCFS-cmp-UNEXPLAINED	0
+xalan	ucfs-CALL_GRAPH	UCFS-cmp-MISSING	0
+xalan	ucfs-CALL_GRAPH	UCFS-cmp-new-edges	370
+xalan	ucfs-CALL_GRAPH	UCFS-cmp-seed-this-edges	0
+xalan	ucfs-CALL_GRAPH	UCFS-cmp-seed-exception-edges	143
+xalan	ucfs-CALL_GRAPH	UCFS-cmp-seed-finalizer-edges	6
+xalan	ucfs-CALL_GRAPH	UCFS-cmp-same-without-this-seeds	1739
+xalan	ucfs-CALL_GRAPH	UCFS-cmp-same-without-seeds	1320
+xalan	ucfs-CALL_GRAPH	UCFS-cmp-last-step-pairs	1739
+xalan	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-cg-edges	469
+xalan	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-UCFS	469
+xalan	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-UCFS_TYPED	469
+xalan	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-SPARK	469
+xalan	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-UCFS	0
+xalan	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-UCFS_TYPED	0
+xalan	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-SPARK	0
+xalan	ucfs-CALL_GRAPH	cmp/SPARK/Reachable Method (CI)	268
+xalan	ucfs-CALL_GRAPH	cmp/UCFS/Reachable Method (CI)	268
+xalan	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Reachable Method (CI)	268
+xalan	ucfs-CALL_GRAPH	cmp/SPARK/Call Edge(CI)	605
+xalan	ucfs-CALL_GRAPH	cmp/UCFS/Call Edge(CI)	605
+xalan	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Call Edge(CI)	605
+xalan	ucfs-CALL_GRAPH	cmp/SPARK/May Fail Cast (Total)	0
+xalan	ucfs-CALL_GRAPH	cmp/UCFS/May Fail Cast (Total)	0
+xalan	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/May Fail Cast (Total)	0
+xalan	ucfs-CALL_GRAPH	cmp/SPARK/Virtual Call Site(Polymorphic)	1
+xalan	ucfs-CALL_GRAPH	cmp/UCFS/Virtual Call Site(Polymorphic)	1
+xalan	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Virtual Call Site(Polymorphic)	1
+xalan	ucfs-CALL_GRAPH	cmp/SPARK/globalAlias_incstst	56
+xalan	ucfs-CALL_GRAPH	cmp/UCFS/globalAlias_incstst	56
+xalan	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/globalAlias_incstst	56
+xalan	ucfs-CALL_GRAPH	cmp/SPARK/Avg Points-to Target without Native Var(CI)	1.734453781512605
+xalan	ucfs-CALL_GRAPH	cmp/UCFS/Avg Points-to Target without Native Var(CI)	1.7394957983193278
+xalan	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Avg Points-to Target without Native Var(CI)	1.734453781512605
+xalan	cov-D3	EntrySize	15
+xalan	cov-D3	Single-Call Methods	105
+xalan	cov-D3	Single-Receiver Methods	60
+xalan	cov-D3	Single-Call-Single-Receiver Methods	45
+xalan	cov-D3	Method (Static)	-1
+xalan	cov-D3	Reachable Method (CI)	268
+xalan	cov-D3	Reachable Method (CS)	268
+xalan	cov-D3	Reachable App Method (CI)	50
+xalan	cov-D3	Reachable App Method (CS)	50
+xalan	cov-D3	Call Edge(CI)	605
+xalan	cov-D3	Call Edge(CS)	605
+xalan	cov-D3	receivers	249
+xalan	cov-D3	avg p2s size for virtualcalls	1.9879518072289157
+xalan	cov-D3	Cast (Total)	17
+xalan	cov-D3	Cast (AppOnly)	14
+xalan	cov-D3	May Fail Cast (Total)	0
+xalan	cov-D3	May Fail Cast (AppOnly)	0
+xalan	cov-D3	Static Call Site(Total)	104
+xalan	cov-D3	Virtual Call Site(Total)	589
+xalan	cov-D3	Virtual Call Site(AppOnly)	382
+xalan	cov-D3	Virtual Call Site(Polymorphic)	1
+xalan	cov-D3	Virtual Call Site(Polymorphic AppOnly)	0
+xalan	cov-D3	Virtual Call Site(Unreachable)	121
+xalan	cov-D3	Avg Poly Call Targets	2.0
+xalan	cov-D3	Context	165
+xalan	cov-D3	Avg Context per Method	1.0
+xalan	cov-D3	Method with Throw Pointer-to	57
+xalan	cov-D3	Alloc Node(CI)	163
+xalan	cov-D3	Alloc Node(CS)	99
+xalan	cov-D3	Global CS Pointer-to Relation	38
+xalan	cov-D3	Local CS Pointer-to Relation	565
+xalan	cov-D3	Field CS Pointer-to Relation	78
+xalan	cov-D3	Global Pointer (lib + app)	34
+xalan	cov-D3	Global Avg Points-To Target(CI)	1.1176470588235294
+xalan	cov-D3	Global Avg Points-To Target(CS)	1.1176470588235294
+xalan	cov-D3	App Global Pointer	8
+xalan	cov-D3	App Global Avg Points-To Target(CI)	1.0
+xalan	cov-D3	App Global Avg Points-To Target(CS)	1.0
+xalan	cov-D3	Avg Points-to Target(CI)	1.7362270450751252
+xalan	cov-D3	Avg Points-to Target without Native Var(CI)	1.734453781512605
+xalan	cov-D3	Local Pointer (lib + app)	502
+xalan	cov-D3	Local Avg Points-To Target(CI)	1.1254980079681276
+xalan	cov-D3	Local Avg Points-To Target(CS)	1.1254980079681276
+xalan	cov-D3	App Local Pointer	233
+xalan	cov-D3	App Local Avg Points-To Target(CI)	0.8326180257510729
+xalan	cov-D3	App Local Avg Points-To Target(CS)	0.8326180257510729
+xalan	cov-D3	Context Local Pointer (lib + app)	499
+xalan	cov-D3	Context Local Avg Points-To Target(CI)	1.1322645290581161
+xalan	cov-D3	Context Local Avg Points-To Target(CS)	1.1322645290581161
+xalan	cov-D3	App Context Local Pointer	233
+xalan	cov-D3	App Context Local Avg Points-To Target(CI)	0.8326180257510729
+xalan	cov-D3	App Context Local Avg Points-To Target(CS)	0.8326180257510729
+xalan	cov-D3	Alloc-pag-edge	678
+xalan	cov-D3	Simple-pag-edge	1660
+xalan	cov-D3	Store-pag-edge	35
+xalan	cov-D3	Load-pag-edge	65
+xalan	cov-D3	intraAlias(App)	0
+xalan	cov-D3	intraAlias_incstst(App)	0
+xalan	cov-D3	globalAlias(App)	22
+xalan	cov-D3	globalAlias_incstst(App)	22
+xalan	cov-D3	intraAlias	2
+xalan	cov-D3	intraAlias_incstst	2
+xalan	cov-D3	globalAlias	55
+xalan	cov-D3	globalAlias_incstst	56
+xalan	cov-D3	Class	2409
+xalan	cov-D3	Appclass	560
+xalan	cov-D3	Libclass	624
+xalan	cov-D3	Phantomclass	1225
+xalan	cov-D3	Class(reachable)	83
+xalan	cov-D3	Appclass(reachable)	12
+xalan	cov-D3	Libclass(reachable)	70
+xalan	cov-D3	UCFS-seam-NEW	678
+xalan	cov-D3	UCFS-seam-ASSIGN	1660
+xalan	cov-D3	UCFS-seam-LOAD	65
+xalan	cov-D3	UCFS-seam-STORE	35
+xalan	cov-JDK	EntrySize	15
+xalan	cov-JDK	Single-Call Methods	3704
+xalan	cov-JDK	Single-Receiver Methods	3934
+xalan	cov-JDK	Single-Call-Single-Receiver Methods	2491
+xalan	cov-JDK	Method (Static)	-1
+xalan	cov-JDK	Reachable Method (CI)	10184
+xalan	cov-JDK	Reachable Method (CS)	10184
+xalan	cov-JDK	Reachable App Method (CI)	2604
+xalan	cov-JDK	Reachable App Method (CS)	2604
+xalan	cov-JDK	Call Edge(CI)	58187
+xalan	cov-JDK	Call Edge(CS)	58187
+xalan	cov-JDK	receivers	16281
+xalan	cov-JDK	avg p2s size for virtualcalls	3.2076653768196057
+xalan	cov-JDK	Cast (Total)	1810
+xalan	cov-JDK	Cast (AppOnly)	480
+xalan	cov-JDK	May Fail Cast (Total)	1464
+xalan	cov-JDK	May Fail Cast (AppOnly)	381
+xalan	cov-JDK	Static Call Site(Total)	5880
+xalan	cov-JDK	Virtual Call Site(Total)	35284
+xalan	cov-JDK	Virtual Call Site(AppOnly)	10281
+xalan	cov-JDK	Virtual Call Site(Polymorphic)	2329
+xalan	cov-JDK	Virtual Call Site(Polymorphic AppOnly)	892
+xalan	cov-JDK	Virtual Call Site(Unreachable)	1021
+xalan	cov-JDK	Avg Poly Call Targets	8.55689136968656
+xalan	cov-JDK	Context	10185
+xalan	cov-JDK	Avg Context per Method	1.0
+xalan	cov-JDK	Method with Throw Pointer-to	5313
+xalan	cov-JDK	Alloc Node(CI)	9431
+xalan	cov-JDK	Alloc Node(CS)	6355
+xalan	cov-JDK	Global CS Pointer-to Relation	24891
+xalan	cov-JDK	Local CS Pointer-to Relation	1796755
+xalan	cov-JDK	Field CS Pointer-to Relation	483573
+xalan	cov-JDK	Global Pointer (lib + app)	1293
+xalan	cov-JDK	Global Avg Points-To Target(CI)	19.250580046403712
+xalan	cov-JDK	Global Avg Points-To Target(CS)	19.250580046403712
+xalan	cov-JDK	App Global Pointer	144
+xalan	cov-JDK	App Global Avg Points-To Target(CI)	9.770833333333334
+xalan	cov-JDK	App Global Avg Points-To Target(CS)	9.770833333333334
+xalan	cov-JDK	Avg Points-to Target(CI)	49.283168647767866
+xalan	cov-JDK	Avg Points-to Target without Native Var(CI)	49.23199130398428
+xalan	cov-JDK	Local Pointer (lib + app)	35511
+xalan	cov-JDK	Local Avg Points-To Target(CI)	50.597138914702484
+xalan	cov-JDK	Local Avg Points-To Target(CS)	50.597138914702484
+xalan	cov-JDK	App Local Pointer	9749
+xalan	cov-JDK	App Local Avg Points-To Target(CI)	40.34588162888502
+xalan	cov-JDK	App Local Avg Points-To Target(CS)	40.34588162888502
+xalan	cov-JDK	Context Local Pointer (lib + app)	35489
+xalan	cov-JDK	Context Local Avg Points-To Target(CI)	50.628504607061345
+xalan	cov-JDK	Context Local Avg Points-To Target(CS)	50.628504607061345
+xalan	cov-JDK	App Context Local Pointer	9746
+xalan	cov-JDK	App Context Local Avg Points-To Target(CI)	40.35830084137082
+xalan	cov-JDK	App Context Local Avg Points-To Target(CS)	40.35830084137082
+xalan	cov-JDK	Alloc-pag-edge	333403
+xalan	cov-JDK	Simple-pag-edge	305433
+xalan	cov-JDK	Store-pag-edge	5010
+xalan	cov-JDK	Load-pag-edge	6568
+xalan	cov-JDK	intraAlias(App)	39
+xalan	cov-JDK	intraAlias_incstst(App)	42
+xalan	cov-JDK	globalAlias(App)	2552
+xalan	cov-JDK	globalAlias_incstst(App)	2899
+xalan	cov-JDK	intraAlias	181
+xalan	cov-JDK	intraAlias_incstst	208
+xalan	cov-JDK	globalAlias	14850
+xalan	cov-JDK	globalAlias_incstst	17053
+xalan	cov-JDK	Class	7174
+xalan	cov-JDK	Appclass	560
+xalan	cov-JDK	Libclass	6576
+xalan	cov-JDK	Phantomclass	38
+xalan	cov-JDK	Class(reachable)	1539
+xalan	cov-JDK	Appclass(reachable)	328
+xalan	cov-JDK	Libclass(reachable)	1210
+xalan	cov-JDK	UCFS-seam-NEW	333403
+xalan	cov-JDK	UCFS-seam-ASSIGN	305433
+xalan	cov-JDK	UCFS-seam-LOAD	6568
+xalan	cov-JDK	UCFS-seam-STORE	5010
+checkstyle	insens	EntrySize	16
+checkstyle	insens	Reachable Method (CI)	1753
+checkstyle	insens	Call Edge(CI)	6743
+checkstyle	insens	May Fail Cast (Total)	71
+checkstyle	insens	Virtual Call Site(Polymorphic)	92
+checkstyle	insens	globalAlias_incstst	535
+checkstyle	insens	Avg Points-to Target without Native Var(CI)	9.43553488372093
+checkstyle	insens	UCFS-seam-NEW	14943
+checkstyle	insens	UCFS-seam-ASSIGN	22817
+checkstyle	insens	UCFS-seam-LOAD	436
+checkstyle	insens	UCFS-seam-STORE	534
+checkstyle	ucfs-ANALYSIS	EntrySize	16
+checkstyle	ucfs-ANALYSIS	Reachable Method (CI)	1753
+checkstyle	ucfs-ANALYSIS	Call Edge(CI)	6743
+checkstyle	ucfs-ANALYSIS	May Fail Cast (Total)	75
+checkstyle	ucfs-ANALYSIS	Virtual Call Site(Polymorphic)	92
+checkstyle	ucfs-ANALYSIS	globalAlias_incstst	539
+checkstyle	ucfs-ANALYSIS	Avg Points-to Target without Native Var(CI)	12.234132841328414
+checkstyle	ucfs-ANALYSIS	UCFS-import-binding	ANALYSIS
+checkstyle	ucfs-ANALYSIS	UCFS-import-pairs	90675
+checkstyle	ucfs-ANALYSIS	UCFS-import-typed-pairs	66437
+checkstyle	ucfs-ANALYSIS	UCFS-import-root-pairs	1
+checkstyle	ucfs-ANALYSIS	UCFS-import-spark-ms	5238
+checkstyle	ucfs-ANALYSIS	UCFS-import-ucfs-ms	3674
+checkstyle	ucfs-ANALYSIS	UCFS-seam-NEW	14943
+checkstyle	ucfs-ANALYSIS	UCFS-seam-ASSIGN	22817
+checkstyle	ucfs-ANALYSIS	UCFS-seam-LOAD	436
+checkstyle	ucfs-ANALYSIS	UCFS-seam-STORE	534
+checkstyle	ucfs-ANALYSIS	UCFS-pt-vertices	19229
+checkstyle	ucfs-ANALYSIS	UCFS-pt-edges	65418
+checkstyle	ucfs-ANALYSIS	UCFS-pt-fields	288
+checkstyle	ucfs-ANALYSIS	UCFS-pt-pairs	90676
+checkstyle	ucfs-ANALYSIS	UCFS-pt-time-ms	3674
+checkstyle	ucfs-ANALYSIS	UCFS-cmp-binding	ANALYSIS
+checkstyle	ucfs-ANALYSIS	UCFS-cmp-spark-pairs	65729
+checkstyle	ucfs-ANALYSIS	UCFS-cmp-ucfs-pairs	90676
+checkstyle	ucfs-ANALYSIS	UCFS-cmp-typed-pairs	66437
+checkstyle	ucfs-ANALYSIS	UCFS-cmp-SAME	65729
+checkstyle	ucfs-ANALYSIS	UCFS-cmp-R3	0
+checkstyle	ucfs-ANALYSIS	UCFS-cmp-R4b	1
+checkstyle	ucfs-ANALYSIS	UCFS-cmp-R1	18394
+checkstyle	ucfs-ANALYSIS	UCFS-cmp-R2	6552
+checkstyle	ucfs-ANALYSIS	UCFS-cmp-R5	0
+checkstyle	ucfs-ANALYSIS	UCFS-cmp-UNEXPLAINED	0
+checkstyle	ucfs-ANALYSIS	UCFS-cmp-MISSING	0
+checkstyle	ucfs-ANALYSIS	UCFS-cmp-new-edges	14943
+checkstyle	ucfs-ANALYSIS	UCFS-cmp-seed-this-edges	10861
+checkstyle	ucfs-ANALYSIS	UCFS-cmp-seed-exception-edges	1931
+checkstyle	ucfs-ANALYSIS	UCFS-cmp-seed-finalizer-edges	40
+checkstyle	ucfs-ANALYSIS	UCFS-cmp-same-without-this-seeds	27723
+checkstyle	ucfs-ANALYSIS	UCFS-cmp-same-without-seeds	20375
+checkstyle	ucfs-ANALYSIS	UCFS-cmp-last-step-pairs	65729
+checkstyle	ucfs-ANALYSIS	UCFS-cmp-dispatch-cg-edges	5478
+checkstyle	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-UCFS	5510
+checkstyle	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-UCFS_TYPED	5510
+checkstyle	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-SPARK	5478
+checkstyle	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-UCFS	32
+checkstyle	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-UCFS_TYPED	32
+checkstyle	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-SPARK	0
+checkstyle	ucfs-ANALYSIS	cmp/SPARK/Reachable Method (CI)	1753
+checkstyle	ucfs-ANALYSIS	cmp/UCFS/Reachable Method (CI)	1753
+checkstyle	ucfs-ANALYSIS	cmp/UCFS_TYPED/Reachable Method (CI)	1753
+checkstyle	ucfs-ANALYSIS	cmp/SPARK/Call Edge(CI)	6743
+checkstyle	ucfs-ANALYSIS	cmp/UCFS/Call Edge(CI)	6743
+checkstyle	ucfs-ANALYSIS	cmp/UCFS_TYPED/Call Edge(CI)	6743
+checkstyle	ucfs-ANALYSIS	cmp/SPARK/May Fail Cast (Total)	71
+checkstyle	ucfs-ANALYSIS	cmp/UCFS/May Fail Cast (Total)	75
+checkstyle	ucfs-ANALYSIS	cmp/UCFS_TYPED/May Fail Cast (Total)	73
+checkstyle	ucfs-ANALYSIS	cmp/SPARK/Virtual Call Site(Polymorphic)	92
+checkstyle	ucfs-ANALYSIS	cmp/UCFS/Virtual Call Site(Polymorphic)	92
+checkstyle	ucfs-ANALYSIS	cmp/UCFS_TYPED/Virtual Call Site(Polymorphic)	92
+checkstyle	ucfs-ANALYSIS	cmp/SPARK/globalAlias_incstst	535
+checkstyle	ucfs-ANALYSIS	cmp/UCFS/globalAlias_incstst	539
+checkstyle	ucfs-ANALYSIS	cmp/UCFS_TYPED/globalAlias_incstst	539
+checkstyle	ucfs-ANALYSIS	cmp/SPARK/Avg Points-to Target without Native Var(CI)	9.43553488372093
+checkstyle	ucfs-ANALYSIS	cmp/UCFS/Avg Points-to Target without Native Var(CI)	12.234132841328414
+checkstyle	ucfs-ANALYSIS	cmp/UCFS_TYPED/Avg Points-to Target without Native Var(CI)	9.549190998698158
+checkstyle	ucfs-CALL_GRAPH	EntrySize	16
+checkstyle	ucfs-CALL_GRAPH	Reachable Method (CI)	1753
+checkstyle	ucfs-CALL_GRAPH	Call Edge(CI)	6743
+checkstyle	ucfs-CALL_GRAPH	May Fail Cast (Total)	75
+checkstyle	ucfs-CALL_GRAPH	Virtual Call Site(Polymorphic)	92
+checkstyle	ucfs-CALL_GRAPH	globalAlias_incstst	540
+checkstyle	ucfs-CALL_GRAPH	Avg Points-to Target without Native Var(CI)	86.60904059040591
+checkstyle	ucfs-CALL_GRAPH	UCFS-import-binding	CALL_GRAPH
+checkstyle	ucfs-CALL_GRAPH	UCFS-import-pairs	529296
+checkstyle	ucfs-CALL_GRAPH	UCFS-import-typed-pairs	102190
+checkstyle	ucfs-CALL_GRAPH	UCFS-import-root-pairs	1
+checkstyle	ucfs-CALL_GRAPH	UCFS-import-spark-ms	4685
+checkstyle	ucfs-CALL_GRAPH	UCFS-import-ucfs-ms	463817
+checkstyle	ucfs-CALL_GRAPH	UCFS-seam-NEW	14943
+checkstyle	ucfs-CALL_GRAPH	UCFS-seam-ASSIGN	22817
+checkstyle	ucfs-CALL_GRAPH	UCFS-seam-LOAD	436
+checkstyle	ucfs-CALL_GRAPH	UCFS-seam-STORE	534
+checkstyle	ucfs-CALL_GRAPH	UCFS-pt-vertices	19229
+checkstyle	ucfs-CALL_GRAPH	UCFS-pt-edges	50504
+checkstyle	ucfs-CALL_GRAPH	UCFS-pt-fields	288
+checkstyle	ucfs-CALL_GRAPH	UCFS-pt-pairs	529297
+checkstyle	ucfs-CALL_GRAPH	UCFS-pt-time-ms	463817
+checkstyle	ucfs-CALL_GRAPH	UCFS-cmp-binding	CALL_GRAPH
+checkstyle	ucfs-CALL_GRAPH	UCFS-cmp-spark-pairs	65729
+checkstyle	ucfs-CALL_GRAPH	UCFS-cmp-ucfs-pairs	529297
+checkstyle	ucfs-CALL_GRAPH	UCFS-cmp-typed-pairs	102190
+checkstyle	ucfs-CALL_GRAPH	UCFS-cmp-SAME	65729
+checkstyle	ucfs-CALL_GRAPH	UCFS-cmp-R3	438621
+checkstyle	ucfs-CALL_GRAPH	UCFS-cmp-R4b	1
+checkstyle	ucfs-CALL_GRAPH	UCFS-cmp-R1	18394
+checkstyle	ucfs-CALL_GRAPH	UCFS-cmp-R2	6552
+checkstyle	ucfs-CALL_GRAPH	UCFS-cmp-R5	0
+checkstyle	ucfs-CALL_GRAPH	UCFS-cmp-UNEXPLAINED	0
+checkstyle	ucfs-CALL_GRAPH	UCFS-cmp-MISSING	0
+checkstyle	ucfs-CALL_GRAPH	UCFS-cmp-new-edges	4082
+checkstyle	ucfs-CALL_GRAPH	UCFS-cmp-seed-this-edges	0
+checkstyle	ucfs-CALL_GRAPH	UCFS-cmp-seed-exception-edges	1931
+checkstyle	ucfs-CALL_GRAPH	UCFS-cmp-seed-finalizer-edges	40
+checkstyle	ucfs-CALL_GRAPH	UCFS-cmp-same-without-this-seeds	65729
+checkstyle	ucfs-CALL_GRAPH	UCFS-cmp-same-without-seeds	57781
+checkstyle	ucfs-CALL_GRAPH	UCFS-cmp-last-step-pairs	65729
+checkstyle	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-cg-edges	5478
+checkstyle	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-UCFS	5659
+checkstyle	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-UCFS_TYPED	5659
+checkstyle	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-SPARK	5478
+checkstyle	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-UCFS	181
+checkstyle	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-UCFS_TYPED	181
+checkstyle	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-SPARK	0
+checkstyle	ucfs-CALL_GRAPH	cmp/SPARK/Reachable Method (CI)	1753
+checkstyle	ucfs-CALL_GRAPH	cmp/UCFS/Reachable Method (CI)	1753
+checkstyle	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Reachable Method (CI)	1753
+checkstyle	ucfs-CALL_GRAPH	cmp/SPARK/Call Edge(CI)	6743
+checkstyle	ucfs-CALL_GRAPH	cmp/UCFS/Call Edge(CI)	6743
+checkstyle	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Call Edge(CI)	6743
+checkstyle	ucfs-CALL_GRAPH	cmp/SPARK/May Fail Cast (Total)	71
+checkstyle	ucfs-CALL_GRAPH	cmp/UCFS/May Fail Cast (Total)	75
+checkstyle	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/May Fail Cast (Total)	73
+checkstyle	ucfs-CALL_GRAPH	cmp/SPARK/Virtual Call Site(Polymorphic)	92
+checkstyle	ucfs-CALL_GRAPH	cmp/UCFS/Virtual Call Site(Polymorphic)	92
+checkstyle	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Virtual Call Site(Polymorphic)	92
+checkstyle	ucfs-CALL_GRAPH	cmp/SPARK/globalAlias_incstst	535
+checkstyle	ucfs-CALL_GRAPH	cmp/UCFS/globalAlias_incstst	540
+checkstyle	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/globalAlias_incstst	540
+checkstyle	ucfs-CALL_GRAPH	cmp/SPARK/Avg Points-to Target without Native Var(CI)	9.43553488372093
+checkstyle	ucfs-CALL_GRAPH	cmp/UCFS/Avg Points-to Target without Native Var(CI)	86.60904059040591
+checkstyle	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Avg Points-to Target without Native Var(CI)	15.155246053853297
+checkstyle	cov-D3	EntrySize	16
+checkstyle	cov-D3	Single-Call Methods	617
+checkstyle	cov-D3	Single-Receiver Methods	347
+checkstyle	cov-D3	Single-Call-Single-Receiver Methods	262
+checkstyle	cov-D3	Method (Static)	-1
+checkstyle	cov-D3	Reachable Method (CI)	1753
+checkstyle	cov-D3	Reachable Method (CS)	1753
+checkstyle	cov-D3	Reachable App Method (CI)	880
+checkstyle	cov-D3	Reachable App Method (CS)	880
+checkstyle	cov-D3	Call Edge(CI)	6743
+checkstyle	cov-D3	Call Edge(CS)	6743
+checkstyle	cov-D3	receivers	2160
+checkstyle	cov-D3	avg p2s size for virtualcalls	2.589814814814815
+checkstyle	cov-D3	Cast (Total)	205
+checkstyle	cov-D3	Cast (AppOnly)	175
+checkstyle	cov-D3	May Fail Cast (Total)	71
+checkstyle	cov-D3	May Fail Cast (AppOnly)	66
+checkstyle	cov-D3	Static Call Site(Total)	1109
+checkstyle	cov-D3	Virtual Call Site(Total)	5628
+checkstyle	cov-D3	Virtual Call Site(AppOnly)	4395
+checkstyle	cov-D3	Virtual Call Site(Polymorphic)	92
+checkstyle	cov-D3	Virtual Call Site(Polymorphic AppOnly)	84
+checkstyle	cov-D3	Virtual Call Site(Unreachable)	694
+checkstyle	cov-D3	Avg Poly Call Targets	6.913043478260869
+checkstyle	cov-D3	Context	1343
+checkstyle	cov-D3	Avg Context per Method	1.0
+checkstyle	cov-D3	Method with Throw Pointer-to	535
+checkstyle	cov-D3	Alloc Node(CI)	1724
+checkstyle	cov-D3	Alloc Node(CS)	1082
+checkstyle	cov-D3	Global CS Pointer-to Relation	1023
+checkstyle	cov-D3	Local CS Pointer-to Relation	27474
+checkstyle	cov-D3	Field CS Pointer-to Relation	14324
+checkstyle	cov-D3	Global Pointer (lib + app)	272
+checkstyle	cov-D3	Global Avg Points-To Target(CI)	3.761029411764706
+checkstyle	cov-D3	Global Avg Points-To Target(CS)	3.761029411764706
+checkstyle	cov-D3	App Global Pointer	198
+checkstyle	cov-D3	App Global Avg Points-To Target(CI)	4.257575757575758
+checkstyle	cov-D3	App Global Avg Points-To Target(CS)	4.257575757575758
+checkstyle	cov-D3	Avg Points-to Target(CI)	9.430774948894257
+checkstyle	cov-D3	Avg Points-to Target without Native Var(CI)	9.43553488372093
+checkstyle	cov-D3	Local Pointer (lib + app)	4527
+checkstyle	cov-D3	Local Avg Points-To Target(CI)	6.068919814446653
+checkstyle	cov-D3	Local Avg Points-To Target(CS)	6.068919814446653
+checkstyle	cov-D3	App Local Pointer	3380
+checkstyle	cov-D3	App Local Avg Points-To Target(CI)	5.739940828402367
+checkstyle	cov-D3	App Local Avg Points-To Target(CS)	5.739940828402367
+checkstyle	cov-D3	Context Local Pointer (lib + app)	4508
+checkstyle	cov-D3	Context Local Avg Points-To Target(CI)	6.094498669032831
+checkstyle	cov-D3	Context Local Avg Points-To Target(CS)	6.094498669032831
+checkstyle	cov-D3	App Context Local Pointer	3369
+checkstyle	cov-D3	App Context Local Avg Points-To Target(CI)	5.758682101513802
+checkstyle	cov-D3	App Context Local Avg Points-To Target(CS)	5.758682101513802
+checkstyle	cov-D3	Alloc-pag-edge	14943
+checkstyle	cov-D3	Simple-pag-edge	22817
+checkstyle	cov-D3	Store-pag-edge	534
+checkstyle	cov-D3	Load-pag-edge	436
+checkstyle	cov-D3	intraAlias(App)	1
+checkstyle	cov-D3	intraAlias_incstst(App)	1
+checkstyle	cov-D3	globalAlias(App)	238
+checkstyle	cov-D3	globalAlias_incstst(App)	277
+checkstyle	cov-D3	intraAlias	8
+checkstyle	cov-D3	intraAlias_incstst	8
+checkstyle	cov-D3	globalAlias	472
+checkstyle	cov-D3	globalAlias_incstst	535
+checkstyle	cov-D3	Class	3903
+checkstyle	cov-D3	Appclass	2267
+checkstyle	cov-D3	Libclass	84
+checkstyle	cov-D3	Phantomclass	1552
+checkstyle	cov-D3	Class(reachable)	441
+checkstyle	cov-D3	Appclass(reachable)	259
+checkstyle	cov-D3	Libclass(reachable)	181
+checkstyle	cov-D3	UCFS-seam-NEW	14943
+checkstyle	cov-D3	UCFS-seam-ASSIGN	22817
+checkstyle	cov-D3	UCFS-seam-LOAD	436
+checkstyle	cov-D3	UCFS-seam-STORE	534
+checkstyle	cov-JDK	EntrySize	16
+checkstyle	cov-JDK	Single-Call Methods	4796
+checkstyle	cov-JDK	Single-Receiver Methods	4809
+checkstyle	cov-JDK	Single-Call-Single-Receiver Methods	3066
+checkstyle	cov-JDK	Method (Static)	-1
+checkstyle	cov-JDK	Reachable Method (CI)	12876
+checkstyle	cov-JDK	Reachable Method (CS)	12876
+checkstyle	cov-JDK	Reachable App Method (CI)	2506
+checkstyle	cov-JDK	Reachable App Method (CS)	2506
+checkstyle	cov-JDK	Call Edge(CI)	87986
+checkstyle	cov-JDK	Call Edge(CS)	87986
+checkstyle	cov-JDK	receivers	21461
+checkstyle	cov-JDK	avg p2s size for virtualcalls	3.708774055263035
+checkstyle	cov-JDK	Cast (Total)	2508
+checkstyle	cov-JDK	Cast (AppOnly)	339
+checkstyle	cov-JDK	May Fail Cast (Total)	2114
+checkstyle	cov-JDK	May Fail Cast (AppOnly)	298
+checkstyle	cov-JDK	Static Call Site(Total)	8256
+checkstyle	cov-JDK	Virtual Call Site(Total)	53771
+checkstyle	cov-JDK	Virtual Call Site(AppOnly)	15215
+checkstyle	cov-JDK	Virtual Call Site(Polymorphic)	3083
+checkstyle	cov-JDK	Virtual Call Site(Polymorphic AppOnly)	494
+checkstyle	cov-JDK	Virtual Call Site(Unreachable)	1278
+checkstyle	cov-JDK	Avg Poly Call Targets	9.65066493674992
+checkstyle	cov-JDK	Context	12877
+checkstyle	cov-JDK	Avg Context per Method	1.0
+checkstyle	cov-JDK	Method with Throw Pointer-to	6609
+checkstyle	cov-JDK	Alloc Node(CI)	12897
+checkstyle	cov-JDK	Alloc Node(CS)	8738
+checkstyle	cov-JDK	Global CS Pointer-to Relation	32523
+checkstyle	cov-JDK	Local CS Pointer-to Relation	4150125
+checkstyle	cov-JDK	Field CS Pointer-to Relation	1611205
+checkstyle	cov-JDK	Global Pointer (lib + app)	1701
+checkstyle	cov-JDK	Global Avg Points-To Target(CI)	19.119929453262788
+checkstyle	cov-JDK	Global Avg Points-To Target(CS)	19.119929453262788
+checkstyle	cov-JDK	App Global Pointer	305
+checkstyle	cov-JDK	App Global Avg Points-To Target(CI)	22.085245901639343
+checkstyle	cov-JDK	App Global Avg Points-To Target(CS)	22.085245901639343
+checkstyle	cov-JDK	Avg Points-to Target(CI)	85.28455949277263
+checkstyle	cov-JDK	Avg Points-to Target without Native Var(CI)	85.23280651932338
+checkstyle	cov-JDK	Local Pointer (lib + app)	48925
+checkstyle	cov-JDK	Local Avg Points-To Target(CI)	84.82626469085335
+checkstyle	cov-JDK	Local Avg Points-To Target(CS)	84.82626469085335
+checkstyle	cov-JDK	App Local Pointer	10062
+checkstyle	cov-JDK	App Local Avg Points-To Target(CI)	90.90638044126416
+checkstyle	cov-JDK	App Local Avg Points-To Target(CS)	90.90638044126416
+checkstyle	cov-JDK	Context Local Pointer (lib + app)	48892
+checkstyle	cov-JDK	Context Local Avg Points-To Target(CI)	84.88351877607789
+checkstyle	cov-JDK	Context Local Avg Points-To Target(CS)	84.88351877607789
+checkstyle	cov-JDK	App Context Local Pointer	10055
+checkstyle	cov-JDK	App Context Local Avg Points-To Target(CI)	90.96966683242168
+checkstyle	cov-JDK	App Context Local Avg Points-To Target(CS)	90.96966683242168
+checkstyle	cov-JDK	Alloc-pag-edge	381648
+checkstyle	cov-JDK	Simple-pag-edge	424274
+checkstyle	cov-JDK	Store-pag-edge	7564
+checkstyle	cov-JDK	Load-pag-edge	11112
+checkstyle	cov-JDK	intraAlias(App)	7
+checkstyle	cov-JDK	intraAlias_incstst(App)	7
+checkstyle	cov-JDK	globalAlias(App)	13580
+checkstyle	cov-JDK	globalAlias_incstst(App)	22200
+checkstyle	cov-JDK	intraAlias	351
+checkstyle	cov-JDK	intraAlias_incstst	386
+checkstyle	cov-JDK	globalAlias	49343
+checkstyle	cov-JDK	globalAlias_incstst	64631
+checkstyle	cov-JDK	Class	9019
+checkstyle	cov-JDK	Appclass	2267
+checkstyle	cov-JDK	Libclass	6706
+checkstyle	cov-JDK	Phantomclass	46
+checkstyle	cov-JDK	Class(reachable)	1842
+checkstyle	cov-JDK	Appclass(reachable)	391
+checkstyle	cov-JDK	Libclass(reachable)	1450
+checkstyle	cov-JDK	UCFS-seam-NEW	381648
+checkstyle	cov-JDK	UCFS-seam-ASSIGN	424274
+checkstyle	cov-JDK	UCFS-seam-LOAD	11112
+checkstyle	cov-JDK	UCFS-seam-STORE	7564
+JPC	insens	EntrySize	22
+JPC	insens	Reachable Method (CI)	987
+JPC	insens	Call Edge(CI)	2962
+JPC	insens	May Fail Cast (Total)	30
+JPC	insens	Virtual Call Site(Polymorphic)	17
+JPC	insens	globalAlias_incstst	292
+JPC	insens	Avg Points-to Target without Native Var(CI)	2.7535187092344664
+JPC	insens	UCFS-seam-NEW	3456
+JPC	insens	UCFS-seam-ASSIGN	8946
+JPC	insens	UCFS-seam-LOAD	324
+JPC	insens	UCFS-seam-STORE	335
+JPC	ucfs-ANALYSIS	EntrySize	22
+JPC	ucfs-ANALYSIS	Reachable Method (CI)	987
+JPC	ucfs-ANALYSIS	Call Edge(CI)	2962
+JPC	ucfs-ANALYSIS	May Fail Cast (Total)	31
+JPC	ucfs-ANALYSIS	Virtual Call Site(Polymorphic)	17
+JPC	ucfs-ANALYSIS	globalAlias_incstst	292
+JPC	ucfs-ANALYSIS	Avg Points-to Target without Native Var(CI)	3.1457905544147846
+JPC	ucfs-ANALYSIS	UCFS-import-binding	ANALYSIS
+JPC	ucfs-ANALYSIS	UCFS-import-pairs	12962
+JPC	ucfs-ANALYSIS	UCFS-import-typed-pairs	11128
+JPC	ucfs-ANALYSIS	UCFS-import-root-pairs	1
+JPC	ucfs-ANALYSIS	UCFS-import-spark-ms	4065
+JPC	ucfs-ANALYSIS	UCFS-import-ucfs-ms	994
+JPC	ucfs-ANALYSIS	UCFS-seam-NEW	3456
+JPC	ucfs-ANALYSIS	UCFS-seam-ASSIGN	8946
+JPC	ucfs-ANALYSIS	UCFS-seam-LOAD	324
+JPC	ucfs-ANALYSIS	UCFS-seam-STORE	335
+JPC	ucfs-ANALYSIS	UCFS-pt-vertices	9761
+JPC	ucfs-ANALYSIS	UCFS-pt-edges	22394
+JPC	ucfs-ANALYSIS	UCFS-pt-fields	254
+JPC	ucfs-ANALYSIS	UCFS-pt-pairs	12963
+JPC	ucfs-ANALYSIS	UCFS-pt-time-ms	994
+JPC	ucfs-ANALYSIS	UCFS-cmp-binding	ANALYSIS
+JPC	ucfs-ANALYSIS	UCFS-cmp-spark-pairs	11100
+JPC	ucfs-ANALYSIS	UCFS-cmp-ucfs-pairs	12963
+JPC	ucfs-ANALYSIS	UCFS-cmp-typed-pairs	11128
+JPC	ucfs-ANALYSIS	UCFS-cmp-SAME	11100
+JPC	ucfs-ANALYSIS	UCFS-cmp-R3	0
+JPC	ucfs-ANALYSIS	UCFS-cmp-R4b	1
+JPC	ucfs-ANALYSIS	UCFS-cmp-R1	1390
+JPC	ucfs-ANALYSIS	UCFS-cmp-R2	472
+JPC	ucfs-ANALYSIS	UCFS-cmp-R5	0
+JPC	ucfs-ANALYSIS	UCFS-cmp-UNEXPLAINED	0
+JPC	ucfs-ANALYSIS	UCFS-cmp-MISSING	0
+JPC	ucfs-ANALYSIS	UCFS-cmp-new-edges	3456
+JPC	ucfs-ANALYSIS	UCFS-cmp-seed-this-edges	1936
+JPC	ucfs-ANALYSIS	UCFS-cmp-seed-exception-edges	333
+JPC	ucfs-ANALYSIS	UCFS-cmp-seed-finalizer-edges	29
+JPC	ucfs-ANALYSIS	UCFS-cmp-same-without-this-seeds	6068
+JPC	ucfs-ANALYSIS	UCFS-cmp-same-without-seeds	4745
+JPC	ucfs-ANALYSIS	UCFS-cmp-last-step-pairs	11100
+JPC	ucfs-ANALYSIS	UCFS-cmp-dispatch-cg-edges	2086
+JPC	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-UCFS	2086
+JPC	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-UCFS_TYPED	2086
+JPC	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-SPARK	2086
+JPC	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-UCFS	0
+JPC	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-UCFS_TYPED	0
+JPC	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-SPARK	0
+JPC	ucfs-ANALYSIS	cmp/SPARK/Reachable Method (CI)	987
+JPC	ucfs-ANALYSIS	cmp/UCFS/Reachable Method (CI)	987
+JPC	ucfs-ANALYSIS	cmp/UCFS_TYPED/Reachable Method (CI)	987
+JPC	ucfs-ANALYSIS	cmp/SPARK/Call Edge(CI)	2962
+JPC	ucfs-ANALYSIS	cmp/UCFS/Call Edge(CI)	2962
+JPC	ucfs-ANALYSIS	cmp/UCFS_TYPED/Call Edge(CI)	2962
+JPC	ucfs-ANALYSIS	cmp/SPARK/May Fail Cast (Total)	30
+JPC	ucfs-ANALYSIS	cmp/UCFS/May Fail Cast (Total)	31
+JPC	ucfs-ANALYSIS	cmp/UCFS_TYPED/May Fail Cast (Total)	31
+JPC	ucfs-ANALYSIS	cmp/SPARK/Virtual Call Site(Polymorphic)	17
+JPC	ucfs-ANALYSIS	cmp/UCFS/Virtual Call Site(Polymorphic)	17
+JPC	ucfs-ANALYSIS	cmp/UCFS_TYPED/Virtual Call Site(Polymorphic)	17
+JPC	ucfs-ANALYSIS	cmp/SPARK/globalAlias_incstst	292
+JPC	ucfs-ANALYSIS	cmp/UCFS/globalAlias_incstst	292
+JPC	ucfs-ANALYSIS	cmp/UCFS_TYPED/globalAlias_incstst	292
+JPC	ucfs-ANALYSIS	cmp/SPARK/Avg Points-to Target without Native Var(CI)	2.7535187092344664
+JPC	ucfs-ANALYSIS	cmp/UCFS/Avg Points-to Target without Native Var(CI)	3.1457905544147846
+JPC	ucfs-ANALYSIS	cmp/UCFS_TYPED/Avg Points-to Target without Native Var(CI)	2.7631307929969102
+JPC	ucfs-CALL_GRAPH	EntrySize	22
+JPC	ucfs-CALL_GRAPH	Reachable Method (CI)	987
+JPC	ucfs-CALL_GRAPH	Call Edge(CI)	2962
+JPC	ucfs-CALL_GRAPH	May Fail Cast (Total)	31
+JPC	ucfs-CALL_GRAPH	Virtual Call Site(Polymorphic)	17
+JPC	ucfs-CALL_GRAPH	globalAlias_incstst	292
+JPC	ucfs-CALL_GRAPH	Avg Points-to Target without Native Var(CI)	4.638603696098563
+JPC	ucfs-CALL_GRAPH	UCFS-import-binding	CALL_GRAPH
+JPC	ucfs-CALL_GRAPH	UCFS-import-pairs	17482
+JPC	ucfs-CALL_GRAPH	UCFS-import-typed-pairs	11344
+JPC	ucfs-CALL_GRAPH	UCFS-import-root-pairs	1
+JPC	ucfs-CALL_GRAPH	UCFS-import-spark-ms	3929
+JPC	ucfs-CALL_GRAPH	UCFS-import-ucfs-ms	1371
+JPC	ucfs-CALL_GRAPH	UCFS-seam-NEW	3456
+JPC	ucfs-CALL_GRAPH	UCFS-seam-ASSIGN	8946
+JPC	ucfs-CALL_GRAPH	UCFS-seam-LOAD	324
+JPC	ucfs-CALL_GRAPH	UCFS-seam-STORE	335
+JPC	ucfs-CALL_GRAPH	UCFS-pt-vertices	9761
+JPC	ucfs-CALL_GRAPH	UCFS-pt-edges	21558
+JPC	ucfs-CALL_GRAPH	UCFS-pt-fields	254
+JPC	ucfs-CALL_GRAPH	UCFS-pt-pairs	17483
+JPC	ucfs-CALL_GRAPH	UCFS-pt-time-ms	1371
+JPC	ucfs-CALL_GRAPH	UCFS-cmp-binding	CALL_GRAPH
+JPC	ucfs-CALL_GRAPH	UCFS-cmp-spark-pairs	11100
+JPC	ucfs-CALL_GRAPH	UCFS-cmp-ucfs-pairs	17483
+JPC	ucfs-CALL_GRAPH	UCFS-cmp-typed-pairs	11344
+JPC	ucfs-CALL_GRAPH	UCFS-cmp-SAME	11100
+JPC	ucfs-CALL_GRAPH	UCFS-cmp-R3	4520
+JPC	ucfs-CALL_GRAPH	UCFS-cmp-R4b	1
+JPC	ucfs-CALL_GRAPH	UCFS-cmp-R1	1390
+JPC	ucfs-CALL_GRAPH	UCFS-cmp-R2	472
+JPC	ucfs-CALL_GRAPH	UCFS-cmp-R5	0
+JPC	ucfs-CALL_GRAPH	UCFS-cmp-UNEXPLAINED	0
+JPC	ucfs-CALL_GRAPH	UCFS-cmp-MISSING	0
+JPC	ucfs-CALL_GRAPH	UCFS-cmp-new-edges	1520
+JPC	ucfs-CALL_GRAPH	UCFS-cmp-seed-this-edges	0
+JPC	ucfs-CALL_GRAPH	UCFS-cmp-seed-exception-edges	333
+JPC	ucfs-CALL_GRAPH	UCFS-cmp-seed-finalizer-edges	29
+JPC	ucfs-CALL_GRAPH	UCFS-cmp-same-without-this-seeds	11100
+JPC	ucfs-CALL_GRAPH	UCFS-cmp-same-without-seeds	9549
+JPC	ucfs-CALL_GRAPH	UCFS-cmp-last-step-pairs	11100
+JPC	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-cg-edges	2086
+JPC	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-UCFS	2090
+JPC	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-UCFS_TYPED	2090
+JPC	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-SPARK	2086
+JPC	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-UCFS	4
+JPC	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-UCFS_TYPED	4
+JPC	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-SPARK	0
+JPC	ucfs-CALL_GRAPH	cmp/SPARK/Reachable Method (CI)	987
+JPC	ucfs-CALL_GRAPH	cmp/UCFS/Reachable Method (CI)	987
+JPC	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Reachable Method (CI)	987
+JPC	ucfs-CALL_GRAPH	cmp/SPARK/Call Edge(CI)	2962
+JPC	ucfs-CALL_GRAPH	cmp/UCFS/Call Edge(CI)	2962
+JPC	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Call Edge(CI)	2962
+JPC	ucfs-CALL_GRAPH	cmp/SPARK/May Fail Cast (Total)	30
+JPC	ucfs-CALL_GRAPH	cmp/UCFS/May Fail Cast (Total)	31
+JPC	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/May Fail Cast (Total)	31
+JPC	ucfs-CALL_GRAPH	cmp/SPARK/Virtual Call Site(Polymorphic)	17
+JPC	ucfs-CALL_GRAPH	cmp/UCFS/Virtual Call Site(Polymorphic)	17
+JPC	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Virtual Call Site(Polymorphic)	17
+JPC	ucfs-CALL_GRAPH	cmp/SPARK/globalAlias_incstst	292
+JPC	ucfs-CALL_GRAPH	cmp/UCFS/globalAlias_incstst	292
+JPC	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/globalAlias_incstst	292
+JPC	ucfs-CALL_GRAPH	cmp/SPARK/Avg Points-to Target without Native Var(CI)	2.7535187092344664
+JPC	ucfs-CALL_GRAPH	cmp/UCFS/Avg Points-to Target without Native Var(CI)	4.638603696098563
+JPC	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Avg Points-to Target without Native Var(CI)	2.8372811534500513
+JPC	cov-D3	EntrySize	22
+JPC	cov-D3	Single-Call Methods	418
+JPC	cov-D3	Single-Receiver Methods	239
+JPC	cov-D3	Single-Call-Single-Receiver Methods	201
+JPC	cov-D3	Method (Static)	-1
+JPC	cov-D3	Reachable Method (CI)	987
+JPC	cov-D3	Reachable Method (CS)	987
+JPC	cov-D3	Reachable App Method (CI)	450
+JPC	cov-D3	Reachable App Method (CS)	450
+JPC	cov-D3	Call Edge(CI)	2962
+JPC	cov-D3	Call Edge(CS)	2962
+JPC	cov-D3	receivers	1144
+JPC	cov-D3	avg p2s size for virtualcalls	1.909965034965035
+JPC	cov-D3	Cast (Total)	120
+JPC	cov-D3	Cast (AppOnly)	101
+JPC	cov-D3	May Fail Cast (Total)	30
+JPC	cov-D3	May Fail Cast (AppOnly)	30
+JPC	cov-D3	Static Call Site(Total)	748
+JPC	cov-D3	Virtual Call Site(Total)	2427
+JPC	cov-D3	Virtual Call Site(AppOnly)	2004
+JPC	cov-D3	Virtual Call Site(Polymorphic)	17
+JPC	cov-D3	Virtual Call Site(Polymorphic AppOnly)	14
+JPC	cov-D3	Virtual Call Site(Unreachable)	377
+JPC	cov-D3	Avg Poly Call Targets	3.1176470588235294
+JPC	cov-D3	Context	674
+JPC	cov-D3	Avg Context per Method	1.0
+JPC	cov-D3	Method with Throw Pointer-to	153
+JPC	cov-D3	Alloc Node(CI)	877
+JPC	cov-D3	Alloc Node(CS)	726
+JPC	cov-D3	Global CS Pointer-to Relation	612
+JPC	cov-D3	Local CS Pointer-to Relation	4702
+JPC	cov-D3	Field CS Pointer-to Relation	1861
+JPC	cov-D3	Global Pointer (lib + app)	176
+JPC	cov-D3	Global Avg Points-To Target(CI)	3.477272727272727
+JPC	cov-D3	Global Avg Points-To Target(CS)	3.477272727272727
+JPC	cov-D3	App Global Pointer	137
+JPC	cov-D3	App Global Avg Points-To Target(CI)	4.255474452554744
+JPC	cov-D3	App Global Avg Points-To Target(CS)	4.255474452554744
+JPC	cov-D3	Avg Points-to Target(CI)	2.7553956834532376
+JPC	cov-D3	Avg Points-to Target without Native Var(CI)	2.7535187092344664
+JPC	cov-D3	Local Pointer (lib + app)	2396
+JPC	cov-D3	Local Avg Points-To Target(CI)	1.9624373956594323
+JPC	cov-D3	Local Avg Points-To Target(CS)	1.9624373956594323
+JPC	cov-D3	App Local Pointer	1861
+JPC	cov-D3	App Local Avg Points-To Target(CI)	1.7517463729177862
+JPC	cov-D3	App Local Avg Points-To Target(CS)	1.7517463729177862
+JPC	cov-D3	Context Local Pointer (lib + app)	2385
+JPC	cov-D3	Context Local Avg Points-To Target(CI)	1.9714884696016772
+JPC	cov-D3	Context Local Avg Points-To Target(CS)	1.9714884696016772
+JPC	cov-D3	App Context Local Pointer	1855
+JPC	cov-D3	App Context Local Avg Points-To Target(CI)	1.7574123989218329
+JPC	cov-D3	App Context Local Avg Points-To Target(CS)	1.7574123989218329
+JPC	cov-D3	Alloc-pag-edge	3456
+JPC	cov-D3	Simple-pag-edge	8946
+JPC	cov-D3	Store-pag-edge	335
+JPC	cov-D3	Load-pag-edge	324
+JPC	cov-D3	intraAlias(App)	4
+JPC	cov-D3	intraAlias_incstst(App)	5
+JPC	cov-D3	globalAlias(App)	203
+JPC	cov-D3	globalAlias_incstst(App)	226
+JPC	cov-D3	intraAlias	8
+JPC	cov-D3	intraAlias_incstst	9
+JPC	cov-D3	globalAlias	267
+JPC	cov-D3	globalAlias_incstst	292
+JPC	cov-D3	Class	1768
+JPC	cov-D3	Appclass	321
+JPC	cov-D3	Libclass	61
+JPC	cov-D3	Phantomclass	1386
+JPC	cov-D3	Class(reachable)	298
+JPC	cov-D3	Appclass(reachable)	148
+JPC	cov-D3	Libclass(reachable)	149
+JPC	cov-D3	UCFS-seam-NEW	3456
+JPC	cov-D3	UCFS-seam-ASSIGN	8946
+JPC	cov-D3	UCFS-seam-LOAD	324
+JPC	cov-D3	UCFS-seam-STORE	335
+JPC	cov-JDK	EntrySize	22
+JPC	cov-JDK	Single-Call Methods	6471
+JPC	cov-JDK	Single-Receiver Methods	7183
+JPC	cov-JDK	Single-Call-Single-Receiver Methods	4671
+JPC	cov-JDK	Method (Static)	-1
+JPC	cov-JDK	Reachable Method (CI)	16322
+JPC	cov-JDK	Reachable Method (CS)	16322
+JPC	cov-JDK	Reachable App Method (CI)	2777
+JPC	cov-JDK	Reachable App Method (CS)	2777
+JPC	cov-JDK	Call Edge(CI)	103435
+JPC	cov-JDK	Call Edge(CS)	103435
+JPC	cov-JDK	receivers	24950
+JPC	cov-JDK	avg p2s size for virtualcalls	3.735430861723447
+JPC	cov-JDK	Cast (Total)	3015
+JPC	cov-JDK	Cast (AppOnly)	262
+JPC	cov-JDK	May Fail Cast (Total)	2518
+JPC	cov-JDK	May Fail Cast (AppOnly)	239
+JPC	cov-JDK	Static Call Site(Total)	9941
+JPC	cov-JDK	Virtual Call Site(Total)	59751
+JPC	cov-JDK	Virtual Call Site(AppOnly)	14570
+JPC	cov-JDK	Virtual Call Site(Polymorphic)	5343
+JPC	cov-JDK	Virtual Call Site(Polymorphic AppOnly)	2259
+JPC	cov-JDK	Virtual Call Site(Unreachable)	1650
+JPC	cov-JDK	Avg Poly Call Targets	7.452367583754445
+JPC	cov-JDK	Context	16323
+JPC	cov-JDK	Avg Context per Method	1.0
+JPC	cov-JDK	Method with Throw Pointer-to	8726
+JPC	cov-JDK	Alloc Node(CI)	13543
+JPC	cov-JDK	Alloc Node(CS)	8748
+JPC	cov-JDK	Global CS Pointer-to Relation	51469
+JPC	cov-JDK	Local CS Pointer-to Relation	4728914
+JPC	cov-JDK	Field CS Pointer-to Relation	1492985
+JPC	cov-JDK	Global Pointer (lib + app)	2327
+JPC	cov-JDK	Global Avg Points-To Target(CI)	22.118177911474
+JPC	cov-JDK	Global Avg Points-To Target(CS)	22.118177911474
+JPC	cov-JDK	App Global Pointer	208
+JPC	cov-JDK	App Global Avg Points-To Target(CI)	10.447115384615385
+JPC	cov-JDK	App Global Avg Points-To Target(CS)	10.447115384615385
+JPC	cov-JDK	Avg Points-to Target(CI)	84.85117607664658
+JPC	cov-JDK	Avg Points-to Target without Native Var(CI)	84.78338984904835
+JPC	cov-JDK	Local Pointer (lib + app)	55087
+JPC	cov-JDK	Local Avg Points-To Target(CI)	85.8444642111569
+JPC	cov-JDK	Local Avg Points-To Target(CS)	85.8444642111569
+JPC	cov-JDK	App Local Pointer	8708
+JPC	cov-JDK	App Local Avg Points-To Target(CI)	19.789159393661002
+JPC	cov-JDK	App Local Avg Points-To Target(CS)	19.789159393661002
+JPC	cov-JDK	Context Local Pointer (lib + app)	55039
+JPC	cov-JDK	Context Local Avg Points-To Target(CI)	85.91932992968623
+JPC	cov-JDK	Context Local Avg Points-To Target(CS)	85.91932992968623
+JPC	cov-JDK	App Context Local Pointer	8703
+JPC	cov-JDK	App Context Local Avg Points-To Target(CI)	19.800528553372402
+JPC	cov-JDK	App Context Local Avg Points-To Target(CS)	19.800528553372402
+JPC	cov-JDK	Alloc-pag-edge	595001
+JPC	cov-JDK	Simple-pag-edge	416388
+JPC	cov-JDK	Store-pag-edge	7932
+JPC	cov-JDK	Load-pag-edge	11379
+JPC	cov-JDK	intraAlias(App)	18
+JPC	cov-JDK	intraAlias_incstst(App)	19
+JPC	cov-JDK	globalAlias(App)	9784
+JPC	cov-JDK	globalAlias_incstst(App)	10987
+JPC	cov-JDK	intraAlias	211
+JPC	cov-JDK	intraAlias_incstst	246
+JPC	cov-JDK	globalAlias	35149
+JPC	cov-JDK	globalAlias_incstst	40926
+JPC	cov-JDK	Class	6576
+JPC	cov-JDK	Appclass	321
+JPC	cov-JDK	Libclass	6252
+JPC	cov-JDK	Phantomclass	3
+JPC	cov-JDK	Class(reachable)	2182
+JPC	cov-JDK	Appclass(reachable)	213
+JPC	cov-JDK	Libclass(reachable)	1968
+JPC	cov-JDK	UCFS-seam-NEW	595001
+JPC	cov-JDK	UCFS-seam-ASSIGN	416388
+JPC	cov-JDK	UCFS-seam-LOAD	11379
+JPC	cov-JDK	UCFS-seam-STORE	7932
+findbugs	insens	EntrySize	16
+findbugs	insens	Reachable Method (CI)	2098
+findbugs	insens	Call Edge(CI)	7107
+findbugs	insens	May Fail Cast (Total)	51
+findbugs	insens	Virtual Call Site(Polymorphic)	114
+findbugs	insens	globalAlias_incstst	1074
+findbugs	insens	Avg Points-to Target without Native Var(CI)	3.0517659059033533
+findbugs	insens	UCFS-seam-NEW	10129
+findbugs	insens	UCFS-seam-ASSIGN	25349
+findbugs	insens	UCFS-seam-LOAD	910
+findbugs	insens	UCFS-seam-STORE	1000
+findbugs	ucfs-ANALYSIS	EntrySize	16
+findbugs	ucfs-ANALYSIS	Reachable Method (CI)	2098
+findbugs	ucfs-ANALYSIS	Call Edge(CI)	7107
+findbugs	ucfs-ANALYSIS	May Fail Cast (Total)	52
+findbugs	ucfs-ANALYSIS	Virtual Call Site(Polymorphic)	114
+findbugs	ucfs-ANALYSIS	globalAlias_incstst	1077
+findbugs	ucfs-ANALYSIS	Avg Points-to Target without Native Var(CI)	3.7969246409963144
+findbugs	ucfs-ANALYSIS	UCFS-import-binding	ANALYSIS
+findbugs	ucfs-ANALYSIS	UCFS-import-pairs	45334
+findbugs	ucfs-ANALYSIS	UCFS-import-typed-pairs	39017
+findbugs	ucfs-ANALYSIS	UCFS-import-root-pairs	1
+findbugs	ucfs-ANALYSIS	UCFS-import-spark-ms	6533
+findbugs	ucfs-ANALYSIS	UCFS-import-ucfs-ms	2642
+findbugs	ucfs-ANALYSIS	UCFS-seam-NEW	10129
+findbugs	ucfs-ANALYSIS	UCFS-seam-ASSIGN	25349
+findbugs	ucfs-ANALYSIS	UCFS-seam-LOAD	910
+findbugs	ucfs-ANALYSIS	UCFS-seam-STORE	1000
+findbugs	ucfs-ANALYSIS	UCFS-pt-vertices	24082
+findbugs	ucfs-ANALYSIS	UCFS-pt-edges	62746
+findbugs	ucfs-ANALYSIS	UCFS-pt-fields	545
+findbugs	ucfs-ANALYSIS	UCFS-pt-pairs	45335
+findbugs	ucfs-ANALYSIS	UCFS-pt-time-ms	2642
+findbugs	ucfs-ANALYSIS	UCFS-cmp-binding	ANALYSIS
+findbugs	ucfs-ANALYSIS	UCFS-cmp-spark-pairs	38601
+findbugs	ucfs-ANALYSIS	UCFS-cmp-ucfs-pairs	45335
+findbugs	ucfs-ANALYSIS	UCFS-cmp-typed-pairs	39017
+findbugs	ucfs-ANALYSIS	UCFS-cmp-SAME	38601
+findbugs	ucfs-ANALYSIS	UCFS-cmp-R3	0
+findbugs	ucfs-ANALYSIS	UCFS-cmp-R4b	1
+findbugs	ucfs-ANALYSIS	UCFS-cmp-R1	6316
+findbugs	ucfs-ANALYSIS	UCFS-cmp-R2	314
+findbugs	ucfs-ANALYSIS	UCFS-cmp-R5	0
+findbugs	ucfs-ANALYSIS	UCFS-cmp-UNEXPLAINED	103
+findbugs	ucfs-ANALYSIS	UCFS-cmp-MISSING	0
+findbugs	ucfs-ANALYSIS	UCFS-cmp-new-edges	10129
+findbugs	ucfs-ANALYSIS	UCFS-cmp-seed-this-edges	4592
+findbugs	ucfs-ANALYSIS	UCFS-cmp-seed-exception-edges	2572
+findbugs	ucfs-ANALYSIS	UCFS-cmp-seed-finalizer-edges	13
+findbugs	ucfs-ANALYSIS	UCFS-cmp-same-without-this-seeds	21598
+findbugs	ucfs-ANALYSIS	UCFS-cmp-same-without-seeds	11668
+findbugs	ucfs-ANALYSIS	UCFS-cmp-last-step-pairs	38704
+findbugs	ucfs-ANALYSIS	UCFS-cmp-dispatch-cg-edges	6233
+findbugs	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-UCFS	6235
+findbugs	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-UCFS_TYPED	6235
+findbugs	ucfs-ANALYSIS	UCFS-cmp-dispatch-edges-SPARK	6233
+findbugs	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-UCFS	2
+findbugs	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-UCFS_TYPED	2
+findbugs	ucfs-ANALYSIS	UCFS-cmp-dispatch-new-edges-SPARK	0
+findbugs	ucfs-ANALYSIS	cmp/SPARK/Reachable Method (CI)	2098
+findbugs	ucfs-ANALYSIS	cmp/UCFS/Reachable Method (CI)	2098
+findbugs	ucfs-ANALYSIS	cmp/UCFS_TYPED/Reachable Method (CI)	2098
+findbugs	ucfs-ANALYSIS	cmp/SPARK/Call Edge(CI)	7107
+findbugs	ucfs-ANALYSIS	cmp/UCFS/Call Edge(CI)	7107
+findbugs	ucfs-ANALYSIS	cmp/UCFS_TYPED/Call Edge(CI)	7107
+findbugs	ucfs-ANALYSIS	cmp/SPARK/May Fail Cast (Total)	51
+findbugs	ucfs-ANALYSIS	cmp/UCFS/May Fail Cast (Total)	52
+findbugs	ucfs-ANALYSIS	cmp/UCFS_TYPED/May Fail Cast (Total)	52
+findbugs	ucfs-ANALYSIS	cmp/SPARK/Virtual Call Site(Polymorphic)	114
+findbugs	ucfs-ANALYSIS	cmp/UCFS/Virtual Call Site(Polymorphic)	114
+findbugs	ucfs-ANALYSIS	cmp/UCFS_TYPED/Virtual Call Site(Polymorphic)	114
+findbugs	ucfs-ANALYSIS	cmp/SPARK/globalAlias_incstst	1074
+findbugs	ucfs-ANALYSIS	cmp/UCFS/globalAlias_incstst	1077
+findbugs	ucfs-ANALYSIS	cmp/UCFS_TYPED/globalAlias_incstst	1077
+findbugs	ucfs-ANALYSIS	cmp/SPARK/Avg Points-to Target without Native Var(CI)	3.0517659059033533
+findbugs	ucfs-ANALYSIS	cmp/UCFS/Avg Points-to Target without Native Var(CI)	3.7969246409963144
+findbugs	ucfs-ANALYSIS	cmp/UCFS_TYPED/Avg Points-to Target without Native Var(CI)	3.101988781234064
+findbugs	ucfs-CALL_GRAPH	EntrySize	16
+findbugs	ucfs-CALL_GRAPH	Reachable Method (CI)	2098
+findbugs	ucfs-CALL_GRAPH	Call Edge(CI)	7107
+findbugs	ucfs-CALL_GRAPH	May Fail Cast (Total)	53
+findbugs	ucfs-CALL_GRAPH	Virtual Call Site(Polymorphic)	114
+findbugs	ucfs-CALL_GRAPH	globalAlias_incstst	1077
+findbugs	ucfs-CALL_GRAPH	Avg Points-to Target without Native Var(CI)	7.051086542127335
+findbugs	ucfs-CALL_GRAPH	UCFS-import-binding	CALL_GRAPH
+findbugs	ucfs-CALL_GRAPH	UCFS-import-pairs	73044
+findbugs	ucfs-CALL_GRAPH	UCFS-import-typed-pairs	40141
+findbugs	ucfs-CALL_GRAPH	UCFS-import-root-pairs	1
+findbugs	ucfs-CALL_GRAPH	UCFS-import-spark-ms	6264
+findbugs	ucfs-CALL_GRAPH	UCFS-import-ucfs-ms	6246
+findbugs	ucfs-CALL_GRAPH	UCFS-seam-NEW	10129
+findbugs	ucfs-CALL_GRAPH	UCFS-seam-ASSIGN	25349
+findbugs	ucfs-CALL_GRAPH	UCFS-seam-LOAD	910
+findbugs	ucfs-CALL_GRAPH	UCFS-seam-STORE	1000
+findbugs	ucfs-CALL_GRAPH	UCFS-pt-vertices	24082
+findbugs	ucfs-CALL_GRAPH	UCFS-pt-edges	62252
+findbugs	ucfs-CALL_GRAPH	UCFS-pt-fields	545
+findbugs	ucfs-CALL_GRAPH	UCFS-pt-pairs	73045
+findbugs	ucfs-CALL_GRAPH	UCFS-pt-time-ms	6246
+findbugs	ucfs-CALL_GRAPH	UCFS-cmp-binding	CALL_GRAPH
+findbugs	ucfs-CALL_GRAPH	UCFS-cmp-spark-pairs	38601
+findbugs	ucfs-CALL_GRAPH	UCFS-cmp-ucfs-pairs	73045
+findbugs	ucfs-CALL_GRAPH	UCFS-cmp-typed-pairs	40141
+findbugs	ucfs-CALL_GRAPH	UCFS-cmp-SAME	38601
+findbugs	ucfs-CALL_GRAPH	UCFS-cmp-R3	27710
+findbugs	ucfs-CALL_GRAPH	UCFS-cmp-R4b	1
+findbugs	ucfs-CALL_GRAPH	UCFS-cmp-R1	6316
+findbugs	ucfs-CALL_GRAPH	UCFS-cmp-R2	314
+findbugs	ucfs-CALL_GRAPH	UCFS-cmp-R5	0
+findbugs	ucfs-CALL_GRAPH	UCFS-cmp-UNEXPLAINED	103
+findbugs	ucfs-CALL_GRAPH	UCFS-cmp-MISSING	0
+findbugs	ucfs-CALL_GRAPH	UCFS-cmp-new-edges	5537
+findbugs	ucfs-CALL_GRAPH	UCFS-cmp-seed-this-edges	0
+findbugs	ucfs-CALL_GRAPH	UCFS-cmp-seed-exception-edges	2572
+findbugs	ucfs-CALL_GRAPH	UCFS-cmp-seed-finalizer-edges	13
+findbugs	ucfs-CALL_GRAPH	UCFS-cmp-same-without-this-seeds	38601
+findbugs	ucfs-CALL_GRAPH	UCFS-cmp-same-without-seeds	28344
+findbugs	ucfs-CALL_GRAPH	UCFS-cmp-last-step-pairs	38704
+findbugs	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-cg-edges	6233
+findbugs	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-UCFS	6246
+findbugs	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-UCFS_TYPED	6246
+findbugs	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-edges-SPARK	6233
+findbugs	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-UCFS	13
+findbugs	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-UCFS_TYPED	13
+findbugs	ucfs-CALL_GRAPH	UCFS-cmp-dispatch-new-edges-SPARK	0
+findbugs	ucfs-CALL_GRAPH	cmp/SPARK/Reachable Method (CI)	2098
+findbugs	ucfs-CALL_GRAPH	cmp/UCFS/Reachable Method (CI)	2098
+findbugs	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Reachable Method (CI)	2098
+findbugs	ucfs-CALL_GRAPH	cmp/SPARK/Call Edge(CI)	7107
+findbugs	ucfs-CALL_GRAPH	cmp/UCFS/Call Edge(CI)	7107
+findbugs	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Call Edge(CI)	7107
+findbugs	ucfs-CALL_GRAPH	cmp/SPARK/May Fail Cast (Total)	51
+findbugs	ucfs-CALL_GRAPH	cmp/UCFS/May Fail Cast (Total)	53
+findbugs	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/May Fail Cast (Total)	53
+findbugs	ucfs-CALL_GRAPH	cmp/SPARK/Virtual Call Site(Polymorphic)	114
+findbugs	ucfs-CALL_GRAPH	cmp/UCFS/Virtual Call Site(Polymorphic)	114
+findbugs	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Virtual Call Site(Polymorphic)	114
+findbugs	ucfs-CALL_GRAPH	cmp/SPARK/globalAlias_incstst	1074
+findbugs	ucfs-CALL_GRAPH	cmp/UCFS/globalAlias_incstst	1077
+findbugs	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/globalAlias_incstst	1077
+findbugs	ucfs-CALL_GRAPH	cmp/SPARK/Avg Points-to Target without Native Var(CI)	3.0517659059033533
+findbugs	ucfs-CALL_GRAPH	cmp/UCFS/Avg Points-to Target without Native Var(CI)	7.051086542127335
+findbugs	ucfs-CALL_GRAPH	cmp/UCFS_TYPED/Avg Points-to Target without Native Var(CI)	3.236868944416114
+findbugs	cov-D3	EntrySize	16
+findbugs	cov-D3	Single-Call Methods	1009
+findbugs	cov-D3	Single-Receiver Methods	939
+findbugs	cov-D3	Single-Call-Single-Receiver Methods	698
+findbugs	cov-D3	Method (Static)	-1
+findbugs	cov-D3	Reachable Method (CI)	2098
+findbugs	cov-D3	Reachable Method (CS)	2098
+findbugs	cov-D3	Reachable App Method (CI)	868
+findbugs	cov-D3	Reachable App Method (CS)	868
+findbugs	cov-D3	Call Edge(CI)	7107
+findbugs	cov-D3	Call Edge(CS)	7107
+findbugs	cov-D3	receivers	3104
+findbugs	cov-D3	avg p2s size for virtualcalls	2.047680412371134
+findbugs	cov-D3	Cast (Total)	328
+findbugs	cov-D3	Cast (AppOnly)	192
+findbugs	cov-D3	May Fail Cast (Total)	51
+findbugs	cov-D3	May Fail Cast (AppOnly)	9
+findbugs	cov-D3	Static Call Site(Total)	738
+findbugs	cov-D3	Virtual Call Site(Total)	6907
+findbugs	cov-D3	Virtual Call Site(AppOnly)	4304
+findbugs	cov-D3	Virtual Call Site(Polymorphic)	114
+findbugs	cov-D3	Virtual Call Site(Polymorphic AppOnly)	99
+findbugs	cov-D3	Virtual Call Site(Unreachable)	838
+findbugs	cov-D3	Avg Poly Call Targets	2.43859649122807
+findbugs	cov-D3	Context	1655
+findbugs	cov-D3	Avg Context per Method	1.0
+findbugs	cov-D3	Method with Throw Pointer-to	614
+findbugs	cov-D3	Alloc Node(CI)	1704
+findbugs	cov-D3	Alloc Node(CS)	1198
+findbugs	cov-D3	Global CS Pointer-to Relation	566
+findbugs	cov-D3	Local CS Pointer-to Relation	14057
+findbugs	cov-D3	Field CS Pointer-to Relation	4929
+findbugs	cov-D3	Global Pointer (lib + app)	179
+findbugs	cov-D3	Global Avg Points-To Target(CI)	3.1620111731843576
+findbugs	cov-D3	Global Avg Points-To Target(CS)	3.1620111731843576
+findbugs	cov-D3	App Global Pointer	89
+findbugs	cov-D3	App Global Avg Points-To Target(CI)	1.6741573033707866
+findbugs	cov-D3	App Global Avg Points-To Target(CS)	1.6741573033707866
+findbugs	cov-D3	Avg Points-to Target(CI)	3.050700636942675
+findbugs	cov-D3	Avg Points-to Target without Native Var(CI)	3.0517659059033533
+findbugs	cov-D3	Local Pointer (lib + app)	6161
+findbugs	cov-D3	Local Avg Points-To Target(CI)	2.2816101282259376
+findbugs	cov-D3	Local Avg Points-To Target(CS)	2.2816101282259376
+findbugs	cov-D3	App Local Pointer	3667
+findbugs	cov-D3	App Local Avg Points-To Target(CI)	1.823016089446414
+findbugs	cov-D3	App Local Avg Points-To Target(CS)	1.823016089446414
+findbugs	cov-D3	Context Local Pointer (lib + app)	6153
+findbugs	cov-D3	Context Local Avg Points-To Target(CI)	2.284576629286527
+findbugs	cov-D3	Context Local Avg Points-To Target(CS)	2.284576629286527
+findbugs	cov-D3	App Context Local Pointer	3664
+findbugs	cov-D3	App Context Local Avg Points-To Target(CI)	1.824508733624454
+findbugs	cov-D3	App Context Local Avg Points-To Target(CS)	1.824508733624454
+findbugs	cov-D3	Alloc-pag-edge	10129
+findbugs	cov-D3	Simple-pag-edge	25349
+findbugs	cov-D3	Store-pag-edge	1000
+findbugs	cov-D3	Load-pag-edge	910
+findbugs	cov-D3	intraAlias(App)	3
+findbugs	cov-D3	intraAlias_incstst(App)	3
+findbugs	cov-D3	globalAlias(App)	441
+findbugs	cov-D3	globalAlias_incstst(App)	479
+findbugs	cov-D3	intraAlias	22
+findbugs	cov-D3	intraAlias_incstst	24
+findbugs	cov-D3	globalAlias	967
+findbugs	cov-D3	globalAlias_incstst	1074
+findbugs	cov-D3	Class	3015
+findbugs	cov-D3	Appclass	839
+findbugs	cov-D3	Libclass	849
+findbugs	cov-D3	Phantomclass	1327
+findbugs	cov-D3	Class(reachable)	488
+findbugs	cov-D3	Appclass(reachable)	211
+findbugs	cov-D3	Libclass(reachable)	276
+findbugs	cov-D3	UCFS-seam-NEW	10129
+findbugs	cov-D3	UCFS-seam-ASSIGN	25349
+findbugs	cov-D3	UCFS-seam-LOAD	910
+findbugs	cov-D3	UCFS-seam-STORE	1000
+findbugs	cov-JDK	EntrySize	16
+findbugs	cov-JDK	Single-Call Methods	7018
+findbugs	cov-JDK	Single-Receiver Methods	7754
+findbugs	cov-JDK	Single-Call-Single-Receiver Methods	5117
+findbugs	cov-JDK	Method (Static)	-1
+findbugs	cov-JDK	Reachable Method (CI)	16869
+findbugs	cov-JDK	Reachable Method (CS)	16869
+findbugs	cov-JDK	Reachable App Method (CI)	3640
+findbugs	cov-JDK	Reachable App Method (CS)	3640
+findbugs	cov-JDK	Call Edge(CI)	113469
+findbugs	cov-JDK	Call Edge(CS)	113469
+findbugs	cov-JDK	receivers	29672
+findbugs	cov-JDK	avg p2s size for virtualcalls	3.514761391210569
+findbugs	cov-JDK	Cast (Total)	4088
+findbugs	cov-JDK	Cast (AppOnly)	1192
+findbugs	cov-JDK	May Fail Cast (Total)	3683
+findbugs	cov-JDK	May Fail Cast (AppOnly)	1152
+findbugs	cov-JDK	Static Call Site(Total)	9088
+findbugs	cov-JDK	Virtual Call Site(Total)	70086
+findbugs	cov-JDK	Virtual Call Site(AppOnly)	16214
+findbugs	cov-JDK	Virtual Call Site(Polymorphic)	4870
+findbugs	cov-JDK	Virtual Call Site(Polymorphic AppOnly)	1069
+findbugs	cov-JDK	Virtual Call Site(Unreachable)	1006
+findbugs	cov-JDK	Avg Poly Call Targets	8.11416837782341
+findbugs	cov-JDK	Context	16870
+findbugs	cov-JDK	Avg Context per Method	1.0
+findbugs	cov-JDK	Method with Throw Pointer-to	8847
+findbugs	cov-JDK	Alloc Node(CI)	15393
+findbugs	cov-JDK	Alloc Node(CS)	10403
+findbugs	cov-JDK	Global CS Pointer-to Relation	28651
+findbugs	cov-JDK	Local CS Pointer-to Relation	6465976
+findbugs	cov-JDK	Field CS Pointer-to Relation	1180723
+findbugs	cov-JDK	Global Pointer (lib + app)	1956
+findbugs	cov-JDK	Global Avg Points-To Target(CI)	14.647750511247445
+findbugs	cov-JDK	Global Avg Points-To Target(CS)	14.647750511247445
+findbugs	cov-JDK	App Global Pointer	196
+findbugs	cov-JDK	App Global Avg Points-To Target(CI)	7.520408163265306
+findbugs	cov-JDK	App Global Avg Points-To Target(CS)	7.520408163265306
+findbugs	cov-JDK	Avg Points-to Target(CI)	95.80025000837081
+findbugs	cov-JDK	Avg Points-to Target without Native Var(CI)	95.7563919344394
+findbugs	cov-JDK	Local Pointer (lib + app)	65470
+findbugs	cov-JDK	Local Avg Points-To Target(CI)	98.76242553841455
+findbugs	cov-JDK	Local Avg Points-To Target(CS)	98.76242553841455
+findbugs	cov-JDK	App Local Pointer	14934
+findbugs	cov-JDK	App Local Avg Points-To Target(CI)	105.87531806615776
+findbugs	cov-JDK	App Local Avg Points-To Target(CS)	105.87531806615776
+findbugs	cov-JDK	Context Local Pointer (lib + app)	65449
+findbugs	cov-JDK	Context Local Avg Points-To Target(CI)	98.79411450136747
+findbugs	cov-JDK	Context Local Avg Points-To Target(CS)	98.79411450136747
+findbugs	cov-JDK	App Context Local Pointer	14933
+findbugs	cov-JDK	App Context Local Avg Points-To Target(CI)	105.88240808946628
+findbugs	cov-JDK	App Context Local Avg Points-To Target(CS)	105.88240808946628
+findbugs	cov-JDK	Alloc-pag-edge	577570
+findbugs	cov-JDK	Simple-pag-edge	495190
+findbugs	cov-JDK	Store-pag-edge	8459
+findbugs	cov-JDK	Load-pag-edge	13061
+findbugs	cov-JDK	intraAlias(App)	18
+findbugs	cov-JDK	intraAlias_incstst(App)	18
+findbugs	cov-JDK	globalAlias(App)	2316
+findbugs	cov-JDK	globalAlias_incstst(App)	2430
+findbugs	cov-JDK	intraAlias	320
+findbugs	cov-JDK	intraAlias_incstst	359
+findbugs	cov-JDK	globalAlias	30523
+findbugs	cov-JDK	globalAlias_incstst	34564
+findbugs	cov-JDK	Class	8565
+findbugs	cov-JDK	Appclass	839
+findbugs	cov-JDK	Libclass	7707
+findbugs	cov-JDK	Phantomclass	19
+findbugs	cov-JDK	Class(reachable)	2464
+findbugs	cov-JDK	Appclass(reachable)	466
+findbugs	cov-JDK	Libclass(reachable)	1997
+findbugs	cov-JDK	UCFS-seam-NEW	577570
+findbugs	cov-JDK	UCFS-seam-ASSIGN	495190
+findbugs	cov-JDK	UCFS-seam-LOAD	13061
+findbugs	cov-JDK	UCFS-seam-STORE	8459
