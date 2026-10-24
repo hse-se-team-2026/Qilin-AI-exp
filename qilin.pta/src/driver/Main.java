@@ -25,6 +25,8 @@ import qilin.core.PTA;
 import qilin.core.PTAScene;
 import qilin.core.builder.FakeMainFactory;
 import qilin.pta.PTAConfig;
+import qilin.pta.tools.UcfsPTA;
+import qilin.pta.ucfs.UcfsCompare;
 import qilin.pta.ucfs.UcfsPointsToDump;
 import qilin.pta.ucfs.UcfsSeam;
 import qilin.util.MemoryWatcher;
@@ -60,6 +62,9 @@ public class Main {
         }
         if (PTAConfig.v().ucfsPointsTo) {
             UcfsPointsToDump.run(pta);
+        }
+        if (PTAConfig.v().ucfsCompare) {
+            UcfsCompare.run((UcfsPTA) pta);
         }
         return pta;
     }

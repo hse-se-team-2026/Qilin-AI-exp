@@ -121,6 +121,10 @@ public class PTAOption extends Options {
                 "Only with -pta=ucfs: how the export binds receivers to this. ANALYSIS: the new edges "
                         + "object -> this of the kernel; CALL_GRAPH: receiver variable -> this along the kernel's "
                         + "call graph, so UCFS computes pts(this) (default value: ANALYSIS)");
+        addOption("ucfscompare", "ucfscomparespark",
+                "Only with -pta=ucfs: after the analysis, compare the views SPARK, UCFS and UCFS_TYPED of that run "
+                        + "(Qilin's metrics per view, every pair with its class, the seed counters), write "
+                        + "<outdir>/ucfs-compare/{metrics,pairs}.tsv and print the #UCFS-cmp- lines (default value: false)");
 
     }
 
@@ -295,6 +299,12 @@ public class PTAOption extends Options {
                 throw new IllegalArgumentException("-ucfsbinding: unknown value " + binding + ", expected one of "
                         + Arrays.toString(ReceiverBinding.values()), e);
             }
+        }
+        if (cmd.hasOption("ucfscomparespark")) {
+            if (PTAConfig.v().getPtaConfig().ptaPattern.getApproach() != PTAPattern.Approach.UCFS) {
+                throw new IllegalArgumentException("-ucfscompare needs -pta=" + PTAPattern.UCFS + ", got -pta=" + ptacmd);
+            }
+            PTAConfig.v().ucfsCompare = true;
         }
     }
 

@@ -104,4 +104,10 @@ public class PTAConfig extends CoreConfig {
      * {@code this} in its export (-ucfsbinding, E4-S2); read only by that analysis.
      */
     public ReceiverBinding ucfsBinding = ReceiverBinding.ANALYSIS;
+
+    /**
+     * If this option is turned on (-ucfscompare, only with -pta=ucfs), driver.Main compares the
+     * views of that analysis after the run and writes outDir/ucfs-compare (qilin.pta.ucfs.UcfsCompare, E4-S3).
+     */
+    public boolean ucfsCompare = false;
 }
