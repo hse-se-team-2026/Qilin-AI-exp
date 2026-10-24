@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -55,7 +56,16 @@ import java.util.function.BiPredicate;
  *   <li>{@link Filters#emptyArrays()}: no store and no load through a base object that is an empty
  *       array ({@code PTAUtils.isEmptyArray}, {@code Solver.disallowStoreOrLoadOn}).</li>
  * </ul>
- * The fixpoint is computed by difference propagation over node ids: the vertices of the graph and,
+ *
+ * <p>The type tests get the same type object as the solver's ({@code pointer.getType()} of the
+ * node, the variable's own type for a CI variable), not an equal one: the cache of filters is keyed by
+ * identity. Equal types can test differently: {@code FastHierarchy.canStoreType} compares the
+ * supertype of an array type with {@code Object}, {@code Serializable} and {@code Cloneable} of the
+ * Scene by {@code ==}, and Soot's type assigner gives some casts a {@code WeakObjectType} named
+ * {@code java.lang.Object} that equals the Scene's {@code Object} but is another object; an array
+ * does not pass such a cast in the solver (E4-S3b).
+ *
+ * <p>The fixpoint is computed by difference propagation over node ids: the vertices of the graph and,
  * after them, the field nodes made on the fly; a store or load through a new base object adds a
  * copy edge to or from the field node.
  */
@@ -81,7 +91,8 @@ final class ReferenceFixpoint {
     private final List<List<Integer>> succ = new ArrayList<>();
     private final Set<Long> copyEdges = new HashSet<>();
     private final Map<Long, Integer> fieldNodes = new HashMap<>();
-    private final Map<Type, TypeFilter> filterByType = new HashMap<>();
+    /** Type -> its filter, by identity of the type object (see the class comment). */
+    private final Map<Type, TypeFilter> filterByType = new IdentityHashMap<>();
     private final ArrayDeque<Integer> work = new ArrayDeque<>();
     private final BitSet queued = new BitSet();
 
