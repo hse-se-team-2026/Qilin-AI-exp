@@ -10,6 +10,7 @@ import qilin.core.pag.ArrayElement;
 import qilin.core.pag.Node;
 import qilin.core.pag.VarNode;
 import qilin.pta.PTAConfig;
+import qilin.pta.tools.UcfsPTA;
 import qilin.ucfs.LabeledEdge;
 import qilin.ucfs.PagExport;
 import qilin.ucfs.UcfsGraph;
@@ -39,6 +40,10 @@ import java.util.TreeSet;
  * <p>The graph is the main mode of the export, {@code PagExport.export(pta)}
  * ({@code ReceiverBinding.ANALYSIS}); the answer is {@code UcfsPointsTo.solve(graph,
  * new PointsToGrammar(#fields))}, the query of {@code UcfsPointsTo.solve(pta)} on that graph.
+ * When {@code pta} is a {@link UcfsPTA} ({@code -pta=ucfs}, E4-S2), UCFS has already run inside
+ * the analysis, so this class does not export or solve again: the graph is
+ * {@link UcfsPTA#getUcfsGraph()} (export with the analysis's binding, {@code -ucfsbinding}) and
+ * the answer {@link UcfsPTA#getUcfsAnswer()}, with the ROOT pairs that the import drops.
  * Files in {@code <outDir>/ucfs} (outDir of {@code PTAConfig}, sootOutput by default):
  * <ul>
  *   <li>{@code graph.dot}: the graph in the DOT format of UCFS ({@code org.ucfs.input.utils.DotWriter},
@@ -54,19 +59,33 @@ import java.util.TreeSet;
  * </ul>
  * Prints the five lines {@code #UCFS-pt-vertices}, {@code -edges} (forward and reversed edges),
  * {@code -fields}, {@code -pairs} and {@code -time-ms} (wall time of the export and the solve,
- * without writing the files).
+ * without writing the files; for a {@link UcfsPTA}, {@link UcfsPTA#getUcfsTimeMs()}: export, solve
+ * and import inside {@code pureRun()}).
  */
 public final class UcfsPointsToDump {
     private UcfsPointsToDump() {
     }
 
-    /** Runs the export and UCFS on {@code pta}, writes the four files and prints the five lines. Call it after {@code pta.run()}. */
+    /**
+     * Runs the export and UCFS on {@code pta} (or, for a {@link UcfsPTA}, takes the graph and the
+     * answer of its run), writes the four files and prints the five lines. Call it after {@code pta.run()}.
+     */
     public static void run(PTA pta) {
+        if (pta instanceof UcfsPTA ucfsPta) {
+            dump(ucfsPta.getUcfsGraph(), ucfsPta.getUcfsAnswer(), ucfsPta.getUcfsTimeMs());
+            return;
+        }
         long start = System.nanoTime();
         UcfsGraph graph = PagExport.export(pta);
         Map<VarNode, Set<AllocNode>> pts = UcfsPointsTo.solve(graph, new PointsToGrammar(graph.getFields().size()));
         long timeMs = (System.nanoTime() - start) / 1_000_000;
+        dump(graph, pts, timeMs);
+    }
 
+    private static void dump(UcfsGraph graph, Map<VarNode, Set<AllocNode>> pts, long timeMs) {
+        if (graph == null) {
+            throw new IllegalStateException("no UCFS graph: the analysis has not run");
+        }
         File dir = new File(PTAConfig.v().getOutConfig().outDir, "ucfs");
         if (!dir.isDirectory() && !dir.mkdirs()) {
             throw new UncheckedIOException(new IOException("cannot create directory " + dir));

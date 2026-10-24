@@ -39,10 +39,15 @@ import qilin.pta.tools.Spark;
 import qilin.pta.tools.TunnelingPTA;
 import qilin.pta.tools.TurnerPTA;
 import qilin.pta.tools.TypeSensPTA;
+import qilin.pta.tools.UcfsPTA;
 import qilin.pta.tools.ZipperPTA;
 
 public class PTAFactory {
     public static PTA createPTA(PTAPattern ptaPattern) {
+        if (ptaPattern.getApproach() == PTAPattern.Approach.UCFS) {
+            // -pta=ucfs: Spark kernel, then UCFS on its exported PAG (E4-S2)
+            return new UcfsPTA(PTAConfig.v().ucfsBinding);
+        }
         switch (ptaPattern.getContextKind()) {
             case HYBOBJ: {
                 switch (ptaPattern.getApproach()) {

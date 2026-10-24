@@ -28,6 +28,7 @@ import org.slf4j.LoggerFactory;
 import qilin.pta.PTAConfig;
 import qilin.pta.toolkits.turner.Turner;
 import qilin.pta.tools.DebloatedPTA;
+import qilin.ucfs.ReceiverBinding;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -89,8 +90,10 @@ public class PTAOption extends Options {
         addOption("mh", "mergeheap",
                 "merge heaps of StringBuilder/StringBuffer/Throwable (default value: false)");
         addOption("lcs", "emptycontextforignoretypes", "Limit heap context to 0 for Strings/Exceptions in PTA (default value: false)");
-        addOption("pta", "pointstoanalysis", "<k>(c|o)+?(<h>h)?|insens",
-                "Specify Pointer Analysis e.g. 2o1h or 2o -> 2obj+1heap (default value: insens; default h: k-1.)");
+        addOption("pta", "pointstoanalysis", "<k>(c|o)+?(<h>h)?|insens|ucfs",
+                "Specify Pointer Analysis e.g. 2o1h or 2o -> 2obj+1heap (default value: insens; default h: k-1.); "
+                        + "ucfs: the insens kernel (Spark), then UCFS on its exported PAG, whose answer becomes "
+                        + "the points-to sets of variables (qilin.pta.tools.UcfsPTA)");
         addOption("se", "singleentry", "A lightweight mode with only one main method entry. (default value: false)");
         addOption("sc", "stringconstants", "Propagate all string constants (default value: false)");
         addOption("pae", "precisearray", "Enable precise Array Element type (default value: false)");
@@ -112,7 +115,12 @@ public class PTAOption extends Options {
                 "After the analysis, print the edge counts of the global PAG read by qilin.ucfs (default value: false)");
         addOption("ucfspt", "ucfspointsto",
                 "After the analysis, run the UCFS points-to query of qilin.ucfs on the exported PAG, print its sizes "
-                        + "and dump the graph and the answer to <outdir>/ucfs (default value: false)");
+                        + "and dump the graph and the answer to <outdir>/ucfs; with -pta=ucfs, dump the graph and "
+                        + "the answer of that analysis instead of running UCFS again (default value: false)");
+        addOption("ucfsbinding", "ucfsreceiverbinding", "ANALYSIS|CALL_GRAPH",
+                "Only with -pta=ucfs: how the export binds receivers to this. ANALYSIS: the new edges "
+                        + "object -> this of the kernel; CALL_GRAPH: receiver variable -> this along the kernel's "
+                        + "call graph, so UCFS computes pts(this) (default value: ANALYSIS)");
 
     }
 
@@ -275,6 +283,18 @@ public class PTAOption extends Options {
         }
         if (cmd.hasOption("ucfspointsto")) {
             PTAConfig.v().ucfsPointsTo = true;
+        }
+        if (cmd.hasOption("ucfsreceiverbinding")) {
+            if (PTAConfig.v().getPtaConfig().ptaPattern.getApproach() != PTAPattern.Approach.UCFS) {
+                throw new IllegalArgumentException("-ucfsbinding needs -pta=" + PTAPattern.UCFS + ", got -pta=" + ptacmd);
+            }
+            String binding = cmd.getOptionValue("ucfsreceiverbinding");
+            try {
+                PTAConfig.v().ucfsBinding = ReceiverBinding.valueOf(binding);
+            } catch (IllegalArgumentException e) {
+                throw new IllegalArgumentException("-ucfsbinding: unknown value " + binding + ", expected one of "
+                        + Arrays.toString(ReceiverBinding.values()), e);
+            }
         }
     }
 
