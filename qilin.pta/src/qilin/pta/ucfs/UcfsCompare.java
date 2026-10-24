@@ -7,6 +7,7 @@ import qilin.core.pag.Node;
 import qilin.core.pag.Parm;
 import qilin.core.pag.ValNode;
 import qilin.core.pag.VarNode;
+import qilin.core.pag.VirtualCallSite;
 import qilin.pta.PTAConfig;
 import qilin.pta.tools.UcfsPTA;
 import qilin.stat.SimplifiedEvaluator;
@@ -16,7 +17,14 @@ import qilin.ucfs.PtLabels;
 import qilin.ucfs.ReceiverBinding;
 import qilin.ucfs.UcfsGraph;
 import qilin.util.PTAUtils;
+import soot.Scene;
+import soot.SootMethod;
+import soot.Type;
+import soot.Unit;
 import soot.jimple.CaughtExceptionRef;
+import soot.jimple.SpecialInvokeExpr;
+import soot.jimple.toolkits.callgraph.Edge;
+import soot.util.queue.QueueReader;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,6 +32,7 @@ import java.io.UncheckedIOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -78,6 +87,19 @@ import java.util.function.BiPredicate;
  * {@code Solver.handleImplicitCallToFinalizerRegister}; E3.md D1), not the allocation statements.
  * The counters say how many there are and how many SAME pairs the reference without filters on the
  * same graph still finds without them.
+ *
+ * <p><b>Dispatch</b> ({@link #dispatch}, E4-S4, E4.md D6). The call graph of {@code -pta=ucfs} is
+ * Spark's by construction (E3.md D2). To measure whether the answer of a view would change it, every
+ * instance call site that the solver recorded ({@code getCgb().getReceiverToSitesMap()}) is dispatched
+ * once over the CI objects of its receiver variable in the view, by the dispatch of the solver
+ * ({@code PTAUtils.dispatch} and the {@code canStoreType} check of {@code CallGraphBuilder.dispatch}
+ * for special invokes), and the pairs (site, target) that Spark's CI call graph does not have at that
+ * site are the new edges. This is one step, not a fixpoint: the call graph and the points-to sets of
+ * {@code pta} are not changed, and a new target that Spark did not reach has no body in the PAG, so
+ * neither its call sites nor the flows into its parameters are known without a new run of the solver
+ * and a new export, which are not done here (an iteration is outside E4, D6). No new edge in a view
+ * means that Spark's call graph is closed under one dispatch over that view (interpretation: an
+ * iteration would stop at its first step).
  */
 public final class UcfsCompare {
     private UcfsCompare() {
@@ -112,6 +134,17 @@ public final class UcfsCompare {
      * @param cls     one of {@link #CLASSES}
      */
     public record PairRow(VarNode var, AllocNode obj, boolean inSpark, boolean inUcfs, boolean inTyped, String cls) {
+    }
+
+    /**
+     * A call edge found by {@link #dispatch} that Spark's CI call graph does not have at {@code site}.
+     *
+     * @param view   the view whose objects were dispatched
+     * @param site   the call statement (the unit of a {@code VirtualCallSite})
+     * @param caller the method of {@code site}
+     * @param target the method that the dispatch of an object of the view resolves to
+     */
+    public record NewEdge(UcfsPTA.View view, Unit site, SootMethod caller, SootMethod target) {
     }
 
     private enum Seed { THIS, EXCEPTION, FINALIZER }
@@ -350,6 +383,98 @@ public final class UcfsCompare {
         return null;
     }
 
+    // ------------------------------------------------------------------------------ dispatch
+
+    /** {@link #dispatch(UcfsPTA, UcfsPTA.View, int[])} without the counts. */
+    public static List<NewEdge> dispatch(UcfsPTA pta, UcfsPTA.View view) {
+        return dispatch(pta, view, new int[2]);
+    }
+
+    /**
+     * One step of dispatch over the objects of {@code view} (class comment, "Dispatch"). For each
+     * entry (receiver variable, sites) of {@code pta.getCgb().getReceiverToSitesMap()} and each object
+     * {@code o} of {@code pta.pointsTo(receiver.base(), view)}, the targets of each site are those of
+     * {@link PTAUtils#dispatch}{@code (o.getType(), site)}; for a special invoke a target is kept only
+     * when {@code o}'s type can be stored in its declaring class, as {@code CallGraphBuilder.dispatch}
+     * does. A pair (site unit, target) that is not an edge of {@code pta.getCallGraph()} out of that
+     * unit is a new edge. Neither the call graph nor the points-to sets of {@code pta} are changed.
+     *
+     * @param counts on return, {@code counts[0]} = the distinct pairs (site unit, target) found,
+     *               {@code counts[1]} = the distinct edges (site unit, target) of Spark's CI call graph
+     *               out of the recorded sites
+     * @return the new edges, each pair (site, target) once, ordered by the signature of the caller,
+     *         the site's text and the signature of the target
+     */
+    public static List<NewEdge> dispatch(UcfsPTA pta, UcfsPTA.View view, int[] counts) {
+        if (pta.getUcfsGraph() == null) {
+            throw new IllegalStateException("no UCFS graph: the analysis has not run");
+        }
+        if (counts.length < 2) {
+            throw new IllegalArgumentException("counts needs two slots, got " + counts.length);
+        }
+        Map<Unit, Set<SootMethod>> cg = new HashMap<>();
+        for (Edge e : pta.getCallGraph()) {
+            if (e.srcUnit() != null) {
+                cg.computeIfAbsent(e.srcUnit(), k -> new HashSet<>()).add(e.tgt());
+            }
+        }
+        Map<Unit, SootMethod> callers = new HashMap<>();
+        Map<Unit, Set<SootMethod>> found = new HashMap<>();
+        for (Map.Entry<VarNode, Collection<VirtualCallSite>> en : pta.getCgb().getReceiverToSitesMap().entrySet()) {
+            Set<AllocNode> objs = pta.pointsTo(en.getKey().base(), view);
+            for (VirtualCallSite site : en.getValue()) {
+                callers.put(site.getUnit(), site.container().method());
+                Set<SootMethod> ts = found.computeIfAbsent(site.getUnit(), k -> new HashSet<>());
+                for (AllocNode o : objs) {
+                    ts.addAll(targets(o.getType(), site));
+                }
+            }
+        }
+        int nFound = 0;
+        int nSpark = 0;
+        List<NewEdge> out = new ArrayList<>();
+        for (Map.Entry<Unit, Set<SootMethod>> en : found.entrySet()) {
+            Set<SootMethod> spark = cg.getOrDefault(en.getKey(), Set.of());
+            nFound += en.getValue().size();
+            nSpark += spark.size();
+            for (SootMethod t : en.getValue()) {
+                if (!spark.contains(t)) {
+                    out.add(new NewEdge(view, en.getKey(), callers.get(en.getKey()), t));
+                }
+            }
+        }
+        out.sort(Comparator.comparing((NewEdge e) -> e.caller().getSignature())
+                .thenComparing(e -> siteText(e.site()))
+                .thenComparing(e -> e.target().getSignature()));
+        counts[0] = nFound;
+        counts[1] = nSpark;
+        return out;
+    }
+
+    /**
+     * The targets of {@code site} for an object of type {@code type}, as the solver computes them in
+     * {@code CallGraphBuilder.dispatch} (qilin.core/src/qilin/core/builder/CallGraphBuilder.java:154-167),
+     * without adding the edges.
+     */
+    private static List<SootMethod> targets(Type type, VirtualCallSite site) {
+        List<SootMethod> out = new ArrayList<>();
+        QueueReader<SootMethod> it = PTAUtils.dispatch(type, site);
+        while (it.hasNext()) {
+            SootMethod t = it.next();
+            if (site.iie() instanceof SpecialInvokeExpr
+                    && !Scene.v().getFastHierarchy().canStoreType(type, t.getDeclaringClass().getType())) {
+                continue;
+            }
+            out.add(t);
+        }
+        return out;
+    }
+
+    /** The Jimple text of a call statement on one line: each run of white space as one space. */
+    private static String siteText(Unit site) {
+        return site.toString().replaceAll("\\s+", " ").trim();
+    }
+
     // ------------------------------------------------------------------------------ CLI
 
     /**
@@ -360,12 +485,18 @@ public final class UcfsCompare {
      *       line per metric of {@link #METRICS}, in order, with the values of {@link #metrics};</li>
      *   <li>{@code pairs.tsv}: {@code var<TAB>object<TAB>S<TAB>U<TAB>T<TAB>class} per row of
      *       {@link #pairs}; the labels are {@link PTAUtils#getNodeLabel} of the CI nodes (as in
-     *       {@code vertices.tsv} of {@code -ucfspt}), the flags 0/1.</li>
+     *       {@code vertices.tsv} of {@code -ucfspt}), the flags 0/1;</li>
+     *   <li>{@code dispatch.tsv}: {@code VIEW<TAB>caller<TAB>site<TAB>target} per new edge of
+     *       {@link #dispatch} of each view, the views in the order of {@code UcfsPTA.View.values()};
+     *       the methods by their signature, the site by its Jimple text on one line.</li>
      * </ul>
      * Prints the lines {@code #UCFS-cmp-<k>: <v>}, each once: {@code binding}, {@code spark-pairs},
      * {@code ucfs-pairs}, {@code typed-pairs} (rows with the flag S, U, T), one per class of
      * {@link #CLASSES} in that order (0 included), one per counter of {@link #COUNTERS} in that
-     * order. The metric lines themselves are not printed again.
+     * order, then {@code dispatch-cg-edges} (Spark's call edges out of the recorded sites,
+     * {@code counts[1]} of {@link #dispatch}), {@code dispatch-edges-<VIEW>} (the pairs found,
+     * {@code counts[0]}) and {@code dispatch-new-edges-<VIEW>} (the new edges) for each view in the
+     * order of {@code UcfsPTA.View.values()}. The metric lines themselves are not printed again.
      */
     public static void run(UcfsPTA pta) {
         List<PairRow> rows = pairs(pta);
@@ -386,6 +517,21 @@ public final class UcfsCompare {
                     + "\t" + flag(r.inUcfs()) + "\t" + flag(r.inTyped()) + "\t" + r.cls());
         }
         write(new File(dir, "pairs.tsv"), plines);
+        Map<UcfsPTA.View, Integer> found = new LinkedHashMap<>();
+        Map<UcfsPTA.View, Integer> fresh = new LinkedHashMap<>();
+        int cgEdges = 0;
+        List<String> dlines = new ArrayList<>();
+        for (UcfsPTA.View view : UcfsPTA.View.values()) {
+            int[] counts = new int[2];
+            List<NewEdge> es = dispatch(pta, view, counts);
+            found.put(view, counts[0]);
+            fresh.put(view, es.size());
+            cgEdges = counts[1]; // the same sites in each view
+            for (NewEdge e : es) {
+                dlines.add(view + "\t" + e.caller().getSignature() + "\t" + siteText(e.site()) + "\t" + e.target().getSignature());
+            }
+        }
+        write(new File(dir, "dispatch.tsv"), dlines);
 
         Map<String, Integer> byClass = new LinkedHashMap<>();
         for (String c : CLASSES) {
@@ -406,6 +552,9 @@ public final class UcfsCompare {
         System.out.println("#UCFS-cmp-typed-pairs: " + typed);
         byClass.forEach((c, n) -> System.out.println("#UCFS-cmp-" + c + ": " + n));
         counters.forEach((k, n) -> System.out.println("#UCFS-cmp-" + k + ": " + n));
+        System.out.println("#UCFS-cmp-dispatch-cg-edges: " + cgEdges);
+        found.forEach((v, n) -> System.out.println("#UCFS-cmp-dispatch-edges-" + v + ": " + n));
+        fresh.forEach((v, n) -> System.out.println("#UCFS-cmp-dispatch-new-edges-" + v + ": " + n));
     }
 
     private static String flag(boolean b) {
