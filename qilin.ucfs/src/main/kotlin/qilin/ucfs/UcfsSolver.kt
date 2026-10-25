@@ -5,6 +5,7 @@ import org.ucfs.input.InputGraph
 import org.ucfs.input.TerminalInputLabel
 import org.ucfs.parser.Gll
 import org.ucfs.rsm.symbol.Term
+import org.ucfs.sppf.node.RangeSppfNode
 
 /**
  * A directed graph edge `from -label-> to`.
@@ -135,21 +136,31 @@ object UcfsSolver {
     ): Set<VertexPair> {
         val rsm = grammar.rsm
         marks.end("rsm")
+        val graph = inputGraph(edges, startVertices())
+        marks.end("input")
+        val roots = Gll.gll(rsm, graph).parse()
+        marks.end("parse")
+        val pairs = vertexPairs(roots)
+        marks.end("roots")
+        return pairs
+    }
+
+    /** The input graph of [edges] whose start vertices are [startVertices]; every vertex of [edges] is in it. */
+    private fun inputGraph(edges: Collection<LabeledEdge>, startVertices: Collection<Int>): InputGraph<Int, TerminalInputLabel> {
         val graph = InputGraph<Int, TerminalInputLabel>()
         for (e in edges) {
             graph.addVertex(e.from)
             graph.addVertex(e.to)
             graph.addEdge(e.from, TerminalInputLabel(Term(e.label)), e.to)
         }
-        for (v in startVertices()) graph.addStartVertex(v)
-        marks.end("input")
-        val roots = Gll.gll(rsm, graph).parse()
-        marks.end("parse")
-        val pairs = roots.mapTo(HashSet()) { root ->
+        for (v in startVertices) graph.addStartVertex(v)
+        return graph
+    }
+
+    /** The pairs (start, end) of the input ranges of the parse roots [roots]. */
+    private fun vertexPairs(roots: Set<RangeSppfNode<Int>>): Set<VertexPair> =
+        roots.mapTo(HashSet()) { root ->
             val range = checkNotNull(root.inputRange) { "UCFS returned a parse root without an input range" }
             VertexPair(range.from, range.to)
         }
-        marks.end("roots")
-        return pairs
-    }
 }
