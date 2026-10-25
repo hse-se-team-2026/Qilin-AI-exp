@@ -29,6 +29,7 @@ import qilin.core.sets.PointsToSet;
 import qilin.core.sets.PointsToSetInternal;
 import qilin.core.sets.UnmodifiablePointsToSet;
 import qilin.ucfs.PagExport;
+import qilin.ucfs.PhaseMarks;
 import qilin.ucfs.ReceiverBinding;
 import qilin.ucfs.UcfsGraph;
 import qilin.ucfs.UcfsPointsTo;
@@ -41,8 +42,11 @@ import soot.jimple.spark.pag.SparkField;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
@@ -122,6 +126,7 @@ public class UcfsPTA extends Spark {
     private int rootPairs;
     private long sparkTimeMs;
     private long ucfsTimeMs;
+    private Map<String, Long> phaseNanos = Collections.emptyMap();
 
     /** The analysis with the receiver binding {@link ReceiverBinding#ANALYSIS}. */
     public UcfsPTA() {
@@ -138,29 +143,51 @@ public class UcfsPTA extends Spark {
      * receiver binding of this analysis, runs UCFS on it with {@code PointsToGrammar(k)} for the
      * {@code k} fields of the exported graph and imports the answer into the views UCFS and
      * UCFS_TYPED.
+     *
+     * <p>The times: {@link #getSparkTimeMs()} and {@link #getUcfsTimeMs()} ({@code currentTimeMillis}),
+     * and the phases of the UCFS part {@link #getPhaseNanos()} ({@code nanoTime}). Each boundary
+     * between two phases is one {@code System.nanoTime} read: here for the start of {@code export},
+     * the end of {@code export} and the end of {@code import}, and in
+     * {@link UcfsPointsTo#solve(UcfsGraph, org.ucfs.grammar.combinator.Grammar)} for the others
+     * ({@link UcfsPointsTo#lastPhaseMarks()}).
      */
     @Override
     public void pureRun() {
         long t0 = System.currentTimeMillis();
         super.pureRun();
         long t1 = System.currentTimeMillis();
+        long n0 = System.nanoTime();
         UcfsGraph graph = PagExport.export(this, binding);
+        long nExport = System.nanoTime();
         Map<VarNode, Set<AllocNode>> answer = UcfsPointsTo.solve(graph, new PointsToGrammar(graph.getFields().size()));
+        PhaseMarks solver = UcfsPointsTo.lastPhaseMarks();
         importAnswer(graph, answer);
+        long nImport = System.nanoTime();
         long t2 = System.currentTimeMillis();
         sparkTimeMs = t1 - t0;
         ucfsTimeMs = t2 - t1;
+        Map<String, Long> phases = new LinkedHashMap<>();
+        phases.put("export", nExport - n0);
+        phases.put("grammar", solver.getStart() - nExport);
+        phases.putAll(solver.durations());
+        phases.put("import", nImport - solver.getEnd());
+        phases.put("total", nImport - n0);
+        phaseNanos = Collections.unmodifiableMap(phases);
     }
 
     /**
      * {@link BasePTA#run()} (evaluator, {@code pureRun()}, dumps such as {@code -pts} in the current
      * view, the evaluator's lines), then the six lines {@code #UCFS-import-<k>: <value>} of
-     * {@link #importLines()}, each once. This is the run of {@code -pta=ucfs} in driver.Main (E4-S2).
+     * {@link #importLines()}, each once, then the nine lines {@code #UCFS-phase-<p>-ms: <value>} of
+     * {@link #phaseLines()}, each once. This is the run of {@code -pta=ucfs} in driver.Main (E4-S2, E5-S1).
      */
     @Override
     public void run() {
         super.run();
         for (String line : importLines()) {
+            System.out.println(line);
+        }
+        for (String line : phaseLines()) {
             System.out.println(line);
         }
     }
@@ -180,6 +207,19 @@ public class UcfsPTA extends Spark {
                 "#UCFS-import-root-pairs: " + rootPairs,
                 "#UCFS-import-spark-ms: " + sparkTimeMs,
                 "#UCFS-import-ucfs-ms: " + ucfsTimeMs);
+    }
+
+    /**
+     * The lines {@code #UCFS-phase-<p>-ms: <ms>} of {@link #getPhaseNanos()}, in its order: the
+     * phases {@code export grammar rsm input parse roots pairs import}, then {@code total}. The value
+     * is milliseconds with three decimals ({@code Locale.ROOT}). Empty before {@link #pureRun()}.
+     */
+    public List<String> phaseLines() {
+        List<String> lines = new ArrayList<>();
+        for (Map.Entry<String, Long> e : phaseNanos.entrySet()) {
+            lines.add("#UCFS-phase-" + e.getKey() + "-ms: " + String.format(Locale.ROOT, "%.3f", e.getValue() / 1e6));
+        }
+        return lines;
     }
 
     private static long pairs(Map<VarNode, PointsToSetInternal> sets) {
@@ -266,6 +306,30 @@ public class UcfsPTA extends Spark {
     /** Wall time of the export, the UCFS run and the import in the last {@link #pureRun()}, ms. */
     public long getUcfsTimeMs() {
         return ucfsTimeMs;
+    }
+
+    /**
+     * The phases of the UCFS part of the last {@link #pureRun()}, phase -> nanoseconds
+     * ({@code System.nanoTime} differences), in this order:
+     * <ul>
+     *   <li>{@code export}: {@link PagExport#export(qilin.core.PTA, ReceiverBinding)} of the kernel's PAG;</li>
+     *   <li>{@code grammar}: {@code new PointsToGrammar(k)}, up to the start of {@code UcfsPointsTo.solve};</li>
+     *   <li>{@code rsm}, {@code input}, {@code parse}, {@code roots}: the phases of the solver
+     *       ({@code UcfsSolver.reachablePairs}): the build of the grammar RSM, the input graph with
+     *       the start vertices {@code graph.allocVertices()}, the GLL run {@code parse()}, the SPPF
+     *       roots to vertex pairs;</li>
+     *   <li>{@code pairs}: the vertex pairs to the map variable -> objects ({@code VarNode}, {@code AllocNode});</li>
+     *   <li>{@code import}: from the end of {@code UcfsPointsTo.solve} to the end of the import of the
+     *       answer into the views UCFS and UCFS_TYPED ({@code importAnswer});</li>
+     *   <li>{@code total}: from the start of {@code export} to the end of {@code import}.</li>
+     * </ul>
+     * The phases are adjacent (each boundary is one {@code nanoTime} read), so they sum to
+     * {@code total} exactly. {@code total} covers the same work as {@link #getUcfsTimeMs()}; not in
+     * it: the Spark kernel ({@link #getSparkTimeMs()}), the evaluator of Qilin and what driver.Main
+     * does after {@link #run()}, such as {@code -ucfscompare}. Empty before {@link #pureRun()}.
+     */
+    public Map<String, Long> getPhaseNanos() {
+        return phaseNanos;
     }
 
     /**
