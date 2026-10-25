@@ -1,0 +1,85 @@
+e4-bench: antlr insens
+e4-bench: antlr ucfs-ANALYSIS
+e4-bench: antlr ucfs-CALL_GRAPH
+e4-bench: antlr cov-D3
+e4-bench: removed antlr/cov-D3/sootOutput/dacapo.antlr.Main/insensitive/InsensVarPointsTo.csv (34297214 bytes)
+e4-bench: antlr cov-JDK
+e4-bench: removed antlr/cov-JDK/sootOutput/dacapo.antlr.Main/insensitive/InsensVarPointsTo.csv (386473006 bytes)
+e4-bench: bloat insens
+e4-bench: bloat ucfs-ANALYSIS
+e4-bench: bloat ucfs-CALL_GRAPH
+e4-bench: bloat cov-D3
+e4-bench: removed bloat/cov-D3/sootOutput/dacapo.bloat.Main/insensitive/InsensVarPointsTo.csv (13210602 bytes)
+e4-bench: bloat cov-JDK
+e4-bench: removed bloat/cov-JDK/sootOutput/dacapo.bloat.Main/insensitive/InsensVarPointsTo.csv (690416570 bytes)
+e4-bench: chart insens
+e4-bench: chart ucfs-ANALYSIS
+e4-bench: chart ucfs-CALL_GRAPH
+e4-bench: chart cov-D3
+e4-bench: removed chart/cov-D3/sootOutput/dacapo.chart.Main/insensitive/InsensVarPointsTo.csv (20416542 bytes)
+e4-bench: chart cov-JDK
+e4-bench: removed chart/cov-JDK/sootOutput/dacapo.chart.Main/insensitive/InsensVarPointsTo.csv (1780498846 bytes)
+e4-bench: eclipse insens
+e4-bench: eclipse ucfs-ANALYSIS
+e4-bench: eclipse ucfs-CALL_GRAPH
+e4-bench: eclipse cov-D3
+e4-bench: removed eclipse/cov-D3/sootOutput/dacapo.eclipse.Main/insensitive/InsensVarPointsTo.csv (8692346 bytes)
+e4-bench: eclipse cov-JDK
+e4-bench: removed eclipse/cov-JDK/sootOutput/dacapo.eclipse.Main/insensitive/InsensVarPointsTo.csv (8202322942 bytes)
+e4-bench: fop insens
+e4-bench: fop ucfs-ANALYSIS
+e4-bench: fop ucfs-CALL_GRAPH
+e4-bench: fop cov-D3
+e4-bench: removed fop/cov-D3/sootOutput/dacapo.fop.Main/insensitive/InsensVarPointsTo.csv (1879955 bytes)
+e4-bench: fop cov-JDK
+e4-bench: removed fop/cov-JDK/sootOutput/dacapo.fop.Main/insensitive/InsensVarPointsTo.csv (300962388 bytes)
+e4-bench: luindex insens
+e4-bench: luindex ucfs-ANALYSIS
+e4-bench: luindex ucfs-CALL_GRAPH
+e4-bench: luindex cov-D3
+e4-bench: removed luindex/cov-D3/sootOutput/dacapo.luindex.Main/insensitive/InsensVarPointsTo.csv (1235652 bytes)
+e4-bench: luindex cov-JDK
+e4-bench: removed luindex/cov-JDK/sootOutput/dacapo.luindex.Main/insensitive/InsensVarPointsTo.csv (241154473 bytes)
+e4-bench: lusearch insens
+e4-bench: lusearch ucfs-ANALYSIS
+e4-bench: lusearch ucfs-CALL_GRAPH
+e4-bench: lusearch cov-D3
+e4-bench: removed lusearch/cov-D3/sootOutput/dacapo.lusearch.Main/insensitive/InsensVarPointsTo.csv (3640465 bytes)
+e4-bench: lusearch cov-JDK
+e4-bench: removed lusearch/cov-JDK/sootOutput/dacapo.lusearch.Main/insensitive/InsensVarPointsTo.csv (286673915 bytes)
+e4-bench: pmd insens
+e4-bench: pmd ucfs-ANALYSIS
+e4-bench: pmd ucfs-CALL_GRAPH
+e4-bench: pmd cov-D3
+e4-bench: removed pmd/cov-D3/sootOutput/dacapo.pmd.Main/insensitive/InsensVarPointsTo.csv (752643 bytes)
+e4-bench: pmd cov-JDK
+e4-bench: removed pmd/cov-JDK/sootOutput/dacapo.pmd.Main/insensitive/InsensVarPointsTo.csv (777912127 bytes)
+e4-bench: xalan insens
+e4-bench: xalan ucfs-ANALYSIS
+e4-bench: xalan ucfs-CALL_GRAPH
+e4-bench: xalan cov-D3
+e4-bench: removed xalan/cov-D3/sootOutput/dacapo.xalan.Main/insensitive/InsensVarPointsTo.csv (134761 bytes)
+e4-bench: xalan cov-JDK
+e4-bench: removed xalan/cov-JDK/sootOutput/dacapo.xalan.Main/insensitive/InsensVarPointsTo.csv (467913722 bytes)
+e4-bench: checkstyle insens
+e4-bench: checkstyle ucfs-ANALYSIS
+e4-bench: checkstyle ucfs-CALL_GRAPH
+e4-bench: checkstyle cov-D3
+e4-bench: removed checkstyle/cov-D3/sootOutput/com.puppycrawl.tools.checkstyle.Main/insensitive/InsensVarPointsTo.csv (10640847 bytes)
+e4-bench: checkstyle cov-JDK
+e4-bench: removed checkstyle/cov-JDK/sootOutput/com.puppycrawl.tools.checkstyle.Main/insensitive/InsensVarPointsTo.csv (1258433863 bytes)
+e4-bench: findbugs insens
+e4-bench: findbugs ucfs-ANALYSIS
+e4-bench: findbugs ucfs-CALL_GRAPH
+e4-bench: findbugs cov-D3
+e4-bench: removed findbugs/cov-D3/sootOutput/edu.umd.cs.findbugs.FindBugs/insensitive/InsensVarPointsTo.csv (4393927 bytes)
+e4-bench: findbugs cov-JDK
+e4-bench: removed findbugs/cov-JDK/sootOutput/edu.umd.cs.findbugs.FindBugs/insensitive/InsensVarPointsTo.csv (2006148995 bytes)
+e4-bench: JPC insens
+e4-bench: JPC ucfs-ANALYSIS
+e4-bench: JPC ucfs-CALL_GRAPH
+e4-bench: JPC cov-D3
+e4-bench: removed JPC/cov-D3/sootOutput/org.jpc.j2se.JPCApplication/insensitive/InsensVarPointsTo.csv (1643766 bytes)
+e4-bench: JPC cov-JDK
+e4-bench: removed JPC/cov-JDK/sootOutput/org.jpc.j2se.JPCApplication/insensitive/InsensVarPointsTo.csv (1173897878 bytes)
+e4-bench: 60 runs, 3386 values, 172 examples in /home/usatovpavel/edu/Diploma_work/docs/ai/tickets/logs/E4-S6/i1/full

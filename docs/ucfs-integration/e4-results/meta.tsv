@@ -1,0 +1,12 @@
+key	value
+command	bash scripts/ucfs/e4-bench.sh /home/usatovpavel/edu/Diploma_work/docs/ai/tickets/logs/E4-S6/i1/full antlr bloat chart eclipse fop luindex lusearch pmd xalan checkstyle findbugs JPC
+git-head	557de3d215ca18d2f8bb9d9e22339388eafbb133
+tree-clean	yes
+jar	/home/usatovpavel/edu/Diploma_work/docs/ai/tickets/logs/E4-S6/i1/Qilin-fat-557de3d.jar
+jar-sha256	8a1515402b9be47224fa6ad4c8bbcc324fa4a8ab3e5f988e34a5e1bc4173c0e5
+benches	antlr bloat chart eclipse fop luindex lusearch pmd xalan checkstyle findbugs JPC
+runs	insens ucfs-ANALYSIS ucfs-CALL_GRAPH cov-D3 cov-JDK
+timeout	900
+xmx	16g
+started	2026-10-25T04:08:00+03:00
+finished	2026-10-25T05:04:37+03:00

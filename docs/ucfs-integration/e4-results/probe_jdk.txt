@@ -1,0 +1,8 @@
+fat jar build exit code: 0 (log: /home/usatovpavel/edu/Diploma_work/repository/ai/worktrees/impl-E4-S6/acceptance/E4/out/logs/fatjar.log)
+PROBE bench=luindex timeout_s=540 xmx=16g jar=/home/usatovpavel/edu/Diploma_work/repository/ai/worktrees/impl-E4-S6/acceptance/E4/out/qilin-fat.jar
+PROBE seam: #UCFS-seam-NEW: 202171
+PROBE seam: #UCFS-seam-ASSIGN: 249106
+PROBE seam: #UCFS-seam-LOAD: 4890
+PROBE seam: #UCFS-seam-STORE: 3728
+PROBE finished=no exit=124 wall_s=541 max_rss_mb=15156
+PROBE log: /home/usatovpavel/edu/Diploma_work/repository/ai/worktrees/impl-E4-S6/acceptance/E4/out/probe-jdk-luindex/out.txt
