@@ -1,0 +1,14 @@
+(a) S2 check_cmd
+  contract command (control)                                                  -> ACCEPTED
+  insens with -Xint (interpreter only)                                        -> ACCEPTED
+  insens with -XX:+UseSerialGC -XX:TieredStopAtLevel=1                        -> ACCEPTED
+  ucfs with a second -Xmx64g after -Xmx8g (the last one wins in HotSpot)      -> ACCEPTED
+  ucfs with -XX:+UseParallelGC -XX:ParallelGCThreads=8                        -> ACCEPTED
+  control: -ucfscompare added                                                 -> rejected: missing [] extra ['-ucfscompare']
+(b) e5lib.phase_problems
+  contract shape (control)                                                    -> ACCEPTED
+  labels parse and export swapped                                             -> ACCEPTED
+  parse time booked under roots (parse 0)                                     -> ACCEPTED
+  import never timed (0.000) and left out of total                            -> ACCEPTED
+  antlr scale: 5 % of total unaccounted (5.3 s of 107 s)                      -> ACCEPTED
+  control: sum of phases above total                                          -> rejected: ['sum of phases 569.000 > total 467.000']

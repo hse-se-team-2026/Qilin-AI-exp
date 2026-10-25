@@ -1,0 +1,6 @@
+E4 wall of one E5 repetition (33 runs): 520.8 s; x11 = 1.59 h
+E4 wall of the 16 min-heap references: 321.1 s over 16 searches; x12 steps = 1.07 h
+E4 ucfs-ANALYSIS: UCFS-import-ucfs-ms < UCFS-import-spark-ms on 9 of 12: findbugs luindex lusearch checkstyle JPC xalan pmd fop eclipse
+UseCompressedOops at -Xmx16g: true
+UseCompressedOops at -Xmx31g: true
+UseCompressedOops at -Xmx52g: false

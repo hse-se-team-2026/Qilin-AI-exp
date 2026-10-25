@@ -1,0 +1,64 @@
+=== baseline
+bench: 363 runs, sum of wall_s 4584 s, meta started 2026-11-01T10:00:00+03:00 finished 2026-11-01T13:00:00+03:00
+minheap antlr insens: 287 MB (ref RSS of the 16 GB run 1104 MB)
+S5 python: PASS lines 53
+S5 python on fake results [baseline]: exit 0 (PASS)
+=== flavor
+bench: 363 runs, sum of wall_s 4584 s, meta started 2026-11-01T10:00:00+03:00 finished 2026-11-01T13:00:00+03:00
+minheap antlr insens: 287 MB (ref RSS of the 16 GB run 1104 MB)
+S5 python: PASS lines 53
+S5 python on fake results [flavor]: exit 0 (PASS)
+=== localasvm
+bench: 363 runs, sum of wall_s 4584 s, meta started 2026-11-01T10:00:00+03:00 finished 2026-11-01T13:00:00+03:00
+minheap antlr insens: 287 MB (ref RSS of the 16 GB run 1104 MB)
+S5 python: PASS lines 53
+S5 python on fake results [localasvm]: exit 0 (PASS)
+=== cmdflags
+bench: 363 runs, sum of wall_s 4584 s, meta started 2026-11-01T10:00:00+03:00 finished 2026-11-01T13:00:00+03:00
+minheap antlr insens: 287 MB (ref RSS of the 16 GB run 1104 MB)
+S5 python: PASS lines 53
+S5 python on fake results [cmdflags]: exit 0 (PASS)
+=== javaopts
+bench: 363 runs, sum of wall_s 4584 s, meta started 2026-11-01T10:00:00+03:00 finished 2026-11-01T13:00:00+03:00
+minheap antlr insens: 287 MB (ref RSS of the 16 GB run 1104 MB)
+S5 python: PASS lines 53
+S5 python on fake results [javaopts]: exit 0 (PASS)
+=== overlap
+bench: 363 runs, sum of wall_s 4584 s, meta started 2026-11-01T10:00:00+03:00 finished 2026-11-01T10:10:00+03:00
+minheap antlr insens: 287 MB (ref RSS of the 16 GB run 1104 MB)
+S5 python: PASS lines 53
+S5 python on fake results [overlap]: exit 0 (PASS)
+=== kill137
+bench: 363 runs, sum of wall_s 4584 s, meta started 2026-11-01T10:00:00+03:00 finished 2026-11-01T13:00:00+03:00
+minheap antlr insens: 287 MB (ref RSS of the 16 GB run 1104 MB)
+S5 python: PASS lines 53
+S5 python on fake results [kill137]: exit 0 (PASS)
+=== inconsistent
+bench: 363 runs, sum of wall_s 4584 s, meta started 2026-11-01T10:00:00+03:00 finished 2026-11-01T13:00:00+03:00
+minheap antlr insens: 287 MB (ref RSS of the 16 GB run 1104 MB)
+S5 python: PASS lines 53
+S5 python on fake results [inconsistent]: exit 0 (PASS)
+=== kernel
+bench: 363 runs, sum of wall_s 4584 s, meta started 2026-11-01T10:00:00+03:00 finished 2026-11-01T13:00:00+03:00
+minheap antlr insens: 287 MB (ref RSS of the 16 GB run 1104 MB)
+S5 python: PASS lines 53
+S5 python on fake results [kernel]: exit 0 (PASS)
+=== minheap
+bench: 363 runs, sum of wall_s 4584 s, meta started 2026-11-01T10:00:00+03:00 finished 2026-11-01T13:00:00+03:00
+minheap antlr insens: 8239 MB (ref RSS of the 16 GB run 1104 MB)
+S5 python: PASS lines 53
+S5 python on fake results [minheap]: exit 0 (PASS)
+=== secret
+bench: 363 runs, sum of wall_s 4584 s, meta started 2026-11-01T10:00:00+03:00 finished 2026-11-01T13:00:00+03:00
+minheap antlr insens: 287 MB (ref RSS of the 16 GB run 1104 MB)
+S5 python: PASS lines 53
+S5 python on fake results [secret]: exit 0 (PASS)
+=== load
+bench: 363 runs, sum of wall_s 4594 s, meta started 2026-11-01T10:00:00+03:00 finished 2026-11-01T13:00:00+03:00
+minheap antlr insens: 287 MB (ref RSS of the 16 GB run 1104 MB)
+S5 python: PASS lines 53
+S5 python on fake results [load]: exit 0 (PASS)
+=== control (one wall_s edited in bench/runs.tsv)
+FAIL: bench antlr insens rep0: row/values differ from the raw run directory
+FAIL: bench: 363 rows re-derived from raw.tar.xz, 1 differ
+S5 python on fake results with one edited wall_s: exit 1

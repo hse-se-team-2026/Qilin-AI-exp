@@ -1,0 +1,11 @@
+base document: doc_check exit 0 []
+facts of the fake tables: antlr ANALYSIS UCFS 106649 ms, Spark 8206 ms, UCFS/Spark 13.03; fop UCFS/Spark 0.30; antlr insens min heap 287 MB
+  whitelisted factor: 'в 100 раз' (truth: 13.03)                                             -> PASSES doc_check (exit 0)
+  wrong small factor bound to antlr: 'в 7 раз' (truth: 13.03)                                -> PASSES doc_check (exit 0)
+  wrong direction with a true number: 'UCFS быстрее Spark' on antlr                          -> PASSES doc_check (exit 0)
+  'на порядок' with any true number                                                          -> PASSES doc_check (exit 0)
+  number of another run of the same bench (insens min heap given as ucfs-ANALYSIS)           -> PASSES doc_check (exit 0)
+  escape hatch: 'проверено:' with a script that does not exist                               -> PASSES doc_check (exit 0)
+  general claim from the tables of one fake benchmark (fop ratio < 1) without a list         -> PASSES doc_check (exit 0)
+  control: number of luindex bound to antlr                                                  -> caught: line 47: number 856 is not a value of antlr: На antlr UCFS — 856 мс.
+  control: comparison over two benchmarks without a source                                   -> caught: line 47: comparison over several benchmarks without 'проверено:' and a source: На antlr UCFS медленнее, чем на fop
