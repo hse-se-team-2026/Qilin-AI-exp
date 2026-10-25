@@ -4,3 +4,7 @@ E4 ucfs-ANALYSIS: UCFS-import-ucfs-ms < UCFS-import-spark-ms on 9 of 12: findbug
 UseCompressedOops at -Xmx16g: true
 UseCompressedOops at -Xmx31g: true
 UseCompressedOops at -Xmx52g: false
+e5lib.median_ci n=3 (values 1..n): None
+e5lib.median_ci n=5 (values 1..n): None
+e5lib.median_ci n=6 (values 1..n): (1, 6, 0.96875)
+e5lib.median_ci n=10 (values 1..n): (2, 9, 0.978515625)

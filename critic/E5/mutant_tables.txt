@@ -1,0 +1,51 @@
+=== tables of the fake results with mutation minheap
+<!-- E5 table T3 -->
+| bench | binding | n | Spark ms | kernel ms | UCFS ms | UCFS/Spark | wall insens s | wall ucfs s |
+| antlr | ANALYSIS | 10 | 8206 [8049, 8691] | 8392 | 106649 [101046, 108693] | 13.03 [12.01, 13.26] | 8.99 | 98.99 |
+| antlr | CALL_GRAPH | 0 | 8206 [8049, 8691] | skipped | - | - | 8.99 | - |
+| bloat | ANALYSIS | 10 | 6794 [6681, 6987] | 6822 | 13374 [13108, 13869] | 1.98 [1.91, 2.06] | 6.93 | 19.88 |
+| bloat | CALL_GRAPH | 0 | 6794 [6681, 6987] | skipped | - | - | 6.93 | - |
+<!-- E5 table T6 -->
+| bench | run | n | max RSS med MB | max RSS min-max | Qilin RSS med MB | min heap MB | min heap - insens MB |
+| antlr | insens | 10 | 1109 | 1073-1136 | 998 | 8239 | - |
+| antlr | ucfs-ANALYSIS | 10 | 6108 | 5883-6277 | 5497 | 1546 | -6693 |
+| antlr | ucfs-CALL_GRAPH | 0 | skipped | - | - | - | - |
+| bloat | insens | 10 | 1260 | 1207-1298 | 1134 | 334 | - |
+| bloat | ucfs-ANALYSIS | 10 | 2384 | 2332-2483 | 2146 | 621 | 287 |
+| bloat | ucfs-CALL_GRAPH | 0 | skipped | - | - | - | - |
+<!-- E5 table T8 -->
+| probe | bench | run | status | wall s | max RSS MB | UCFS ms | UCFS pairs | xmx | timeout s | JDK bodies |
+=== tables of the fake results with mutation kernel
+<!-- E5 table T3 -->
+| bench | binding | n | Spark ms | kernel ms | UCFS ms | UCFS/Spark | wall insens s | wall ucfs s |
+| antlr | ANALYSIS | 10 | 8206 [8049, 8691] | 83915 | 106649 [101046, 108693] | 13.03 [12.01, 13.26] | 8.99 | 98.99 |
+| antlr | CALL_GRAPH | 0 | 8206 [8049, 8691] | skipped | - | - | 8.99 | - |
+| bloat | ANALYSIS | 10 | 6794 [6681, 6987] | 68215 | 13374 [13108, 13869] | 1.98 [1.91, 2.06] | 6.93 | 19.88 |
+| bloat | CALL_GRAPH | 0 | 6794 [6681, 6987] | skipped | - | - | 6.93 | - |
+<!-- E5 table T6 -->
+| bench | run | n | max RSS med MB | max RSS min-max | Qilin RSS med MB | min heap MB | min heap - insens MB |
+| antlr | insens | 10 | 1109 | 1073-1136 | 998 | 287 | - |
+| antlr | ucfs-ANALYSIS | 10 | 6108 | 5883-6277 | 5497 | 1546 | 1259 |
+| antlr | ucfs-CALL_GRAPH | 0 | skipped | - | - | - | - |
+| bloat | insens | 10 | 1260 | 1207-1298 | 1134 | 334 | - |
+| bloat | ucfs-ANALYSIS | 10 | 2384 | 2332-2483 | 2146 | 621 | 287 |
+| bloat | ucfs-CALL_GRAPH | 0 | skipped | - | - | - | - |
+<!-- E5 table T8 -->
+| probe | bench | run | status | wall s | max RSS MB | UCFS ms | UCFS pairs | xmx | timeout s | JDK bodies |
+=== tables of the fake results with mutation kill137
+<!-- E5 table T3 -->
+| bench | binding | n | Spark ms | kernel ms | UCFS ms | UCFS/Spark | wall insens s | wall ucfs s |
+| antlr | ANALYSIS | 10 | 8206 [8049, 8691] | 8392 | 106649 [101046, 108693] | 13.03 [12.01, 13.26] | 8.99 | 98.99 |
+| antlr | CALL_GRAPH | 0 | 8206 [8049, 8691] | skipped | - | - | 8.99 | - |
+| bloat | ANALYSIS | 10 | 6794 [6681, 6987] | 6822 | 13374 [13108, 13869] | 1.98 [1.91, 2.06] | 6.93 | 19.88 |
+| bloat | CALL_GRAPH | 0 | 6794 [6681, 6987] | skipped | - | - | 6.93 | - |
+<!-- E5 table T6 -->
+| bench | run | n | max RSS med MB | max RSS min-max | Qilin RSS med MB | min heap MB | min heap - insens MB |
+| antlr | insens | 10 | 1109 | 1073-1136 | 998 | 287 | - |
+| antlr | ucfs-ANALYSIS | 10 | 6108 | 5883-6277 | 5497 | 1546 | 1259 |
+| antlr | ucfs-CALL_GRAPH | 0 | skipped | - | - | - | - |
+| bloat | insens | 10 | 1260 | 1207-1298 | 1134 | 334 | - |
+| bloat | ucfs-ANALYSIS | 10 | 2384 | 2332-2483 | 2146 | 621 | 287 |
+| bloat | ucfs-CALL_GRAPH | 0 | skipped | - | - | - | - |
+<!-- E5 table T8 -->
+| probe | bench | run | status | wall s | max RSS MB | UCFS ms | UCFS pairs | xmx | timeout s | JDK bodies |
