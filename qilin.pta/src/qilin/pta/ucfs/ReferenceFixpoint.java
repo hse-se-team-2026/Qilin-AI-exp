@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -58,6 +59,18 @@ import java.util.function.BiPredicate;
  * The fixpoint is computed by difference propagation over node ids: the vertices of the graph and,
  * after them, the field nodes made on the fly; a store or load through a new base object adds a
  * copy edge to or from the field node.
+ *
+ * <p>The type tests get the same {@code Type} object as the solver: the type of the variable's
+ * {@code VarNode} (the solver reads it from the {@code ContextVarNode}, which takes its base's type)
+ * and the one of {@link #fieldNodeType} (the same object {@code ContextField} takes). The filters
+ * are therefore shared by identity of the type object, not by {@code equals}. Soot's
+ * {@code FastHierarchy.canStoreType} compares the supertype of an {@code ArrayType} with the
+ * {@code Object}, {@code Serializable} and {@code Cloneable} types of the Scene by {@code ==}, while
+ * Soot's type assigner can give a cast the type {@code WeakObjectType}, which is a different object
+ * equal by name to {@code java.lang.Object}: an array passes the test of the Scene's
+ * {@code Object} and does not pass the test of such a cast. A filter keyed by {@code equals} would
+ * give the cast the filter of the Scene's {@code Object} and let the array through, where the
+ * solver drops it.
  */
 final class ReferenceFixpoint {
 
@@ -81,7 +94,8 @@ final class ReferenceFixpoint {
     private final List<List<Integer>> succ = new ArrayList<>();
     private final Set<Long> copyEdges = new HashSet<>();
     private final Map<Long, Integer> fieldNodes = new HashMap<>();
-    private final Map<Type, TypeFilter> filterByType = new HashMap<>();
+    /** By identity of the type object, see the class comment. */
+    private final Map<Type, TypeFilter> filterByType = new IdentityHashMap<>();
     private final ArrayDeque<Integer> work = new ArrayDeque<>();
     private final BitSet queued = new BitSet();
 
