@@ -22,8 +22,9 @@
 #
 # Steps:
 #   (a) without E5_NO_APT=1: sudo apt-get update and sudo apt-get install -y git python3 time unzip curl
-#       ca-certificates xz-utils (each waits up to 600 s for the dpkg lock); then (always) a check of git python3 /usr/bin/time unzip curl sha256sum tar xz
-#       and of pgrep lscpu timeout (procps, util-linux, coreutils: e5-full.sh and its parts need them)
+#       ca-certificates xz-utils (each waits up to 600 s for the dpkg lock); then (always) a check of git
+#       python3 /usr/bin/time unzip curl sha256sum tar xz and of pgrep lscpu timeout (procps, util-linux,
+#       coreutils: e5-full.sh and its parts need them)
 #   (b) the JDKs, pinned (URL of the GitHub release of Adoptium, sha256 = its .sha256.txt):
 #         Temurin jdk-21.0.12.1+1  OpenJDK21U-jdk_x64_linux_hotspot_21.0.12.1_1.tar.gz
 #                                  ce79869e1307ed8ee1e2baa86a412b1eb5b75d10a01006d788a6f968bcfaee94
