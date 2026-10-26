@@ -22,7 +22,7 @@
 #
 # Steps:
 #   (a) without E5_NO_APT=1: sudo apt-get update and sudo apt-get install -y git python3 time unzip curl
-#       ca-certificates xz-utils; then (always) a check of git python3 /usr/bin/time unzip curl sha256sum tar xz
+#       ca-certificates xz-utils (each waits up to 600 s for the dpkg lock); then (always) a check of git python3 /usr/bin/time unzip curl sha256sum tar xz
 #       and of pgrep lscpu timeout (procps, util-linux, coreutils: e5-full.sh and its parts need them)
 #   (b) the JDKs, pinned (URL of the GitHub release of Adoptium, sha256 = its .sha256.txt):
 #         Temurin jdk-21.0.12.1+1  OpenJDK21U-jdk_x64_linux_hotspot_21.0.12.1_1.tar.gz
@@ -96,9 +96,10 @@ STARTED="$(date -Iseconds)"
 # (a) packages
 if [ "$NO_APT" != 1 ]; then
     say "installing packages with apt-get"
-    sudo DEBIAN_FRONTEND=noninteractive apt-get update -q || die3 "apt-get update failed"
-    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -q git python3 time unzip curl ca-certificates xz-utils \
-        || die3 "apt-get install failed"
+    # a fresh cloud image may still run unattended-upgrades: wait for the dpkg lock up to 10 min
+    sudo DEBIAN_FRONTEND=noninteractive apt-get -o DPkg::Lock::Timeout=600 update -q || die3 "apt-get update failed"
+    sudo DEBIAN_FRONTEND=noninteractive apt-get -o DPkg::Lock::Timeout=600 install -y -q git python3 time unzip curl \
+        ca-certificates xz-utils || die3 "apt-get install failed"
 fi
 for c in git python3 unzip curl sha256sum tar xz pgrep lscpu timeout; do
     command -v "$c" > /dev/null || die3 "command $c not found"
