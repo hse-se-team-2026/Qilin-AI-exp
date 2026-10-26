@@ -1,0 +1,31 @@
+key	value
+command	bash scripts/ucfs/e5-bench.sh /home/e5user/e5/results/bench antlr bloat chart eclipse fop luindex lusearch pmd xalan checkstyle findbugs JPC
+git-head	af18519beba9b2c433ef8ca83ebc00fe65191239
+tree-clean	yes
+jar	/home/e5user/e5/jar/Qilin-fat.jar
+jar-sha256	b14bd5544dc51dac8e32351f963604da4bfea19435cba69aeeb52f99210108ad
+benches	antlr bloat chart eclipse fop luindex lusearch pmd xalan checkstyle findbugs JPC
+runs	insens ucfs-ANALYSIS ucfs-CALL_GRAPH
+reps	10
+warmup	1
+skip	antlr:ucfs-CALL_GRAPH bloat:ucfs-CALL_GRAPH checkstyle:ucfs-CALL_GRAPH
+timeout	900
+xmx	16g
+jvm-flags	-XX:+ExitOnOutOfMemoryError
+jdk-bodies	no
+java-tool-options	
+java-options	
+jdk-java-options	
+compressed-oops	true
+host-kind	vm
+flavor	gen-8-64
+cpu-model	Intel Xeon Processor (Cascadelake)
+cpu-count	8
+mem-total-mb	64303
+kernel	6.8.0-139-generic
+os	Ubuntu 24.04.5 LTS
+java-version	OpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)
+other-java	0
+load-start	0.37 0.68 0.38
+started	2026-10-26T13:19:27+03:00
+finished	2026-10-26T14:22:27+03:00

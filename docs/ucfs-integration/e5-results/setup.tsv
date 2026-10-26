@@ -1,0 +1,14 @@
+key	value
+repo-url	https://github.com/hse-se-team-2026/Qilin-AI-exp.git
+commit	af18519beba9b2c433ef8ca83ebc00fe65191239
+git-head	af18519beba9b2c433ef8ca83ebc00fe65191239
+tree-clean	yes
+jdk21	/home/e5user/e5/jdks/jdk-21.0.12.1+1
+jdk21-sha256	ce79869e1307ed8ee1e2baa86a412b1eb5b75d10a01006d788a6f968bcfaee94
+jdk11	/home/e5user/e5/jdks/jdk-11.0.32.1+1
+jdk11-sha256	5c3f68887c325d36d852ba534303e1f5f1f5cae7d6cc1e951d73e0d8e98a058d
+java-version	OpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)
+jar	/home/e5user/e5/jar/Qilin-fat.jar
+jar-sha256	b14bd5544dc51dac8e32351f963604da4bfea19435cba69aeeb52f99210108ad
+started	2026-10-26T13:12:03+03:00
+finished	2026-10-26T13:17:21+03:00

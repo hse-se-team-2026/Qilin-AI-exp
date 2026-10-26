@@ -1,0 +1,17 @@
+bench	run	status	minheap_mb	maxfail_mb	steps	ref_wall_s	ref_rss_mb	step_timeout_s
+antlr	insens	ok	143	127	14	4.82	965	60
+antlr	ucfs-ANALYSIS	ok	4271	4255	14	127.05	5729	382
+bloat	insens	ok	111	95	14	4.11	1318	60
+bloat	ucfs-ANALYSIS	ok	1227	1211	14	16.37	2452	60
+chart	insens	ok	191	175	14	5.35	1690	60
+chart	ucfs-ANALYSIS	ok	876	860	14	15.83	2917	60
+chart	ucfs-CALL_GRAPH	ok	1785	1769	14	30.30	3760	91
+fop	insens	ok	143	127	14	2.63	570	60
+fop	ucfs-ANALYSIS	ok	191	175	14	3.23	723	60
+fop	ucfs-CALL_GRAPH	ok	207	191	14	3.09	769	60
+luindex	insens	ok	79	64	14	2.36	676	60
+luindex	ucfs-ANALYSIS	ok	111	95	14	2.71	745	60
+luindex	ucfs-CALL_GRAPH	ok	127	111	14	2.83	784	60
+lusearch	insens	ok	79	64	14	3.05	944	60
+lusearch	ucfs-ANALYSIS	ok	175	159	14	3.80	1050	60
+lusearch	ucfs-CALL_GRAPH	ok	382	366	14	5.05	1633	60

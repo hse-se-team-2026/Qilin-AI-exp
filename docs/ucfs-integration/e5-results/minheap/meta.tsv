@@ -1,0 +1,30 @@
+key	value
+command	bash scripts/ucfs/e5-minheap.sh /home/e5user/e5/results/minheap antlr bloat chart fop luindex lusearch
+git-head	af18519beba9b2c433ef8ca83ebc00fe65191239
+tree-clean	yes
+jar	/home/e5user/e5/jar/Qilin-fat.jar
+jar-sha256	b14bd5544dc51dac8e32351f963604da4bfea19435cba69aeeb52f99210108ad
+benches	antlr bloat chart fop luindex lusearch
+runs	insens ucfs-ANALYSIS ucfs-CALL_GRAPH
+skip	antlr:ucfs-CALL_GRAPH bloat:ucfs-CALL_GRAPH checkstyle:ucfs-CALL_GRAPH
+timeout	900
+hi-mb	16384
+lo-mb	64
+gran-mb	16
+timeout-factor	3
+jvm-flags	-XX:+ExitOnOutOfMemoryError
+java-tool-options	
+java-options	
+jdk-java-options	
+host-kind	vm
+flavor	gen-8-64
+cpu-model	Intel Xeon Processor (Cascadelake)
+cpu-count	8
+mem-total-mb	64303
+kernel	6.8.0-139-generic
+os	Ubuntu 24.04.5 LTS
+java-version	OpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)
+other-java	0
+load-start	3.95 2.77 2.45
+started	2026-10-26T14:22:28+03:00
+finished	2026-10-26T15:21:24+03:00

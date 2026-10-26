@@ -1,0 +1,3 @@
+bench	run	rep	status	exit	wall_s	user_s	sys_s	max_rss_mb	load1	other_java	procs_running	steal_pct	start_ns	end_ns
+luindex	insens	1	ok	0	12.00	42.55	1.67	3603	6.97	0	1	0.01	1793026415577417469	1793026427581120975
+luindex	ucfs-ANALYSIS	1	oom	3	3596.84	6320.33	35.54	55083	1.52	0	1	0.01	1793022818674297443	1793026415525307794
