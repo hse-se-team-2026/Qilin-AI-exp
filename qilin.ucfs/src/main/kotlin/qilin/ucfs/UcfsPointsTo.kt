@@ -42,6 +42,9 @@ object UcfsPointsTo {
         return solve(graph, PointsToGrammar(graph.fields.size))
     }
 
+    /** The phases of the last [solve] with a graph and grammar on each thread. */
+    private val lastPhases = ThreadLocal<PhaseMarks>()
+
     /**
      * Runs UCFS with [grammar] on [graph] from the start vertices `graph.allocVertices()` (the
      * objects) and returns, for each variable `v`, the objects `o` such that some path from `o` to
@@ -53,13 +56,19 @@ object UcfsPointsTo {
      * [PointsToGrammar] this is the query of [solve] with a PTA; another grammar checks that the
      * export and the solver are not tied to L_FT (E3.md D10).
      *
+     * The call times its phases on a [PhaseMarks] made at its start, which [lastPhaseMarks] returns
+     * afterwards on the same thread: the phases of the solver, `UcfsSolver.PHASES` (`rsm`,
+     * `input` with the call of `graph.allocVertices()`, `parse`, `roots`), then `pairs`: the vertex
+     * pairs to the map (object, variable), until the map is complete.
+     *
      * @param graph the labeled graph, as made by [PagExport.export]
      * @param grammar a UCFS grammar over the labels of [PtLabels] with a start nonterminal
      * @return CI variable -> the objects that reach it; variables without objects have no key
      */
     @JvmStatic
     fun solve(graph: UcfsGraph, grammar: Grammar): Map<VarNode, Set<AllocNode>> {
-        val pairs = UcfsSolver.reachablePairs(graph.edges, grammar, graph.allocVertices())
+        val marks = PhaseMarks()
+        val pairs = UcfsSolver.reachablePairs(graph.edges, grammar, { graph.allocVertices() }, marks)
         val result = HashMap<VarNode, MutableSet<AllocNode>>()
         for (p in pairs) {
             val obj = graph.nodeOf(p.from)
@@ -68,6 +77,33 @@ object UcfsPointsTo {
                 result.getOrPut(variable) { HashSet() }.add(obj)
             }
         }
+        marks.end("pairs")
+        lastPhases.set(marks)
         return result
     }
+
+    /**
+     * [solve] with a graph and grammar (the same answer: this overload calls it) that also puts
+     * the nanoseconds of its phases into [times], in this order of insertion: `rsm`, `input`,
+     * `parse`, `roots`, `pairs` (see [solve]). The value of a phase replaces a value already in
+     * [times]; it is not added to it.
+     *
+     * @param times the map that receives phase name -> nanoseconds
+     */
+    @JvmStatic
+    fun solve(graph: UcfsGraph, grammar: Grammar, times: MutableMap<String, Long>): Map<VarNode, Set<AllocNode>> {
+        val result = solve(graph, grammar)
+        times.putAll(lastPhaseMarks().durations())
+        return result
+    }
+
+    /**
+     * The phase boundaries of the last [solve] with a graph and grammar that returned on the
+     * current thread: [PhaseMarks.start] is read at the start of that call and [PhaseMarks.end] is
+     * the end of its last phase, `pairs`.
+     *
+     * @throws IllegalStateException if no such call has returned on this thread
+     */
+    @JvmStatic
+    fun lastPhaseMarks(): PhaseMarks = checkNotNull(lastPhases.get()) { "UcfsPointsTo.solve has not run on this thread" }
 }
