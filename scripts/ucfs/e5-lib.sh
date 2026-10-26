@@ -13,11 +13,19 @@
 #   e5_machine_meta               "key<TAB>value" lines that describe the machine and the JVM: compressed-oops
 #                                 host-kind flavor cpu-model cpu-count mem-total-mb kernel os java-version
 #                                 other-java load-start
+#   e5_host_meta                  the same lines without compressed-oops (e5-minheap.sh: its heap changes)
 #   E5_PY_RUN                     python3 source (standard library) of run_facts(<dir>, <timeout>) and
 #                                 parse_out(<text>), for the collectors of the scripts (python3 -I -c)
 #
 # Variables it reads (set and checked by the script that sources it): ROOT (the clone), JAVA (java of JDK 21),
-# JAR (realpath of the fat jar), XMX, JDK_BODIES (yes: the JDK with bodies, no -exclude), E5_HOST_KIND, E5_FLAVOR.
+# JAR (realpath of the fat jar), XMX, JDK_BODIES (yes: the JDK with bodies, no -exclude), E5_HOST_KIND, E5_FLAVOR,
+# and two that only e5-minheap.sh sets (e5-bench.sh leaves them unset and keeps the defaults):
+#   E5_KILL_AFTER   seconds from the SIGTERM of timeout(1) to its SIGKILL (default 60)
+#   E5_LAUNCHER     yes: <JAVA> may be a launcher script that execs the JVM (the fault injection of the S3 check
+#                   is such a script); the JVM is then the process whose /proc/<pid>/exe is named java (not one
+#                   whose comm is java: a script named java has that comm while its interpreter runs), and its
+#                   command line is compared with E5_CMD without argv[0] (the launcher runs another java
+#                   binary with the same arguments). Default: comm java, the whole command line.
 #
 # Command line of a run (e5_command; nothing else, so that the runs differ only in -pta, -ucfsbinding and -Xmx):
 #   <JAVA> -Xmx<XMX> -XX:+ExitOnOutOfMemoryError -jar <JAR> -pae -pe -clinit=ONFLY -lcs -mh <run options>
@@ -41,7 +49,7 @@
 #   time.txt     the report of /usr/bin/time -v
 #   end          date +%s%N just after the run
 #   stat-after   as stat-before, just after the run
-#   exit         the exit code of /usr/bin/time -v -o time.txt timeout -k 60 <timeout> <command>
+#   exit         the exit code of /usr/bin/time -v -o time.txt timeout -k <E5_KILL_AFTER> <timeout> <command>
 #   The directory sootOutput/ that Qilin writes into the working directory is removed after the run.
 # While the run goes, this shell only looks for the java process (it reads /proc every 20 ms until the JVM is
 # there, at most 10 s) and then waits for the run; nothing else of the script runs in parallel with it.
@@ -134,7 +142,12 @@ e5_watch_java() {
         [ -z "$t" ] || j="$(e5_child "$t")"
         if [ -n "$j" ]; then
             comm=""
-            read -r comm < "/proc/$j/comm" 2>/dev/null
+            if [ "${E5_LAUNCHER:-}" = yes ]; then
+                comm="$(readlink "/proc/$j/exe" 2>/dev/null)"
+                comm="${comm##*/}"
+            else
+                read -r comm < "/proc/$j/comm" 2>/dev/null
+            fi
             if [ "$comm" = java ]; then
                 cat "/proc/$j/cmdline" 2>/dev/null
                 return 0
@@ -147,7 +160,7 @@ e5_watch_java() {
 # e5_run <dir> <timeout>: one run of E5_CMD (files above); prints a warning or a note on stdout when the
 # command line of the java process differs from E5_CMD or was not seen
 e5_run() {
-    local dir="$1" timeout="$2" tpid rc load
+    local dir="$1" timeout="$2" tpid rc load same
     local -a seen
     rm -rf -- "$dir"
     mkdir -p "$dir"
@@ -157,7 +170,7 @@ e5_run() {
     echo "$load" > "$dir/load1"
     e5_proc_stat > "$dir/stat-before"
     date +%s%N > "$dir/start"
-    (cd "$dir" && exec /usr/bin/time -v -o time.txt timeout -k 60 "$timeout" "${E5_CMD[@]}" > out.txt 2>&1 < /dev/null) &
+    (cd "$dir" && exec /usr/bin/time -v -o time.txt timeout -k "${E5_KILL_AFTER:-60}" "$timeout" "${E5_CMD[@]}" > out.txt 2>&1 < /dev/null) &
     tpid=$!
     mapfile -d '' -t seen < <(e5_watch_java "$tpid")
     wait "$tpid"
@@ -166,24 +179,35 @@ e5_run() {
     e5_proc_stat > "$dir/stat-after"
     echo "$rc" > "$dir/exit"
     rm -rf -- "$dir/sootOutput"
+    same=no
+    if [ "${E5_LAUNCHER:-}" = yes ]; then
+        [ ${#seen[@]} -eq 0 ] || [ "$(e5_quoted "${seen[@]:1}")" != "$(e5_quoted "${E5_CMD[@]:1}")" ] || same=yes
+    else
+        [ ${#seen[@]} -eq 0 ] || [ "$(e5_quoted "${seen[@]}")" != "$(e5_quoted "${E5_CMD[@]}")" ] || same=yes
+    fi
     if [ ${#seen[@]} -eq 0 ]; then
         echo "${E5_NAME:-e5}: note: the java process of $dir was not seen; cmd.txt is the planned command line"
-    elif [ "$(e5_quoted "${seen[@]}")" != "$(e5_quoted "${E5_CMD[@]}")" ]; then
+    elif [ "$same" = no ]; then
         echo "${E5_NAME:-e5}: warning: the java process of $dir ran another command line; cmd.txt is that one"
         e5_quoted "${seen[@]}" > "$dir/cmd.txt"
     fi
 }
 
 e5_machine_meta() {
-    local coops cpu mem os jver ojava load
+    local coops
     coops="$("$JAVA" "-Xmx$XMX" -XX:+PrintFlagsFinal -version 2>/dev/null | awk '$2 == "UseCompressedOops" {print $4}')"
+    printf 'compressed-oops\t%s\n' "$coops"
+    e5_host_meta
+}
+
+e5_host_meta() {
+    local cpu mem os jver ojava load
     cpu="$(LC_ALL=C lscpu | sed -n 's/^Model name: *//p' | head -n 1)"
     mem="$(awk '$1 == "MemTotal:" {print int($2 / 1024)}' /proc/meminfo)"
     os="$(. /etc/os-release && echo "$PRETTY_NAME")"
     jver="$("$JAVA" -version 2>&1 | sed -n 2p)"
     ojava="$(pgrep -c -x java || true)"
     read -r load < /proc/loadavg
-    printf 'compressed-oops\t%s\n' "$coops"
     printf 'host-kind\t%s\n' "$E5_HOST_KIND"
     printf 'flavor\t%s\n' "$E5_FLAVOR"
     printf 'cpu-model\t%s\n' "$cpu"
