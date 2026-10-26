@@ -22,9 +22,12 @@
 #
 # Steps:
 #   (a) without E5_NO_APT=1: sudo apt-get update and sudo apt-get install -y git python3 time unzip curl
-#       ca-certificates xz-utils (each waits up to 600 s for the dpkg lock); then (always) a check of git
-#       python3 /usr/bin/time unzip curl sha256sum tar xz and of pgrep lscpu timeout (procps, util-linux,
-#       coreutils: e5-full.sh and its parts need them)
+#       ca-certificates xz-utils. On a fresh cloud image cloud-init and apt-daily may still run apt and hold its
+#       locks, so it waits for them, up to 600 s in all, then exit 3: first cloud-init status --wait (when
+#       cloud-init is there), then each apt-get waits for the dpkg lock (DPkg::Lock::Timeout) and is run again
+#       while it fails with "E: Could not get lock" (the lists lock of update and the archives lock are not waited
+#       for by apt-get itself). Then (always) a check of git python3 /usr/bin/time unzip curl sha256sum tar xz
+#       and of pgrep lscpu timeout (procps, util-linux, coreutils: e5-full.sh and its parts need them)
 #   (b) the JDKs, pinned (URL of the GitHub release of Adoptium, sha256 = its .sha256.txt):
 #         Temurin jdk-21.0.12.1+1  OpenJDK21U-jdk_x64_linux_hotspot_21.0.12.1_1.tar.gz
 #                                  ce79869e1307ed8ee1e2baa86a412b1eb5b75d10a01006d788a6f968bcfaee94
@@ -95,12 +98,39 @@ REPO_URL="${E5_REPO_URL:-https://github.com/hse-se-team-2026/Qilin-AI-exp.git}"
 STARTED="$(date -Iseconds)"
 
 # (a) packages
+APT_WAIT=600
+# apt_get <args> - sudo apt-get <args>, run again while another apt holds a lock, until APT_DEADLINE
+apt_get() {
+    local log rc left
+    log="$(mktemp)" || die3 "mktemp failed"
+    while :; do
+        left=$((APT_DEADLINE - $(date +%s)))
+        [ "$left" -gt 0 ] || left=1
+        sudo DEBIAN_FRONTEND=noninteractive apt-get -o DPkg::Lock::Timeout="$left" "$@" 2>&1 | tee "$log"
+        rc=${PIPESTATUS[0]}
+        if [ "$rc" -eq 0 ] || ! grep -q '^E: Could not get lock' "$log"; then
+            rm -f -- "$log"
+            return "$rc"
+        fi
+        if [ "$(date +%s)" -ge "$APT_DEADLINE" ]; then
+            rm -f -- "$log"
+            die3 "apt-get $1: another apt still holds its lock after $APT_WAIT s (see the lines above)"
+        fi
+        say "apt-get $1: another apt holds its lock, again in 5 s ($((APT_DEADLINE - $(date +%s))) s left)"
+        sleep 5
+    done
+}
+
 if [ "$NO_APT" != 1 ]; then
     say "installing packages with apt-get"
-    # a fresh cloud image may still run unattended-upgrades: wait for the dpkg lock up to 10 min
-    sudo DEBIAN_FRONTEND=noninteractive apt-get -o DPkg::Lock::Timeout=600 update -q || die3 "apt-get update failed"
-    sudo DEBIAN_FRONTEND=noninteractive apt-get -o DPkg::Lock::Timeout=600 install -y -q git python3 time unzip curl \
-        ca-certificates xz-utils || die3 "apt-get install failed"
+    APT_DEADLINE=$(($(date +%s) + APT_WAIT))
+    if command -v cloud-init > /dev/null; then
+        # cloud-init of a fresh image may still be installing packages itself
+        say "waiting for cloud-init (cloud-init status --wait)"
+        timeout "$APT_WAIT" cloud-init status --wait > /dev/null 2>&1 || true
+    fi
+    apt_get update -q || die3 "apt-get update failed"
+    apt_get install -y -q git python3 time unzip curl ca-certificates xz-utils || die3 "apt-get install failed"
 fi
 for c in git python3 unzip curl sha256sum tar xz pgrep lscpu timeout; do
     command -v "$c" > /dev/null || die3 "command $c not found"
@@ -116,11 +146,13 @@ JARDIR="$PREFIX/jar"
 JAR="$JARDIR/Qilin-fat.jar"
 mkdir -p "$JDKS" || die3 "cannot create $JDKS"
 
-# (b) JDKs. sha256 of every candidate file, each file hashed once
+# (b) JDKs. sha_of <file> -> SHA, the sha256 of the file; each file hashed once (SHA_OF is kept because sha_of
+# is not called in a subshell)
 declare -A SHA_OF=()
+SHA=""
 sha_of() {
     [ -n "${SHA_OF[$1]+x}" ] || SHA_OF[$1]="$(sha256sum -- "$1" | cut -d' ' -f1)"
-    printf '%s' "${SHA_OF[$1]}"
+    SHA="${SHA_OF[$1]}"
 }
 
 # tarball <file name> <url> <sha256> -> the path of a tarball with this sha256 (cache, else download)
@@ -132,7 +164,8 @@ tarball() {
         # the file of the release name first (one hash in the usual case), then any other *.tar.gz
         for f in "$CACHE/$file" "$CACHE"/*.tar.gz; do
             [ -f "$f" ] || continue
-            if [ "$(sha_of "$f")" = "$sha" ]; then
+            sha_of "$f"
+            if [ "$SHA" = "$sha" ]; then
                 TARBALL="$f"
                 return 0
             fi
@@ -149,6 +182,7 @@ tarball() {
     fi
     mv -- "$part" "$JDKS/$file" || die3 "cannot move $part"
     TARBALL="$JDKS/$file"
+    SHA_OF[$TARBALL]="$f"
 }
 
 # unpack <tarball> <directory name> <version> -> the JDK in $JDKS/<directory name>, checked
@@ -226,9 +260,11 @@ fi
     printf 'git-head\t%s\n' "$GIT_HEAD"
     printf 'tree-clean\t%s\n' "$TREE_CLEAN"
     printf 'jdk21\t%s\n' "$J21"
-    printf 'jdk21-sha256\t%s\n' "$(sha_of "$T21")"
+    sha_of "$T21"
+    printf 'jdk21-sha256\t%s\n' "$SHA"
     printf 'jdk11\t%s\n' "$J11"
-    printf 'jdk11-sha256\t%s\n' "$(sha_of "$T11")"
+    sha_of "$T11"
+    printf 'jdk11-sha256\t%s\n' "$SHA"
     printf 'java-version\t%s\n' "$("$J21/bin/java" -version 2>&1 | sed -n 2p)"
     printf 'jar\t%s\n' "$JAR"
     printf 'jar-sha256\t%s\n' "$(sha256sum -- "$JAR" | cut -d' ' -f1)"
