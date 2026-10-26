@@ -1,0 +1,16 @@
+bench	run	rep	key	value
+luindex	insens	1	EntrySize	15
+luindex	insens	1	qilin-pta-s	9.645000457763672
+luindex	insens	1	Reachable Method (CI)	7481
+luindex	insens	1	Call Edge(CI)	42980
+luindex	insens	1	May Fail Cast (Total)	1069
+luindex	insens	1	Virtual Call Site(Polymorphic)	1481
+luindex	insens	1	globalAlias_incstst	13416
+luindex	insens	1	Avg Points-to Target without Native Var(CI)	38.455740578439965
+luindex	insens	1	UCFS-seam-NEW	202171
+luindex	insens	1	UCFS-seam-ASSIGN	249106
+luindex	insens	1	UCFS-seam-LOAD	4890
+luindex	insens	1	UCFS-seam-STORE	3728
+luindex	insens	1	qilin-main-pta-s	11.79
+luindex	insens	1	qilin-main-pta-rss-mb	3602.89
+luindex	ucfs-ANALYSIS	1	EntrySize	15

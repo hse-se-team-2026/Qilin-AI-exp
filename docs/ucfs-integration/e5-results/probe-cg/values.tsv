@@ -1,0 +1,60 @@
+bench	run	rep	key	value
+antlr	ucfs-CALL_GRAPH	1	EntrySize	15
+antlr	ucfs-CALL_GRAPH	1	qilin-pta-s	1358.8890380859375
+antlr	ucfs-CALL_GRAPH	1	Reachable Method (CI)	1746
+antlr	ucfs-CALL_GRAPH	1	Call Edge(CI)	20668
+antlr	ucfs-CALL_GRAPH	1	May Fail Cast (Total)	287
+antlr	ucfs-CALL_GRAPH	1	Virtual Call Site(Polymorphic)	850
+antlr	ucfs-CALL_GRAPH	1	globalAlias_incstst	7332
+antlr	ucfs-CALL_GRAPH	1	Avg Points-to Target without Native Var(CI)	48.82737133625663
+antlr	ucfs-CALL_GRAPH	1	UCFS-import-binding	CALL_GRAPH
+antlr	ucfs-CALL_GRAPH	1	UCFS-import-pairs	511164
+antlr	ucfs-CALL_GRAPH	1	UCFS-import-typed-pairs	281218
+antlr	ucfs-CALL_GRAPH	1	UCFS-import-root-pairs	1
+antlr	ucfs-CALL_GRAPH	1	UCFS-import-spark-ms	3731
+antlr	ucfs-CALL_GRAPH	1	UCFS-import-ucfs-ms	1355158
+antlr	ucfs-CALL_GRAPH	1	UCFS-phase-export-ms	193.797
+antlr	ucfs-CALL_GRAPH	1	UCFS-phase-grammar-ms	8.623
+antlr	ucfs-CALL_GRAPH	1	UCFS-phase-rsm-ms	60.779
+antlr	ucfs-CALL_GRAPH	1	UCFS-phase-input-ms	48.921
+antlr	ucfs-CALL_GRAPH	1	UCFS-phase-parse-ms	1354386.301
+antlr	ucfs-CALL_GRAPH	1	UCFS-phase-roots-ms	256.255
+antlr	ucfs-CALL_GRAPH	1	UCFS-phase-pairs-ms	116.093
+antlr	ucfs-CALL_GRAPH	1	UCFS-phase-import-ms	86.534
+antlr	ucfs-CALL_GRAPH	1	UCFS-phase-total-ms	1355157.304
+antlr	ucfs-CALL_GRAPH	1	UCFS-seam-NEW	15165
+antlr	ucfs-CALL_GRAPH	1	UCFS-seam-ASSIGN	49053
+antlr	ucfs-CALL_GRAPH	1	UCFS-seam-LOAD	2003
+antlr	ucfs-CALL_GRAPH	1	UCFS-seam-STORE	768
+antlr	ucfs-CALL_GRAPH	1	qilin-main-pta-s	1360.15
+antlr	ucfs-CALL_GRAPH	1	qilin-main-pta-rss-mb	44183.82
+bloat	ucfs-CALL_GRAPH	1	EntrySize	15
+checkstyle	ucfs-CALL_GRAPH	1	EntrySize	16
+checkstyle	ucfs-CALL_GRAPH	1	qilin-pta-s	567.0549926757812
+checkstyle	ucfs-CALL_GRAPH	1	Reachable Method (CI)	1753
+checkstyle	ucfs-CALL_GRAPH	1	Call Edge(CI)	6743
+checkstyle	ucfs-CALL_GRAPH	1	May Fail Cast (Total)	75
+checkstyle	ucfs-CALL_GRAPH	1	Virtual Call Site(Polymorphic)	92
+checkstyle	ucfs-CALL_GRAPH	1	globalAlias_incstst	540
+checkstyle	ucfs-CALL_GRAPH	1	Avg Points-to Target without Native Var(CI)	86.60904059040591
+checkstyle	ucfs-CALL_GRAPH	1	UCFS-import-binding	CALL_GRAPH
+checkstyle	ucfs-CALL_GRAPH	1	UCFS-import-pairs	529296
+checkstyle	ucfs-CALL_GRAPH	1	UCFS-import-typed-pairs	102190
+checkstyle	ucfs-CALL_GRAPH	1	UCFS-import-root-pairs	1
+checkstyle	ucfs-CALL_GRAPH	1	UCFS-import-spark-ms	1900
+checkstyle	ucfs-CALL_GRAPH	1	UCFS-import-ucfs-ms	565155
+checkstyle	ucfs-CALL_GRAPH	1	UCFS-phase-export-ms	108.280
+checkstyle	ucfs-CALL_GRAPH	1	UCFS-phase-grammar-ms	7.387
+checkstyle	ucfs-CALL_GRAPH	1	UCFS-phase-rsm-ms	53.262
+checkstyle	ucfs-CALL_GRAPH	1	UCFS-phase-input-ms	35.100
+checkstyle	ucfs-CALL_GRAPH	1	UCFS-phase-parse-ms	564426.994
+checkstyle	ucfs-CALL_GRAPH	1	UCFS-phase-roots-ms	302.952
+checkstyle	ucfs-CALL_GRAPH	1	UCFS-phase-pairs-ms	123.598
+checkstyle	ucfs-CALL_GRAPH	1	UCFS-phase-import-ms	98.001
+checkstyle	ucfs-CALL_GRAPH	1	UCFS-phase-total-ms	565155.574
+checkstyle	ucfs-CALL_GRAPH	1	UCFS-seam-NEW	14943
+checkstyle	ucfs-CALL_GRAPH	1	UCFS-seam-ASSIGN	22817
+checkstyle	ucfs-CALL_GRAPH	1	UCFS-seam-LOAD	436
+checkstyle	ucfs-CALL_GRAPH	1	UCFS-seam-STORE	534
+checkstyle	ucfs-CALL_GRAPH	1	qilin-main-pta-s	568.88
+checkstyle	ucfs-CALL_GRAPH	1	qilin-main-pta-rss-mb	16411.07
