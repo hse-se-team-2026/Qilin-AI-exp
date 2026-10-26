@@ -18,14 +18,16 @@
 #                                 parse_out(<text>), for the collectors of the scripts (python3 -I -c)
 #
 # Variables it reads (set and checked by the script that sources it): ROOT (the clone), JAVA (java of JDK 21),
-# JAR (realpath of the fat jar), XMX, JDK_BODIES (yes: the JDK with bodies, no -exclude), E5_HOST_KIND, E5_FLAVOR,
-# and two that only e5-minheap.sh sets (e5-bench.sh leaves them unset and keeps the defaults):
-#   E5_KILL_AFTER   seconds from the SIGTERM of timeout(1) to its SIGKILL (default 60)
-#   E5_LAUNCHER     yes: <JAVA> may be a launcher script that execs the JVM (the fault injection of the S3 check
-#                   is such a script); the JVM is then the process whose /proc/<pid>/exe is named java (not one
-#                   whose comm is java: a script named java has that comm while its interpreter runs), and its
-#                   command line is compared with E5_CMD without argv[0] (the launcher runs another java
-#                   binary with the same arguments). Default: comm java, the whole command line.
+# JAR (realpath of the fat jar), XMX, JDK_BODIES (yes: the JDK with bodies, no -exclude), E5_HOST_KIND, E5_FLAVOR.
+# Two more are set here when the file is sourced, whatever the environment holds (so an exported E5_LAUNCHER or
+# E5_KILL_AFTER changes nothing); e5-bench.sh keeps these values, e5-minheap.sh assigns its own after the source:
+#   E5_KILL_AFTER=60  seconds from the SIGTERM of timeout(1) to its SIGKILL (e5-minheap.sh: 30)
+#   E5_LAUNCHER=no    the JVM is the child of timeout(1) whose comm is java, and its whole command line is
+#                     compared with E5_CMD. yes (e5-minheap.sh): <JAVA> may be a launcher script that execs the
+#                     JVM (the fault injection of the S3 check is such a script); the JVM is then the process whose
+#                     /proc/<pid>/exe is named java (not one whose comm is java: a script named java has that comm
+#                     while its interpreter runs), and its command line is compared with E5_CMD without argv[0]
+#                     (the launcher runs another java binary with the same arguments).
 #
 # Command line of a run (e5_command; nothing else, so that the runs differ only in -pta, -ucfsbinding and -Xmx):
 #   <JAVA> -Xmx<XMX> -XX:+ExitOnOutOfMemoryError -jar <JAR> -pae -pe -clinit=ONFLY -lcs -mh <run options>
@@ -57,6 +59,8 @@
 JDK_EXCLUDE_E5='java.*;javax.*;sun.*;com.sun.*;sunw.*;org.omg.*;org.w3c.*;org.xml.*;org.ietf.*;jdk.*'
 RUNPY_OPTS_E5=(-pae -pe -clinit=ONFLY -lcs -mh)
 JVM_FLAGS_E5=(-XX:+ExitOnOutOfMemoryError)
+E5_KILL_AFTER=60
+E5_LAUNCHER=no
 
 e5_die() { echo "${E5_NAME:-e5}: $*" >&2; exit 2; }
 
@@ -142,7 +146,7 @@ e5_watch_java() {
         [ -z "$t" ] || j="$(e5_child "$t")"
         if [ -n "$j" ]; then
             comm=""
-            if [ "${E5_LAUNCHER:-}" = yes ]; then
+            if [ "$E5_LAUNCHER" = yes ]; then
                 comm="$(readlink "/proc/$j/exe" 2>/dev/null)"
                 comm="${comm##*/}"
             else
@@ -170,7 +174,7 @@ e5_run() {
     echo "$load" > "$dir/load1"
     e5_proc_stat > "$dir/stat-before"
     date +%s%N > "$dir/start"
-    (cd "$dir" && exec /usr/bin/time -v -o time.txt timeout -k "${E5_KILL_AFTER:-60}" "$timeout" "${E5_CMD[@]}" > out.txt 2>&1 < /dev/null) &
+    (cd "$dir" && exec /usr/bin/time -v -o time.txt timeout -k "$E5_KILL_AFTER" "$timeout" "${E5_CMD[@]}" > out.txt 2>&1 < /dev/null) &
     tpid=$!
     mapfile -d '' -t seen < <(e5_watch_java "$tpid")
     wait "$tpid"
@@ -180,7 +184,7 @@ e5_run() {
     echo "$rc" > "$dir/exit"
     rm -rf -- "$dir/sootOutput"
     same=no
-    if [ "${E5_LAUNCHER:-}" = yes ]; then
+    if [ "$E5_LAUNCHER" = yes ]; then
         [ ${#seen[@]} -eq 0 ] || [ "$(e5_quoted "${seen[@]:1}")" != "$(e5_quoted "${E5_CMD[@]:1}")" ] || same=yes
     else
         [ ${#seen[@]} -eq 0 ] || [ "$(e5_quoted "${seen[@]}")" != "$(e5_quoted "${E5_CMD[@]}")" ] || same=yes

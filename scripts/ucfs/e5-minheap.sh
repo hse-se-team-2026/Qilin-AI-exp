@@ -74,8 +74,9 @@
 #   steps.tsv, minheap.tsv and meta.tsv describe this call only.
 #
 # Stdout: "e5-minheap: <bench> <run>" before each search, "e5-minheap: <bench> <run> s<step> x<mb> <status>"
-# after each step, a warning or note of e5_run when the command line of the JVM was not the planned one or was
-# not seen, and the last line "e5-minheap: <n> searches, <n> steps in <out-dir as realpath>".
+# after each step, a warning or note of e5_run when the command line of the JVM without argv[0] (E5_LAUNCHER=yes:
+# the java binary itself is not compared) was not the planned one or was not seen, and the last line
+# "e5-minheap: <n> searches, <n> steps in <out-dir as realpath>".
 # Requires bash, python3 (standard library only), GNU time at /usr/bin/time, timeout(1), pgrep, lscpu; no network.
 
 set -u
