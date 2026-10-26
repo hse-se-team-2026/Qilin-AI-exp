@@ -1,0 +1,19 @@
+key	value
+flavor	gen-8-64
+image	Ubuntu-24.04
+zone	ru.AZ-2
+disk	ssd-100gb
+floating-ip	yes
+created	2026-10-26T13:02:41+03:00
+ready	2026-10-26T13:08:12+03:00
+run-started	2026-10-26T13:19:26+03:00
+run-finished	2026-10-26T17:55:24+03:00
+deleted	2026-10-26T17:56:45+03:00
+hours	4.90
+rate-rub-per-hour	25.87
+cost-rub	126.76
+parts-copied	bench minheap probe-cg probe-jdk
+outcome	complete
+stop-reason	-
+api-after-delete	vms 0 disks 0 floating-ips 0
+results-manifest-sha256	055efdb6adbf8467ccd15547ff09f283862203d959698a899750b4c72580f538
