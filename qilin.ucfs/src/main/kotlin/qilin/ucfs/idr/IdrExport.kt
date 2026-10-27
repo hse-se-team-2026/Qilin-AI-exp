@@ -118,10 +118,16 @@ object IdrExport {
      *   `cp--c` on `END(v)` per site of `sites({method of v})`; a path to `END(v)` closes there the calls
      *   it never returned from;
      * - erasure: the context-insensitive variables X are every `GlobalVarNode` (static fields, the
-     *   variables of string and class constants) and every target of a cross-method `new` of the kernel
+     *   variables of string and class constants), every target of a cross-method `new` of the kernel
      *   (an object of method `m` into a local variable of another method; the edges into `this` and
      *   into exception targets are not exported, ROOT and objects without a method do not count;
-     *   `Solver.handleImplicitCallToFinalizerRegister` adds such edges). An exported edge that would
+     *   `Solver.handleImplicitCallToFinalizerRegister` adds such edges), and every local target of an
+     *   object without a method outside the home method of that object ([homes]: the method with most
+     *   of its local targets). The last are the merged heap of `-mh` (`HeuristicAbstractor.abstractHeap`
+     *   merges every `StringBuilder`/`StringBuffer` and each `Throwable` type into one `MergedNewExpr`
+     *   object with no method, and `Solver.addToPAG` adds its `new` edges into the locals of every
+     *   method that allocated one); they are the cross-method `new` of an object whose method is its
+     *   home (ticket E6-S4, Verifier MAJOR-V1, iteration 1). An exported edge that would
      *   end in `F(X)` or `B(X)` ends in `F_IN(X)` or `B_IN(X)` instead (the edges out of X leave `F(X)`
      *   and `B(X)`); `F_IN(X) -normal-> F(X)` and `B_IN(X) -normal-> B(X)`; loops `cp--c` on `F_IN(X)`
      *   and `B_IN(X)` close whatever the path had on its stack, loops `op--c` on `F(X)` and `B(X)` open
@@ -131,13 +137,24 @@ object IdrExport {
      * **Which sites loop** (docs/ai/tickets/E6-S4.md, DoD; E6.md D6 and "Решение лида" of round 2, item 1). `sites(M)` are the
      * call sites `c` (exported, i.e. in [IdrGraph.sites]) one of whose callees reaches a method of `M` in
      * the call graph (`PTA.getCallGraph()`, transitively, a method reaches itself); `M` without a method
-     * (null) gives every site. A parenthesis `c` can be on the stack of a path only while the path is
-     * in a method that the callee of `c` reaches, and the method of a path changes along the call edges,
-     * along assignments that touch a global and along cross-method `new` edges (for the other
-     * cross-method edges see below). Hence:
-     * - `M(o)` of an object is its method; for an object without a method (string and class constants,
-     *   ROOT) it is the set of methods of its local targets that are not context-insensitive (the path
-     *   from `START(o)` or from `B(v)` through `OBJ(o)` goes on to `F` of a target), and a target
+     * (null) gives every site. Cut a path of the language at its context-insensitive vertices (and at
+     * START, END) into segments. Between two of them the method of the path changes only along call
+     * edges: an assignment, load or store connects two variables of one method (a global is X), and
+     * `B(v) -> OBJ(o) -> F(w)` with `v`, `w` not X stays in one method, because the local targets of `o`
+     * that are not X all lie in the method of `o`, or in its home if `o` has no method (the targets in
+     * other methods are X, see erasure above). Without that, a path through an object without a method
+     * (the merged heap) went from the method of `v` to the one of `w` with the stack of the first: a
+     * parenthesis of a site that reaches only the method of `v` stayed open in `w`, and no loop by the
+     * method of `w` closed it (MAJOR-V1: pairs of `E6Reference.CsModel` lost). Within a segment, the
+     * parentheses it closes with no matching open are sites whose callee reaches the method where the
+     * segment starts, and those it leaves open are sites whose callee reaches the method where it ends
+     * (each unmatched return leaves the callee of its site for a caller; each unmatched call enters the
+     * callee). The loops at the two ends of the segment (the sets below) contain those, and erasing more
+     * than `CsModel` does only adds paths. For other cross-method edges see below. Hence:
+     * - `M(o)` of an object is its method; for an object without a method (the merged heap, string and
+     *   class constants, ROOT) it is the set of methods of its local targets that are not
+     *   context-insensitive (the path from `START(o)` or from `B(v)` through `OBJ(o)` goes on to `F` of
+     *   a target; that is its home method, or nothing when all its targets are X), and a target
      *   without a method gives null;
      * - `M(X)` of a context-insensitive variable is the union over every exported edge incident to X
      *   (assignments, call edges, exception assignments, `new` edges - including the cross-method
@@ -165,7 +182,9 @@ object IdrExport {
      * projection merges any), `callEdges` (distinct CI call edges per statement and direction),
      * `callSites`, `exceptionAssigns` (distinct CI exception assignments), `vertices`, `edges`, `fields`;
      * in [IdrCalls.BALANCED] and [IdrCalls.CS] also `jumps` (context-insensitive variables X),
-     * `cross-method-new-targets` (the X that are local variables), `cross-method-assigns` (exported
+     * `cross-method-new-targets` (the X that are local targets of an object with a method),
+     * `methodless-new-targets` (the other local X: targets of objects without a method outside their
+     * home), `cross-method-assigns` (exported
      * assignments between local variables of two methods), `gadget-start-loops`, `gadget-end-loops`,
      * `gadget-erase-loops` (self-loops of each gadget; `jumps` and the gadget counters are 0 in
      * [IdrCalls.BALANCED], which has no gadgets).
@@ -226,12 +245,21 @@ object IdrExport {
 
         val jumps = LinkedHashSet<Node>()
         var crossMethodNewTargets = 0
+        var methodlessNewTargets = 0
         var crossMethodAssigns = 0
         if (calls == IdrCalls.CS) {
             for (op in ops) {
                 op.ends().filterTo(jumps) { it is GlobalVarNode }
                 if (op is Op.Alloc && isCrossMethodNew(op.o, op.v, root) && jumps.add(op.v)) {
                     crossMethodNewTargets++
+                }
+            }
+            val homes = homes(ops)
+            for (op in ops) {
+                if (op is Op.Alloc && op.o.method == null && op.v is LocalVarNode && homes[op.o] != op.v.method
+                    && jumps.add(op.v)
+                ) {
+                    methodlessNewTargets++
                 }
             }
         }
@@ -269,6 +297,7 @@ object IdrExport {
         if (calls != IdrCalls.ERASED) {
             counters["jumps"] = jumps.size
             counters["cross-method-new-targets"] = crossMethodNewTargets
+            counters["methodless-new-targets"] = methodlessNewTargets
             counters["cross-method-assigns"] = crossMethodAssigns
             counters["gadget-start-loops"] = startLoops
             counters["gadget-end-loops"] = endLoops
@@ -284,6 +313,23 @@ object IdrExport {
      */
     private fun isCrossMethodNew(o: AllocNode, v: Node, root: AllocNode): Boolean =
         v is LocalVarNode && o != root && o.method != null && o.method != v.method
+
+    /**
+     * The home method of each object without a method that has `new` edges in [ops] into local
+     * variables: the method with the most of its distinct local targets, the first such in [ops] on a
+     * tie. Its local targets in other methods are context-insensitive in [IdrCalls.CS]; with one home,
+     * the object is treated as an object of that method (any choice is sound, see [IdrExport.export];
+     * the largest group keeps the most targets context-sensitive).
+     */
+    private fun homes(ops: List<Op>): Map<AllocNode, SootMethod> {
+        val targets = LinkedHashMap<AllocNode, LinkedHashMap<SootMethod, MutableSet<Node>>>()
+        for (op in ops) {
+            if (op is Op.Alloc && op.o.method == null && op.v is LocalVarNode) {
+                targets.getOrPut(op.o) { LinkedHashMap() }.getOrPut(op.v.method) { HashSet() }.add(op.v)
+            }
+        }
+        return targets.mapValues { (_, byMethod) -> byMethod.maxBy { it.value.size }.key }
+    }
 
     /**
      * Points-to sets of the answer [pairs] of cfl-idr on [g]: for each pair `(u, v)` where `u` is
@@ -534,7 +580,10 @@ object IdrExport {
             return out
         }
 
-        /** M(o): the method of [o], or the methods of its local targets that are not context-insensitive. */
+        /**
+         * M(o): the method of [o], or the methods of its local targets that are not context-insensitive
+         * (its home method, or none).
+         */
         private fun objectMethods(o: AllocNode, into: Methods) {
             if (o.method != null) {
                 into.add(o.method)
