@@ -19,10 +19,20 @@ enum class IdrCalls {
      */
     ERASED,
 
-    /** Call edges as parentheses `op--c`/`cp--c` per call site, without gadgets (E6.md D6; E6-S4). */
+    /**
+     * Call edges as parentheses `op--c`/`cp--c` per call site, without gadgets: cfl-idr's own semantics,
+     * where both bracket families are fully balanced (E6.md D6). For points-to it loses the pairs whose
+     * path returns from a method it did not enter (factories, constructors) or ends inside a callee;
+     * a diagnostic mode (E6-S4).
+     */
     BALANCED,
 
-    /** Call parentheses per call site with the START/END and context-erasure gadgets (E6.md D6; E6-S4). */
+    /**
+     * Call parentheses per call site with the START/END and context-erasure gadgets: the language
+     * L_F ∩ R_C of `Sridharan2006Refinement` (partially balanced calls, the stack erased at the
+     * context-insensitive variables) reduced to the fully balanced IDR that cfl-idr solves
+     * (E6.md D6; E6-S4; details in [IdrExport.export]).
+     */
     CS,
 }
 
@@ -31,7 +41,9 @@ enum class IdrCalls {
  *
  * [OBJ] is an object; [F] and [B] are the two phases of a variable in L_FT (flowsTo and the
  * reversed flowsTo-bar). [START], [END], [F_IN] and [B_IN] are the gadget vertices of [IdrCalls.CS]
- * (E6-S4); the [IdrCalls.ERASED] export has only [OBJ], [F] and [B].
+ * (E6-S4): where the paths of an object start, where the paths to a variable end, and where the edges
+ * into a context-insensitive variable enter (F and B layer); the [IdrCalls.ERASED] and
+ * [IdrCalls.BALANCED] exports have only [OBJ], [F] and [B].
  */
 enum class Layer { OBJ, F, B, START, END, F_IN, B_IN }
 
