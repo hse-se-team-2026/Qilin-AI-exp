@@ -121,14 +121,14 @@ object IdrExport {
      *   variables of string and class constants) and every target of a cross-method `new` of the kernel
      *   (an object of method `m` into a local variable of another method; the edges into `this` and
      *   into exception targets are not exported, ROOT and objects without a method do not count;
-     *   `Solver.handleImplicitCallToFinalizerRegister` adds such edges). Every exported edge into X
-     *   whose target is `F(X)` or `B(X)` enters `F_IN(X)` or `B_IN(X)` instead (the edges out of X leave
-     *   `F(X)` and `B(X)`); `F_IN(X) -normal-> F(X)` and
-     *   `B_IN(X) -normal-> B(X)`; loops `cp--c` on `F_IN(X)` and `B_IN(X)` close whatever the path had
-     *   on its stack, loops `op--c` on `F(X)` and `B(X)` open what it closes later by unmatched
-     *   returns. All four loop sets are `sites(M(X))`. The answer of X is `F_IN(X)` (it has no END).
+     *   `Solver.handleImplicitCallToFinalizerRegister` adds such edges). An exported edge that would
+     *   end in `F(X)` or `B(X)` ends in `F_IN(X)` or `B_IN(X)` instead (the edges out of X leave `F(X)`
+     *   and `B(X)`); `F_IN(X) -normal-> F(X)` and `B_IN(X) -normal-> B(X)`; loops `cp--c` on `F_IN(X)`
+     *   and `B_IN(X)` close whatever the path had on its stack, loops `op--c` on `F(X)` and `B(X)` open
+     *   what it closes later by unmatched returns. All four loop sets are `sites(M(X))`. The answer of X
+     *   is `F_IN(X)` (it has no END).
      *
-     * **Which sites loop** (E6-S4 ticket, "Решение лида" of round 2, item 1; E6.md D6). `sites(M)` are the
+     * **Which sites loop** (docs/ai/tickets/E6-S4.md, DoD; E6.md D6 and "Решение лида" of round 2, item 1). `sites(M)` are the
      * call sites `c` (exported, i.e. in [IdrGraph.sites]) one of whose callees reaches a method of `M` in
      * the call graph (`PTA.getCallGraph()`, transitively, a method reaches itself); `M` without a method
      * (null) gives every site. A parenthesis `c` can be on the stack of a path only while the path is
