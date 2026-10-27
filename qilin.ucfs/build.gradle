@@ -17,6 +17,19 @@ if (!new File(ucfsRepo, "org/ucfs/solver/${ucfsVersion}").isDirectory()) {
             "run 'bash scripts/ucfs/bootstrap.sh' (see README.md)")
 }
 
+// cfl-idr-with-gll (org.cfl_idr_with_gll:cfl-idr-with-gll, interleaved Dyck reachability on UCFS) comes from
+// the project-local Maven repository filled by scripts/cflidr/bootstrap.sh (default .cflidr/m2;
+// -PcflidrRepo=<dir> points elsewhere). Version: cflidrVersion in scripts/cflidr/cflidr.properties, not in
+// gradle.properties: it is the same string as ucfsVersion, which is declared in one build file only (E1-S4).
+def cflidrRepo = rootProject.file(findProperty('cflidrRepo') ?: '.cflidr/m2')
+def cflidrProps = new Properties()
+rootProject.file('scripts/cflidr/cflidr.properties').withInputStream { cflidrProps.load(it) }
+def cflidrVersion = cflidrProps.getProperty('cflidrVersion')
+if (!new File(cflidrRepo, "org/cfl_idr_with_gll/cfl-idr-with-gll/${cflidrVersion}").isDirectory()) {
+    logger.warn("cfl-idr org.cfl_idr_with_gll:cfl-idr-with-gll:${cflidrVersion} is not in ${cflidrRepo}: " +
+            "run 'bash scripts/cflidr/bootstrap.sh' (see README.md)")
+}
+
 repositories {
     google()   // Soot needs com.android.tools.smali:smali-dexlib2
     maven { url = "https://repo.maven.apache.org/maven2/" }
@@ -32,6 +45,18 @@ repositories {
             includeGroup 'org.ucfs'
         }
     }
+    // org.cfl_idr_with_gll is resolved only from cflidrRepo, and cflidrRepo serves nothing else.
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = 'cflidrRepo'
+                url = cflidrRepo.toURI()
+            }
+        }
+        filter {
+            includeGroup 'org.cfl_idr_with_gll'
+        }
+    }
 }
 
 dependencies {
@@ -42,6 +67,12 @@ dependencies {
     // api: org.ucfs.grammar.combinator.Grammar is in the signatures of UcfsSolver and AnBnGrammar.
     // logback-classic is excluded: through it Soot would log at DEBUG level in Qilin.
     api("org.ucfs:solver:${ucfsVersion}") {
+        exclude group: 'ch.qos.logback'
+    }
+    // api: the qilin.pta tests call org.cfl_idr_with_gll.* (getUnderApprox, getMROverApprox, ...) directly.
+    // Its org.ucfs:solver dependency is the solver above (bootstrap.sh compiles it against .ucfs/m2), so
+    // the class path has one UCFS; logback is excluded on this path too.
+    api("org.cfl_idr_with_gll:cfl-idr-with-gll:${cflidrVersion}") {
         exclude group: 'ch.qos.logback'
     }
     testImplementation 'junit:junit:4.13.2'
