@@ -24,6 +24,9 @@ java {
 // needs ucfsRepo too: org.ucfs:solver comes through qilin.pta -> qilin.ucfs. Same repository as in
 // qilin.pta/qilin.ucfs: .ucfs/m2 filled by scripts/ucfs/bootstrap.sh, or -PucfsRepo=<dir>.
 def ucfsRepo = rootProject.file(findProperty('ucfsRepo') ?: '.ucfs/m2')
+// cfl-idr-with-gll (org.cfl_idr_with_gll, through qilin.ucfs): .cflidr/m2 filled by
+// scripts/cflidr/bootstrap.sh, or -PcflidrRepo=<dir>, as in qilin.ucfs/build.gradle.
+def cflidrRepo = rootProject.file(findProperty('cflidrRepo') ?: '.cflidr/m2')
 
 repositories {
     google()
@@ -38,6 +41,18 @@ repositories {
         }
         filter {
             includeGroup 'org.ucfs'
+        }
+    }
+    // org.cfl_idr_with_gll is resolved only from cflidrRepo, and cflidrRepo serves nothing else.
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = 'cflidrRepo'
+                url = cflidrRepo.toURI()
+            }
+        }
+        filter {
+            includeGroup 'org.cfl_idr_with_gll'
         }
     }
 }

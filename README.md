@@ -52,6 +52,7 @@ which Gradle looks up in the usual places, e.g. `~/.gradle/jdks`).
 <!-- ucfs-bootstrap:begin -->
 ```
 $ bash scripts/ucfs/bootstrap.sh
+$ bash scripts/cflidr/bootstrap.sh
 $ ./gradlew :qilin.pta:test --tests qilin.test.ucfs.UcfsDependencySmokeTest
 ```
 <!-- ucfs-bootstrap:end -->
@@ -60,6 +61,8 @@ Running the script again does nothing if `.ucfs/m2` already holds the solver bui
 `UCFS_SRC=<git URL or path>` takes the UCFS sources from somewhere else (it must contain `ucfsCommit`),
 and `-PucfsRepo=<dir>` makes Gradle read UCFS from another Maven repository instead of `.ucfs/m2`.
 To move to a newer UCFS, change `ucfsCommit` (and `ucfsVersion` if it changed) and rerun the script.
+
+`bash scripts/cflidr/bootstrap.sh` does the same for the interleaved Dyck reachability library [cfl-idr-with-gll](https://github.com/hse-se-team-2026/cfl-idr-with-gll-AI-exp) used by `qilin.ucfs`: it builds `ucfs-main/` at `cflidrCommit` of `scripts/cflidr/cflidr.properties` against the UCFS in `.ucfs/m2` (one UCFS on the class path) and publishes it into `.cflidr/m2` (`CFLIDR_SRC=<git URL or path>`, `-PcflidrRepo=<dir>` as for UCFS; its Gradle 8.14 wrapper needs `JAVA_HOME` with a JDK 17..24).
 
 ### Building Qilin with Gradle
 
@@ -72,7 +75,7 @@ $ ./run.sh
 This script contains commands to generate `Qilin-VERSION-SNAPSHOT.jar`, which will be automatically moved
 into `artifact/`.
 The jar includes the Kotlin module `qilin.ucfs` and the UCFS solver, so building it (and compiling `qilin.pta`)
-needs the UCFS bootstrap first: `bash scripts/ucfs/bootstrap.sh` (see above).
+needs the bootstrap first: `bash scripts/ucfs/bootstrap.sh` and `bash scripts/cflidr/bootstrap.sh` (see above).
 
 For users who want to build Qilin in IDE, please refer
 to [this page](https://github.com/QilinPTA/Qilin/wiki/Set-up-the-Debugging-Environment-for-Qilin-in-IntelliJ-IDEA).
