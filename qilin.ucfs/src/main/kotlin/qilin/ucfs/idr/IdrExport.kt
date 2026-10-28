@@ -174,13 +174,22 @@ object IdrExport {
      * `END(v)`) and (`START(o)`, `F_IN(X)`) in [IdrCalls.CS] ([IdrGraph.sourceVertex],
      * [IdrGraph.answerVertex]).
      *
-     * Vertex ids, field and site indices are given in the order of first occurrence; every vertex
-     * lies on an edge. [IdrGraph.sites] lists the statements of the exported call edges.
+     * **Order** (E6-S4b). Before it is labeled, the exported edges are sorted by [StableKeys] of their
+     * kind, nodes, field or call statement (signatures, positions in the method body, ...; not node
+     * numbers or identity hashes, which change between runs of the JVM). Vertex ids, field and site
+     * indices are then given in the order of first occurrence in that list, the edges of [IdrGraph.edges]
+     * are in that order, then the gadgets; every vertex lies on an edge. So the same PAG and call graph
+     * give the same graph whatever the order of the PAG maps (`graph.dot` of the CLI dump is the same
+     * file), unless two distinct nodes have the same key (counter `order-ties`).
+     * [IdrGraph.sites] lists the statements of the exported call edges.
      *
      * [IdrGraph.counters]: `pagEdges` (edges read from the PAG), `droppedContextField`,
      * `droppedThisNew`, `droppedExceptionNew`, `droppedCallAssign` (PAG edges, before the CI
      * projection merges any), `callEdges` (distinct CI call edges per statement and direction),
-     * `callSites`, `exceptionAssigns` (distinct CI exception assignments), `vertices`, `edges`, `fields`;
+     * `callSites`, `exceptionAssigns` (distinct CI exception assignments), `vertices`, `edges`, `fields`,
+     * `order-ties` (CI nodes and call statements whose [StableKeys] key is the key of another one: the
+     * order of their edges, and so the graph, may still differ between runs; 0 on the programs of
+     * `scripts/cflidr/determinism.sh`);
      * in [IdrCalls.BALANCED] and [IdrCalls.CS] also `jumps` (context-insensitive variables X),
      * `cross-method-new-targets` (the X that are local targets of an object with a method),
      * `methodless-new-targets` (the other local X: targets of objects without a method outside their
@@ -190,12 +199,26 @@ object IdrExport {
      * [IdrCalls.BALANCED], which has no gadgets).
      */
     @JvmStatic
-    fun export(pta: PTA, calls: IdrCalls): IdrGraph {
+    fun export(pta: PTA, calls: IdrCalls): IdrGraph = export(pta, calls, null)
+
+    /**
+     * [export] with the PAG edges, call edges and exception assignments read from [pta] shuffled by
+     * [shuffle] before they are ordered (null: as read). The graph does not depend on it (see "Order"
+     * in [export]); a seam for the tests of E6-S4b, which cannot reorder the PAG maps of Qilin.
+     */
+    @JvmStatic
+    fun export(pta: PTA, calls: IdrCalls, shuffle: java.util.Random?): IdrGraph {
         val root = pta.rootNode.base()
-        val callEdges = callEdges(pta)
+        val pag = ArrayList(QilinPagSeam.globalEdges(pta))
+        val callEdges = callEdges(pta).toMutableList()
         val callPairs = callEdges.mapTo(HashSet()) { it.from to it.to }
-        val exceptions = exceptionAssigns(pta)
+        val exceptions = exceptionAssigns(pta).toMutableList()
         val exceptionTargets = exceptions.mapTo(HashSet()) { it.second }
+        if (shuffle != null) {
+            pag.shuffle(shuffle)
+            callEdges.shuffle(shuffle)
+            exceptions.shuffle(shuffle)
+        }
 
         val ops = ArrayList<Op>()
         var pagEdges = 0
@@ -203,7 +226,7 @@ object IdrExport {
         var droppedThisNew = 0
         var droppedExceptionNew = 0
         var droppedCallAssign = 0
-        for (e in QilinPagSeam.globalEdges(pta)) {
+        for (e in pag) {
             pagEdges++
             if (e.from is ContextField || e.to is ContextField) {
                 droppedContextField++
@@ -242,6 +265,13 @@ object IdrExport {
         }
         callEdges.forEach { ops.add(Op.Call(it)) }
         exceptions.forEach { (t, w) -> ops.add(Op.Assign(t, w)) }
+        val keys = StableKeys()
+        val sorted = ops.map { it.key(keys) to it }.sortedWith { a, b -> compareKeys(a.first, b.first) }
+        ops.clear()
+        sorted.mapTo(ops) { it.second }
+        val orderTies = keys.ties(ops.flatMap { it.ends() }) +
+            callEdges.distinctBy { it.site }.groupingBy { keys.site(it.caller, it.site) }.eachCount().values
+                .filter { it > 1 }.sum()
 
         val jumps = LinkedHashSet<Node>()
         var crossMethodNewTargets = 0
@@ -254,7 +284,7 @@ object IdrExport {
                     crossMethodNewTargets++
                 }
             }
-            val homes = homes(ops)
+            val homes = homes(ops, keys)
             for (op in ops) {
                 if (op is Op.Alloc && op.o.method == null && op.v is LocalVarNode && homes[op.o] != op.v.method
                     && jumps.add(op.v)
@@ -293,6 +323,7 @@ object IdrExport {
             "vertices" to b.vertices.size,
             "edges" to b.edges.size,
             "fields" to b.fields.size,
+            "order-ties" to orderTies,
         )
         if (calls != IdrCalls.ERASED) {
             counters["jumps"] = jumps.size
@@ -316,19 +347,22 @@ object IdrExport {
 
     /**
      * The home method of each object without a method that has `new` edges in [ops] into local
-     * variables: the method with the most of its distinct local targets, the first such in [ops] on a
-     * tie. Its local targets in other methods are context-insensitive in [IdrCalls.CS]; with one home,
-     * the object is treated as an object of that method (any choice is sound, see [IdrExport.export];
-     * the largest group keeps the most targets context-sensitive).
+     * variables: the method with the most of its distinct local targets; on a tie, the one with the
+     * least signature (`SootMethod.getSignature()`, compared as strings; E6-S4b: not the order of the
+     * PAG maps, which changes between runs of the JVM). Its local targets in other methods are
+     * context-insensitive in [IdrCalls.CS]; with one home, the object is treated as an object of that
+     * method (any choice is sound, see [IdrExport.export], ticket E6-S4 iteration 1; the choice only
+     * changes the precision: the largest group keeps the most targets context-sensitive).
      */
-    private fun homes(ops: List<Op>): Map<AllocNode, SootMethod> {
+    private fun homes(ops: List<Op>, keys: StableKeys): Map<AllocNode, SootMethod> {
         val targets = LinkedHashMap<AllocNode, LinkedHashMap<SootMethod, MutableSet<Node>>>()
         for (op in ops) {
             if (op is Op.Alloc && op.o.method == null && op.v is LocalVarNode) {
                 targets.getOrPut(op.o) { LinkedHashMap() }.getOrPut(op.v.method) { HashSet() }.add(op.v)
             }
         }
-        return targets.mapValues { (_, byMethod) -> byMethod.maxBy { it.value.size }.key }
+        val rule = compareByDescending<Map.Entry<SootMethod, Set<Node>>> { it.value.size }.thenBy { keys.method(it.key) }
+        return targets.mapValues { (_, byMethod) -> byMethod.entries.minWith(rule).key }
     }
 
     /**
@@ -366,17 +400,20 @@ object IdrExport {
         }
     }
 
-    /** An interprocedural edge `from -> to` at the call statement [site]: an entry (into the callee) or an exit. */
-    internal data class CallEdge(val from: Node, val to: Node, val site: Stmt, val entry: Boolean)
+    /**
+     * An interprocedural edge `from -> to` at the call statement [site] of [caller]: an entry (into the
+     * callee) or an exit.
+     */
+    internal data class CallEdge(val from: Node, val to: Node, val site: Stmt, val entry: Boolean, val caller: SootMethod)
 
     /** Call edges of [IdrExport.export] (see there), CI, without repeats, in the order of `PTA.getCallGraph()`. */
     internal fun callEdges(pta: PTA): List<CallEdge> {
         val pag = pta.pag
         val pe = CoreConfig.v().ptaConfig.preciseExceptions
         val out = LinkedHashSet<CallEdge>()
-        fun add(from: Node?, to: Node?, s: Stmt, entry: Boolean) {
+        fun add(from: Node?, to: Node?, s: Stmt, entry: Boolean, caller: SootMethod) {
             if (from != null && to != null) {
-                out.add(CallEdge(ci(from), ci(to), s, entry))
+                out.add(CallEdge(ci(from), ci(to), s, entry, caller))
             }
         }
         for (e in pta.callGraph) {
@@ -390,19 +427,19 @@ object IdrExport {
             for (i in 0 until minOf(ie.argCount, callee.parameterCount)) {
                 val a = ie.getArg(i)
                 if (a.type is RefLikeType && a !is NullConstant && callee.getParameterType(i) is RefLikeType) {
-                    add(valueNode(pag, caller, a), pag.findLocalVarNode(Parm(callee, i)), s, true)
+                    add(valueNode(pag, caller, a), pag.findLocalVarNode(Parm(callee, i)), s, true, caller)
                 }
             }
             if (ie is InstanceInvokeExpr && !callee.isStatic) {
                 add(valueNode(pag, caller, ie.base),
-                    pag.findLocalVarNode(Parm(callee, PointsToAnalysis.THIS_NODE)), s, true)
+                    pag.findLocalVarNode(Parm(callee, PointsToAnalysis.THIS_NODE)), s, true, caller)
             }
             if (s is AssignStmt && s.leftOp.type is RefLikeType && callee.returnType is RefLikeType) {
                 add(pag.findLocalVarNode(Parm(callee, PointsToAnalysis.RETURN_NODE)),
-                    valueNode(pag, caller, s.leftOp), s, false)
+                    valueNode(pag, caller, s.leftOp), s, false, caller)
             }
             if (pe) {
-                add(pag.findLocalVarNode(Parm(callee, PointsToAnalysis.THROW_NODE)), pag.findLocalVarNode(s), s, false)
+                add(pag.findLocalVarNode(Parm(callee, PointsToAnalysis.THROW_NODE)), pag.findLocalVarNode(s), s, false, caller)
             }
         }
         return out.toList()
@@ -441,27 +478,50 @@ object IdrExport {
         /** The CI nodes this edge connects. */
         abstract fun ends(): List<Node>
 
+        /**
+         * The sort key of the edge (compared by [compareKeys]): its kind and the [StableKeys] of its
+         * nodes, field or call statement (the strings are shared with [StableKeys]).
+         */
+        abstract fun key(k: StableKeys): Array<String>
+
         data class Alloc(val o: AllocNode, val v: Node) : Op() {
             override fun ends() = listOf(o, v)
+            override fun key(k: StableKeys) = arrayOf("0", k.node(o), k.node(v))
         }
 
         data class Assign(val u: Node, val v: Node) : Op() {
             override fun ends() = listOf(u, v)
+            override fun key(k: StableKeys) = arrayOf("1", k.node(u), k.node(v))
         }
 
         /** `z = x.f`. */
         data class Load(val x: Node, val f: SparkField, val z: Node) : Op() {
             override fun ends() = listOf(x, z)
+            override fun key(k: StableKeys) = arrayOf("2", k.node(x), k.node(z), k.field(f))
         }
 
         /** `x.f = y`. */
         data class Store(val y: Node, val x: Node, val f: SparkField) : Op() {
             override fun ends() = listOf(y, x)
+            override fun key(k: StableKeys) = arrayOf("3", k.node(y), k.node(x), k.field(f))
         }
 
         data class Call(val c: CallEdge) : Op() {
             override fun ends() = listOf(c.from, c.to)
+            override fun key(k: StableKeys) =
+                arrayOf("4", k.node(c.from), k.node(c.to), k.site(c.caller, c.site), c.entry.toString())
         }
+    }
+
+    /** Lexicographic order of two keys of [Op.key]. */
+    private fun compareKeys(a: Array<String>, b: Array<String>): Int {
+        for (i in 0 until minOf(a.size, b.size)) {
+            val c = a[i].compareTo(b[i])
+            if (c != 0) {
+                return c
+            }
+        }
+        return a.size.compareTo(b.size)
     }
 
     /**
