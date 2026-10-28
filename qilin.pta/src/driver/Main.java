@@ -66,6 +66,10 @@ public class Main {
         if (PTAConfig.v().ucfsCompare) {
             UcfsCompare.run((UcfsPTA) pta);
         }
+        if (PTAConfig.v().cflIdrGrammar != null) {
+            // fully qualified: an import would shift the lines above that docs/ucfs-integration/e5-benchmarks.md cites
+            qilin.pta.ucfs.CflIdrRun.run(pta);
+        }
         return pta;
     }
 

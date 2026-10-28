@@ -110,4 +110,24 @@ public class PTAConfig extends CoreConfig {
      * views of that analysis after the run and writes outDir/ucfs-compare (qilin.pta.ucfs.UcfsCompare, E4-S3).
      */
     public boolean ucfsCompare = false;
+
+    /**
+     * If set (-cflidr=&lt;grammar&gt;, E6-S5), driver.Main exports the PAG of the analysis for cfl-idr-with-gll,
+     * runs cfl-idr with this grammar (a key of {@code qilin.ucfs.idr.IdrSolve.GRAMMARS}) and dumps the
+     * graph and the answer to outDir/cflidr (qilin.pta.ucfs.CflIdrRun); {@code null}: not run.
+     */
+    public String cflIdrGrammar = null;
+
+    /**
+     * How the export labels the call edges (-cflidrmode, only with -cflidr): the name of a constant of
+     * {@code qilin.ucfs.idr.IdrCalls} ({@code ERASED}, {@code BALANCED}, {@code CS}). A string, so that a run
+     * without -cflidr loads no class of qilin.ucfs.idr.
+     */
+    public String cflIdrMode = "CS";
+
+    /**
+     * Stack size in bytes of the thread that runs the export, cfl-idr and the dump (-cflidrstack, only
+     * with -cflidr); 1 GB by default.
+     */
+    public long cflIdrStack = 1L << 30;
 }
