@@ -83,6 +83,17 @@ public class E6CflIdrStackTest {
         assertTrue(CflIdrRun.report(t, "dump").contains("\njava.lang.IllegalStateException: x y\n\tat "));
     }
 
+    /** An OutOfMemoryError of the thread is returned like any throwable (one array larger than the heap of any test JVM). */
+    @Test
+    public void outOfMemoryIsReturned() {
+        Throwable t = CflIdrRun.runOnThread(1L << 20, () -> {
+            long[] huge = new long[Integer.MAX_VALUE - 8];
+            huge[0] = 1;
+        });
+        assertTrue(String.valueOf(t), t instanceof OutOfMemoryError);
+        assertTrue(CflIdrRun.report(t, "over").startsWith("#CFLIDR-error: java.lang.OutOfMemoryError at over\n"));
+    }
+
     private static long depth(int n, long a, long b, long c) {
         if (n == 0) {
             return 0;
