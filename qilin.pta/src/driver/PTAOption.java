@@ -29,11 +29,15 @@ import qilin.pta.PTAConfig;
 import qilin.pta.toolkits.turner.Turner;
 import qilin.pta.tools.DebloatedPTA;
 import qilin.ucfs.ReceiverBinding;
+import qilin.ucfs.idr.IdrCalls;
+import qilin.ucfs.idr.IdrSolve;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class PTAOption extends Options {
     private static final Logger logger = LoggerFactory.getLogger(PTAOption.class);
@@ -125,6 +129,15 @@ public class PTAOption extends Options {
                 "Only with -pta=ucfs: after the analysis, compare the views SPARK, UCFS and UCFS_TYPED of that run "
                         + "(Qilin's metrics per view, every pair with its class, the seed counters), write "
                         + "<outdir>/ucfs-compare/{metrics,pairs}.tsv and print the #UCFS-cmp- lines (default value: false)");
+        addOption("cflidr", "cflidrgrammar", "parity|parity2|se|project|exclude|all|parityD|on-demand",
+                "After the analysis, export its PAG for cfl-idr-with-gll, run cfl-idr with this grammar in a "
+                        + "thread of its own, print the #CFLIDR- lines and dump the graph and the answer to <outdir>/cflidr");
+        addOption("cflidrmode", "cflidrexportmode", "ERASED|BALANCED|CS",
+                "Only with -cflidr: how the export labels the call edges. ERASED: normal (fields only); "
+                        + "BALANCED: call-site parentheses; CS: call-site parentheses with the partial-balance and "
+                        + "context-erasure gadgets (default value: CS)");
+        addOption("cflidrstack", "cflidrstacksize", "<n>[k|m|g]",
+                "Only with -cflidr: stack size of the thread that runs the export and cfl-idr (default value: 1g)");
 
     }
 
@@ -305,6 +318,58 @@ public class PTAOption extends Options {
                 throw new IllegalArgumentException("-ucfscompare needs -pta=" + PTAPattern.UCFS + ", got -pta=" + ptacmd);
             }
             PTAConfig.v().ucfsCompare = true;
+        }
+        if (cmd.hasOption("cflidrgrammar")) {
+            String grammar = cmd.getOptionValue("cflidrgrammar");
+            if (!IdrSolve.GRAMMARS.contains(grammar)) {
+                throw new IllegalArgumentException("-cflidr: unknown grammar " + grammar + ", expected one of " + IdrSolve.GRAMMARS);
+            }
+            PTAConfig.v().cflIdrGrammar = grammar;
+        }
+        if (cmd.hasOption("cflidrexportmode")) {
+            if (PTAConfig.v().cflIdrGrammar == null) {
+                throw new IllegalArgumentException("-cflidrmode needs -cflidr");
+            }
+            String mode = cmd.getOptionValue("cflidrexportmode");
+            try {
+                PTAConfig.v().cflIdrMode = IdrCalls.valueOf(mode).name();
+            } catch (IllegalArgumentException e) {
+                throw new IllegalArgumentException("-cflidrmode: unknown value " + mode + ", expected one of "
+                        + Arrays.toString(IdrCalls.values()), e);
+            }
+        }
+        if (cmd.hasOption("cflidrstacksize")) {
+            if (PTAConfig.v().cflIdrGrammar == null) {
+                throw new IllegalArgumentException("-cflidrstack needs -cflidr");
+            }
+            PTAConfig.v().cflIdrStack = parseSize(cmd.getOptionValue("cflidrstacksize"));
+        }
+    }
+
+    /**
+     * A size {@code <n>[k|m|g]} in bytes (suffixes in either case, powers of 1024), as -Xss reads it.
+     *
+     * @throws IllegalArgumentException if {@code s} is not of that form, is 0 or does not fit in a long
+     */
+    static long parseSize(String s) {
+        Matcher m = Pattern.compile("(\\d+)([kKmMgG]?)").matcher(s == null ? "" : s);
+        if (!m.matches()) {
+            throw new IllegalArgumentException("not a size <n>[k|m|g]: " + s);
+        }
+        int shift = switch (m.group(2).toLowerCase()) {
+            case "k" -> 10;
+            case "m" -> 20;
+            case "g" -> 30;
+            default -> 0;
+        };
+        try {
+            long n = Long.parseLong(m.group(1));
+            if (n == 0 || n > (Long.MAX_VALUE >> shift)) {
+                throw new IllegalArgumentException("size out of range (1 .. " + Long.MAX_VALUE + " bytes): " + s);
+            }
+            return n << shift;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("size out of range: " + s, e);
         }
     }
 
